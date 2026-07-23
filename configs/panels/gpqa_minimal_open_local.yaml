@@ -1,0 +1,50 @@
+panel_id: gpqa_minimal_open_local
+artifact_class: real_local_workflow_validation_preliminary_only
+description: Minimal Ollama-backed local/open panel for GPQA workflow validation. Not paper-grade and not a replacement for gpqa_open_local.
+runner_policy:
+  primary: ollama_local_runner
+  paid_api_required: false
+  closed_model_required: false
+minimum_panel_for_real_audit: not_sufficient
+recommended_use:
+  - Validate real local generation, extraction, scoring, and matrix plumbing.
+  - Produce preliminary real local artifacts only when models are actually installed.
+  - Do not use as paper-grade evidence or for stable GPQA conclusions.
+models:
+  - model_id: qwen2.5:1.5b-instruct
+    runner: ollama
+    role: small_open_model_workflow_validation
+    required: false
+  - model_id: qwen2.5:3b-instruct
+    runner: ollama
+    role: small_open_model_workflow_validation
+    required: false
+  - model_id: llama3.2:1b
+    runner: ollama
+    role: small_open_model_workflow_validation
+    required: false
+  - model_id: llama3.2:3b
+    runner: ollama
+    role: small_open_model_workflow_validation
+    required: false
+  - model_id: gemma2:2b
+    runner: ollama
+    role: small_open_model_workflow_validation
+    required: false
+  - model_id: qwen2.5:7b-instruct
+    runner: ollama
+    role: medium_open_model_workflow_validation
+    required: false
+  - model_id: mistral:latest
+    runner: ollama
+    role: medium_open_model_workflow_validation
+    required: false
+  - model_id: llama3:latest
+    runner: ollama
+    role: medium_open_model_workflow_validation
+    required: false
+notes:
+  - Start Ollama locally before generation.
+  - Pull only models that fit local hardware constraints.
+  - Keep outputs from this panel separate from gpqa_open_local unless deliberately imported and documented.
+  - This panel is preliminary workflow validation only; the preregistered audit panel remains configs/panels/gpqa_open_local.yaml.

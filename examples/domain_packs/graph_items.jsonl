@@ -1,0 +1,2 @@
+{"item_id":"graph_001","entity_id":"acct_1","timestamp":"2024-01-01T00:00:00Z","degree":12,"split":"train","label":"legit","neighborhood_label_rate":0.1}
+{"item_id":"graph_002","entity_id":"acct_2","timestamp":"2024-04-01T00:00:00Z","degree":98,"split":"test","label":"fraud","neighborhood_label_rate":0.8}

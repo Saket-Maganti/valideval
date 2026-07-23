@@ -1,0 +1,22 @@
+# Anonymous reviewer-facing V5 packet
+paper/v5/main.pdf
+paper/v5/main.tex
+paper/v5/sections/*.tex
+paper/references.bib
+paper/templates/*.tex
+VALID_EVAL_MAXIMUM_CEILING_EXECUTION_HANDBOOK.md
+VALID_EVAL_MAXIMUM_CEILING_PRE_EXECUTION_HANDOFF.md
+VALID_EVAL_V5_MACHINE_STATE.json
+FINAL_V5_PRE_EXECUTION_GATE.md
+reports/v5/*.md
+reports/v5/final_gates_v5.json
+results/v5_validation/command_ledger_v5.json
+results/v5_validation/command_ledger_v5.md
+results/evidence/claim_evidence_ledger_v5.csv
+results/evidence/mmlu_reproduction_v5/mmlu_reproduction_v5.json
+results/evidence/mmlu_reproduction_v5/reported_vs_reproduced_v5.csv
+results/planning/*.csv
+results/leakage/*.json
+results/leakage/*.csv
+configs/**/*.yaml
+configs/**/*.yml

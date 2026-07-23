@@ -1,0 +1,15 @@
+shortcut:
+  variants:
+    - question_only
+    - choices_only
+    - context_removed
+    - context_shuffled
+    - label_prior_only
+    - metadata_only
+    - answer_length_only
+    - format_only
+    - irrelevant_context
+    - retrieval_only
+  bootstrap_samples: 500
+  seed: 0
+  high_retention_threshold: 0.7

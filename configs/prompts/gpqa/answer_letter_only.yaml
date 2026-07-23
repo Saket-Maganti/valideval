@@ -1,0 +1,11 @@
+template_id: gpqa/answer_letter_only
+artifact_class: real_gpqa_audit_setup
+description: Terse scoring-interface prompt for extraction validation.
+template: |
+  Question:
+  {question}
+
+  Choices:
+  {choices}
+
+  Answer with one letter only.

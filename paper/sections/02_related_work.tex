@@ -1,0 +1,16 @@
+\section{Related Work}
+
+ValidEval is not another leaderboard runner; it is a diagnostic-validation and claim-gating
+framework for benchmark-validity diagnostics.
+
+The framework builds on measurement-validity and psychometric traditions
+\citep{messick1995validity,aera2014standards}, but applies them to cached language-model
+benchmark artifacts rather than treating a benchmark score as self-interpreting. It complements
+evaluation runners such as HELM and lm-evaluation-harness
+\citep{liang2022helm,gao2023lmevalharness}: those systems make model evaluation reproducible,
+while ValidEval asks what benchmark-validity claims the resulting response matrix can support.
+
+The current artifact spine uses MMLU and MMLU-Redux as a stress test
+\citep{hendrycks2021mmlu,gema2024mmlu}. GSM8K, BBH, TruthfulQA, GPQA, and MMLU-Pro are treated
+as candidate or deferred benchmark families, not as completed evidence in this draft
+\citep{cobbe2021gsm8k,suzgun2022bbh,lin2022truthfulqa,rein2023gpqa,wang2024mmlupro}.

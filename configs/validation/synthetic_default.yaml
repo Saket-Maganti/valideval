@@ -1,0 +1,21 @@
+diagnostics:
+  - shortcut
+  - answer_distribution
+  - distractor_quality
+  - redundancy
+  - irt
+  - reliability
+  - extraction_robustness
+  - saturation
+flaws:
+  - shortcut_signal
+  - label_imbalance
+  - dead_distractors
+  - redundancy
+  - low_discrimination
+  - prompt_format_fragility
+  - extraction_ambiguity
+  - too_easy_saturation
+strength_grid: [0.0, 1.0]
+seeds: [0]
+n_items: 48

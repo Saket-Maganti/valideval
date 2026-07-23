@@ -1,0 +1,13 @@
+template_id: gpqa/randomized_choices
+artifact_class: real_gpqa_audit_setup
+description: Prompt with answer choices displayed in deterministic randomized order while preserving original labels.
+template: |
+  Answer the following graduate-level science multiple-choice question.
+
+  Question:
+  {question}
+
+  Choices:
+  {choices}
+
+  Return exactly one answer letter: A, B, C, or D.

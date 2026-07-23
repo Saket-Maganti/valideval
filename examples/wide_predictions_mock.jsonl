@@ -1,0 +1,4 @@
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_001","model_id":"model_alpha","prediction":"A","gold":"A","correct":true}
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_002","model_id":"model_alpha","prediction":"B","gold":"C","correct":false}
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_001","model_id":"model_beta","prediction":"B","gold":"A","correct":false}
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_002","model_id":"model_beta","prediction":"C","gold":"C","correct":true}

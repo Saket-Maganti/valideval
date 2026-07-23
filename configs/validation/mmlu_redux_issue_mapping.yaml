@@ -1,0 +1,64 @@
+schema_version: "0.1"
+benchmark: mmlu
+ground_truth: mmlu_redux
+alignment_note: "HELM-aligned Redux labels use subject_numeric_index structural alignment with confidence 0.85."
+diagnostic_notes:
+  high_disagreement: "Fraction of models not selecting the majority A/B/C/D option."
+  correct_answer_rarely_selected: "One minus item correctness across the 39-model panel."
+  negative_discrimination: "Proxy IRT negative discrimination score from the response matrix."
+  low_discrimination: "Near-zero proxy IRT discrimination score from the response matrix."
+  extreme_difficulty: "Absolute distance from 50 percent correctness, scaled to [0, 1]."
+  option_selection_anomaly: "Average of normalized option entropy and one minus gold-option selection rate."
+  bimodal_model_choices: "Continuous score for two distractor options attracting substantial mass."
+  subject_z_suffix: "Diagnostics ending in _subject_z are within-subject z-scores of the corresponding raw diagnostic; higher remains more suspicious."
+  extraction_sensitivity: "Blocked unless strict/lenient extraction metadata exists."
+  prompt_sensitivity: "Blocked unless complete prompt-variant matrices are available."
+issue_type_mapping:
+  label_error:
+    plausible_diagnostics:
+      - negative_discrimination
+      - high_disagreement
+      - correct_answer_rarely_selected
+      - option_selection_anomaly
+    excluded_diagnostics:
+      - extreme_difficulty_only
+  answer_error:
+    plausible_diagnostics:
+      - negative_discrimination
+      - high_disagreement
+      - correct_answer_rarely_selected
+      - option_selection_anomaly
+    excluded_diagnostics:
+      - extreme_difficulty_only
+  multiple_correct:
+    plausible_diagnostics:
+      - high_disagreement
+      - bimodal_model_choices
+      - option_selection_anomaly
+      - low_discrimination
+    excluded_diagnostics:
+      - negative_discrimination_only
+  ambiguous_question:
+    plausible_diagnostics:
+      - high_disagreement
+      - low_discrimination
+      - bimodal_model_choices
+      - prompt_sensitivity
+    excluded_diagnostics:
+      - answer_distribution_only
+  ambiguous_options:
+    plausible_diagnostics:
+      - high_disagreement
+      - bimodal_model_choices
+      - option_selection_anomaly
+      - prompt_sensitivity
+    excluded_diagnostics:
+      - negative_discrimination_only
+  expert_flag:
+    plausible_diagnostics:
+      - high_disagreement
+      - low_discrimination
+      - option_selection_anomaly
+      - extraction_sensitivity
+    excluded_diagnostics:
+      - extreme_difficulty_only

@@ -1,0 +1,551 @@
+[
+  {
+    "name": "retrieval_leakage",
+    "domain": "rag",
+    "description": "Retrieved context may contain benchmark answers or artifacts unavailable to the intended task setting.",
+    "diagnostic": "rag_validity",
+    "evidence": "Compare item metadata, source fields, and context-only performance under the local protocol.",
+    "repair": "Remove leaked passages, refresh snapshots, or separate retrieval corpora from evaluation items.",
+    "limitations": ["Local metadata and corpora cannot prove absence of leakage."]
+  },
+  {
+    "name": "context_insufficiency",
+    "domain": "rag",
+    "description": "The supplied context may not contain enough support for the gold answer.",
+    "diagnostic": "rag_validity",
+    "evidence": "Support-span coverage and answer-in-context checks.",
+    "repair": "Add support spans, revise the item, or mark as unanswerable.",
+    "limitations": ["Lexical support checks do not establish semantic sufficiency."]
+  },
+  {
+    "name": "contradiction",
+    "domain": "rag",
+    "description": "Retrieved evidence can contradict the gold answer or another retrieved passage.",
+    "diagnostic": "rag_validity",
+    "evidence": "Contradiction metadata and support-span review.",
+    "repair": "Remove contradictory evidence or update the gold answer after human review.",
+    "limitations": ["Offline contradiction checks are metadata-backed unless a local verifier is supplied."]
+  },
+  {
+    "name": "distractor_injected_context",
+    "domain": "rag",
+    "description": "Distractor passages can change answers even when the original evidence is sufficient.",
+    "diagnostic": "rag_validity",
+    "evidence": "Full-vs-irrelevant-context score shift when a perturbation exists.",
+    "repair": "Audit retrieval ranking and add distractor-resistant scoring checks.",
+    "limitations": ["Toy distractors are synthetic and do not model all retrieval failures."]
+  },
+  {
+    "name": "answerable_unanswerable_imbalance",
+    "domain": "rag",
+    "description": "A benchmark may overrepresent answerable or unanswerable cases.",
+    "diagnostic": "rag_validity",
+    "evidence": "Answerable metadata counts and refusal correctness for unanswerable items.",
+    "repair": "Balance answerability strata and report coverage.",
+    "limitations": ["Requires explicit answerability metadata."]
+  },
+  {
+    "name": "unsupported_citations",
+    "domain": "rag",
+    "description": "Model answers or item labels may cite sources not present in retrieved evidence.",
+    "diagnostic": "rag_validity",
+    "evidence": "Citation metadata checked against local context/source fields.",
+    "repair": "Require citation provenance and reject unsupported citations during item review.",
+    "limitations": ["Citation string checks are local evidence only."]
+  },
+  {
+    "name": "evidence_position_bias",
+    "domain": "rag",
+    "description": "Models may rely on evidence position instead of evidence content.",
+    "diagnostic": "rag_validity",
+    "evidence": "Evidence-position metadata and shuffled-evidence score shift.",
+    "repair": "Shuffle evidence during validation and balance answer positions.",
+    "limitations": ["Requires position metadata or shuffled-context variants."]
+  },
+  {
+    "name": "faithfulness_helpfulness_conflict",
+    "domain": "rag",
+    "description": "A helpful answer can be unsupported by the supplied evidence.",
+    "diagnostic": "rag_validity",
+    "evidence": "Support-span checks and citation support signals.",
+    "repair": "Separate helpfulness and faithfulness rubrics.",
+    "limitations": ["Semantic faithfulness requires human or local verifier review."]
+  },
+  {
+    "name": "abstention_calibration",
+    "domain": "rag",
+    "description": "RAG systems may fail to abstain when evidence is missing or abstain despite adequate evidence.",
+    "diagnostic": "abstention_validity",
+    "evidence": "Selective risk, coverage, appropriate refusal, and inappropriate refusal.",
+    "repair": "Tune deferral thresholds and report risk-coverage curves.",
+    "limitations": ["Requires refusal/deferral metadata or observable abstention outputs."]
+  },
+  {
+    "name": "environment_stochasticity",
+    "domain": "agent",
+    "description": "Agent outcomes may depend on environment seed or replay state.",
+    "diagnostic": "agent_replay_stability",
+    "evidence": "Trace replay stability across seeds.",
+    "repair": "Record environment seeds and replay traces.",
+    "limitations": ["Scaffold only unless replay traces are supplied."]
+  },
+  {
+    "name": "tool_call_parsing",
+    "domain": "agent",
+    "description": "Scores may reflect parser tolerance rather than task success.",
+    "diagnostic": "agent_tool_validity",
+    "evidence": "Invalid call rate and schema mismatch counts.",
+    "repair": "Validate tool calls with versioned schemas.",
+    "limitations": ["Requires trace-level tool call records."]
+  },
+  {
+    "name": "hidden_state_leakage",
+    "domain": "agent",
+    "description": "Agent state may carry information across episodes.",
+    "diagnostic": "agent_replay_stability",
+    "evidence": "State hash changes and cross-episode trace review.",
+    "repair": "Reset state and hash observations.",
+    "limitations": ["Requires state hashes."]
+  },
+  {
+    "name": "reward_hacking",
+    "domain": "agent",
+    "description": "Agent may maximize reward while violating task intent.",
+    "diagnostic": "agent_plan_execution",
+    "evidence": "Plan/execution decomposition and judge decision metadata.",
+    "repair": "Add constraint checks and human review of high-reward traces.",
+    "limitations": ["Scaffold only without trace annotations."]
+  },
+  {
+    "name": "tool_schema_sensitivity",
+    "domain": "agent",
+    "description": "Performance may change due to superficial tool schema wording.",
+    "diagnostic": "agent_tool_perturbation",
+    "evidence": "Tool perturbation score shifts.",
+    "repair": "Version and perturb tool schemas.",
+    "limitations": ["Requires alternate tool schema runs."]
+  },
+  {
+    "name": "success_despite_bad_reasoning",
+    "domain": "agent",
+    "description": "The final state may be correct even when the trace reasoning or tool usage is invalid.",
+    "diagnostic": "agent_plan_execution",
+    "evidence": "Plan/execution decomposition and judge decision metadata.",
+    "repair": "Review traces with successful outcomes and low-quality plans.",
+    "limitations": ["Requires trace annotations or local judges."]
+  },
+  {
+    "name": "distractor_tools",
+    "domain": "agent",
+    "description": "Irrelevant tools can change plans or outcomes.",
+    "diagnostic": "agent_tool_perturbation",
+    "evidence": "Performance with distractor tool schemas.",
+    "repair": "Run distractor-tool perturbations and report sensitivity.",
+    "limitations": ["Requires alternate tool manifests."]
+  },
+  {
+    "name": "step_budget_sensitivity",
+    "domain": "agent",
+    "description": "Scores may depend strongly on step budget rather than task capability.",
+    "diagnostic": "agent_step_budget_sensitivity",
+    "evidence": "Outcome changes across replayed step budgets.",
+    "repair": "Report budget curves and redundant call rates.",
+    "limitations": ["Requires budgeted runs."]
+  },
+  {
+    "name": "redundant_call_rate",
+    "domain": "agent",
+    "description": "Repeated unnecessary calls can mask brittle planning.",
+    "diagnostic": "agent_tool_validity",
+    "evidence": "Redundant call counts in trace schema.",
+    "repair": "Penalize redundant calls or report efficiency separately.",
+    "limitations": ["Requires comparable tool-call traces."]
+  },
+  {
+    "name": "label_ambiguity",
+    "domain": "medical",
+    "description": "Clinical labels or segmentations may have legitimate annotator disagreement.",
+    "diagnostic": "medical_annotation_validity",
+    "evidence": "Inter-annotator and uncertainty metadata.",
+    "repair": "Adjudicate labels and report ambiguity strata.",
+    "limitations": ["Scaffold only; no clinical claims are made."]
+  },
+  {
+    "name": "clinically_meaningless_metric_gain",
+    "domain": "medical",
+    "description": "Dice or IoU gains may not affect clinical decisions.",
+    "diagnostic": "medical_utility_scaffold",
+    "evidence": "Clinical utility weights and severity-weighted scoring.",
+    "repair": "Define utility thresholds with clinicians.",
+    "limitations": ["Requires domain expert validation."]
+  },
+  {
+    "name": "site_shift",
+    "domain": "medical",
+    "description": "Performance can vary across scanner, hospital, or population site.",
+    "diagnostic": "medical_site_stratified_performance",
+    "evidence": "Site-stratified performance metadata.",
+    "repair": "Stratify reports and add site-balanced validation.",
+    "limitations": ["Requires site metadata."]
+  },
+  {
+    "name": "fp_fn_asymmetry",
+    "domain": "medical",
+    "description": "False positives and false negatives can have different clinical costs.",
+    "diagnostic": "medical_severity_weighted_scoring",
+    "evidence": "Severity-weighted FP/FN metadata.",
+    "repair": "Report severity-weighted scoring and review high-cost errors.",
+    "limitations": ["Requires clinically reviewed costs."]
+  },
+  {
+    "name": "calibration_under_shift",
+    "domain": "medical",
+    "description": "Uncertainty may become miscalibrated under site or population shift.",
+    "diagnostic": "medical_shift_calibration",
+    "evidence": "Site-stratified calibration and uncertainty-error correlation.",
+    "repair": "Report calibration by site and defer high-uncertainty cases.",
+    "limitations": ["Requires confidence and site metadata."]
+  },
+  {
+    "name": "uncertainty_not_decision_useful",
+    "domain": "medical",
+    "description": "Uncertainty estimates may not identify clinically important errors.",
+    "diagnostic": "medical_uncertainty_utility",
+    "evidence": "Uncertainty-error correlation and deferral utility.",
+    "repair": "Evaluate uncertainty against decision-useful endpoints.",
+    "limitations": ["Requires expert-defined utility."]
+  },
+  {
+    "name": "deferral_failure",
+    "domain": "medical",
+    "description": "Deferral may fail to route clinically risky cases to review.",
+    "diagnostic": "medical_deferral_utility",
+    "evidence": "Risk-coverage and severity-weighted deferral utility.",
+    "repair": "Tune deferral with clinical review thresholds.",
+    "limitations": ["Requires validated deferral targets."]
+  },
+  {
+    "name": "temporal_leakage",
+    "domain": "graph_fraud",
+    "description": "Future graph information may leak into training or evaluation.",
+    "diagnostic": "graph_temporal_integrity",
+    "evidence": "Timestamp and split integrity checks.",
+    "repair": "Use strict temporal splits and report leakage matrix.",
+    "limitations": ["Requires timestamped nodes/edges."]
+  },
+  {
+    "name": "transductive_leakage",
+    "domain": "graph_fraud",
+    "description": "Evaluation entities may be visible during feature construction.",
+    "diagnostic": "graph_overlap_validity",
+    "evidence": "Node/edge/entity overlap checks.",
+    "repair": "Separate graph construction windows from test labels.",
+    "limitations": ["Requires entity metadata."]
+  },
+  {
+    "name": "degree_artifact",
+    "domain": "graph_fraud",
+    "description": "Degree-only shortcuts may explain apparent fraud detection performance.",
+    "diagnostic": "graph_degree_baseline",
+    "evidence": "Degree-only baseline compared with model performance.",
+    "repair": "Report degree-stratified performance and shortcut baselines.",
+    "limitations": ["Requires graph degree metadata."]
+  },
+  {
+    "name": "metric_mismatch_under_imbalance",
+    "domain": "graph_fraud",
+    "description": "Accuracy can hide poor rare-positive detection.",
+    "diagnostic": "graph_imbalance_metrics",
+    "evidence": "PR-AUC and precision@k metadata.",
+    "repair": "Report ranking metrics and class priors.",
+    "limitations": ["Requires scored predictions or class labels."]
+  },
+  {
+    "name": "entity_overlap",
+    "domain": "graph_fraud",
+    "description": "The same entity may appear across train and test splits.",
+    "diagnostic": "graph_overlap_validity",
+    "evidence": "Entity overlap matrix.",
+    "repair": "Use entity-disjoint splits where appropriate.",
+    "limitations": ["Requires stable entity IDs."]
+  },
+  {
+    "name": "graph_structure_shortcut",
+    "domain": "graph_fraud",
+    "description": "Graph topology alone may explain labels.",
+    "diagnostic": "graph_structure_removed_baseline",
+    "evidence": "Structure-removed and degree-only baselines.",
+    "repair": "Report topology baselines and remove leaky features.",
+    "limitations": ["Requires graph feature ablations."]
+  },
+  {
+    "name": "label_propagation",
+    "domain": "graph_fraud",
+    "description": "Labels may propagate through homophilous neighborhoods.",
+    "diagnostic": "graph_label_propagation_baseline",
+    "evidence": "Label propagation baseline and neighborhood label rate.",
+    "repair": "Report label propagation baseline and temporal splits.",
+    "limitations": ["Requires neighborhood labels."]
+  },
+  {
+    "name": "homophily_dependence",
+    "domain": "graph_fraud",
+    "description": "Performance may depend on a specific homophily regime.",
+    "diagnostic": "graph_time_window_stability",
+    "evidence": "Time-window stability and homophily metadata.",
+    "repair": "Report performance across graph regimes.",
+    "limitations": ["Requires windowed graph snapshots."]
+  },
+  {
+    "name": "temporal_shift",
+    "domain": "graph_fraud",
+    "description": "Fraud patterns and graph structure may drift over time.",
+    "diagnostic": "graph_time_window_stability",
+    "evidence": "Time-window score stability.",
+    "repair": "Report recency windows and retraining assumptions.",
+    "limitations": ["Requires timestamped evaluation windows."]
+  },
+  {
+    "name": "github_overlap",
+    "domain": "code",
+    "description": "Code tasks may overlap public repositories or examples.",
+    "diagnostic": "code_solution_similarity",
+    "evidence": "Local solution similarity and repository metadata.",
+    "repair": "Remove overlapped tasks or document provenance.",
+    "limitations": ["Local checks do not prove absence of memorization."]
+  },
+  {
+    "name": "weak_hidden_tests",
+    "domain": "code",
+    "description": "Passing tests may not imply functional correctness.",
+    "diagnostic": "code_test_strength",
+    "evidence": "Public/hidden test counts and mutation-style metadata.",
+    "repair": "Strengthen hidden tests and report coverage.",
+    "limitations": ["Requires test metadata."]
+  },
+  {
+    "name": "flaky_tests",
+    "domain": "code",
+    "description": "Pass/fail may vary across reruns.",
+    "diagnostic": "code_flaky_reruns",
+    "evidence": "Repeated run variance.",
+    "repair": "Rerun tests and quarantine flaky tasks.",
+    "limitations": ["Requires rerun logs."]
+  },
+  {
+    "name": "pass_k_instability",
+    "domain": "code",
+    "description": "pass@k estimates may vary with sampling and small task counts.",
+    "diagnostic": "code_passk_variance",
+    "evidence": "Bootstrap or repeated pass@k variance.",
+    "repair": "Report uncertainty and avoid overinterpreting small gaps.",
+    "limitations": ["Requires multiple samples per task."]
+  },
+  {
+    "name": "package_version_sensitivity",
+    "domain": "code",
+    "description": "Solutions may pass under one dependency version and fail under another.",
+    "diagnostic": "code_dependency_lock_check",
+    "evidence": "Dependency lock hash and environment metadata.",
+    "repair": "Lock dependencies and report version sensitivity.",
+    "limitations": ["Requires environment capture."]
+  },
+  {
+    "name": "prompt_ambiguity",
+    "domain": "code",
+    "description": "Multiple reasonable implementations may satisfy an underspecified prompt.",
+    "diagnostic": "code_prompt_ambiguity",
+    "evidence": "Human ambiguity flags and hidden-test disagreement.",
+    "repair": "Clarify prompt and add property tests.",
+    "limitations": ["Requires prompt review."]
+  },
+  {
+    "name": "solution_memorization",
+    "domain": "code",
+    "description": "Solutions may be memorized from public examples.",
+    "diagnostic": "code_solution_similarity",
+    "evidence": "Solution similarity and provenance metadata.",
+    "repair": "Remove public-overlap tasks or document exposure.",
+    "limitations": ["Local similarity cannot prove memorization."]
+  },
+  {
+    "name": "unit_test_overfitting",
+    "domain": "code",
+    "description": "Models may overfit visible unit tests without solving the general task.",
+    "diagnostic": "code_test_strength",
+    "evidence": "Public/hidden test ratio and mutation-style checks.",
+    "repair": "Increase hidden tests and adversarial cases.",
+    "limitations": ["Requires hidden-test metadata."]
+  },
+  {
+    "name": "policy_staleness",
+    "domain": "safety",
+    "description": "Safety labels can become stale as policy versions change.",
+    "diagnostic": "safety_policy_metadata",
+    "evidence": "Policy version and label date metadata.",
+    "repair": "Version policies and re-adjudicate stale labels.",
+    "limitations": ["Requires policy metadata."]
+  },
+  {
+    "name": "judge_bias",
+    "domain": "safety",
+    "description": "Safety judges may prefer one wording, class, or refusal style.",
+    "diagnostic": "safety_judge_sensitivity",
+    "evidence": "Rubric/judge sensitivity across variants.",
+    "repair": "Use multi-judge panels and adjudication.",
+    "limitations": ["Judge agreement is not proof of safety validity."]
+  },
+  {
+    "name": "refusal_overgeneralization",
+    "domain": "safety",
+    "description": "Models may refuse safe requests due to broad policy triggers.",
+    "diagnostic": "safety_refusal_calibration",
+    "evidence": "Appropriate and inappropriate refusal rates.",
+    "repair": "Separate safe/unsafe strata and calibrate refusal thresholds.",
+    "limitations": ["Requires safe/unsafe labels and refusal outputs."]
+  },
+  {
+    "name": "adversarial_phrasing_sensitivity",
+    "domain": "safety",
+    "description": "Small paraphrases or roleplay framing can change safety labels or refusals.",
+    "diagnostic": "safety_paraphrase_sensitivity",
+    "evidence": "Paraphrase sensitivity and adversarial-style metadata.",
+    "repair": "Report paraphrase strata and adversarial phrasing sensitivity.",
+    "limitations": ["Requires paraphrase variants."]
+  },
+  {
+    "name": "multi_turn_dependence",
+    "domain": "safety",
+    "description": "Safety behavior may depend on prior turns or hidden conversational context.",
+    "diagnostic": "safety_multi_turn_consistency",
+    "evidence": "Multi-turn consistency metadata.",
+    "repair": "Separate single-turn and multi-turn reports.",
+    "limitations": ["Requires conversation traces."]
+  },
+  {
+    "name": "rubric_ambiguity",
+    "domain": "safety",
+    "description": "Policy rubrics may leave cases with multiple reasonable labels.",
+    "diagnostic": "safety_rubric_sensitivity",
+    "evidence": "Rubric version and judge disagreement.",
+    "repair": "Adjudicate ambiguous rubric cases.",
+    "limitations": ["Requires human or judge panel labels."]
+  },
+  {
+    "name": "false_safe_unsafe",
+    "domain": "safety",
+    "description": "False safe and false unsafe labels have different validity implications.",
+    "diagnostic": "safety_confusion_profile",
+    "evidence": "Safe/unsafe confusion matrix.",
+    "repair": "Report confusion by risk category.",
+    "limitations": ["Requires validated labels."]
+  },
+  {
+    "name": "prompt_leakage",
+    "domain": "safety",
+    "description": "Prompts may leak policy labels or expected refusal behavior.",
+    "diagnostic": "safety_prompt_leakage",
+    "evidence": "Prompt artifact and label leakage review.",
+    "repair": "Remove policy-label artifacts from prompts.",
+    "limitations": ["Local text checks are not proof of no leakage."]
+  },
+  {
+    "name": "text_only_baseline",
+    "domain": "multimodal",
+    "description": "A multimodal task may be solvable from text artifacts alone.",
+    "diagnostic": "multimodal_modality_ablation",
+    "evidence": "Text-only, caption-only, image-removed, or OCR-only baselines.",
+    "repair": "Remove leaked text artifacts and report ablations.",
+    "limitations": ["Heavy media processing remains optional."]
+  },
+  {
+    "name": "ocr_shortcut",
+    "domain": "multimodal",
+    "description": "OCR text may carry the answer without visual reasoning.",
+    "diagnostic": "multimodal_ocr_baseline",
+    "evidence": "OCR-text baseline performance.",
+    "repair": "Report OCR availability and remove unintended answer text.",
+    "limitations": ["Requires OCR metadata or optional OCR tools."]
+  },
+  {
+    "name": "crop_resolution_sensitivity",
+    "domain": "multimodal",
+    "description": "Scores may depend on crop or resolution artifacts.",
+    "diagnostic": "multimodal_crop_resolution",
+    "evidence": "Crop and resolution sensitivity metadata.",
+    "repair": "Standardize transforms and report sensitivity.",
+    "limitations": ["Requires image/video perturbation metadata."]
+  },
+  {
+    "name": "image_removed_sensitivity",
+    "domain": "multimodal",
+    "description": "The benchmark may remain solvable when the image is removed.",
+    "diagnostic": "multimodal_modality_ablation",
+    "evidence": "Image-removed and caption-only baselines.",
+    "repair": "Remove text leakage and report modality ablations.",
+    "limitations": ["Requires alternate prompt variants."]
+  },
+  {
+    "name": "caption_only_shortcut",
+    "domain": "multimodal",
+    "description": "Captions may contain enough information to answer without visual perception.",
+    "diagnostic": "multimodal_caption_only",
+    "evidence": "Caption-only baseline performance.",
+    "repair": "Separate caption and image reasoning claims.",
+    "limitations": ["Requires caption metadata."]
+  },
+  {
+    "name": "image_shuffled_artifact",
+    "domain": "multimodal",
+    "description": "Scores may be unaffected by pairing questions with wrong images.",
+    "diagnostic": "multimodal_image_shuffled",
+    "evidence": "Image-shuffled performance.",
+    "repair": "Run image-shuffle checks and remove text-only items.",
+    "limitations": ["Requires shuffled media variants."]
+  },
+  {
+    "name": "audio_video_temporal_shortcut",
+    "domain": "multimodal",
+    "description": "Audio or video tasks may depend on metadata rather than temporal content.",
+    "diagnostic": "multimodal_temporal_ablation",
+    "evidence": "Video/audio removed or shuffled diagnostics.",
+    "repair": "Report temporal ablations.",
+    "limitations": ["Heavy media dependencies remain optional."]
+  },
+  {
+    "name": "selective_risk",
+    "domain": "abstention",
+    "description": "The error rate among answered items may remain high after abstention.",
+    "diagnostic": "abstention_validity",
+    "evidence": "Selective risk and coverage.",
+    "repair": "Adjust deferral threshold and report risk-coverage tradeoffs.",
+    "limitations": ["Requires observable refusals or invalid-output markers."]
+  },
+  {
+    "name": "inappropriate_refusal",
+    "domain": "abstention",
+    "description": "A system may refuse items it would otherwise answer correctly.",
+    "diagnostic": "abstention_validity",
+    "evidence": "Inappropriate refusal rate.",
+    "repair": "Audit refusal rubric and safe-answer pathways.",
+    "limitations": ["Correctness labels are needed to classify refusal appropriateness."]
+  },
+  {
+    "name": "confidence_validity_correlation",
+    "domain": "abstention",
+    "description": "Confidence or uncertainty may fail to track correctness or validity threats.",
+    "diagnostic": "abstention_validity",
+    "evidence": "Confidence-correctness correlation and proxy uncertainty under paraphrase.",
+    "repair": "Calibrate confidence and report uncertainty limitations.",
+    "limitations": ["Confidence may be unavailable; proxy signals are not calibrated probabilities."]
+  },
+  {
+    "name": "deferral_failure",
+    "domain": "abstention",
+    "description": "Deferral may not reduce risk or may fail on high-stakes items.",
+    "diagnostic": "abstention_validity",
+    "evidence": "Deferral utility and risk-coverage AUC.",
+    "repair": "Define deferral utility and require review for high-cost errors.",
+    "limitations": ["Utility depends on user-specified costs and domain context."]
+  }
+]

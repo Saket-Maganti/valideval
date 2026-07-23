@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "additionalProperties": true,
+      "title": "Metadata",
+      "type": "object"
+    },
+    "prediction": {
+      "title": "Prediction",
+      "type": "string"
+    },
+    "raw_output": {
+      "title": "Raw Output",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "prediction",
+    "raw_output"
+  ],
+  "title": "ModelOutput",
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+\section{The \texttt{valideval} Toolkit}
+
+The toolkit is built around cached response matrices and reproducible artifact directories. For the
+MMLU case study, ValidEval imports wide prediction records, builds a model-by-item correctness
+matrix, runs a panel-validity gate, computes proxy psychometric item diagnostics, and writes
+ranking, subject-instability, diagnostic-disagreement, and baseline artifacts.
+
+The release workflow also includes claim ledgers, blocked-claim reports, paper tables and figures,
+Kaggle execution packaging, and reviewer-packet tooling. Scaffolds are kept separate from evidence:
+decoupled synthetic validation, second-benchmark runs, full 2PL, and direct/hash MMLU-Redux
+alignment remain marked as \texttt{RESULT\_REQUIRED} or blocked unless a saved artifact proves that
+the run occurred.

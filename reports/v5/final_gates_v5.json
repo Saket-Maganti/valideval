@@ -1,0 +1,40 @@
+{
+  "schema_version": "5.0",
+  "generated_at": "2026-07-16T05:38:17Z",
+  "existing_evidence_gate": "EXISTING_MMLU_EVIDENCE_REPRODUCED_WITH_MAJOR_CAVEATS",
+  "leakage_gate": "P0_LEAKAGE_REMAINS",
+  "model_identity_gate": "COMMON_PANEL_PARTIAL",
+  "statistical_gate": "RANK_ANALYSIS_REQUIRES_REPAIR",
+  "measurement_gate": "MEASUREMENT_MODEL_PLAN_LIMITED",
+  "redux_gate": "REDUX_VALIDATION_RETIRED",
+  "notebook_gate": "KAGGLE_T4X2_FIXTURE_VALIDATED",
+  "importer_gate": "IMPORTER_V5_ADVERSARIAL_VALIDATED",
+  "cross_benchmark_evidence_gate": "CROSS_BENCHMARK_BUILD_PARTIAL",
+  "human_protocol_gate": "HUMAN_VALIDATION_PROTOCOL_PARTIAL",
+  "synthetic_protocol_gate": "SYNTHETIC_PROTOCOL_PREFLIGHT_ONLY",
+  "panel_power_gate": "PANEL_POWER_PLAN_READY_S3_NOT_MET",
+  "paper_scaffold_gate": "PAPER_SCAFFOLD_COMPILES_RESULT_PLACEHOLDERS_ENFORCED",
+  "overall_pre_execution_gate": "PRE_EXECUTION_BUILD_PARTIAL",
+  "old_v4_gate_status": "DID_NOT_SURVIVE_SUPERSEDED_BY_V5",
+  "notebook_validation": {
+    "status": "KAGGLE_T4X2_FIXTURE_VALIDATED",
+    "production_ready": false,
+    "real_execution_path": "BLOCKED"
+  },
+  "remaining_blockers": [
+    "The canonical notebooks have no connected non-fixture model and dataset runner.",
+    "The exact Study C roster is 5 checkpoints across 3 nominal families versus the planned S3 target of 32 across at least 8 families.",
+    "Full controlled MMLU, GSM8K, and BBH split and cross-benchmark overlap inputs are absent; the BBH few-shot artifact hash is not frozen.",
+    "Family-cluster bootstrap and a justified model-bootstrap estimand are not implemented.",
+    "The cross-benchmark interaction is descriptive rather than a fitted hierarchical model.",
+    "The confirmatory synthetic generators and execution grid are not implemented.",
+    "No controlled benchmark outputs, human labels, or confirmed external item linkage exist.",
+    "The repository is unborn Git state and has no immutable code commit or tag."
+  ],
+  "exact_next_commands": [
+    "python3 scripts/run_v5_local_validation.py --skip-clean-environment",
+    "python3 -m valideval doctor",
+    "python3 -m valideval post-import --help",
+    "python3 -m valideval import-kaggle --help"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GPQA Scored Cached Model Prediction",
+  "type": "object",
+  "required": ["model_id", "item_id", "prompt_variant", "prediction", "score", "raw_output"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "model_id": {"type": "string", "minLength": 1},
+    "item_id": {"type": "string", "minLength": 1},
+    "prompt_variant": {
+      "type": "string",
+      "enum": ["full", "question_only", "choices_only", "randomized_choices", "answer_letter_only"]
+    },
+    "prediction": {"type": "string"},
+    "is_correct": {"type": ["boolean", "null"]},
+    "score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "raw_output": {"type": "string"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

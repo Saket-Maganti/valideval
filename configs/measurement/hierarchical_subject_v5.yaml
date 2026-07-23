@@ -1,0 +1,22 @@
+schema_version: "0.1"
+method: regularized_subject_conditioned_logit_decomposition
+evidence_status: PLANNED
+claim_boundary: >-
+  This transparent exploratory model does not establish unidimensionality, local
+  independence, measurement invariance, construct validity, or a full 2PL fit.
+assumptions:
+  min_models: 8
+  min_items: 40
+  min_subjects: 2
+  min_items_per_subject: 5
+  max_missing_fraction: 0.10
+  min_ability_spread: 0.05
+  max_family_fraction: 0.50
+estimation:
+  smoothing: 0.5
+  interaction_shrinkage: 10.0
+validation:
+  synthetic_recovery_required: true
+  convergence: closed_form_no_iteration
+  family_deduplicated_sensitivity_required_for_paper: true
+  panel_size_sensitivity_required_for_paper: true

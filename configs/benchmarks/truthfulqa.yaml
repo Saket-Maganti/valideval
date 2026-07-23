@@ -1,0 +1,9 @@
+benchmark_id: truthfulqa
+loader: placeholder
+claimed_construct: truthfulness under misconception-prone questions
+status: scaffold_only
+notes: Requires careful judge/scoring validation before reporting results.
+construct_critical_fields:
+  - prompt
+  - reference_answers
+

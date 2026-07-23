@@ -1,0 +1,8 @@
+benchmark_id: bbh
+loader: placeholder
+claimed_construct: challenging task-specific reasoning
+status: scaffold_only
+notes: Requires task-level prompt templates and scoring validation.
+construct_critical_fields:
+  - prompt
+

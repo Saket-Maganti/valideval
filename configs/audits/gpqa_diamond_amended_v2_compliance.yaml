@@ -1,0 +1,19 @@
+extraction_compliance:
+  prompt_variant: full_answer_only_v2
+  per_model_min_success: 0.95
+  aggregate_min_success: 0.95
+  exclusion_basis: extraction_compliance_only
+  forbidden_basis:
+    - accuracy
+    - diagnostic_findings
+    - item_quality_flags
+    - model_ranking
+  item_policy:
+    drop_items: false
+    change_answer_labels: false
+    change_benchmark_data: false
+  replacement_policy:
+    preserve_original_outputs: true
+    require_real_local_open_models: true
+    smoke_or_mock_outputs_allowed: false
+    replacement_outputs_required_before_interpretation: true

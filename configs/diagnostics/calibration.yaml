@@ -1,0 +1,7 @@
+calibration:
+  n_bins: 10
+  variants:
+    - context_removed
+    - context_shuffled
+    - terse_instructions
+    - verbose_instructions

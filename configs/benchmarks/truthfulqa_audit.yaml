@@ -1,0 +1,15 @@
+benchmark_id: truthfulqa
+claim_state: RESULT_REQUIRED
+status: scaffold_only
+fixture_path: null
+loader: schema_preflight_only
+claimed_construct: truthfulness under misconception-prone questions
+planned_outputs:
+  - truthfulqa_real_panel_audit_manifest.json
+  - truthfulqa_real_panel_audit_report.md
+required_fields:
+  - item_id
+  - question
+notes:
+  - TruthfulQA is a fallback second-benchmark scaffold only.
+  - Do not run judges or scoring in the no-run build.

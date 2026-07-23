@@ -1,0 +1,2 @@
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_001","issue_type":"wrong_answer","severity":"high","source":"mock_mmlu_redux"}
+{"benchmark":"mmlu","subset":"abstract_algebra","item_id":"item_003","issue_type":"ambiguous_question","severity":"medium","source":"mock_mmlu_redux"}

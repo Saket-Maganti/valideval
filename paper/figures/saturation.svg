@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="288" viewBox="0 0 900 288">
+<rect width="900" height="100%" fill="#ffffff"/>
+<rect x="20" y="20" width="860" height="44" fill="#edf2f7" stroke="#2d3748"/>
+<text x="32" y="49" font-size="20" font-family="Arial" font-weight="700" fill="#111827">Saturation</text>
+<text x="32" y="84" font-size="13" font-family="Arial" fill="#4b5563">Generated from results/toy_mcq/mock/saturation.json</text>
+<g font-family="Arial"><text x="32" y="110" font-size="14" fill="#1f2937">benchmark_compression_index: 0.615</text>
+<text x="32" y="134" font-size="14" fill="#1f2937">ceiling_proximity: 0.611</text>
+<text x="32" y="158" font-size="14" fill="#1f2937">effective_discriminating_item_count: 27</text>
+<text x="32" y="182" font-size="14" fill="#1f2937">fraction_failed_by_all_models: 0.222</text>
+<text x="32" y="206" font-size="14" fill="#1f2937">fraction_solved_by_all_top_models: 0.528</text>
+<text x="32" y="230" font-size="14" fill="#1f2937">historical_saturation: {&quot;available&quot;: false, &quot;reason&quot;: &quot;No snapshot_dir configured.&quot;}</text>
+<text x="32" y="254" font-size="14" fill="#1f2937">primary_full_variant: full</text>
+<text x="32" y="278" font-size="14" fill="#1f2937">saturation_by_construct_tag: {&quot;ambiguous_scoring_risk&quot;: {&quot;fraction_solved_by_all_top_models&quot;: 1.0, &quot;mean_score&quot;: 0.625, &quot;n_items&quot;: 2}, &quot;answ</text></g>
+</svg>

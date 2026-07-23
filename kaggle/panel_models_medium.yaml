@@ -1,0 +1,24 @@
+models:
+  - id: Qwen/Qwen2.5-0.5B-Instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: Qwen/Qwen2.5-1.5B-Instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: Qwen/Qwen2.5-3B-Instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: microsoft/Phi-3-mini-4k-instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+notes:
+  - Medium panel may require a larger Kaggle GPU and careful batch sizing.
+  - Keep model licenses and Kaggle availability checked before running.

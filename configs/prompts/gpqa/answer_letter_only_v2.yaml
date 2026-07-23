@@ -1,0 +1,11 @@
+template_id: gpqa/answer_letter_only_v2
+artifact_class: amended_v2_non_full_extraction_compliance
+description: Amended-v2 terse scoring-interface prompt enforcing the frozen answer-only format.
+template: |
+  Question:
+  {question}
+
+  Choices:
+  {choices}
+
+  Return exactly one letter: A, B, C, or D. Do not explain.

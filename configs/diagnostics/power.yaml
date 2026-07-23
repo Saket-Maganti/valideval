@@ -1,0 +1,3 @@
+power:
+  bootstrap_samples: 500
+  seed: 0

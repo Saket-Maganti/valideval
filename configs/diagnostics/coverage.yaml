@@ -1,0 +1,8 @@
+coverage:
+  expected_tags:
+    - context_use
+    - quantitative_reasoning
+    - causal_reasoning
+    - lexical_shortcut
+    - answer_prior_artifact
+

@@ -1,0 +1,7 @@
+lm-eval==0.4.8
+pandas>=2.0
+pyyaml>=6.0
+tqdm>=4.66
+transformers>=4.43
+accelerate>=0.33
+sentencepiece>=0.2

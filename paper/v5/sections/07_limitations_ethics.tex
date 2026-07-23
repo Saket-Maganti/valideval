@@ -1,0 +1,13 @@
+\section{Limitations, Ethics, and Responsible Evaluation}
+
+The historical panel is not a controlled sample of model systems and contains family dependence.
+Public-benchmark contamination in model pretraining cannot be excluded. The controlled panel may be
+limited by T4 memory, licenses, gated access, and quantization; every such condition must be recorded.
+Measurement models can fail identifiability or convergence gates. Benchmark and human-label findings
+remain protocol- and population-scoped.
+
+Benchmark audits can unfairly damage datasets or model developers when exploratory flags are
+described as proven defects. ValidEval therefore preserves audit trails, reports uncertainty,
+redacts secret-like values, blinds human review, avoids paid APIs as required dependencies, and
+blocks global ``valid/invalid'' labels. Raw benchmark text and expired signed URLs found in excluded
+source data are not included in the public release.

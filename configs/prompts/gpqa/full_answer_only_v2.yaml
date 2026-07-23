@@ -1,0 +1,13 @@
+template_id: gpqa/full_answer_only_v2
+artifact_class: secondary_exploratory_extraction_compliance
+description: Secondary GPQA prompt for answer-format compliance testing only; not part of preregistered primary prompt variants.
+template: |
+  Answer the following graduate-level science multiple-choice question.
+
+  Question:
+  {question}
+
+  Choices:
+  {choices}
+
+  Return exactly one letter: A, B, C, or D. Do not explain.

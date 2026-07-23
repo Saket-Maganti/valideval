@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "additionalProperties": true,
+      "title": "Artifacts",
+      "type": "object"
+    },
+    "benchmark_id": {
+      "title": "Benchmark Id",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "diagnostic_name": {
+      "title": "Diagnostic Name",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "per_item_metrics": {
+      "additionalProperties": true,
+      "title": "Per Item Metrics",
+      "type": "object"
+    },
+    "per_model_metrics": {
+      "additionalProperties": true,
+      "title": "Per Model Metrics",
+      "type": "object"
+    },
+    "schema_version": {
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "summary_metrics": {
+      "additionalProperties": true,
+      "title": "Summary Metrics",
+      "type": "object"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "benchmark_id",
+    "diagnostic_name",
+    "version"
+  ],
+  "title": "DiagnosticResult",
+  "type": "object"
+}

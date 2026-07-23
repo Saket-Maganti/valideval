@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "valideval"
+message: "If you use ValidEval, cite the repository or forthcoming paper release."
+type: software
+authors:
+  - name: "ValidEval contributors"
+version: "0.1.0"
+date-released: "2026-06-03"
+license: "MIT"
+abstract: "A psychometric validity-auditing toolkit for AI benchmark measurement claims."

@@ -1,0 +1,10 @@
+template_id: gpqa/question_only_answer_only_v2
+artifact_class: amended_v2_non_full_extraction_compliance
+description: Amended-v2 ablation prompt that removes answer choices while enforcing answer-only output.
+template: |
+  Answer the following graduate-level science question. The answer choices are intentionally withheld for this audit ablation.
+
+  Question:
+  {question}
+
+  Return exactly one letter: A, B, C, or D. Do not explain.

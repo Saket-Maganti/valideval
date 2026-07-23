@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "benchmark_config_hash": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "diagnostic_config_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "item_ids_hash": {
+      "type": "string"
+    },
+    "item_text_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "prompt_template_hash": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "scorer_hash": {
+      "type": "string"
+    },
+    "split_counts": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "created_at",
+    "dataset_id",
+    "item_count",
+    "split_counts",
+    "item_ids_hash",
+    "item_text_hash",
+    "benchmark_config_hash",
+    "scorer_hash",
+    "prompt_template_hash",
+    "diagnostic_config_hash",
+    "limitations"
+  ],
+  "title": "ValidEval Audit Manifest",
+  "type": "object"
+}

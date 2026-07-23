@@ -1,0 +1,62 @@
+schema_version: valideval.cross_benchmark_config.v5
+study_id: study-c-controlled-common-panel-v5
+evidence_state: RESULT_REQUIRED
+execution:
+  execute: false
+  random_seed: 20260715
+  require_importer_v5_receipts: true
+matrices:
+  mmlu: null
+  gsm8k: null
+  bbh: null
+benchmark_metadata:
+  mmlu:
+    study_id: study-c-controlled-common-panel-v5
+    config_class: confirmatory_common_panel_v5
+    data_integrity: RESULT_REQUIRED
+  gsm8k:
+    study_id: study-c-controlled-common-panel-v5
+    config_class: confirmatory_common_panel_v5
+    data_integrity: RESULT_REQUIRED
+  bbh:
+    study_id: study-c-controlled-common-panel-v5
+    config_class: confirmatory_common_panel_v5
+    data_integrity: RESULT_REQUIRED
+gate_thresholds:
+  minimum_exact_common_models: 8
+  minimum_independent_families: 3
+  minimum_common_families_exploratory: 3
+  minimum_usable_items_per_benchmark: 100
+  minimum_extraction_reliability: 0.95
+  require_common_config_class: true
+  allow_family_level_exploratory: true
+analysis:
+  top_k: 5
+  bootstrap_iterations: 2000
+  permutation_iterations: 2000
+  random_seed: 20260715
+  alpha: 0.05
+  multiple_testing_method: bh
+  minimum_models_for_inference: 8
+  transfer_supported_spearman: 0.70
+  transfer_partial_spearman: 0.40
+  benchmark_specific_range: 0.35
+estimands:
+  - exact_model_rank_transfer
+  - ability_transfer
+  - diagnostic_transfer
+  - construct_specialization
+  - ranking_decision_stability
+  - family_level_transfer_exploratory
+allowed_conclusions:
+  - TRANSFER_SUPPORTED
+  - TRANSFER_PARTIAL
+  - TRANSFER_BENCHMARK_SPECIFIC
+  - TRANSFER_NOT_SUPPORTED
+  - UNDERPOWERED
+  - BLOCKED
+claim_limits:
+  - No universal transfer claim.
+  - Exact-model estimands use only identical checkpoint IDs in Study C.
+  - Family-level transfer remains exploratory and separate.
+  - Missing matrices or failed gates remain BLOCKED rather than imputed.

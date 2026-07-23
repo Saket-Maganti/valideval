@@ -1,0 +1,9 @@
+benchmark_id: gsm8k
+loader: placeholder
+claimed_construct: grade-school mathematical reasoning
+status: scaffold_only
+notes: Requires a scoring adapter that validates final numeric-answer extraction.
+construct_critical_fields:
+  - prompt
+  - rationale
+

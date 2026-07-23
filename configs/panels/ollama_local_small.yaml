@@ -1,0 +1,23 @@
+panel_id: ollama_local_small
+runner: ollama
+mode: dry_run_only
+base_url: http://localhost:11434
+benchmark_compatibility:
+  - toy_mcq
+  - mmlu
+  - gpqa_diamond
+  - gsm8k
+  - truthfulqa
+models:
+  - model_id: llama3.2:1b-instruct
+    role: small_local_candidate
+  - model_id: qwen2.5:1.5b-instruct
+    role: small_local_candidate
+  - model_id: phi3:mini
+    role: small_local_candidate
+execution:
+  dry_run_required: true
+  inference_requires_flag: --execute-inference
+notes:
+  - Preflight may validate this config, but must not contact Ollama.
+  - Generation remains a future approved run.

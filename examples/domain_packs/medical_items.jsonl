@@ -1,0 +1,2 @@
+{"item_id":"med_001","site_id":"site_a","anatomy":"lung","severity":"high","annotator_count":3,"uncertainty_score":0.42,"clinical_utility_weight":2.0}
+{"item_id":"med_002","site_id":"site_b","anatomy":"liver","severity":"low","annotator_count":2,"uncertainty_score":0.18,"clinical_utility_weight":0.5}

@@ -1,0 +1,49 @@
+benchmark_id: gpqa_diamond
+benchmark_family: gpqa
+loader: gpqa_local_jsonl
+status: local_jsonl_required
+artifact_class: real_gpqa_audit_setup
+split: diamond
+claimed_construct: graduate-level scientific question answering requiring expert-level domain reasoning
+format: multiple_choice
+data:
+  source: local_jsonl_export_required
+  local_path_required: true
+  expected_schema: examples/README_gpqa_fixture.md
+  fixture_path: examples/gpqa_diamond_tiny_fixture.jsonl
+input_fields:
+  - question
+  - choices
+construct_critical_fields:
+  - question
+  - choices
+prompt_variants:
+  - full
+  - question_only
+  - choices_only
+  - randomized_choices
+  - answer_letter_only
+scoring:
+  type: multiple_choice
+  extraction:
+    primary: strict_letter
+    secondary:
+      - lenient_letter
+      - normalized_text_match
+diagnostics:
+  primary:
+    - answer_distribution
+    - distractor_quality
+    - irt
+    - reliability
+    - extraction_robustness
+    - saturation
+    - shortcut
+  secondary:
+    - prompt_sensitivity
+    - redundancy
+    - provenance
+notes:
+  - ValidEval does not download or redistribute GPQA data.
+  - No real GPQA findings exist until a verified local JSONL export and cached open/local model outputs are audited.
+  - The tiny fixture is synthetic and dry-run only.

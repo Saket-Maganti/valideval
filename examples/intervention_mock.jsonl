@@ -1,0 +1,4 @@
+{"model_id": "shortcut_exploiter", "pre_score": 0.45, "post_score": 0.62, "intervention": "benchmark_optimization"}
+{"model_id": "context_aware", "pre_score": 0.58, "post_score": 0.60, "intervention": "benchmark_optimization"}
+{"model_id": "noisy_strong", "pre_score": 0.52, "post_score": 0.55, "intervention": "benchmark_optimization"}
+{"model_id": "format_fragile", "pre_score": 0.40, "post_score": 0.38, "intervention": "benchmark_optimization"}

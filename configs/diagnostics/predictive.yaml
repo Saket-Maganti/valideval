@@ -1,0 +1,4 @@
+predictive:
+  criterion_path: null
+  notes: Requires external criterion outcomes before any estimate is computed.
+

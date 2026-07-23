@@ -1,0 +1,4 @@
+ranking_uncertainty:
+  bootstrap_samples: 500
+  seed: 0
+  top_k: 3

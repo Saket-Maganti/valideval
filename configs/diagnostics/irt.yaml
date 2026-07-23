@@ -1,0 +1,7 @@
+irt:
+  min_models_warn: 5
+  subset_sizes: [5, 10, 20]
+  random_subset_trials: 100
+  bootstrap_samples: 100
+  min_items_per_tag: 3
+  seed: 0

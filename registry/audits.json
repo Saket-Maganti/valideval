@@ -1,0 +1,38 @@
+{
+  "audits": [
+    {
+      "audit_id": "toy_mcq:mock:b9d943472f9ebb494a8997b7304511941f801b7e812e303ae80d8287e002ee00",
+      "benchmark_config_hash": "093500202975873f1c03d85e9505fa9d5410449fab70d30d35e1577fa4251e70",
+      "benchmark_hash": "b9d943472f9ebb494a8997b7304511941f801b7e812e303ae80d8287e002ee00",
+      "benchmark_id": "toy_mcq",
+      "certificate_level": "Silver",
+      "certificate_path": "results/toy_mcq/mock/validity_certificate.json",
+      "created_at": "2026-06-03T13:03:42.187228+00:00",
+      "diagnostics": [
+        "abstention_validity",
+        "answer_distribution",
+        "baselines",
+        "calibration",
+        "data_forensics",
+        "dif",
+        "distractor_quality",
+        "extraction_robustness",
+        "irt",
+        "power",
+        "prompt_sensitivity",
+        "rag_validity",
+        "ranking_uncertainty",
+        "redundancy",
+        "reliability",
+        "saturation",
+        "shortcut"
+      ],
+      "item_forensics_path": "results/toy_mcq/mock/item_forensics.csv",
+      "panel_id": "mock",
+      "ranking_views_path": "results/toy_mcq/mock/ranking_views.json",
+      "report_path": "reportcards/toy_mcq_mock.md",
+      "status": "complete"
+    }
+  ],
+  "schema_version": "0.1"
+}

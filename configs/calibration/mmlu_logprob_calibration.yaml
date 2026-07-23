@@ -1,0 +1,15 @@
+benchmark: mmlu
+claim_state: BLOCKED_UNTIL_LOGPROB_OUTPUTS_EXIST
+logprob_input: null
+schema: valideval.calibration.logprob_schema
+future_metrics:
+  - ECE
+  - adaptive_ECE
+  - Brier
+  - NLL
+  - accuracy_confidence_curve
+  - calibration_by_subject
+  - calibration_by_diagnostic_flag
+notes:
+  - Numeric calibration remains blocked where confidence/logprob outputs are unavailable.
+  - This config supports schema preflight only.

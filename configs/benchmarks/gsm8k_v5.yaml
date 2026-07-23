@@ -1,0 +1,68 @@
+schema_version: "5.0"
+benchmark_contract_id: gsm8k_v5
+benchmark_id: gsm8k
+benchmark_version: openai_gsm8k_740312ad_main
+dataset_source: https://huggingface.co/datasets/openai/gsm8k
+dataset_repository: openai/gsm8k
+dataset_revision: 740312add88f781978c0658806c59bc2815b9866
+split: test
+subtasks: [main]
+item_id_method: sha256_dataset_revision_config_split_and_normalized_question
+prompt_template_version: gsm8k_zero_shot_reasoning_v5.0
+few_shot_policy: zero_shot_primary_optional_frozen_s5_sensitivity
+few_shot_examples_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+chat_template_policy: use_registry_pinned_tokenizer_chat_template_and_record_hash
+generation_mode: deterministic_free_generation_with_rationale
+generation_parameters:
+  do_sample: false
+  max_new_tokens: 512
+  temperature: null
+  top_p: null
+  seed: 20260716
+  rationale_generated: true
+  final_answer_marker: "####"
+scoring_version: gsm8k_numeric_exact_v5.0
+extraction_version: gsm8k_final_numeric_extractor_v5.0
+failure_taxonomy:
+  - SUCCESS
+  - MODEL_LOAD_FAILURE
+  - OOM
+  - TIMEOUT
+  - GENERATION_FAILURE
+  - EMPTY_OUTPUT
+  - TRUNCATED_OUTPUT
+  - EXTRACTION_FAILURE
+  - INVALID_FORMAT
+  - SCORING_FAILURE
+  - DATASET_FAILURE
+  - UNKNOWN_FAILURE
+license: MIT
+redistribution_policy: release_item_hashes_predictions_and_metadata_only_raw_items_follow_upstream_terms
+expected_item_count: 1319
+claimed_construct: grade-school mathematical reasoning under frozen final-answer extraction
+claim_state: RESULT_REQUIRED
+numeric_extraction_contract:
+  answer_access: scorer_only_after_generation_artifact_is_frozen
+  gold_answer_feedback_forbidden: true
+  rationale_policy: preserve_raw_output_but_score_only_final_extracted_answer
+  commas: remove_grouping_commas_before_decimal_parse
+  fractions: parse_simple_signed_fractions_to_exact_rational_before_comparison
+  units: strip_allowlisted_trailing_units_without_unit_conversion
+  negative_numbers: preserve_leading_sign
+  scientific_notation: parse_decimal_scientific_notation
+  multiple_final_numbers: require_unique_number_after_final_answer_marker_else_EXTRACTION_FAILURE
+  refusal: EXTRACTION_FAILURE
+  timeout: TIMEOUT
+  truncation: TRUNCATED_OUTPUT
+  invalid_extraction: EXTRACTION_FAILURE
+  extraction_failure_is_incorrect: false
+generation_view:
+  allowed_fields: [item_id, prompt, public_metadata]
+  forbidden_fields: [answer, gold, gold_answer, final_answer, is_correct]
+leakage_checks:
+  - exact_normalized_hash
+  - rationale_hash
+  - few_shot_target_overlap
+  - cross_benchmark_ngram_candidates
+model_registry: configs/models/model_registry_v5.yaml
+tiers: [S0, S1, S2, S3, S4, S5]

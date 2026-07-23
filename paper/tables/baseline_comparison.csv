@@ -1,0 +1,5 @@
+baseline,iterations,mean_spearman_vs_full,p05_spearman_vs_full,p50_spearman_vs_full,p95_spearman_vs_full,mean_top5_overlap,p05_top5_overlap,mean_max_abs_rank_delta,p95_max_abs_rank_delta,top1_match_rate,note
+random_item_bootstrap,1000,0.9987360759536542,0.9977225580873168,0.9987854251012148,0.9996027322172332,0.9848,0.8,2.042,3.0,1.0,
+subject_stratified_bootstrap,1000,0.9987457928704304,0.9975708502024292,0.9987854251012148,0.9995951417004048,0.9838,0.8,2.036,3.0,1.0,
+naive_difficulty_only,0,,,,,,,,,,Item difficulty alone is not a model ranking baseline.
+naive_model_disagreement,0,,,,,,,,,,"Model disagreement is reported as an item diagnostic, not an external label."

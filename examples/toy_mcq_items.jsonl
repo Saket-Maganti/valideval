@@ -1,0 +1,3 @@
+{"item_id":"example_001","prompt":"Which option names the result of 2 plus 3?","answer":"B","choices":["A. 4","B. 5","C. 6","D. 7"],"context":"Adding 2 and 3 gives 5.","metadata":{"source":"example"},"construct_tags":["quantitative_reasoning"],"construct_critical_fields":["prompt","context"]}
+{"item_id":"example_002","prompt":"Which word matches the clue 'fast'?","answer":"A","choices":["A. rapid","B. dull","C. late","D. cold"],"context":"The clue asks for a synonym of fast.","metadata":{"source":"example"},"construct_tags":["vocabulary"],"construct_critical_fields":["prompt","context"]}
+

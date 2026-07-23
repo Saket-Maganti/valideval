@@ -1,0 +1,6 @@
+reliability:
+  variants:
+    - context_removed
+    - context_shuffled
+  sensitivity_warn: 0.25
+

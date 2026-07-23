@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GPQA Raw Cached Model Output",
+  "type": "object",
+  "required": ["model_id", "item_id", "prompt_variant", "raw_output"],
+  "additionalProperties": true,
+  "properties": {
+    "model_id": {"type": "string", "minLength": 1},
+    "item_id": {"type": "string", "minLength": 1},
+    "prompt_variant": {
+      "type": "string",
+      "enum": ["full", "question_only", "choices_only", "randomized_choices", "answer_letter_only"]
+    },
+    "raw_output": {"type": "string"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "temperature": {"type": ["number", "integer", "string"]},
+        "seed": {"type": ["number", "integer", "string"]},
+        "source": {"type": "string"}
+      }
+    }
+  }
+}

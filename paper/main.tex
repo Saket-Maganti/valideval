@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\title{Who Validates the Validators? A Measurement-Science Audit of Benchmark-Validity Diagnostics}
+\author{[TO BE FILLED]}
+\date{[TO BE FILLED]}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present ValidEval, an offline-safe framework for validating benchmark-validity diagnostics before using them to support benchmark claims. The framework pairs controlled flaw injection, diagnostic evidence gates, and claims ledgers with real-data stress tests. In a HELM MMLU / MMLU-Redux stress test, broad matrix-derived diagnostics did not strongly recover documented issue labels, illustrating why diagnostic-specific validation and blocked-claim reporting are necessary.
+On a 39-model HELM MMLU panel, we find substantial subject-level ranking sensitivity while proxy diagnostic-weighted rankings remain close to accuracy rankings. Direct/hash MMLU-Redux alignment, decoupled synthetic validation, second-benchmark evidence, and full parametric 2PL remain unresolved gates rather than paper claims.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_validity_framework}
+\input{sections/04_toolkit}
+\input{sections/05_audit_protocol}
+\input{sections/06_results}
+\input{sections/07_analysis}
+\input{sections/08_limitations}
+\input{sections/09_ethics_broader_impact}
+\input{sections/10_conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

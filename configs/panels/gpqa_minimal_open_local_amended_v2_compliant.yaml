@@ -1,0 +1,55 @@
+panel_id: gpqa_minimal_open_local_amended_v2_compliant
+artifact_class: amended_v2_extraction_compliant_preliminary_local_panel
+description: Extraction-compliant preliminary Ollama-backed local/open panel for the GPQA amended-v2 workflow. Not paper-grade and not a replacement for a broader publication panel.
+runner_policy:
+  primary: ollama_local_runner
+  paid_api_required: false
+  closed_model_required: false
+compliance_rule:
+  prompt_variant: full_answer_only_v2
+  per_model_min_success: 0.95
+  aggregate_min_success: 0.95
+  exclusion_basis: extraction_compliance_only
+excluded_from_original_panel:
+  - model_id: llama3.2:1b
+    reason: full_answer_only_v2 extraction success below 0.95 under frozen extractor
+  - model_id: mistral:latest
+    reason: full_answer_only_v2 extraction success below 0.95 under frozen extractor
+models:
+  - model_id: qwen2.5:1.5b-instruct
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: qwen2.5:3b-instruct
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: llama3.2:3b
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: gemma2:2b
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: qwen2.5:7b-instruct
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: llama3:latest
+    runner: ollama
+    role: retained_extraction_compliant_original_model
+    required: false
+  - model_id: qwen2.5:latest
+    runner: ollama
+    role: replacement_candidate_extraction_compliance
+    required: false
+  - model_id: mistral:7b-instruct-q5_K_M
+    runner: ollama
+    role: replacement_candidate_extraction_compliance
+    required: false
+notes:
+  - This panel is based only on extraction-compliance preflight criteria.
+  - Accuracy, model ranking, item diagnostics, and GPQA validity outcomes were not used to select or exclude models.
+  - Original non-compliant model outputs remain archived and must not be deleted.
+  - No diagnostics may be interpreted until this panel passes amended go/no-go.

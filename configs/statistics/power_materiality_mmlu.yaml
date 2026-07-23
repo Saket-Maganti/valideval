@@ -1,0 +1,17 @@
+benchmark: mmlu
+claim_state: RESULT_REQUIRED
+planned_item_counts:
+  - 500
+  - 1000
+  - 5000
+  - 14042
+planned_effect_sizes:
+  - 0.01
+  - 0.03
+  - 0.05
+  - 0.10
+false_positive_budget: TBD
+materiality_threshold: TBD
+notes:
+  - No simulations or power calculations are run by the preflight.
+  - Materiality remains WEAK until pre-specified thresholds are validated.

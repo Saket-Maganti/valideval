@@ -1,0 +1,5 @@
+benchmark,subset,item_id,model_id,prediction,gold,correct
+mmlu,abstract_algebra,item_001,model_alpha,A,A,true
+mmlu,abstract_algebra,item_002,model_alpha,B,C,false
+mmlu,abstract_algebra,item_001,model_beta,B,A,false
+mmlu,abstract_algebra,item_002,model_beta,C,C,true

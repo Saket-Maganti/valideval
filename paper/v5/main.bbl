@@ -1,0 +1,117 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{American Educational Research Association} et~al.(2014){American
+  Educational Research Association}, {American Psychological Association}, and
+  {National Council on Measurement in Education}]{aera2014standards}
+{American Educational Research Association}, {American Psychological
+  Association}, and {National Council on Measurement in Education}.
+\newblock \emph{Standards for Educational and Psychological Testing}.
+\newblock American Educational Research Association, 2014.
+
+\bibitem[Gao et~al.(2023)Gao, Tow, Abbasi, Biderman, Black, DiPofi, Foster,
+  Golding, Hsu, Le~Noac'h, Li, McDonell, Muennighoff, Ociepa, Phang, Reynolds,
+  Schoelkopf, Skowron, Sutawika, Tang, Thite, Wang, Wang, and
+  Zou]{gao2023lmevalharness}
+Leo Gao, Jonathan Tow, Baber Abbasi, Stella Biderman, Sid Black, Anthony
+  DiPofi, Charles Foster, Laurence Golding, Jeffrey Hsu, Alain Le~Noac'h,
+  Haonan Li, Kyle McDonell, Niklas Muennighoff, Chris Ociepa, Jason Phang,
+  Laria Reynolds, Hailey Schoelkopf, Aviya Skowron, Lintang Sutawika, Eric
+  Tang, Anish Thite, Ben Wang, Kevin Wang, and Andy Zou.
+\newblock A framework for few-shot language model evaluation, 2023.
+
+\bibitem[Land and Bikel(2026)]{land2026auditing}
+Sander Land and Daniel~M. Bikel.
+\newblock Auditing {LLM} benchmarks with item response theory.
+\newblock \emph{arXiv preprint arXiv:2605.30504}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.30504}.
+
+\bibitem[Liang et~al.(2022)Liang, Bommasani, Lee, Tsipras, Soylu, Yasunaga,
+  Zhang, Narayanan, Wu, Kumar, Newman, Yuan, Yan, Zhang, Cosgrove, Manning, Re,
+  Acosta-Navas, Hudson, Zelikman, Durmus, Ladhak, Rong, Ren, Yao, Wang,
+  Santhanam, Orr, Zheng, Yuksekgonul, Suzgun, Kim, Guha, Chatterji, Khattab,
+  Henderson, Huang, Chi, Xie, Santurkar, Ganguli, Hashimoto, Icard, Zhang,
+  Chaudhary, Wang, Li, Mai, Zhang, and Koreeda]{liang2022helm}
+Percy Liang, Rishi Bommasani, Tony Lee, Dimitris Tsipras, Dilara Soylu,
+  Michihiro Yasunaga, Yian Zhang, Deepak Narayanan, Yuhuai Wu, Ananya Kumar,
+  Benjamin Newman, Binhang Yuan, Bobby Yan, Ce~Zhang, Christian Cosgrove,
+  Christopher~D. Manning, Christopher Re, Diana Acosta-Navas, Drew~A. Hudson,
+  Eric Zelikman, Esin Durmus, Faisal Ladhak, Frieda Rong, Hongyu Ren, Huaxiu
+  Yao, Jue Wang, Keshav Santhanam, Laurel Orr, Lucia Zheng, Mert Yuksekgonul,
+  Mirac Suzgun, Nathan Kim, Neel Guha, Niladri Chatterji, Omar Khattab, Peter
+  Henderson, Qian Huang, Ryan Chi, Sang~Michael Xie, Shibani Santurkar, Surya
+  Ganguli, Tatsunori Hashimoto, Thomas Icard, Tianyi Zhang, Vishrav Chaudhary,
+  William Wang, Xuechen Li, Yifan Mai, Yuhui Zhang, and Yuta Koreeda.
+\newblock Holistic evaluation of language models.
+\newblock \emph{arXiv preprint arXiv:2211.09110}, 2022.
+
+\bibitem[Messick(1995)]{messick1995validity}
+Samuel Messick.
+\newblock Validity of psychological assessment: Validation of inferences from
+  persons' responses and performances as scientific inquiry into score meaning.
+\newblock \emph{American Psychologist}, 50\penalty0 (9):\penalty0 741--749,
+  1995.
+
+\bibitem[Oren et~al.(2024)Oren, Meister, Chatterji, Ladhak, and
+  Hashimoto]{oren2024contamination}
+Yonatan Oren, Nicole Meister, Niladri Chatterji, Faisal Ladhak, and
+  Tatsunori~B. Hashimoto.
+\newblock Proving test set contamination in black-box language models.
+\newblock In \emph{International Conference on Learning Representations}, 2024.
+\newblock URL
+  \url{https://proceedings.iclr.cc/paper_files/paper/2024/hash/46e624c244cff669223d488defd4e835-Abstract-Conference.html}.
+
+\bibitem[Perlitz et~al.(2024)Perlitz, Gera, Arviv, Yehudai, Bandel, Shnarch,
+  Shmueli-Scheuer, and Choshen]{perlitz2024benchbench}
+Yotam Perlitz, Ariel Gera, Ofir Arviv, Asaf Yehudai, Elron Bandel, Eyal
+  Shnarch, Michal Shmueli-Scheuer, and Leshem Choshen.
+\newblock Do these {LLM} benchmarks agree? fixing benchmark evaluation with
+  {BenchBench}.
+\newblock \emph{arXiv preprint arXiv:2407.13696}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2407.13696}.
+
+\bibitem[Pezeshkpour and Hruschka(2024)]{pezeshkpour2024optionorder}
+Pouya Pezeshkpour and Estevam Hruschka.
+\newblock Large language models sensitivity to the order of options in
+  multiple-choice questions.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  NAACL 2024}, pages 2006--2017, 2024.
+\newblock \doi{10.18653/v1/2024.findings-naacl.130}.
+\newblock URL \url{https://aclanthology.org/2024.findings-naacl.130/}.
+
+\bibitem[Polo et~al.(2024)Polo, Weber, Choshen, Sun, Xu, and
+  Yurochkin]{polo2024tinybenchmarks}
+Felipe~Maia Polo, Lucas Weber, Leshem Choshen, Yuekai Sun, Gongjun Xu, and
+  Mikhail Yurochkin.
+\newblock {tinyBenchmarks}: Evaluating {LLM}s with fewer examples.
+\newblock \emph{arXiv preprint arXiv:2402.14992}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.14992}.
+
+\bibitem[Reuel et~al.(2024)Reuel, Hardy, Smith, Lamparth, Hardy, and
+  Kochenderfer]{reuel2024betterbench}
+Anka Reuel, Amelia Hardy, Chandler Smith, Max Lamparth, Malcolm Hardy, and
+  Mykel~J. Kochenderfer.
+\newblock {BetterBench}: Assessing {AI} benchmarks, uncovering issues, and
+  establishing best practices.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~37, 2024.
+\newblock \doi{10.52202/079017-0685}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2024/hash/26889e8359e7ef8a7f5d77457364ca55-Abstract-Datasets_and_Benchmarks_Track.html}.
+
+\bibitem[Ye et~al.(2024)Ye, Yang, Pang, Wang, Wong, Yilmaz, Shi, and
+  Tu]{ye2024uncertainty}
+Fanghua Ye, Mingming Yang, Jianhui Pang, Longyue Wang, Derek~F. Wong, Emine
+  Yilmaz, Shuming Shi, and Zhaopeng Tu.
+\newblock Benchmarking {LLM}s via uncertainty quantification.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~37, 2024.
+\newblock \doi{10.52202/079017-0491}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2024/hash/1bdcb065d40203a00bd39831153338bb-Abstract-Datasets_and_Benchmarks_Track.html}.
+
+\end{thebibliography}

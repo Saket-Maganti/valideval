@@ -1,0 +1,14 @@
+# Derived, redistributable V5 evidence only; no raw benchmark rows.
+results/evidence/claim_evidence_ledger_v5.csv
+results/evidence/mmlu_reproduction_v5/mmlu_reproduction_v5.json
+results/evidence/mmlu_reproduction_v5/reported_vs_reproduced_v5.csv
+results/evidence/mmlu_reproduction_v5/model_accuracies_v5.csv
+results/evidence/mmlu_reproduction_v5/subject_rank_ranges_v5.csv
+results/mmlu/rank_materiality_v5/*.json
+results/mmlu/rank_materiality_v5/*.csv
+results/planning/*.csv
+results/leakage/*.json
+results/leakage/*.csv
+reports/v5/*.md
+configs/**/*.yaml
+configs/**/*.yml

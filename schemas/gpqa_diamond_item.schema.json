@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GPQA Diamond Local JSONL Item",
+  "type": "object",
+  "required": ["item_id", "question", "choices", "answer"],
+  "additionalProperties": true,
+  "properties": {
+    "item_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^gpqa_diamond_[A-Za-z0-9_-]+$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "choices": {
+      "type": "object",
+      "required": ["A", "B", "C", "D"],
+      "additionalProperties": false,
+      "properties": {
+        "A": {"type": "string", "minLength": 1},
+        "B": {"type": "string", "minLength": 1},
+        "C": {"type": "string", "minLength": 1},
+        "D": {"type": "string", "minLength": 1}
+      }
+    },
+    "answer": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D"]
+    },
+    "domain": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "split": {
+      "type": "string",
+      "const": "diamond"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "discipline": {"type": "string"},
+        "source_id": {"type": "string"},
+        "license": {"type": "string"},
+        "provenance": {"type": "string"}
+      }
+    }
+  }
+}

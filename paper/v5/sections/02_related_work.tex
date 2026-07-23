@@ -1,0 +1,16 @@
+\section{Related Work}
+
+HELM and lm-evaluation-harness emphasize reproducible model evaluation
+\citep{liang2022helm,gao2023lmevalharness}. BetterBench evaluates benchmark-development practices
+\citep{reuel2024betterbench}, while BenchBench examines how methodological choices affect
+cross-benchmark agreement \citep{perlitz2024benchbench}. Recent work directly applies IRT to
+benchmark-item auditing \citep{land2026auditing}, and tinyBenchmarks uses psychometric ideas for
+efficient performance estimation \citep{polo2024tinybenchmarks}. These works make ``first IRT
+benchmark audit'' and ``first benchmark checklist'' unavailable novelty claims.
+
+Our narrower target is the validation of diagnostic instruments and the claims they license. It
+combines uncertainty-aware evaluation \citep{ye2024uncertainty}, exact protocol identity, and
+executable evidence gates. Multiple-choice option order can materially alter model outputs
+\citep{pezeshkpour2024optionorder}; this motivates treating prompts and extraction rules as part of
+the measured condition. Model-pretraining contamination requires separate methods and cannot be
+ruled out merely by securing the project pipeline \citep{oren2024contamination}.

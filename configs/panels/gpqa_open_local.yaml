@@ -1,0 +1,59 @@
+panel_id: gpqa_open_local
+artifact_class: real_gpqa_audit_setup
+description: Recommended open/local or cached-output panel for the first real GPQA Diamond audit.
+runner_policy:
+  primary: cached_outputs_or_local_runners
+  paid_api_required: false
+  closed_model_required: false
+minimum_panel_for_dry_run:
+  panel_id: mock
+  models: 8
+recommended_minimum_real_panel:
+  non_baseline_models: 8
+  baseline_models: 2
+  parseable_output_rate: 0.90
+irt_caveat: Treat IRT/proxy item discrimination as unstable below roughly 8 non-baseline real models.
+models:
+  - model_id: qwen2_5_1_5b_instruct
+    runner: cached_or_local
+    role: weak_open_model
+    required: false
+  - model_id: qwen2_5_7b_instruct
+    runner: cached_or_local
+    role: mid_open_model
+    required: false
+  - model_id: qwen2_5_14b_instruct
+    runner: cached_or_local
+    role: stronger_open_model
+    required: false
+  - model_id: llama_3_1_8b_instruct
+    runner: cached_or_local
+    role: open_model_family_diversity
+    required: false
+  - model_id: mistral_7b_instruct
+    runner: cached_or_local
+    role: open_model_family_diversity
+    required: false
+  - model_id: gemma_2_9b_it
+    runner: cached_or_local
+    role: open_model_family_diversity
+    required: false
+  - model_id: phi_3_5_mini_instruct
+    runner: cached_or_local
+    role: small_open_model
+    required: false
+  - model_id: deepseek_r1_distill_qwen_7b
+    runner: cached_or_local
+    role: reasoning_style_diversity
+    required: false
+baselines:
+  - model_id: random_uniform
+    runner: baseline
+    role: null_baseline
+  - model_id: choices_only_label_prior
+    runner: baseline
+    role: shortcut_baseline
+notes:
+  - This config is a preregistered panel plan, not an installed-model guarantee.
+  - Real audits may import cached scored outputs when local runners are unavailable.
+  - Record exact model names, quantization, runner version, seed, and decoding settings in the real audit manifest.

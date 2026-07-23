@@ -1,0 +1,126 @@
+schema_version: "5.0"
+benchmark_contract_id: mmlu_v5
+benchmark_id: mmlu
+benchmark_version: cais_mmlu_c30699e8
+dataset_source: https://huggingface.co/datasets/cais/mmlu
+dataset_repository: cais/mmlu
+dataset_revision: c30699e8356da336a370243923dbaf21066bb9fe
+split: test
+subtasks:
+  - abstract_algebra
+  - anatomy
+  - astronomy
+  - business_ethics
+  - clinical_knowledge
+  - college_biology
+  - college_chemistry
+  - college_computer_science
+  - college_mathematics
+  - college_medicine
+  - college_physics
+  - computer_security
+  - conceptual_physics
+  - econometrics
+  - electrical_engineering
+  - elementary_mathematics
+  - formal_logic
+  - global_facts
+  - high_school_biology
+  - high_school_chemistry
+  - high_school_computer_science
+  - high_school_european_history
+  - high_school_geography
+  - high_school_government_and_politics
+  - high_school_macroeconomics
+  - high_school_mathematics
+  - high_school_microeconomics
+  - high_school_physics
+  - high_school_psychology
+  - high_school_statistics
+  - high_school_us_history
+  - high_school_world_history
+  - human_aging
+  - human_sexuality
+  - international_law
+  - jurisprudence
+  - logical_fallacies
+  - machine_learning
+  - management
+  - marketing
+  - medical_genetics
+  - miscellaneous
+  - moral_disputes
+  - moral_scenarios
+  - nutrition
+  - philosophy
+  - prehistory
+  - professional_accounting
+  - professional_law
+  - professional_medicine
+  - professional_psychology
+  - public_relations
+  - security_studies
+  - sociology
+  - us_foreign_policy
+  - virology
+  - world_religions
+item_id_method: sha256_dataset_revision_subject_split_normalized_question_and_ordered_choices
+prompt_template_version: mmlu_mcq_zero_shot_v5.0
+few_shot_policy: zero_shot_primary
+few_shot_examples_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+chat_template_policy: use_registry_pinned_tokenizer_chat_template_and_record_hash
+generation_mode: constrained_choice_generation
+generation_parameters:
+  do_sample: false
+  max_new_tokens: 8
+  temperature: null
+  top_p: null
+  seed: 20260716
+  answer_format: "single uppercase choice letter: A, B, C, or D"
+scoring_version: mmlu_exact_choice_v5.0
+extraction_version: mmlu_choice_extractor_v5.0
+failure_taxonomy: &failure_taxonomy
+  - SUCCESS
+  - MODEL_LOAD_FAILURE
+  - OOM
+  - TIMEOUT
+  - GENERATION_FAILURE
+  - EMPTY_OUTPUT
+  - TRUNCATED_OUTPUT
+  - EXTRACTION_FAILURE
+  - INVALID_FORMAT
+  - SCORING_FAILURE
+  - DATASET_FAILURE
+  - UNKNOWN_FAILURE
+license: MIT
+redistribution_policy: release_item_hashes_predictions_and_metadata_only_raw_items_follow_upstream_terms
+expected_item_count: 14042
+claimed_construct: broad academic knowledge and problem solving under multiple-choice scoring
+claim_state: RESULT_REQUIRED
+scoring_contract:
+  option_log_likelihood_used: false
+  extraction_failure_is_incorrect: false
+  answer_access: scorer_only_after_generation_artifact_is_frozen
+  gold_answer_feedback_forbidden: true
+prompt_sensitivity_variants:
+  primary: zero_shot_joint_prompt
+  optional_s5: [choice_only_suffix, alternate_choice_order]
+studies:
+  study_h:
+    source: HELM MMLU public release v1.13.0
+    source_manifest: data/external/mmlu/wide_source_manifest.json
+    allowed_use: historical_public_response_analysis
+    exact_checkpoint_transfer: BLOCKED
+  study_c:
+    status: PLANNED
+    model_registry: configs/models/model_registry_v5.yaml
+generation_view:
+  allowed_fields: [item_id, prompt, choices, context, public_metadata]
+  forbidden_fields: [answer, gold, gold_answer, correct_answer, is_correct]
+leakage_checks:
+  - exact_normalized_hash
+  - option_aware_hash
+  - option_permutation_hash
+  - few_shot_target_overlap
+  - cross_benchmark_ngram_candidates
+tiers: [S0, S1, S2, S3, S4, S5]

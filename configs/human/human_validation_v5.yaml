@@ -1,0 +1,85 @@
+schema_version: "5.0"
+protocol_id: valideval_human_validation_v5
+status: PROTOCOL_READY_LABELS_RESULT_REQUIRED
+claim_state: RESULT_REQUIRED
+evidence_status: PLANNED
+
+label_taxonomy:
+  - INCORRECT_GOLD_ANSWER
+  - AMBIGUOUS_QUESTION
+  - AMBIGUOUS_OPTIONS
+  - MULTIPLE_DEFENSIBLE_ANSWERS
+  - INSUFFICIENT_CONTEXT
+  - OUTDATED_FACT
+  - SCORING_OR_EXTRACTION_ISSUE
+  - DOMAIN_SPECIALIST_DISPUTE
+  - NO_DETECTED_ISSUE
+  - UNSURE
+
+sampling:
+  design: simple_random_probability_sample_from_frozen_frame_plus_separately_reported_controls_and_enrichment_queue
+  randomization_seed: 20260715
+  duplicate_policy: reject_normalized_question_option_duplicates
+  minimum_subject_coverage: PLANNED_FROM_AVAILABLE_FRAME
+  primary_estimand: precision_in_preregistered_probability_sample
+  enrichment_estimand: issue_rate_by_preregistered_score_stratum
+  recall_claim: BLOCKED_FOR_HIGH_SCORE_ONLY_QUEUE
+
+blinding:
+  hide:
+    - diagnostic_scores
+    - diagnostic_rank
+    - model_correctness_patterns
+    - high_risk_selection_status
+    - external_issue_labels
+    - intended_hypothesis
+    - control_membership_and_expectation
+  randomize_task_order: true
+  private_key_must_be_outside_public_packet: true
+
+controls:
+  positive_controls: required
+  negative_controls: required
+  expected_labels_private_only: true
+  minimum_control_match_rate_for_retention: 0.80
+
+pilot:
+  target_items: 30
+  minimum_annotators_per_task: 2
+  progression_gate: agreement_and_control_audit_before_full_study
+full_study:
+  sample_size: PLANNED_BY_PRECISION_POWER_ANALYSIS
+  minimum_annotators_per_task: 3
+expertise:
+  requirements:
+    - fluent_reading_of_item_language
+    - domain_expertise_attestation_for_specialist_disputes
+    - conflict_of_interest_attestation
+agreement:
+  metrics: [raw_agreement, fleiss_kappa, krippendorff_alpha, bootstrap_confidence_interval]
+adjudication:
+  rule: independent_third_reviewer_for_disagreement_or_unsure
+  blinded_to_diagnostic_outputs: true
+exclusions:
+  - duplicate_task_annotator_pair
+  - failed_control_threshold
+  - missing_expertise_attestation_when_required
+  - impossible_or_missing_duration
+  - protocol_or_packet_hash_mismatch
+primary_endpoint:
+  metric: adjudicated_issue_precision
+  confidence_level: 0.95
+  taxonomy_positive_labels:
+    - INCORRECT_GOLD_ANSWER
+    - AMBIGUOUS_QUESTION
+    - AMBIGUOUS_OPTIONS
+    - MULTIPLE_DEFENSIBLE_ANSWERS
+    - INSUFFICIENT_CONTEXT
+    - OUTDATED_FACT
+    - SCORING_OR_EXTRACTION_ISSUE
+    - DOMAIN_SPECIALIST_DISPUTE
+audit_trail:
+  public_packet_hash: required
+  private_randomization_key: required
+  annotation_import_report: required
+  raw_source_ids_public: false

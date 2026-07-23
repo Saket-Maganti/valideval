@@ -1,0 +1,2 @@
+{"item_id":"mm_001","modality":"image_qa","asset_path":"examples/assets/toy_chart.png","ocr_text":"Revenue 10","caption":"A small bar chart","resolution":"640x480","crop_id":"full"}
+{"item_id":"mm_002","modality":"ocr","asset_path":"examples/assets/toy_receipt.png","ocr_text":"Total 7","caption":"A receipt image","resolution":"800x600","crop_id":"full"}

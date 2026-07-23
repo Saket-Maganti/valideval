@@ -1,0 +1,23 @@
+tasks:
+  - id: mmlu
+    lm_eval_task: mmlu
+    benchmark: mmlu
+    split: test
+    purpose: active-panel extension or smoke reproduction
+  - id: gsm8k
+    lm_eval_task: gsm8k
+    benchmark: gsm8k
+    split: test
+    purpose: recommended second-benchmark candidate
+  - id: truthfulqa_mc2
+    lm_eval_task: truthfulqa_mc2
+    benchmark: truthfulqa
+    split: validation
+    purpose: fallback only; scoring must remain deterministic
+defaults:
+  selected_tasks:
+    - gsm8k
+  limit: null
+  output_root: /kaggle/working/valideval_panel_outputs
+evidence_boundary:
+  local_status_until_imported: RESULT_REQUIRED

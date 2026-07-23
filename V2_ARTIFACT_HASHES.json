@@ -1,0 +1,17 @@
+[
+  {
+    "bytes": 2872534,
+    "path": "cache/mmlu/wide/matrix.csv",
+    "sha256": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74"
+  },
+  {
+    "bytes": 361,
+    "path": "results/mmlu/deep_diagnostic_value/materiality_summary.json",
+    "sha256": "7e1356d7c3c0e3c57d16bbaa099200bd9d02f0232fa9ec1a77b59c764ba8cfca"
+  },
+  {
+    "bytes": 181764,
+    "path": "paper/main.pdf",
+    "sha256": "d809a891939c33f1e4d93111c39c121c000ff85e8f582e0ec5e986d96d5d1a3c"
+  }
+]

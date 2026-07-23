@@ -1,0 +1,13 @@
+benchmark: gpqa_diamond
+panel: gpqa_wide_published_predictions
+predictions: cache/gpqa/wide/predictions.jsonl
+matrix: cache/gpqa/wide/matrix.csv
+min_models: 50
+min_items: 198
+chance: 0.25
+artifact_policy:
+  public_outputs: metadata_only
+  expose_raw_gpqa_text: false
+claims:
+  small_local_panel: protocol_only
+  wide_panel_required_for_item_claims: true

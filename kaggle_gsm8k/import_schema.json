@@ -1,0 +1,12 @@
+{
+  "benchmark": "gsm8k",
+  "required": [
+    "benchmark",
+    "model_id",
+    "item_id",
+    "prediction",
+    "gold",
+    "correct",
+    "metadata"
+  ]
+}

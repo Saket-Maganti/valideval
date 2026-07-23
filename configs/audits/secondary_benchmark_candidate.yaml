@@ -1,0 +1,12 @@
+primary_path: mmlu_redux
+secondary_candidates:
+  - gsm8k_gsm1k
+  - truthfulqa
+  - mmlu_pro
+  - gpqa_wide_panel
+selection_criteria:
+  per_instance_predictions: required
+  external_issue_labels: preferred
+  offline_local_files: required
+  paid_api_dependency: forbidden
+default_recommendation: gsm8k_gsm1k_after_mmlu_redux_if_local_data_available

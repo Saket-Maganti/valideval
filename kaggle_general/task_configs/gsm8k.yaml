@@ -1,0 +1,3 @@
+benchmark: gsm8k
+lm_eval_task: gsm8k
+output_namespace: gsm8k

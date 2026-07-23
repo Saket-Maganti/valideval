@@ -1,0 +1,88 @@
+schema_version: "5.0"
+benchmark_contract_id: bbh_v5
+benchmark_id: bbh
+benchmark_version: lukaemon_bbh_982bb89f
+dataset_source: https://huggingface.co/datasets/lukaemon/bbh
+dataset_repository: lukaemon/bbh
+dataset_revision: 982bb89fd79532a8ac676a61fc42eb1aeec63f99
+split: test
+subtasks:
+  - boolean_expressions
+  - causal_judgement
+  - date_understanding
+  - disambiguation_qa
+  - dyck_languages
+  - formal_fallacies
+  - geometric_shapes
+  - hyperbaton
+  - logical_deduction_five_objects
+  - logical_deduction_seven_objects
+  - logical_deduction_three_objects
+  - movie_recommendation
+  - multistep_arithmetic_two
+  - navigate
+  - object_counting
+  - penguins_in_a_table
+  - reasoning_about_colored_objects
+  - ruin_names
+  - salient_translation_error_detection
+  - snarks
+  - sports_understanding
+  - temporal_sequences
+  - tracking_shuffled_objects_five_objects
+  - tracking_shuffled_objects_seven_objects
+  - tracking_shuffled_objects_three_objects
+  - web_of_lies
+  - word_sorting
+item_id_method: sha256_dataset_revision_subtask_split_and_normalized_input
+prompt_template_version: bbh_task_specific_v5.0
+few_shot_policy: frozen_per_subtask_examples_disjoint_from_targets
+few_shot_examples_hash: PLANNED_FREEZE_BEFORE_S1
+chat_template_policy: use_registry_pinned_tokenizer_chat_template_and_record_hash
+generation_mode: deterministic_task_specific_generation
+generation_parameters:
+  do_sample: false
+  max_new_tokens: 512
+  temperature: null
+  top_p: null
+  seed: 20260716
+scoring_version: bbh_task_aware_exact_v5.0
+extraction_version: bbh_task_aware_extractor_v5.0
+failure_taxonomy:
+  - SUCCESS
+  - MODEL_LOAD_FAILURE
+  - OOM
+  - TIMEOUT
+  - GENERATION_FAILURE
+  - EMPTY_OUTPUT
+  - TRUNCATED_OUTPUT
+  - EXTRACTION_FAILURE
+  - INVALID_FORMAT
+  - SCORING_FAILURE
+  - DATASET_FAILURE
+  - UNKNOWN_FAILURE
+license: UPSTREAM_LICENSE_REVIEW_REQUIRED
+redistribution_policy: hashes_predictions_and_metadata_only_until_upstream_license_is_verified
+expected_item_count: 6511
+claimed_construct: challenging task-specific reasoning across frozen BBH subtasks
+claim_state: RESULT_REQUIRED
+task_contract:
+  preserve_subtask_identity: true
+  item_ids_include_subtask: true
+  collision_policy: fail_on_cross_subtask_item_id_collision
+  subtask_level_outputs_required: true
+  task_specific_scoring_registry: bbh_scoring_registry_v5.0
+  answer_access: scorer_only_after_generation_artifact_is_frozen
+  gold_answer_feedback_forbidden: true
+  extraction_failure_is_incorrect: false
+generation_view:
+  allowed_fields: [item_id, prompt, context, public_metadata]
+  forbidden_fields: [answer, gold, gold_answer, target, is_correct]
+leakage_checks:
+  - exact_normalized_hash
+  - template_overlap
+  - subtask_overlap
+  - few_shot_target_overlap
+  - cross_benchmark_ngram_candidates
+model_registry: configs/models/model_registry_v5.yaml
+tiers: [S0, S1, S2, S3, S4, S5]

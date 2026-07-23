@@ -1,0 +1,14 @@
+\section{Historical Public MMLU Study}
+
+Starting from the earliest defensible local HELM-derived prediction artifact, we reconstruct a
+normalized long table and wide response matrix. The reconstructed matrix is byte-identical to the
+active cached matrix. No duplicate, contradictory, invalid-correctness, partial-coverage, or missing
+cell was found.
+
+\input{tables/mmlu_reproduction_v5}
+
+Raw subject-conditioned ranks have median range 19 and maximum range 30 across the 39-model panel.
+These values are descriptive. The earlier threshold that called range at least 10 ``severe'' was
+post hoc and is retired. V5 evaluates the observed values against explicit null models and reports
+confidence sets, outranking probabilities, and top-$k$ stability. The proxy diagnostic-weighted
+ranking remains close to aggregate accuracy, but it is not a full 2PL estimate or a true ranking.

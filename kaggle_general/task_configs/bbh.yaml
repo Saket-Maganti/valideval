@@ -1,0 +1,3 @@
+benchmark: bbh
+lm_eval_task: bbh
+output_namespace: bbh

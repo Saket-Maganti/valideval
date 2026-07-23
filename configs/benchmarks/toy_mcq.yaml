@@ -1,0 +1,15 @@
+benchmark_id: toy_mcq
+loader: toy
+claimed_construct: toy reasoning under controlled artifacts
+construct_critical_fields:
+  - prompt
+  - context
+  - choices
+prompt_variants:
+  - full
+  - question_only
+  - choices_only
+  - context_removed
+  - context_shuffled
+  - label_prior_only
+

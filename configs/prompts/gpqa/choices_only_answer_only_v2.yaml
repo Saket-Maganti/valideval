@@ -1,0 +1,10 @@
+template_id: gpqa/choices_only_answer_only_v2
+artifact_class: amended_v2_non_full_extraction_compliance
+description: Amended-v2 ablation prompt that removes the question while enforcing answer-only output.
+template: |
+  The question is intentionally withheld for this audit ablation.
+
+  Choices:
+  {choices}
+
+  Return exactly one letter: A, B, C, or D. Do not explain.

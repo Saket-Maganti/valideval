@@ -1,0 +1,48 @@
+{
+  "captured_at": "2026-06-09T16:22:35.861135+00:00",
+  "command": "run all CPU/cache-only verification",
+  "config_hash": "081177744d2dee70b1a80178a76ca6811da7d6ee38f16a4e9ea112045da2dba8",
+  "config_hashes": {
+    "configs/audits/gpqa_diamond_amended_v2.yaml": "050071a50e72c76c6583b3030faa5eabaf0301c2f250a23549f25ef4150c3beb",
+    "configs/default.yaml": "722feb03af346377e86643994ff2961ccf6c136ed1617dcf6374bbbeb5b58b82"
+  },
+  "environment": {
+    "cwd": "/Users/saketmaganti/Projects/Valideval",
+    "pythonhashseed": null
+  },
+  "git": {
+    "branch": null,
+    "commit": null,
+    "dirty": null,
+    "is_git_repository": false,
+    "status_unavailable_reason": "not a git repository"
+  },
+  "limitations": [
+    "Environment capture records local package versions and hashes; it does not recreate external services or missing data."
+  ],
+  "os": {
+    "machine": "arm64",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "release": "25.5.0",
+    "system": "Darwin"
+  },
+  "packages": {
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "pydantic": "2.12.5",
+    "pyyaml": "6.0.3",
+    "rich": "14.3.3",
+    "scipy": "1.17.1",
+    "valideval": "0.2.0"
+  },
+  "python": {
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+    "implementation": "CPython",
+    "version": "3.11.9"
+  },
+  "random_seeds": {
+    "default_seed": 0
+  },
+  "schema_version": "0.1",
+  "valideval_version": "0.2.0"
+}

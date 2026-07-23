@@ -1,0 +1,22 @@
+{
+  "diagnostics": [
+    "abstention_validity",
+    "answer_distribution",
+    "baselines",
+    "calibration",
+    "data_forensics",
+    "dif",
+    "distractor_quality",
+    "extraction_robustness",
+    "irt",
+    "power",
+    "prompt_sensitivity",
+    "rag_validity",
+    "ranking_uncertainty",
+    "redundancy",
+    "reliability",
+    "saturation",
+    "shortcut"
+  ],
+  "schema_version": "0.1"
+}

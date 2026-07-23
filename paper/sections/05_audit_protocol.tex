@@ -1,0 +1,12 @@
+\section{Audit Protocol}
+
+The audit protocol starts by freezing the active evidence state. For this draft, the active MMLU
+panel is \texttt{cache/mmlu/wide/matrix.csv}, derived from the HELM wide prediction details. Legacy
+three-model MMLU files are retained only as provenance. All analyses are run against cached local
+artifacts; no paid API calls or downloads are required for the reported MMLU results.
+
+The protocol then applies gates in order: panel shape and missingness, panel-validity, proxy item
+diagnostics, ranking and subject-instability analyses, baseline comparisons, and external validation
+attempts. Missing or blocked steps are reported explicitly. In this run, direct/hash MMLU-Redux
+alignment is blocked, decoupled synthetic validation is blocked by missing preregistration guard
+artifacts, and second-benchmark execution is deferred to the Kaggle package.

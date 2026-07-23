@@ -1,0 +1,10 @@
+diagnostic: data_forensics
+version: 0.1
+corpus_path: null
+ngram_n: 5
+near_duplicate_threshold: 0.82
+web_verification: unavailable
+claims:
+  - Corpus overlap is local evidence, not proof of contamination.
+  - Absence of overlap in a supplied corpus is not proof of cleanliness.
+  - Validity threats remain a multidimensional profile, not one scalar score.

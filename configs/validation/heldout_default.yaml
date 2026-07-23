@@ -1,0 +1,10 @@
+families:
+  - paraphrased_shortcut_artifact
+  - distractor_plausibility_skew
+  - item_cluster_redundancy
+  - ability_dependent_inversion
+  - coverage_blindspot
+  - extraction_ambiguity
+strength_grid: [0.0, 1.0]
+seeds: [0]
+n_items: 48

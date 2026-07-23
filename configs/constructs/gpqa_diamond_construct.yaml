@@ -1,0 +1,64 @@
+construct_id: gpqa_diamond_construct
+artifact_class: real_gpqa_audit_setup
+benchmark_id: gpqa_diamond
+claimed_construct: graduate-level scientific question answering requiring expert-level domain reasoning
+intended_use:
+  - Audit whether GPQA Diamond score interpretations are supported under a fixed, cached open/local model panel.
+  - Identify item-level and scoring-level validity threats for benchmark maintenance and cautious reporting.
+non_intended_use:
+  - Do not use fixture dry-runs as GPQA evidence.
+  - Do not claim GPQA Diamond is globally valid or invalid from one ValidEval audit.
+  - Do not use proxy IRT ability estimates as the true model ranking.
+  - Do not generalize from an open/local-only panel to all closed frontier systems.
+construct_critical_fields:
+  - question
+  - choices
+likely_validity_threats:
+  - answer-choice artifacts
+  - distractor quality problems
+  - extraction/scoring instability
+  - item difficulty floor effects for weak models
+  - saturation for very strong models if applicable
+  - contamination/provenance uncertainty
+  - prompt-format sensitivity
+  - small item-count uncertainty
+  - proxy IRT limitations if the model panel is small
+diagnostics_mapped_to_threats:
+  answer_distribution:
+    - answer-choice artifacts
+  distractor_quality:
+    - distractor quality problems
+  extraction_robustness:
+    - extraction/scoring instability
+  irt:
+    - item discrimination problems
+    - floor or ceiling effects at the item level
+    - proxy ability-ranking sensitivity
+  reliability:
+    - prompt-format and perturbation instability
+  saturation:
+    - ceiling effects among top systems
+    - floor effects if most systems are near random
+  shortcut:
+    - performance retained when construct-critical fields are ablated
+  prompt_sensitivity:
+    - prompt-template dependence
+  data_forensics:
+    - contamination/provenance uncertainty
+materiality_thresholds:
+  extraction_invalid_output_rate_warn: 0.05
+  strict_vs_lenient_score_shift_warn: 0.03
+  prompt_rank_flip_warn: 2
+  high_shortcut_retention_warn: 0.70
+  near_zero_discrimination_fraction_warn: 0.30
+  negative_discrimination_item_review: any
+  dead_distractor_fraction_warn: 0.20
+  min_real_model_panel_size_for_irt: 8
+  min_parseable_output_rate: 0.90
+  multiplicity_correction: benjamini_hochberg
+limitations:
+  - This construct spec is a pre-registration artifact, not a result.
+  - GPQA support expects a local JSONL export; no GPQA data is bundled.
+  - Proxy IRT depends on model-panel spread and item count.
+  - Contamination checks are only as strong as supplied provenance and local corpora.
+  - Strong results on local/open models do not imply closed-model generality.

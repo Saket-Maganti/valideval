@@ -1,0 +1,41 @@
+"""Fail-closed leakage and identity guards for V5 protocols."""
+
+from valideval.leakage.guards import (
+    DiagnosticLabelLeakageError,
+    ExtractionOutcome,
+    GoldAnswerLeakageError,
+    IdentityComparison,
+    ModelExecutionIdentity,
+    OverlapCandidate,
+    assert_diagnostic_inputs_isolated,
+    assert_gold_isolated,
+    assert_neutral_artifact_name,
+    build_generation_payload,
+    build_overlap_candidates,
+    compare_model_execution_identity,
+    normalize_text,
+    normalized_text_hash,
+    option_aware_hash,
+    option_set_hash,
+    write_overlap_candidates_csv,
+)
+
+__all__ = [
+    "DiagnosticLabelLeakageError",
+    "ExtractionOutcome",
+    "GoldAnswerLeakageError",
+    "IdentityComparison",
+    "ModelExecutionIdentity",
+    "OverlapCandidate",
+    "assert_diagnostic_inputs_isolated",
+    "assert_gold_isolated",
+    "assert_neutral_artifact_name",
+    "build_generation_payload",
+    "build_overlap_candidates",
+    "compare_model_execution_identity",
+    "normalize_text",
+    "normalized_text_hash",
+    "option_aware_hash",
+    "option_set_hash",
+    "write_overlap_candidates_csv",
+]

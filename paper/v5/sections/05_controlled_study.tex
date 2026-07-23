@@ -1,0 +1,16 @@
+\section{Controlled Exact-Checkpoint Study}
+
+Study C fixes the same exact model revisions, prompt policies, generation settings, extraction
+versions, and scoring versions across MMLU, GSM8K, and BBH. It is separate from Study H; historical
+family names do not create exact checkpoint overlap.
+
+\begin{center}
+\resultrequired{results/cross\_benchmark/controlled\_study\_v5.json}
+\end{center}
+
+The preregistered estimands are exact-model rank transfer, model-by-benchmark interaction,
+diagnostic-family transfer, and decision stability. The analysis may conclude supported, partial,
+benchmark-specific, unsupported, underpowered, or blocked transfer. A universal transfer claim is
+not an allowed default.
+
+\input{../templates/cross_benchmark_results_v5}

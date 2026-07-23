@@ -1,0 +1,13 @@
+template_id: gpqa/full
+artifact_class: real_gpqa_audit_setup
+description: Reference GPQA Diamond multiple-choice prompt.
+template: |
+  Answer the following graduate-level science multiple-choice question.
+
+  Question:
+  {question}
+
+  Choices:
+  {choices}
+
+  Return exactly one answer letter: A, B, C, or D.

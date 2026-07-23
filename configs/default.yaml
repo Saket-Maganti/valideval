@@ -1,0 +1,79 @@
+benchmark_id: toy_mcq
+panel_id: mock
+seed: 0
+cache_root: cache
+results_root: results
+reportcards_root: reportcards
+diagnostics:
+  baselines:
+    seed: 0
+  answer_distribution: {}
+  distractor_quality: {}
+  shortcut:
+    variants:
+      - question_only
+      - choices_only
+      - context_removed
+      - context_shuffled
+      - label_prior_only
+      - metadata_only
+      - answer_length_only
+      - format_only
+      - irrelevant_context
+      - retrieval_only
+    bootstrap_samples: 500
+    seed: 0
+    high_retention_threshold: 0.7
+  prompt_sensitivity:
+    variants:
+      - zero_shot_direct
+      - few_shot
+      - chain_of_thought_allowed
+      - direct_answer_only
+      - json_only
+      - answer_letter_only
+      - randomized_option_order
+      - alternate_system_prompt
+      - no_system_prompt
+      - terse_instructions
+      - verbose_instructions
+    rank_flip_threshold: 2
+  extraction_robustness:
+    variant: full
+    shift_warn: 0.05
+  data_forensics:
+    corpus_path: null
+    ngram_n: 5
+    near_duplicate_threshold: 0.82
+  irt:
+    min_models_warn: 5
+    subset_sizes: [5, 10, 20]
+    random_subset_trials: 100
+    bootstrap_samples: 100
+    min_items_per_tag: 3
+    seed: 0
+  saturation:
+    top_n: 3
+  power:
+    bootstrap_samples: 500
+    seed: 0
+  dif:
+    effect_size_threshold: 0.3
+  calibration:
+    n_bins: 10
+    variants:
+      - context_removed
+      - context_shuffled
+      - terse_instructions
+      - verbose_instructions
+  redundancy:
+    near_duplicate_threshold: 0.82
+  ranking_uncertainty:
+    bootstrap_samples: 500
+    seed: 0
+    top_k: 3
+  reliability:
+    variants:
+      - context_removed
+      - context_shuffled
+    sensitivity_warn: 0.25

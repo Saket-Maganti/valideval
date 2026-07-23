@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "construct": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "identity": {
+      "type": "object"
+    },
+    "intended_uses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "misuse_warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "non_intended_uses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reproduction": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "version_hash": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "identity",
+    "version_hash",
+    "construct",
+    "diagnostics",
+    "misuse_warnings",
+    "reproduction"
+  ],
+  "title": "ValidEval Validity Card",
+  "type": "object"
+}

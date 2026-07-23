@@ -1,0 +1,74 @@
+schema_version: "5.0"
+protocol_id: valideval_confirmatory_synthetic_v5
+freeze_state: PRE_EXECUTION_FROZEN
+evidence_status: PLANNED
+claim_state: RESULT_REQUIRED
+
+generator_detector_boundary:
+  public_item_fields: [item_id, prompt, choices, public_metadata]
+  public_response_fields: [item_id, model_responses, public_covariates]
+  private_only_fields:
+    - condition
+    - flaw_family
+    - severity
+    - generator_family
+    - heldout_family
+    - private_seed
+  diagnostic_receives_private_truth: false
+  public_and_private_directories_must_be_separate: true
+
+experiments:
+  no_flaw: {enabled: true}
+  one_flaw: {enabled: true}
+  multiple_flaws: {enabled: true}
+  unseen_flaw: {enabled: true}
+  severity_sweep: {levels: [0.25, 0.50, 0.75, 1.00]}
+  prevalence_sweep: {levels: [0.01, 0.05, 0.10, 0.25, 0.50]}
+  panel_size_sweep: {levels: [4, 8, 16, 32]}
+  item_count_sweep: {levels: [250, 500, 1000, 2000]}
+  model_family_dependence: {leave_one_family_out: true}
+  missingness: {rates: [0.00, 0.05, 0.10, 0.25]}
+  correlated_flaws: {correlations: [0.00, 0.25, 0.50]}
+  label_permutation: {replicates: 1000}
+  diagnostic_ablation: {families: all_preregistered_one_at_a_time}
+  negative_controls: {include_no_signal_and_shuffled_response_controls: true}
+
+preregistration_freeze:
+  generator_families:
+    - ambiguity_templates_v5
+    - option_defect_templates_v5
+    - scoring_artifact_templates_v5
+  held_out_generator_families:
+    - context_omission_templates_v5
+  primary_diagnostics:
+    - fixed_response_instability_v5
+  primary_metric: macro_auroc_over_preregistered_flaw_families
+  secondary_metrics: [macro_auprc, calibration_error, false_positive_rate_at_fixed_threshold]
+  threshold_policy: fixed_on_development_generators_before_heldout_execution
+  sample_sizes:
+    items_per_primary_condition: 1000
+    model_panel_size: 16
+    independent_generator_replicates: 5
+  seeds: [1729, 2718, 31415, 65537, 104729]
+  success_criteria:
+    minimum_macro_auroc: 0.70
+    lower_95ci_above_chance: true
+    negative_control_false_positive_rate_max: 0.05
+    heldout_result_reported_regardless_of_direction: true
+  exclusions:
+    - schema_boundary_violation
+    - hidden_label_or_filename_leakage
+    - duplicate_public_item_id
+    - generator_failure_recorded_before_diagnostic_execution
+
+fixture:
+  seed: 20260715
+  item_count: 12
+  panel_size: 4
+  artifact_class: NON_EVIDENCE_FIXTURE
+
+reporting:
+  required_status_before_real_execution: SYNTHETIC_PROTOCOL_READY
+  fixture_claim_state: RESULT_REQUIRED
+  confirmatory_claim_state_before_execution: RESULT_REQUIRED
+  always_report_failures_and_null_results: true

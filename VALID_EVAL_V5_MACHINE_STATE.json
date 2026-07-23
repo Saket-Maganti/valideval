@@ -1,0 +1,213 @@
+{
+  "claim_status_counts": {
+    "BLOCKED": 3,
+    "CONTRADICTED": 1,
+    "REPRODUCED": 5,
+    "RETIRED": 2
+  },
+  "cross_benchmark_gate": "CROSS_BENCHMARK_BUILD_PARTIAL",
+  "environment": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.11.9",
+    "unborn_git_repository": true
+  },
+  "exact_next_commands": [
+    "python3 scripts/run_v5_local_validation.py --skip-clean-environment",
+    "python3 -m valideval doctor",
+    "python3 -m valideval post-import --help",
+    "python3 -m valideval import-kaggle --help"
+  ],
+  "format": {
+    "command": "python3 -m ruff format --check .",
+    "duration_seconds": 0.061382,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "generated_at": "2026-07-16T06:29:54.615160+00:00",
+  "git_branch": "master",
+  "git_commit": null,
+  "git_dirty": true,
+  "human_protocol_gate": "HUMAN_VALIDATION_PROTOCOL_PARTIAL",
+  "importer_gate": "IMPORTER_V5_ADVERSARIAL_VALIDATED",
+  "leakage_checks": {
+    "artifacts": {
+      "overlap_candidates": "results/leakage/cross_benchmark_overlap_candidates_v5.csv"
+    },
+    "checks": {
+      "benchmark_split_overlap": {
+        "reason": "Frozen controlled MMLU/GSM8K/BBH item snapshots are not local.",
+        "status": "BLOCKED"
+      },
+      "diagnostic_label_isolation": {
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT",
+        "tests": [
+          "tests/test_leakage_guards_v5.py"
+        ]
+      },
+      "exact_execution_identity_guard": {
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT",
+        "tests": [
+          "tests/test_leakage_guards_v5.py"
+        ]
+      },
+      "gold_answer_isolation": {
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT",
+        "tests": [
+          "tests/test_gold_answer_isolation_v5.py"
+        ]
+      },
+      "human_review_blinding": {
+        "human_labels": "BLOCKED",
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT",
+        "tests": [
+          "tests/test_human_validation_v5.py"
+        ]
+      },
+      "local_cross_benchmark_overlap_candidate_generation": {
+        "candidate_count": 0,
+        "interpretation": "Candidate count is not evidence of absence or presence of contamination.",
+        "scope": {
+          "datasets": {
+            "gpqa_diamond": 198,
+            "mmlu_high_school_biology": 310
+          },
+          "excluded_required_inputs": [
+            "controlled full MMLU item content",
+            "controlled GSM8K item content",
+            "controlled BBH item content"
+          ],
+          "input_hashes": {
+            "data/external/mmlu/lm_eval_outputs/qwen2_5_0_5b/Qwen__Qwen2.5-0.5B-Instruct/samples_mmlu_high_school_biology_2026-06-12T15-26-49.546827.jsonl": "1dce87a0f5750f01ab54c30c5e975ca127f5befc3cadde6c432fb3a5afe6cf4c",
+            "data/gpqa/gpqa_diamond.jsonl": "d0538cdb231be9bde946e825c9f3824899854c12b718f36a39ffad81b0b6fbd6"
+          },
+          "status": "PARTIAL_LOCAL_CONTENT_ONLY"
+        },
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT"
+      },
+      "model_pretraining_contamination": {
+        "reason": "The local audit cannot establish training-data absence for external models.",
+        "status": "BLOCKED"
+      },
+      "post_selection": {
+        "future_execution": "BLOCKED",
+        "repair": "Legacy severe-rank threshold retired and confirmatory config frozen.",
+        "status": "PARTIAL"
+      },
+      "synthetic_circularity_guards": {
+        "confirmatory_results": "BLOCKED",
+        "status": "VERIFIED_FROM_PRIMARY_ARTIFACT",
+        "tests": [
+          "tests/test_synthetic_decoupling_v5.py"
+        ]
+      }
+    },
+    "evidence_status": "PLANNED",
+    "gate": "LEAKAGE_GUARDS_PARTIAL",
+    "generated_at": "2026-07-16T06:28:22.963968+00:00",
+    "output_is_empirical_evidence": false,
+    "p0_open_paths": [
+      "full controlled benchmark split and cross-benchmark overlap audit",
+      "BBH few-shot examples and their target-overlap hash are not frozen",
+      "real-run verification that generation/extraction boundaries remain isolated",
+      "model pretraining contamination uncertainty"
+    ],
+    "schema_version": "5.0"
+  },
+  "leakage_gate": "P0_LEAKAGE_REMAINS",
+  "lint": {
+    "command": "python3 -m ruff check .",
+    "duration_seconds": 0.064076,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "model_identity_gate": "COMMON_PANEL_PARTIAL",
+  "notebook_gate": "KAGGLE_T4X2_FIXTURE_VALIDATED",
+  "notebook_validation": {
+    "production_ready": false,
+    "real_execution_path": "BLOCKED",
+    "status": "KAGGLE_T4X2_FIXTURE_VALIDATED"
+  },
+  "overall_pre_execution_gate": "PRE_EXECUTION_BUILD_PARTIAL",
+  "package_build": {
+    "command": "python3 -m build",
+    "duration_seconds": 2.081612,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "package_install": {
+    "command": ".venv-v5/bin/python -m pip install -e '.[dev]'",
+    "duration_seconds": 10.059541,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "panel_power_gate": "PANEL_POWER_PLAN_READY_S3_NOT_MET",
+  "paper_build": {
+    "command": "pdflatex -interaction=nonstopmode -halt-on-error main.tex",
+    "duration_seconds": 0.404784,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "paper_scaffold_gate": "PAPER_SCAFFOLD_COMPILES_RESULT_PLACEHOLDERS_ENFORCED",
+  "primary_input_hashes": {
+    "active_matrix_sha256": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74",
+    "normalized_canonical_rows_sha256": "723a8c9bb16ce02656b1fe1b3a7b4b030676b7084ff9cfcd4e93dc0ac2d9ab30",
+    "normalized_long_gzip_sha256": "f25a61e325c8692d8c94639c94fb3172e624756acb58b7850a9ca8f83819c1f6",
+    "primary_sha256": "38485dc89aa44f44cd5f8078df246d76aad3570ce15295559fa0a72d6f9379c6",
+    "reconstructed_matrix_sha256": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74"
+  },
+  "release_build": {
+    "command": "python3 scripts/build_release_v5.py --profile reviewer --build",
+    "duration_seconds": 0.638471,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "remaining_blockers": [
+    "The canonical notebooks have no connected non-fixture model and dataset runner.",
+    "The exact Study C roster is 5 checkpoints across 3 nominal families versus the planned S3 target of 32 across at least 8 families.",
+    "Full controlled MMLU, GSM8K, and BBH split and cross-benchmark overlap inputs are absent; the BBH few-shot artifact hash is not frozen.",
+    "Family-cluster bootstrap and a justified model-bootstrap estimand are not implemented.",
+    "The cross-benchmark interaction is descriptive rather than a fitted hierarchical model.",
+    "The confirmatory synthetic generators and execution grid are not implemented.",
+    "No controlled benchmark outputs, human labels, or confirmed external item linkage exist.",
+    "The repository is unborn Git state and has no immutable code commit or tag."
+  ],
+  "repository_root": "/Users/saketmaganti/Projects/Valideval",
+  "reproduced_mmlu_metrics": {
+    "ability_spread": 0.5801880074063523,
+    "contradictory_duplicates": 0,
+    "diagnostic_weighted_kendall": 0.9784075573549258,
+    "diagnostic_weighted_max_abs_rank_delta": 2.0,
+    "diagnostic_weighted_spearman": 0.9979757085020243,
+    "duplicate_rows": 0,
+    "identity_conflicts": 0,
+    "invalid_correctness_values": 0,
+    "item_count": 14042,
+    "matrix_cells": 547638,
+    "maximum_subject_rank_range": 30.0,
+    "median_subject_rank_range": 19.0,
+    "missing_cells": 0,
+    "missing_fraction": 0.0,
+    "model_count": 39,
+    "models_rank_range_ge_10_exploratory": 37,
+    "models_rank_range_ge_3": 39,
+    "partial_item_coverage": 0,
+    "partial_model_coverage": 0,
+    "row_count": 547638,
+    "subject_count": 57,
+    "unique_rows": 547638
+  },
+  "synthetic_protocol_gate": "SYNTHETIC_PROTOCOL_PREFLIGHT_ONLY",
+  "tests": {
+    "command": "python3 -m pytest -q",
+    "duration_seconds": 11.038047,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "type_check": {
+    "command": "python3 -m mypy src/valideval/evidence src/valideval/execution src/valideval/importers/kaggle_v5.py src/valideval/importers/post_import_v5.py src/valideval/cross_benchmark src/valideval/planning src/valideval/statistics/rank_materiality.py src/valideval/statistics/rank_nulls.py src/valideval/measurement src/valideval/leakage src/valideval/synthetic src/valideval/external_labels src/valideval/human",
+    "duration_seconds": 0.149042,
+    "exit_code": 0,
+    "status": "pass"
+  },
+  "validation_ledger": "results/v5_validation/command_ledger_v5.json"
+}

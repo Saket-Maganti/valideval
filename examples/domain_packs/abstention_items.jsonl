@@ -1,0 +1,2 @@
+{"item_id":"abs_001","answerable":true,"abstention_allowed":true,"deferral_target":"human_reviewer","decision_cost":1.0,"uncertainty_score":0.2}
+{"item_id":"abs_002","answerable":false,"abstention_allowed":true,"deferral_target":"human_reviewer","decision_cost":3.0,"uncertainty_score":0.8}

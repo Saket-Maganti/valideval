@@ -1,0 +1,2 @@
+{"doc_id": 0, "task": "mmlu_high_school_biology", "doc": {"question": "PARSER TEST ONLY", "answer": "A"}, "target": "A", "filtered_resps": [["B"]], "acc": 0.0, "doc_hash": "parser-fixture-0"}
+{"doc_id": 1, "task": "mmlu_high_school_biology", "doc": {"question": "PARSER TEST ONLY", "answer": "C"}, "target": "C", "filtered_resps": [["C"]], "acc": 1.0, "doc_hash": "parser-fixture-1"}

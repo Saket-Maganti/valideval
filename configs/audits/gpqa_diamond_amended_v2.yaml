@@ -1,0 +1,109 @@
+audit_id: gpqa_diamond_amended_v2
+artifact_class: real_gpqa_amended_protocol_setup
+benchmark_config: configs/benchmarks/gpqa_diamond.yaml
+construct_spec: configs/constructs/gpqa_diamond_construct.yaml
+model_panel_config: configs/panels/gpqa_minimal_open_local_amended_v2_compliant.yaml
+no_paid_api_required: true
+paid_api_policy: forbidden_for_primary_audit
+benchmark:
+  real_id: gpqa_diamond
+  real_local_path_required: true
+  item_file: data/gpqa/gpqa_diamond.jsonl
+amended_protocol:
+  enabled: true
+  preregistration: docs/protocols/gpqa_diamond_preregistration_amended_v2.md
+  primary_full_variant: full_answer_only_v2
+  original_full_variant: full
+  original_full_status: archived_protocol_development_only
+  amendment_reason: output_extraction_compliance
+prompt_variants:
+  amended_primary_full: full_answer_only_v2
+  amended_prompt_variants:
+    full: full_answer_only_v2
+    question_only: question_only_answer_only_v2
+    choices_only: choices_only_answer_only_v2
+    randomized_choices: randomized_choices_answer_only_v2
+    answer_letter_only: answer_letter_only_v2
+  archived_protocol_development:
+    - full
+  non_full_variants:
+    - question_only
+    - choices_only
+    - randomized_choices
+    - answer_letter_only
+go_no_go:
+  required_variants:
+    - full_answer_only_v2
+    - question_only_answer_only_v2
+    - choices_only_answer_only_v2
+    - randomized_choices_answer_only_v2
+    - answer_letter_only_v2
+  min_models: 8
+  extraction_success_threshold: 0.95
+diagnostics:
+  enabled: false
+  amended_primary_full_variant: full_answer_only_v2
+  extraction_robustness:
+    variant: full_answer_only_v2
+    shift_warn: 0.03
+  answer_distribution: {}
+  distractor_quality:
+    sanitized: true
+    selection_variant: full_answer_only_v2
+  shortcut:
+    variants:
+      - question_only_answer_only_v2
+      - choices_only_answer_only_v2
+    high_retention_threshold: 0.70
+    bootstrap_samples: 500
+    seed: 0
+  prompt_sensitivity:
+    variants:
+      - question_only_answer_only_v2
+      - choices_only_answer_only_v2
+      - randomized_choices_answer_only_v2
+      - answer_letter_only_v2
+    rank_flip_threshold: 2
+  reliability:
+    variants:
+      - question_only_answer_only_v2
+      - choices_only_answer_only_v2
+      - randomized_choices_answer_only_v2
+      - answer_letter_only_v2
+    sensitivity_warn: 0.25
+  irt:
+    min_models_warn: 8
+    subset_sizes: [5, 10, 20]
+    random_subset_trials: 100
+    bootstrap_samples: 100
+    min_items_per_tag: 3
+    seed: 0
+  saturation:
+    top_n: 3
+diagnostics_blocked:
+  - shortcut, prompt-sensitivity, and variant-reliability diagnostics remain blocked until amended non-full variants have complete 8-model coverage and pass extraction checks.
+  - original full prompt diagnostics are archived as protocol-development artifacts and are not the amended primary path.
+materiality_thresholds:
+  extraction_invalid_output_rate_warn: 0.05
+  strict_vs_lenient_score_shift_warn: 0.03
+  prompt_rank_flip_warn: 2
+  high_shortcut_retention_warn: 0.70
+  near_zero_discrimination_fraction_warn: 0.30
+  negative_discrimination_item_review: any
+multiplicity_correction:
+  method: benjamini_hochberg
+  family: item_level_flags
+  q: 0.10
+stopping_rules:
+  - If the amended full_answer_only_v2 path fails extraction or alignment thresholds, stop before interpretation.
+  - If non-full variants remain incomplete, block shortcut and prompt-sensitivity diagnostics.
+  - If the local GPQA JSONL export fails schema validation, stop before generating real-audit claims.
+real_audit_mode:
+  enabled: false
+  dry_run_real_only_until_explicit_next_phase: true
+  requires:
+    - verified local GPQA Diamond JSONL export
+    - amended full_answer_only_v2 outputs for the configured local/open panel
+    - fixed prompt-template hashes
+    - amended preregistration and manifest hashes
+    - no paid APIs for primary results

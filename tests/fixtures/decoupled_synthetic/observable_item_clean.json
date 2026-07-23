@@ -1,0 +1,16 @@
+{
+  "item_id": "fixture_clean_001",
+  "prompt": "Which option best completes the offline protocol check?",
+  "choices": [
+    "A. Keep the claim state explicit",
+    "B. Run a hidden validation job",
+    "C. Tune thresholds after seeing labels",
+    "D. Download new benchmark data"
+  ],
+  "answer": "A",
+  "subject": "protocol",
+  "metadata": {
+    "public_source": "fixture",
+    "difficulty_band": "medium"
+  }
+}

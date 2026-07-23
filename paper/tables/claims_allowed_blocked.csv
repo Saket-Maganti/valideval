@@ -1,0 +1,9 @@
+claim,state
+active MMLU panel has 39 models,allowed
+panel-size blocker is cleared,allowed
+subject-level rank sensitivity under this panel,allowed
+MMLU error detection,blocked
+MMLU is valid or invalid,blocked
+direct/hash Redux alignment,blocked
+second-benchmark evidence,RESULT_REQUIRED
+NeurIPS-ready,blocked

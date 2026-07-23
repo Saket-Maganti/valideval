@@ -1,0 +1,10 @@
+benchmark_id: causalagentbench
+loader: placeholder
+claimed_construct: causal reasoning and agentic decision quality
+status: scaffold_only
+notes: Requires local export and construct-tag review.
+construct_critical_fields:
+  - scenario
+  - intervention
+  - outcome
+

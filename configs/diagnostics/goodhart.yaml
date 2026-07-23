@@ -1,0 +1,4 @@
+goodhart:
+  longitudinal_data_path: null
+  notes: Requires longitudinal, deployment, or intervention data before any estimate is computed.
+

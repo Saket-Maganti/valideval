@@ -1,0 +1,326 @@
+schema_version: "5.0"
+registry_id: valideval_model_registry_v5
+claim_state: RESULT_REQUIRED
+identity_policy:
+  exact_identity_requires:
+    - canonical_model_id
+    - checkpoint
+    - immutable_revision
+    - quantization_class
+    - base_or_instruction
+    - chat_template
+    - prompt_regime
+    - decoding_hash
+    - extraction_version
+  unknown_or_planned_field_behavior: fail_closed_not_exact_identity
+  family_name_rule: Never infer exact checkpoint identity from family names.
+
+studies:
+  study_h:
+    name: Historical large-panel MMLU study
+    panel_source: data/external/mmlu/wide_source_manifest.json
+    response_source: data/external/mmlu/prediction_details_wide.jsonl
+    helm_release: v1.13.0
+    exact_identity_status: BLOCKED_REVISION_UNKNOWN
+    allowed_use: within_mmlu_historical_analysis
+    blocked_use: controlled_common_panel_claims
+    historical_model_aliases:
+      - 01-ai/yi-34b
+      - 01-ai/yi-6b
+      - 01-ai/yi-large-preview
+      - allenai/olmo-1.7-7b
+      - allenai/olmo-7b
+      - databricks/dbrx-instruct
+      - deepseek-ai/deepseek-llm-67b-chat
+      - deepseek-ai/deepseek-v3
+      - google/gemma-2-27b
+      - google/gemma-2-9b
+      - google/gemma-7b
+      - meta/llama-2-13b
+      - meta/llama-2-70b
+      - meta/llama-2-7b
+      - meta/llama-3-70b
+      - meta/llama-3-8b
+      - meta/llama-3.1-405b-instruct-turbo
+      - meta/llama-3.1-70b-instruct-turbo
+      - meta/llama-3.1-8b-instruct-turbo
+      - meta/llama-3.2-11b-vision-instruct-turbo
+      - meta/llama-3.2-90b-vision-instruct-turbo
+      - meta/llama-3.3-70b-instruct-turbo
+      - microsoft/phi-2
+      - microsoft/phi-3-medium-4k-instruct
+      - microsoft/phi-3-small-8k-instruct
+      - mistralai/mistral-7b-instruct-v0.3
+      - mistralai/mistral-7b-v0.1
+      - mistralai/mixtral-8x22b
+      - mistralai/mixtral-8x7b-32kseqlen
+      - mistralai/open-mistral-nemo-2407
+      - qwen/qwen1.5-110b-chat
+      - qwen/qwen1.5-14b
+      - qwen/qwen1.5-32b
+      - qwen/qwen1.5-72b
+      - qwen/qwen1.5-7b
+      - qwen/qwen2-72b-instruct
+      - qwen/qwen2.5-72b-instruct-turbo
+      - qwen/qwen2.5-7b-instruct-turbo
+      - snowflake/snowflake-arctic-instruct
+  study_c:
+    name: Controlled exact-common-panel study
+    benchmarks: [mmlu, gsm8k, bbh]
+    exact_identity_status: PARTIAL_EXACT_PANEL_FROZEN
+    registry_metadata_verified_at: "2026-07-16"
+    registry_metadata_source: https://huggingface.co/api/models/{repository}
+    exact_common_panel_ids:
+      - Qwen/Qwen2.5-0.5B-Instruct
+      - Qwen/Qwen2.5-1.5B-Instruct
+      - Qwen/Qwen2.5-3B-Instruct
+      - microsoft/Phi-3-mini-4k-instruct
+      - TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    excluded_until_access_verified:
+      - google/gemma-2-2b-it
+    inclusion_rule: Same immutable revision and execution identity on every benchmark.
+
+tiers:
+  S0:
+    artifact_class: NON_EVIDENCE_FIXTURE
+    purpose: deterministic code-path validation
+    target_models: 2
+  S1:
+    artifact_class: ENGINEERING_SMOKE
+    purpose: loading extraction sharding resume and packaging
+    target_models: 2-3
+    target_items_per_benchmark: 10-50
+  S2:
+    artifact_class: EXPLORATORY_EXECUTION_PILOT
+    purpose: runtime OOM failure and extraction-rate estimation
+    target_models: 4-8
+    target_items_per_benchmark: 100-500
+  S3:
+    artifact_class: MINIMUM_SCIENTIFIC_COMMON_PANEL
+    purpose: panel size selected by power and identifiability simulation
+    target_models: PLANNED_BY_POWER_AUDIT
+  S4:
+    artifact_class: FULL_MAXIMUM_CEILING_COMMON_PANEL
+    purpose: family scale architecture and ability diversity subject to T4x2 feasibility
+    target_models: PLANNED_BY_POWER_AND_RESOURCE_AUDIT
+  S5:
+    artifact_class: ROBUSTNESS_EXTENSION
+    purpose: optional models prompt regimes and scoring conditions
+    target_models: OPTIONAL
+
+models:
+  - canonical_model_id: fixture/always_a
+    display_name: Always A fixture
+    provider: local_fixture
+    repository: local_fixture
+    checkpoint: fixture/always_a
+    revision: NON_EVIDENCE_FIXTURE
+    architecture_family: deterministic_mock
+    parameter_count: 0
+    base_or_instruction: fixture
+    chat_template: none
+    license: repository_license
+    access_requirements: offline
+    trust_remote_code_required: false
+    quantization_modes: [none]
+    minimum_gpu_memory: 0
+    recommended_dtype: none
+    mmlu_historical_id: null
+    gsm8k_planned_id: fixture/always_a
+    bbh_planned_id: fixture/always_a
+    exact_identity_status: NON_EVIDENCE_FIXTURE
+    family_identity_status: NON_EVIDENCE_FIXTURE
+    runnable_on_t4: true
+    studies: [study_c]
+    tier_eligibility: [S0]
+    known_limitations: Never scientific evidence.
+  - canonical_model_id: fixture/context_aware
+    display_name: Context-aware fixture
+    provider: local_fixture
+    repository: local_fixture
+    checkpoint: fixture/context_aware
+    revision: NON_EVIDENCE_FIXTURE
+    architecture_family: deterministic_mock
+    parameter_count: 0
+    base_or_instruction: fixture
+    chat_template: none
+    license: repository_license
+    access_requirements: offline
+    trust_remote_code_required: false
+    quantization_modes: [none]
+    minimum_gpu_memory: 0
+    recommended_dtype: none
+    mmlu_historical_id: null
+    gsm8k_planned_id: fixture/context_aware
+    bbh_planned_id: fixture/context_aware
+    exact_identity_status: NON_EVIDENCE_FIXTURE
+    family_identity_status: NON_EVIDENCE_FIXTURE
+    runnable_on_t4: true
+    studies: [study_c]
+    tier_eligibility: [S0]
+    known_limitations: Never scientific evidence.
+  - canonical_model_id: Qwen/Qwen2.5-0.5B-Instruct
+    display_name: Qwen2.5 0.5B Instruct
+    provider: Qwen
+    repository: Qwen/Qwen2.5-0.5B-Instruct
+    checkpoint: Qwen/Qwen2.5-0.5B-Instruct
+    revision: 7ae557604adf67be50417f59c2c2f167def9a775
+    architecture_family: Qwen2.5
+    parameter_count: 494032768
+    base_or_instruction: instruction
+    chat_template: sha256:cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f
+    tokenizer_config_sha256: 5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583
+    model_config_sha256: 18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45
+    generation_config_sha256: e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6
+    license: apache-2.0
+    access_requirements: model_download_or_prepopulated_cache
+    trust_remote_code_required: false
+    quantization_modes: [unquantized]
+    minimum_gpu_memory: PLANNED_S1_PROFILE
+    recommended_dtype: bfloat16
+    mmlu_historical_id: null
+    gsm8k_planned_id: Qwen/Qwen2.5-0.5B-Instruct
+    bbh_planned_id: Qwen/Qwen2.5-0.5B-Instruct
+    exact_identity_status: FROZEN_IMMUTABLE_REVISION
+    family_identity_status: DOCUMENTED_EXACT_CHECKPOINT
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S1, S2, S3, S4]
+    known_limitations: Remote metadata was verified; model loading and T4 profile remain unverified until S1.
+  - canonical_model_id: Qwen/Qwen2.5-1.5B-Instruct
+    display_name: Qwen2.5 1.5B Instruct
+    provider: Qwen
+    repository: Qwen/Qwen2.5-1.5B-Instruct
+    checkpoint: Qwen/Qwen2.5-1.5B-Instruct
+    revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+    architecture_family: Qwen2.5
+    parameter_count: 1543714304
+    base_or_instruction: instruction
+    chat_template: sha256:cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f
+    tokenizer_config_sha256: 5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583
+    model_config_sha256: 98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670
+    generation_config_sha256: e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6
+    license: apache-2.0
+    access_requirements: model_download_or_prepopulated_cache
+    trust_remote_code_required: false
+    quantization_modes: [unquantized]
+    minimum_gpu_memory: PLANNED_S1_PROFILE
+    recommended_dtype: bfloat16
+    mmlu_historical_id: null
+    gsm8k_planned_id: Qwen/Qwen2.5-1.5B-Instruct
+    bbh_planned_id: Qwen/Qwen2.5-1.5B-Instruct
+    exact_identity_status: FROZEN_IMMUTABLE_REVISION
+    family_identity_status: DOCUMENTED_EXACT_CHECKPOINT
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S1, S2, S3, S4]
+    known_limitations: Remote metadata was verified; model loading and T4 profile remain unverified until S1.
+  - canonical_model_id: Qwen/Qwen2.5-3B-Instruct
+    display_name: Qwen2.5 3B Instruct
+    provider: Qwen
+    repository: Qwen/Qwen2.5-3B-Instruct
+    checkpoint: Qwen/Qwen2.5-3B-Instruct
+    revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+    architecture_family: Qwen2.5
+    parameter_count: 3085938688
+    base_or_instruction: instruction
+    chat_template: sha256:cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f
+    tokenizer_config_sha256: 5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583
+    model_config_sha256: eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b
+    generation_config_sha256: ea35dfb6fc5051b01114f9b995820d55dab01ed33ee490f6378b442af82c09f9
+    license: other
+    access_requirements: model_download_or_prepopulated_cache
+    trust_remote_code_required: false
+    quantization_modes: [unquantized]
+    minimum_gpu_memory: PLANNED_S1_PROFILE
+    recommended_dtype: bfloat16
+    mmlu_historical_id: null
+    gsm8k_planned_id: Qwen/Qwen2.5-3B-Instruct
+    bbh_planned_id: Qwen/Qwen2.5-3B-Instruct
+    exact_identity_status: FROZEN_IMMUTABLE_REVISION
+    family_identity_status: DOCUMENTED_EXACT_CHECKPOINT
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S1, S2, S3, S4]
+    known_limitations: Remote metadata was verified; model loading, license terms, and T4 profile remain unverified until S1.
+  - canonical_model_id: microsoft/Phi-3-mini-4k-instruct
+    display_name: Phi-3 Mini 4K Instruct
+    provider: microsoft
+    repository: microsoft/Phi-3-mini-4k-instruct
+    checkpoint: microsoft/Phi-3-mini-4k-instruct
+    revision: f39ac1d28e925b323eae81227eaba4464caced4e
+    architecture_family: Phi-3
+    parameter_count: 3821079552
+    base_or_instruction: instruction
+    chat_template: sha256:dcaee66df77bfbb789ec541fe713218da30225a526f1db97138fc39ee6dc56aa
+    tokenizer_config_sha256: 32f66c2bab499baaa8341819ad9a13342f957501ce1e989bcb90853a01336cc0
+    model_config_sha256: 072d4df63228ef806a6b2b2f02a93f1d048ebd31584d0f61d1180aef36e5bcea
+    generation_config_sha256: ee0576b7155f833142827349c1d48c483f5f9eb5a227d9e9a150b3ab63ec06e5
+    license: mit
+    access_requirements: model_download_or_prepopulated_cache
+    trust_remote_code_required: false_with_supported_transformers_else_block
+    quantization_modes: [unquantized]
+    minimum_gpu_memory: PLANNED_S1_PROFILE
+    recommended_dtype: bfloat16
+    mmlu_historical_id: null
+    gsm8k_planned_id: microsoft/Phi-3-mini-4k-instruct
+    bbh_planned_id: microsoft/Phi-3-mini-4k-instruct
+    exact_identity_status: FROZEN_IMMUTABLE_REVISION
+    family_identity_status: DOCUMENTED_EXACT_CHECKPOINT
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S2, S3, S4]
+    known_limitations: Remote metadata was verified; native loading without remote code and T4 profile require S1 validation.
+  - canonical_model_id: google/gemma-2-2b-it
+    display_name: Gemma 2 2B IT
+    provider: google
+    repository: google/gemma-2-2b-it
+    checkpoint: google/gemma-2-2b-it
+    revision: 299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8
+    architecture_family: Gemma-2
+    parameter_count: 2614341888
+    base_or_instruction: instruction
+    chat_template: PLANNED_CAPTURE_FROM_TOKENIZER
+    license: gemma
+    access_requirements: gated_manual_acceptance_and_model_download_or_prepopulated_cache
+    trust_remote_code_required: PLANNED_VERIFY
+    quantization_modes: [unquantized, PLANNED_PROFILE]
+    minimum_gpu_memory: PLANNED_PROFILE
+    recommended_dtype: PLANNED_PROFILE
+    mmlu_historical_id: null
+    gsm8k_planned_id: google/gemma-2-2b-it
+    bbh_planned_id: google/gemma-2-2b-it
+    exact_identity_status: PLANNED_REVISION_REQUIRED
+    family_identity_status: DOCUMENTED_FAMILY_ONLY
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S2, S3, S4]
+    known_limitations: Repository SHA is pinned, but gated config/chat-template access and T4 loading remain unverified; excluded from the exact panel.
+  - canonical_model_id: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    display_name: TinyLlama 1.1B Chat v1.0
+    provider: TinyLlama
+    repository: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    checkpoint: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    revision: fe8a4ea1ffedaf415f4da2f062534de366a451e6
+    architecture_family: TinyLlama
+    parameter_count: 1100048384
+    base_or_instruction: chat
+    chat_template: sha256:66291cf0045c2425a3a667cf3cbb7af2b11f09e025c02f97245323ab79119362
+    tokenizer_config_sha256: 7b41ba7d0eb91e77914ca3dafde559ea3e19878769b7e68409e89bed5222e77a
+    model_config_sha256: 486bedda3a6988332e60d9638a09ca4b260d34ebcf1b19e22cf3b140b63d8fe9
+    generation_config_sha256: 18046d04f5bd8b4998095ecabdd17a1bf0053d9acdccead4a05be4a3575f3c5c
+    license: apache-2.0
+    access_requirements: model_download_or_prepopulated_cache
+    trust_remote_code_required: false
+    quantization_modes: [unquantized]
+    minimum_gpu_memory: PLANNED_S1_PROFILE
+    recommended_dtype: bfloat16
+    mmlu_historical_id: null
+    gsm8k_planned_id: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    bbh_planned_id: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    exact_identity_status: FROZEN_IMMUTABLE_REVISION
+    family_identity_status: DOCUMENTED_EXACT_CHECKPOINT
+    runnable_on_t4: PLANNED_BENCHMARK
+    studies: [study_c]
+    tier_eligibility: [S1, S2, S5]
+    known_limitations: Remote metadata was verified; model loading and T4 profile remain unverified until S1.

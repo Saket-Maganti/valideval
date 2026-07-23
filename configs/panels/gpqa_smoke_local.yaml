@@ -1,0 +1,21 @@
+panel_id: gpqa_smoke_local
+artifact_class: smoke_test_only
+description: Smoke-test only panel for GPQA local export/output workflow validation. Not sufficient for paper-grade IRT, model-family conclusions, or benchmark claims.
+runner_policy:
+  primary: mock_local_workflow_smoke
+  paid_api_required: false
+  closed_model_required: false
+minimum_panel_for_real_audit: not_sufficient
+models:
+  - model_id: always_a
+    runner: mock
+    role: smoke_constant_baseline
+    required: false
+  - model_id: context_aware
+    runner: mock
+    role: smoke_prompt_parser
+    required: false
+notes:
+  - This panel validates local file generation, prompt rendering, resume behavior, and schema compatibility only.
+  - Do not use this panel for GPQA Diamond scientific conclusions.
+  - Do not use this panel for paper-grade IRT or model-family claims.

@@ -1,0 +1,14 @@
+prompt_sensitivity:
+  variants:
+    - zero_shot_direct
+    - few_shot
+    - chain_of_thought_allowed
+    - direct_answer_only
+    - json_only
+    - answer_letter_only
+    - randomized_option_order
+    - alternate_system_prompt
+    - no_system_prompt
+    - terse_instructions
+    - verbose_instructions
+  rank_flip_threshold: 2

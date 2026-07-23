@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-06-11T02:39:00.695099+00:00",
+  "high_risk_count": 3,
+  "limitations": [
+    "Reviewer-risk mode is a static text audit. It flags possible review risks and missing disclosures; it does not judge empirical correctness."
+  ],
+  "report": "paper/neurips_readiness_report.md",
+  "risk_count": 8,
+  "risks": [
+    {
+      "message": "Report does not discuss confidence intervals.",
+      "risk": "missing_confidence_intervals",
+      "severity": "moderate"
+    },
+    {
+      "message": "Report does not discuss baselines.",
+      "risk": "missing_baselines",
+      "severity": "high"
+    },
+    {
+      "message": "Report does not discuss human validation.",
+      "risk": "missing_human_validation",
+      "severity": "moderate"
+    },
+    {
+      "message": "Report does not discuss contamination scan.",
+      "risk": "missing_contamination_scan",
+      "severity": "high"
+    },
+    {
+      "message": "Report does not discuss preregistration.",
+      "risk": "missing_preregistration",
+      "severity": "low"
+    },
+    {
+      "message": "Report does not discuss multiple comparison.",
+      "risk": "missing_multiple_comparison",
+      "severity": "low"
+    },
+    {
+      "message": "Report does not discuss limitations.",
+      "risk": "missing_limitations",
+      "severity": "high"
+    },
+    {
+      "message": "Report does not discuss negative results.",
+      "risk": "missing_negative_results",
+      "severity": "low"
+    }
+  ],
+  "schema_version": "0.1"
+}

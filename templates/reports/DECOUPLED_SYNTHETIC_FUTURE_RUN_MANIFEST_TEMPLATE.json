@@ -1,0 +1,8 @@
+{
+  "claim_state_impact": "none_until_validated",
+  "execution_status": "planned_only",
+  "hidden_label_guard": "required",
+  "paper_evidence": false,
+  "result_required": true,
+  "schema": "valideval.decoupled_synthetic.future_run_manifest"
+}

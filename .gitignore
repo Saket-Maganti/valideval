@@ -1,0 +1,61 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+.ipynb_checkpoints/
+.nox/
+.tox/
+.venv/
+.venv-v5/
+venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+build/
+dist/
+htmlcov/
+logs/
+large_raw_data/
+local_outputs/
+kaggle_outputs/
+model_cache/
+models_cache/
+hf_cache/
+.cache/huggingface/
+wandb/
+*.sqlite
+*.db
+*.zip
+
+cache/*
+!cache/.gitkeep
+results/*
+!results/.gitkeep
+reportcards/*
+!reportcards/.gitkeep
+
+# Raw/licensed inputs, returned model outputs, and nested upstream repositories.
+# Keep acquisition instructions and hashes in source control; acquire the bytes
+# separately in each environment.
+data/*
+!data/.gitkeep
+
+# Reproducible generated artifacts. Their builders, allowlists, and authored
+# reports remain tracked.
+bundles/
+dashboard_data/
+external_review_packet/
+external_review_packets/
+leaderboard/
+site/
+validation_reports/
+kaggle_outputs/
+imported/
+
+# V5 release manifests are built from explicit allowlists under configs/release/.
+# Never add blanket exceptions for raw data, caches, returned model outputs, or ZIPs.

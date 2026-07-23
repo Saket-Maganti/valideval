@@ -1,0 +1,10 @@
+template_id: gpqa/question_only
+artifact_class: real_gpqa_audit_setup
+description: Ablation prompt that removes answer choices.
+template: |
+  Answer the following graduate-level science question. The answer choices are intentionally withheld for this audit ablation.
+
+  Question:
+  {question}
+
+  Return exactly one answer letter: A, B, C, or D.

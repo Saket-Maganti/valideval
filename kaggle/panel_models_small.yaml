@@ -1,0 +1,16 @@
+models:
+  - id: Qwen/Qwen2.5-0.5B-Instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: Qwen/Qwen2.5-1.5B-Instruct
+    backend: hf
+    batch_size: auto
+    dtype: auto
+  - id: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    backend: hf
+    batch_size: auto
+    dtype: auto
+notes:
+  - Small open-model smoke panel for Kaggle GPU validation.
+  - No paid APIs or API keys.

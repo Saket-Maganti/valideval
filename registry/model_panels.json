@@ -1,0 +1,9 @@
+{
+  "model_panels": [
+    {
+      "latest_audit_id": "toy_mcq:mock:b9d943472f9ebb494a8997b7304511941f801b7e812e303ae80d8287e002ee00",
+      "panel_id": "mock"
+    }
+  ],
+  "schema_version": "0.1"
+}

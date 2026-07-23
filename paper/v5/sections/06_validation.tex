@@ -1,0 +1,17 @@
+\section{Validation of the Audit Instruments}
+
+Three independent validation pillars are predeclared. First, a decoupled synthetic protocol freezes
+generators, seeds, diagnostics, metrics, controls, and held-out flaw families before execution.
+Second, a blinded human protocol estimates enrichment or precision according to its sampling design;
+it does not infer recall from a high-score-only queue. Third, external item validation requires
+confirmed identity rather than subject/index alignment.
+
+\begin{center}
+\resultrequired{results/synthetic/confirmatory\_v5/results.json}\\
+\resultrequired{results/human/human\_validation\_v5.json}\\
+\resultrequired{results/mmlu\_redux/confirmed\_validation\_v5.json}
+\end{center}
+
+The current MMLU-Redux path lacks a direct ID or content-hash confirmation in the sanitized local
+artifacts. It is therefore treated as an unsuccessful exploratory linkage attempt, not validation
+of item-error detection.

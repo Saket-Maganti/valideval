@@ -1,0 +1,33 @@
+% V5 cross-benchmark result template.
+% This file compiles before controlled Study C results exist. A paper-assets
+% builder may redefine these macros only from a passing V5 analysis manifest.
+\providecommand{\VECrossGate}{BLOCKED}
+\providecommand{\VETransferConclusion}{BLOCKED}
+\providecommand{\VECommonModels}{[RESULT REQUIRED]}
+\providecommand{\VECommonFamilies}{[RESULT REQUIRED]}
+\providecommand{\VEMinExtractionReliability}{[RESULT REQUIRED]}
+
+\begin{table}[t]
+  \centering
+  \caption{Controlled Study C cross-benchmark gate. The table remains blocked until
+  exact-checkpoint MMLU, GSM8K, and BBH artifacts pass V5 import and overlap checks.}
+  \label{tab:cross-benchmark-v5}
+  \begin{tabular}{ll}
+    \toprule
+    Field & Artifact-derived value \\
+    \midrule
+    Overlap gate & \VECrossGate \\
+    Exact common checkpoints & \VECommonModels \\
+    Independent families & \VECommonFamilies \\
+    Minimum extraction reliability & \VEMinExtractionReliability \\
+    Transfer conclusion & \VETransferConclusion \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Permitted populated conclusions are \texttt{TRANSFER\_SUPPORTED},
+\texttt{TRANSFER\_PARTIAL}, \texttt{TRANSFER\_BENCHMARK\_SPECIFIC},
+\texttt{TRANSFER\_NOT\_SUPPORTED}, \texttt{UNDERPOWERED}, or
+\texttt{BLOCKED}. Family-level analysis, when used because exact checkpoint
+overlap is insufficient, must be labeled exploratory and must not populate an
+exact-model transfer claim.

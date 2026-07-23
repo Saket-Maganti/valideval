@@ -1,0 +1,22 @@
+benchmark: mmlu
+panel: helm_mmlu_public_39
+claim_state: RESULT_REQUIRED
+matrix_path: cache/mmlu/helm_public_39/matrix_full.csv
+predictions_path: cache/mmlu/helm_public_39/prediction_details_wide.jsonl
+ground_truth_path: data/external/mmlu_redux/ground_truth_sanitized.jsonl
+baselines:
+  - accuracy_only_ranking
+  - random_item_subset
+  - subject_stratified_subset
+  - naive_difficulty
+  - naive_disagreement
+  - diagnostic_vs_diagnostic
+  - mmlu_redux_external_label
+  - subject_confounding
+planned_outputs:
+  - real_panel_baseline_comparison.json
+  - real_panel_baseline_comparison.md
+  - real_panel_baseline_comparison.csv
+notes:
+  - Dry-run scaffold only; no baseline metrics are computed.
+  - MMLU-Redux claims remain blocked until direct/hash alignment exists.

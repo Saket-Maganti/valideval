@@ -1,0 +1,32 @@
+{
+  "benchmark": "toy_mcq",
+  "figures": {
+    "dumb_baseline_gap": "paper/figures/dumb_baseline_gap.svg",
+    "framework_diagram": "paper/figures/framework_diagram.svg",
+    "irt_difficulty_discrimination": "paper/figures/irt_difficulty_discrimination.svg",
+    "judge_human_agreement": "paper/figures/judge_human_agreement.svg",
+    "naive_vs_validity_adjusted_rankings": "paper/figures/naive_vs_validity_adjusted_rankings.svg",
+    "reliability": "paper/figures/reliability.svg",
+    "repair_before_after": "paper/figures/repair_before_after.svg",
+    "saturation": "paper/figures/saturation.svg",
+    "shortcut_retention": "paper/figures/shortcut_retention.svg",
+    "subset_fidelity": "paper/figures/subset_fidelity.svg"
+  },
+  "limitations": [
+    "Figures and tables are generated only from local result artifacts. Missing artifacts produce labeled placeholders."
+  ],
+  "panel": "mock",
+  "schema_version": "0.1",
+  "tables": {
+    "audited_benchmarks": "paper/tables/audited_benchmarks.tex",
+    "certificate_status": "paper/tables/certificate_status.tex",
+    "diagnostic_summary": "paper/tables/diagnostic_summary.tex",
+    "human_agreement": "paper/tables/human_agreement.tex",
+    "irt_item_quality": "paper/tables/irt_item_quality.tex",
+    "model_panel": "paper/tables/model_panel.tex",
+    "ranking_flips": "paper/tables/ranking_flips.tex",
+    "reliability": "paper/tables/reliability.tex",
+    "shortcut_results": "paper/tables/shortcut_results.tex",
+    "subset_fidelity": "paper/tables/subset_fidelity.tex"
+  }
+}

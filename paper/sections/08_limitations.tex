@@ -1,0 +1,27 @@
+\section{Limitations}
+
+MMLU-Redux alignment is structural, using \texttt{subject\_numeric\_index} with confidence 0.85,
+not direct-id or hash-confirmed item matching. The MMLU-Redux result is weak/negative external
+validation: broad/proxy diagnostics did not strongly recover the structurally aligned labels, and
+subject-normalized evidence weakened the earlier raw label-error signal.
+
+The MMLU IRT output is proxy-only and should not be described as full psychometric IRT or full 2PL.
+The local Rasch/1PL optimizer is blocked for the active wide matrix because the implementation would
+fit 14,080 free parameters; the 2PL output is a proxy-slope export only.
+The narrow raw label-error signal is at most a preliminary review-queue cue and does not support
+detection-success claims.
+
+Synthetic validation can be circular when generators mirror detectors. The paper should therefore
+report the mixed cross-flaw specificity and held-out generator results alongside
+false-positive/error-control checks and materiality labels. Synthetic-harness power, numeric
+calibration with confidence/logprob outputs, and human-reviewed real-benchmark threshold calibration
+remain \texttt{[RESULT REQUIRED]}.
+
+Real benchmark findings remain preliminary and protocol-scoped. The second-benchmark path is
+prepared through a Kaggle notebook package, but no Kaggle outputs were imported in this run. Domain
+packs are not paper-validated unless separately supported. GPQA local-panel findings are protocol
+evidence, not broad validity evidence.
+
+The subject-instability finding may depend on the model panel, HELM extraction, subject taxonomy,
+and MMLU item mix. It should be treated as a reproducible panel finding, not a universal property of
+all benchmarks or model rankings.

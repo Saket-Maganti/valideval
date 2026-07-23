@@ -1,0 +1,24 @@
+# ValidEval V5 source release allowlist
+.gitignore
+AGENTS.md
+CHANGELOG.md
+CITATION.cff
+CONTRIBUTING.md
+LICENSE
+README.md
+RELEASE_NOTES.md
+VERSION
+Makefile
+pyproject.toml
+src/**/*.py
+tests/**/*.py
+scripts/*.py
+scripts/*.sh
+configs/**/*.yaml
+configs/**/*.yml
+configs/**/*.txt
+kaggle_max_ceiling/*.ipynb
+paper/v5/**/*.tex
+paper/v5/**/*.bib
+paper/templates/*.tex
+docs/**/*.md

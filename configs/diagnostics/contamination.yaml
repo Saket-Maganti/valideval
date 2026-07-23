@@ -1,0 +1,4 @@
+contamination:
+  corpus_path: null
+  ngram_sizes: [5, 8]
+

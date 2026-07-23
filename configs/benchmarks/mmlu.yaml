@@ -1,0 +1,10 @@
+benchmark_id: mmlu
+loader: mmlu_local_jsonl
+claimed_construct: broad academic knowledge and problem solving
+status: local_export_required
+notes: Provide a validated local JSONL export via --local-path before computing empirical results.
+example_fixture: examples/mmlu_subset.jsonl
+construct_critical_fields:
+  - prompt
+  - choices
+

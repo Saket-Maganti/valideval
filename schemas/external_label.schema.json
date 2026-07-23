@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark": {
+      "type": "string"
+    },
+    "item_id_hash": {
+      "type": "string"
+    },
+    "label_source": {
+      "type": "string"
+    },
+    "label_type": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "benchmark",
+    "item_id_hash",
+    "label_source",
+    "label_type",
+    "status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,91 @@
+audit_id: gpqa_diamond_preregistered
+artifact_class: real_gpqa_audit_setup
+benchmark_config: configs/benchmarks/gpqa_diamond.yaml
+construct_spec: configs/constructs/gpqa_diamond_construct.yaml
+model_panel_config: configs/panels/gpqa_open_local.yaml
+no_paid_api_required: true
+paid_api_policy: forbidden_for_primary_audit
+benchmark:
+  dry_run_id: gpqa_diamond_tiny_fixture
+  real_id: gpqa_diamond
+  real_local_path_required: true
+prompt_variants:
+  - full
+  - question_only
+  - choices_only
+  - randomized_choices
+  - answer_letter_only
+diagnostics:
+  answer_distribution: {}
+  distractor_quality: {}
+  shortcut:
+    variants:
+      - question_only
+      - choices_only
+      - randomized_choices
+    bootstrap_samples: 200
+    seed: 0
+    high_retention_threshold: 0.70
+  prompt_sensitivity:
+    variants:
+      - question_only
+      - choices_only
+      - randomized_choices
+      - answer_letter_only
+    rank_flip_threshold: 2
+  extraction_robustness:
+    variant: full
+    shift_warn: 0.03
+  data_forensics:
+    corpus_path: null
+    ngram_n: 5
+    near_duplicate_threshold: 0.82
+  irt:
+    min_models_warn: 8
+    subset_sizes: [5, 10, 20]
+    random_subset_trials: 100
+    bootstrap_samples: 100
+    min_items_per_tag: 3
+    seed: 0
+  reliability:
+    variants:
+      - randomized_choices
+      - answer_letter_only
+    sensitivity_warn: 0.20
+  saturation:
+    top_n: 3
+  redundancy:
+    near_duplicate_threshold: 0.82
+materiality_thresholds:
+  extraction_invalid_output_rate_warn: 0.05
+  strict_vs_lenient_score_shift_warn: 0.03
+  prompt_rank_flip_warn: 2
+  high_shortcut_retention_warn: 0.70
+  near_zero_discrimination_fraction_warn: 0.30
+  negative_discrimination_item_review: any
+multiplicity_correction:
+  method: benjamini_hochberg
+  family: item_level_flags
+  q: 0.10
+stopping_rules:
+  - If fewer than 6 non-baseline real models produce parseable outputs on at least 90 percent of items, do not interpret IRT/item-discrimination estimates.
+  - If the audited panel mean score is near random and rank ordering is unstable, treat shortcut and IRT conclusions as exploratory.
+  - If the local GPQA JSONL export fails schema validation, stop before generating real-audit claims.
+artifact_paths:
+  dry_run_results: results/gpqa_diamond_tiny_fixture
+  dry_run_report: reportcards/gpqa_diamond_tiny_fixture_mock.md
+  real_results: results/gpqa_diamond
+  real_report_template: reportcards/gpqa_diamond_<panel>.md
+dry_run_mode:
+  enabled: true
+  benchmark_id: gpqa_diamond_tiny_fixture
+  panel_id: mock
+  allowed_claim: schema, scoring, diagnostic, and report plumbing validation only
+real_audit_mode:
+  enabled: false
+  requires:
+    - verified local GPQA Diamond JSONL export
+    - cached open/local model outputs or local runners
+    - fixed prompt-template hashes
+    - pre-registered model panel
+    - no paid APIs for primary results

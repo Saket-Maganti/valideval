@@ -1,0 +1,34 @@
+\section{Introduction}
+
+Validity is not accuracy. A benchmark score can be high while the benchmark measures shortcuts,
+contamination, scoring artifacts, saturation, or low-discrimination items rather than the claimed
+construct.
+
+ValidEval treats benchmark-validity diagnostics as measurement instruments. Diagnostics should
+support benchmark claims only after they have evidence about sensitivity, false-positive behavior,
+specificity, uncertainty, and materiality under a documented protocol.
+
+The current empirical spine is a public HELM MMLU response matrix with 39 models and 14,042 scored
+items. This panel supports artifact-backed analyses of panel validity, proxy psychometric item
+diagnostics, subject-level ranking sensitivity, and resampling baselines. The paper treats these
+analyses as measurement evidence about diagnostics and rankings, not as a certificate that MMLU is
+valid or invalid.
+
+The MMLU-Redux case remains a weak/negative external-validation stress test. Direct or hash-backed
+alignment is not confirmed for the current files, and broad matrix-derived diagnostics did not
+strongly recover structurally aligned MMLU-Redux labels. The claims ledger therefore blocks
+detection-success claims.
+
+The contributions are:
+
+\begin{enumerate}
+  \item A measurement-validity framework for benchmark diagnostics with explicit evidence states:
+  supported, weak, blocked, or not run.
+  \item Artifact-backed real-panel analyses of the active 39-model HELM MMLU matrix, including
+  panel validity, proxy IRT diagnostics, subject-level rank sensitivity, and baselines.
+  \item A claims-ledger and evidence-gating workflow that prevents unsupported validity claims.
+  \item A MMLU-Redux stress test showing that broad proxy diagnostics do not automatically validate
+  against structurally aligned external issue labels.
+  \item An offline-safe toolkit and reproducible audit artifact format for benchmark authors and
+  evaluators.
+\end{enumerate}

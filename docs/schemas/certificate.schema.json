@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "audit_completeness_profile": {
+      "type": "string"
+    },
+    "benchmark_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "dimension_statuses": {
+      "type": "object"
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ordinal_levels_disabled": {
+      "type": "boolean"
+    },
+    "panel_id": {
+      "type": "string"
+    },
+    "profile_definitions": {
+      "type": "object"
+    },
+    "profile_level": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "created_at",
+    "benchmark_id",
+    "panel_id",
+    "profile_level",
+    "dimension_statuses",
+    "interpretation"
+  ],
+  "title": "ValidEval Validity Evidence Profile",
+  "type": "object"
+}

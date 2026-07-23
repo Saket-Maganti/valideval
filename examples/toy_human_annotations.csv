@@ -1,0 +1,7 @@
+task_id,item_id,model_id,anonymized_annotator,label,confidence,rationale,ambiguity_flag,invalid_item_flag
+toy_001::context_aware,toy_001,context_aware,ann_a,correct,0.95,Matches accepted answer under the toy MCQ rubric,false,false
+toy_001::context_aware,toy_001,context_aware,ann_b,correct,0.90,Output selects the accepted answer,false,false
+toy_015::always_a,toy_015,always_a,ann_a,correct,0.60,Gold answer matches but item is deliberately ambiguous,true,false
+toy_015::always_a,toy_015,always_a,ann_b,incorrect,0.65,No construct-relevant information distinguishes the choices,true,false
+toy_029::context_aware,toy_029,context_aware,ann_a,correct,0.85,B or C is accepted by the loose rubric,true,false
+toy_029::context_aware,toy_029,context_aware,ann_b,correct,0.80,Accepted alternate answer under rubric,true,false

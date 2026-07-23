@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-06-18T17:45:48.556429Z",
+  "project": "Valideval",
+  "mode": "build-only/no-run",
+  "num_md_files": 18,
+  "files": [
+    "00_global_no_run_rules.md",
+    "01_paper_thesis_reframe.md",
+    "02_surface_area_freeze.md",
+    "03_real_panel_finding_engine.md",
+    "04_baselines_ablations_scaffold.md",
+    "05_figures_tables_templates.md",
+    "06_ollama_panel_dryrun.md",
+    "07_second_benchmark_scaffold.md",
+    "08_calibration_logprob_infra.md",
+    "09_power_materiality_scaffold.md",
+    "10_mmlu_redux_alignment_upgrade.md",
+    "11_synthetic_confirmatory_consolidation.md",
+    "12_related_work_rewrite.md",
+    "13_claims_ledger_sync.md",
+    "14_reviewer_packet_slimming.md",
+    "15_final_no_run_readiness_audit.md",
+    "16_later_run_plan.md",
+    "README_INDEX.md"
+  ]
+}

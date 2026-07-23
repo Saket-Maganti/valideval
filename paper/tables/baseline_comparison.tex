@@ -1,0 +1,10 @@
+\begin{tabular}{lrrrrrrrrrrl}
+\toprule
+baseline & iterations & mean\_spearman\_vs\_full & p05\_spearman\_vs\_full & p50\_spearman\_vs\_full & p95\_spearman\_vs\_full & mean\_top5\_overlap & p05\_top5\_overlap & mean\_max\_abs\_rank\_delta & p95\_max\_abs\_rank\_delta & top1\_match\_rate & note \\
+\midrule
+random\_item\_bootstrap & 1000 & 0.998736 & 0.997723 & 0.998785 & 0.999603 & 0.984800 & 0.800000 & 2.042000 & 3.000000 & 1.000000 & NaN \\
+subject\_stratified\_bootstrap & 1000 & 0.998746 & 0.997571 & 0.998785 & 0.999595 & 0.983800 & 0.800000 & 2.036000 & 3.000000 & 1.000000 & NaN \\
+naive\_difficulty\_only & 0 & NaN & NaN & NaN & NaN & NaN & NaN & NaN & NaN & NaN & Item difficulty alone is not a model ranking baseline. \\
+naive\_model\_disagreement & 0 & NaN & NaN & NaN & NaN & NaN & NaN & NaN & NaN & NaN & Model disagreement is reported as an item diagnostic, not an external label. \\
+\bottomrule
+\end{tabular}

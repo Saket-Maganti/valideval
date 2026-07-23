@@ -1,0 +1,88 @@
+schema_version: "5.0"
+preregistration_id: valideval_confirmatory_analysis_v5
+freeze_state: PRE_EXECUTION_FROZEN
+claim_state: RESULT_REQUIRED
+evidence_status: PLANNED
+
+study_separation:
+  study_h:
+    name: Historical large-panel MMLU study
+    source: data/external/mmlu/wide_source_manifest.json
+    estimands:
+      - mmlu_item_and_subject_measurement_behavior
+      - within_mmlu_rank_materiality_under_preregistered_nulls
+    prohibited_claims:
+      - exact_checkpoint_cross_benchmark_transfer
+      - controlled_common_panel_comparison
+  study_c:
+    name: Controlled exact-common-panel study
+    benchmarks: [mmlu, gsm8k, bbh]
+    model_registry: configs/models/model_registry_v5.yaml
+    estimands:
+      - exact_checkpoint_diagnostic_transfer
+      - construct_specific_specialization
+      - controlled_ranking_stability
+    identity_gate: require_exact_checkpoint_revision_and_execution_identity
+  mixing_rule: Never pool Study H and Study C without an explicit estimand and study indicator.
+
+primary_hypotheses:
+  - id: H1_rank_materiality
+    family: study_h
+    statement: Subject-level rank variation exceeds the preregistered exchangeable-item null.
+    status: RESULT_REQUIRED
+  - id: H2_diagnostic_transfer
+    family: study_c
+    statement: At least one preregistered diagnostic association transfers across exact-checkpoint benchmarks.
+    status: RESULT_REQUIRED
+  - id: H3_external_validation
+    family: confirmed_external_labels
+    statement: Confirmed-identity external labels show above-baseline enrichment under the preregistered protocol.
+    status: RESULT_REQUIRED
+
+analysis_freeze:
+  primary_endpoints:
+    - null_calibrated_max_subject_rank_range
+    - family_deduplicated_cross_benchmark_rank_correlation
+    - prevalence_aware_auprc_for_confirmed_external_labels
+  uncertainty:
+    confidence_level: 0.95
+    bootstrap_replicates: 2000
+    bootstrap_unit: item_within_preregistered_stratum
+    seeds: [1729, 2718, 31415]
+  multiplicity:
+    primary_family_method: holm
+    exploratory_method: benjamini_hochberg
+    alpha: 0.05
+  missingness:
+    primary: complete_common_checkpoint_panel
+    sensitivity:
+      - available_case_with_missingness_report
+      - worst_case_rank_bounds
+  exclusions:
+    - non_exact_model_identity
+    - extraction_status_not_success
+    - benchmark_contract_failure
+    - checksum_or_manifest_failure
+  threshold_policy:
+    rule: thresholds_frozen_from_protocol_or_development_partition_only
+    forbidden: threshold_selection_after_viewing_confirmatory_outcomes
+
+leakage_controls:
+  benchmark_split_overlap: required_before_execution
+  gold_answer_isolation: required_for_all_generation_and_retry_paths
+  diagnostic_label_isolation: required
+  post_selection_log: required
+  human_packet_blinding: required
+  synthetic_private_label_boundary: required
+
+allowed_pre_execution_outputs:
+  - dry_run_manifests
+  - non_evidence_fixtures
+  - overlap_candidate_queues
+  - blinded_human_packet_scaffolds
+  - execution_runbooks
+forbidden_pre_execution_outputs:
+  - invented_metrics
+  - invented_human_labels
+  - confirmatory_claim_promotion
+  - silent_reuse_of_exploratory_thresholds

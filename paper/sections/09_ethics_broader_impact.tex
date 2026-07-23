@@ -1,0 +1,13 @@
+\section{Ethics and Broader Impact}
+
+Validity diagnostics can be misused if their outputs are treated as scalar certificates or as
+automatic proof that a benchmark is defective. ValidEval is designed to reduce that risk by pairing
+every artifact with a claim state and by preserving blocked results.
+
+The release excludes raw benchmark text from paper-facing artifacts and reviewer packets. Reports use
+ids, aggregate metrics, and sanitized tables. This protects dataset provenance while still allowing
+reviewers to audit which artifacts support each claim.
+
+The broader goal is not to discard benchmarks based on one diagnostic, but to make benchmark claims
+more precise: what construct is being measured, which threats have evidence, which diagnostics are
+validated, and which claims remain unresolved.

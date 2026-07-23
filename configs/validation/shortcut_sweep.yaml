@@ -1,0 +1,9 @@
+output_dir: validation_reports
+n_items: 64
+seeds: [0, 1, 2]
+strength_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+target_fpr: 0.05
+multiplicity_method: bh
+experiments:
+  - diagnostic: shortcut
+    flaw_type: shortcut_signal

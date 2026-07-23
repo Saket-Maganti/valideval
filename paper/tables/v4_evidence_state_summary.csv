@@ -1,0 +1,9 @@
+artifact,path,state,claim
+MMLU 39-model panel,cache/mmlu/wide/matrix.csv,REAL_ARTIFACT,MMLU panel diagnostics are artifact-backed and protocol-scoped.
+MMLU panel validity,results/mmlu/panel_validity/panel_validity.json,PASS,Panel shape supports local psychometric diagnostics when status is pass.
+MMLU deep diagnostics,results/mmlu/deep_diagnostic_value,REAL_ARTIFACT,Subject-level ranking sensitivity under the stated protocol.
+GSM8K imported outputs,cache/gsm8k/wide/matrix.csv,RESULT_REQUIRED,No GSM8K result claim until imported ZIP validates.
+BBH imported outputs,cache/bbh/wide/matrix.csv,RESULT_REQUIRED,No third-benchmark transfer claim until imported matrix validates.
+Cross-benchmark analysis,results/cross_benchmark/cross_benchmark_manifest.json,RESULT_REQUIRED,Requires at least two validated benchmark matrices.
+Human labels,results/*/human,RESULT_REQUIRED,No human-label validation claim exists in V4 pre-execution state.
+External labels beyond MMLU-Redux,schemas/external_label.schema.json,RESULT_REQUIRED,Schema exists; new external-label evidence is not present.

@@ -1,0 +1,16 @@
+benchmark_id: gsm8k
+claim_state: RESULT_REQUIRED
+status: scaffold_only
+fixture_path: null
+loader: schema_preflight_only
+claimed_construct: grade-school mathematical reasoning
+planned_outputs:
+  - gsm8k_real_panel_audit_manifest.json
+  - gsm8k_real_panel_audit_report.md
+required_fields:
+  - item_id
+  - question
+  - answer
+notes:
+  - Do not download GSM8K in the no-run build.
+  - Do not report second-benchmark evidence until an approved run exists.

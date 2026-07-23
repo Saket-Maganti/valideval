@@ -1,0 +1,2 @@
+{"item_id":"code_001","repository":"local/toy","package_lock_hash":"lock123","hidden_test_count":12,"public_test_count":3,"flaky_rerun_count":0,"language":"python"}
+{"item_id":"code_002","repository":"local/toy","package_lock_hash":"lock123","hidden_test_count":2,"public_test_count":8,"flaky_rerun_count":1,"language":"python"}

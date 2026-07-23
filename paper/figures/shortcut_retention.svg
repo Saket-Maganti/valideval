@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="192" viewBox="0 0 900 192">
+<rect width="900" height="100%" fill="#ffffff"/>
+<rect x="20" y="20" width="860" height="44" fill="#edf2f7" stroke="#2d3748"/>
+<text x="32" y="49" font-size="20" font-family="Arial" font-weight="700" fill="#111827">Shortcut Retention</text>
+<text x="32" y="84" font-size="13" font-family="Arial" fill="#4b5563">Generated from results/toy_mcq/mock/shortcut.json</text>
+<g font-family="Arial"><text x="32" y="110" font-size="14" fill="#1f2937">full_score: 0.424</text>
+<text x="32" y="134" font-size="14" fill="#1f2937">high_retention_variants: [&quot;question_only&quot;, &quot;context_removed&quot;, &quot;context_shuffled&quot;, &quot;label_prior_only&quot;, &quot;irrelevant_context&quot;]</text>
+<text x="32" y="158" font-size="14" fill="#1f2937">primary_full_variant: full</text>
+<text x="32" y="182" font-size="14" fill="#1f2937">variants: {&quot;answer_length_only&quot;: {&quot;ablated_score&quot;: 0.2222222222222222, &quot;ablated_score_ci&quot;: {&quot;estimate&quot;: 0.2222222222222222, &quot;lower&quot;: 0.17708</text></g>
+</svg>

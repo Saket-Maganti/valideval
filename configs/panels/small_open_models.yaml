@@ -1,0 +1,27 @@
+panel_id: mock
+description: Offline deterministic panel for smoke tests and demos. Replace with local runners for real audits.
+models:
+  - model_id: always_a
+    runner: mock
+    strategy: always_a
+  - model_id: majority_label
+    runner: mock
+    strategy: majority_label
+  - model_id: keyword_matcher
+    runner: mock
+    strategy: keyword_matcher
+  - model_id: shortcut_exploiter
+    runner: mock
+    strategy: shortcut_exploiter
+  - model_id: context_aware
+    runner: mock
+    strategy: context_aware
+  - model_id: noisy_strong
+    runner: mock
+    strategy: noisy_strong
+  - model_id: noisy_weak
+    runner: mock
+    strategy: noisy_weak
+  - model_id: format_fragile
+    runner: mock
+    strategy: format_fragile

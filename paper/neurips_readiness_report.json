@@ -1,0 +1,195 @@
+{
+  "benchmark": "toy_mcq",
+  "checks": [
+    {
+      "details": {
+        "paper_dir": "paper",
+        "placeholder_files": [
+          "paper/main.tex",
+          "paper/tables/reliability.tex",
+          "paper/tables/subset_fidelity.tex"
+        ]
+      },
+      "message": "Paper draft still contains placeholder text.",
+      "name": "paper_draft",
+      "next_commands": [
+        "Fill paper placeholders using local artifacts only."
+      ],
+      "severity": "required",
+      "status": "blocked"
+    },
+    {
+      "details": {
+        "exists": true,
+        "path": "paper/CLAIMS_LEDGER.md"
+      },
+      "message": "Claims ledger exists.",
+      "name": "claims_ledger",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exists": true,
+        "path": "paper/NEURIPS_SUBMISSION_PLAN.md"
+      },
+      "message": "NeurIPS submission plan exists.",
+      "name": "neurips_submission_plan",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exists": true,
+        "path": "docs/engineering/NEURIPS_READINESS_PLAN.md"
+      },
+      "message": "NeurIPS readiness plan exists.",
+      "name": "neurips_readiness_plan",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "exists": true,
+        "path": "NO_RUN_RULES_AND_EVIDENCE_STATE_LOCK.md",
+        "required_marker_count": 7
+      },
+      "message": "No-run evidence-state lock preserves required blocked/weak states.",
+      "name": "evidence_state_lock",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "diagnostics_prototype_only": [
+          "answer_distribution / label_imbalance",
+          "distractor_quality / dead_distractors"
+        ],
+        "diagnostics_to_quarantine": [],
+        "diagnostics_validated": [
+          "answer_distribution / answer_length_artifact",
+          "extraction_robustness / extraction_ambiguity",
+          "extraction_robustness / scoring_ambiguity",
+          "irt / low_discrimination",
+          "irt / negative_discrimination",
+          "redundancy / redundancy",
+          "reliability / prompt_format_fragility",
+          "saturation / too_easy_saturation",
+          "saturation / too_hard_floor",
+          "shortcut / shortcut_signal"
+        ],
+        "n_experiments": 12,
+        "path": "validation_reports/diagnostic_validation_summary.json"
+      },
+      "message": "Synthetic validation summary is available.",
+      "name": "synthetic_validation",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "bundle_dir": "bundles/toy_mcq_mock_bundle",
+        "checked_files": 69,
+        "errors": [],
+        "valid": true,
+        "warnings": []
+      },
+      "message": "Reproducibility bundle verifies.",
+      "name": "reproducibility_bundle",
+      "severity": "required",
+      "status": "pass"
+    },
+    {
+      "details": {
+        "high_risk_count": 0,
+        "output_path": "paper/toy_mcq_mock.reviewer_risk.json",
+        "report": "reportcards/toy_mcq_mock.md",
+        "risk_count": 2,
+        "risks": [
+          {
+            "message": "Report does not discuss preregistration.",
+            "risk": "missing_preregistration",
+            "severity": "low"
+          },
+          {
+            "message": "Report does not discuss multiple comparison.",
+            "risk": "missing_multiple_comparison",
+            "severity": "low"
+          }
+        ]
+      },
+      "message": "Reviewer-risk audit has non-high-risk findings.",
+      "name": "reviewer_risk",
+      "severity": "required",
+      "status": "warning"
+    },
+    {
+      "details": {
+        "blocked_reasons": [
+          "required_variant_per_model_extraction_thresholds_met"
+        ],
+        "diagnostics_allowed": [
+          "distractor_quality"
+        ],
+        "diagnostics_blocked": {
+          "prompt_sensitivity": [
+            "overall_go_no_go_not_go",
+            "per_model_extraction_below_threshold:question_only_answer_only_v2:qwen2.5:1.5b-instruct"
+          ],
+          "shortcut": [
+            "overall_go_no_go_not_go",
+            "per_model_extraction_below_threshold:question_only_answer_only_v2:qwen2.5:1.5b-instruct"
+          ],
+          "variant_reliability": [
+            "overall_go_no_go_not_go",
+            "per_model_extraction_below_threshold:question_only_answer_only_v2:qwen2.5:1.5b-instruct"
+          ]
+        },
+        "go_no_go_status": "no_go",
+        "path": "results/gpqa_diamond/input_validation/go_no_go.json",
+        "primary_full_variant": "full_answer_only_v2",
+        "real_benchmark": "gpqa_diamond",
+        "real_panel": "gpqa_minimal_open_local_amended_v2_compliant"
+      },
+      "message": "Real-benchmark go/no-go is blocked; do not interpret blocked diagnostics.",
+      "name": "real_benchmark_gate",
+      "next_commands": [
+        "Resolve the real-benchmark gate or keep the case study explicitly blocked in the paper."
+      ],
+      "severity": "required",
+      "status": "blocked"
+    },
+    {
+      "details": {
+        "git_metadata_present": true,
+        "required_files": [
+          "README.md",
+          "LICENSE",
+          "CITATION.cff",
+          "pyproject.toml"
+        ]
+      },
+      "message": "Public-release metadata exists.",
+      "name": "public_release_metadata",
+      "severity": "recommended",
+      "status": "pass"
+    }
+  ],
+  "created_at": "2026-07-09T14:48:47.531688+00:00",
+  "next_commands": [
+    "Fill paper placeholders using local artifacts only.",
+    "Resolve the real-benchmark gate or keep the case study explicitly blocked in the paper."
+  ],
+  "panel": "mock",
+  "publication_boundary": [
+    "Do not claim real-benchmark findings while go/no-go is blocked.",
+    "Do not print raw restricted benchmark item text in public artifacts.",
+    "Report measured, blocked, and not-run diagnostics separately.",
+    "Do not collapse validity evidence into one benchmark-health number."
+  ],
+  "real_benchmark": "gpqa_diamond",
+  "real_panel": "gpqa_minimal_open_local_amended_v2_compliant",
+  "schema_version": "0.1",
+  "status": "blocked",
+  "target": "NeurIPS Evaluations and Datasets"
+}
