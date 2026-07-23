@@ -106,30 +106,115 @@ def run_notebook_stage(
             return package_fixture_runs(root)
         return build_fixture_run("mmlu", root, run_suffix="robustness")
 
-    if execution_mode == "package_only":
-        return package_completed_runs(root)
-    if execution_mode == "validate_only":
-        return validate_completed_runs(root)
+    from valideval.execution.runner import preflight_from_config, run_from_config
 
-    payload = {
-        "schema_version": EXECUTION_SCHEMA_VERSION,
-        "stage": normalized_stage,
-        "mode": execution_mode,
-        "status": "CONTROLLED_GPU_EXECUTION_CONFIG_REQUIRED",
-        "evidence_state": "RESULT_REQUIRED",
-        "required_configuration": os.environ.get(
-            "VALIDEVAL_EXECUTION_CONFIG",
-            "Set VALIDEVAL_EXECUTION_CONFIG to a frozen V5 YAML configuration on Kaggle.",
-        ),
-        "instructions": [
-            "Select the Kaggle T4 x2 accelerator before running benchmark stages.",
-            "Freeze model and dataset revisions in the V5 configuration snapshot.",
-            "Use one worker per visible GPU and preserve isolated worker outputs.",
-            "Do not interpret a run until merge, checksum, coverage, and importer gates pass.",
-        ],
-    }
-    atomic_write_json(root / f"{normalized_stage}_{execution_mode}_preflight.json", payload)
+    repository_root = _repository_root()
+    explicit_config = os.environ.get("VALIDEVAL_EXECUTION_CONFIG", "").strip()
+    if normalized_stage == "robustness" and not explicit_config:
+        raise ValueError(
+            "robustness mode requires an explicit versioned VALIDEVAL_EXECUTION_CONFIG"
+        )
+    if normalized_stage == "environment":
+        config_path = explicit_config or str(repository_root / "configs/runs/mmlu_s1_v6.yaml")
+        payload = preflight_from_config(config_path, output_root=root)
+        payload.update({"stage": normalized_stage, "mode": execution_mode})
+        atomic_write_json(root / f"{normalized_stage}_{execution_mode}_preflight.json", payload)
+        return payload
+    if normalized_stage == "package":
+        config_paths = (
+            [Path(explicit_config)]
+            if explicit_config
+            else [
+                repository_root / f"configs/runs/{benchmark}_s1_v6.yaml"
+                for benchmark in ("mmlu", "gsm8k", "bbh")
+            ]
+        )
+        operation = (
+            execution_mode
+            if execution_mode in {"validate_only", "package_only"}
+            else "validate_only"
+        )
+        results = [
+            run_from_config(path, mode_override=operation, output_root=root)
+            for path in config_paths
+        ]
+        success = all(result["status"] == "RUN_COMPLETE" for result in results)
+        payload = {
+            "schema_version": EXECUTION_SCHEMA_VERSION,
+            "stage": normalized_stage,
+            "mode": execution_mode,
+            "status": "RUN_COMPLETE" if success else "PACKAGE_VALIDATION_FAILURE",
+            "results": results,
+            "evidence_state": "ENGINEERING_ONLY",
+        }
+        atomic_write_json(root / f"{normalized_stage}_{execution_mode}_result.json", payload)
+        return payload
+    config_path = explicit_config or str(
+        repository_root / f"configs/runs/{normalized_stage}_s1_v6.yaml"
+    )
+    mode_override = execution_mode if execution_mode != "smoke" else None
+    injected_items = None
+    if os.environ.get("VALIDEVAL_MOCKED_PRODUCTION_ITEMS", "").strip() == "1":
+        injected_items = _mocked_production_items(config_path)
+    payload = run_from_config(
+        config_path,
+        mode_override=mode_override,
+        output_root=root,
+        repository_root=repository_root,
+        injected_items=injected_items,
+    )
+    payload.update({"stage": normalized_stage, "mode": execution_mode})
+    atomic_write_json(root / f"{normalized_stage}_{execution_mode}_result.json", payload)
     return payload
+
+
+def _mocked_production_items(config_path: str | Path):
+    """Build deterministic gold-isolated inputs for package-path integration tests only."""
+
+    from valideval.execution.config import load_run_config
+    from valideval.execution.datasets import frozen_items_from_records
+
+    repository_root = _repository_root()
+    config = load_run_config(config_path, repository_root=repository_root)
+    if config.execution.backend != "mock" or config.evidence_class != "NON_EVIDENCE_FIXTURE":
+        raise ValueError(
+            "VALIDEVAL_MOCKED_PRODUCTION_ITEMS requires a mock backend explicitly "
+            "labeled NON_EVIDENCE_FIXTURE"
+        )
+    contract = yaml.safe_load(
+        (repository_root / config.benchmark_contract).read_text(encoding="utf-8")
+    )
+    count = int(contract["expected_s1_item_count"])
+    if config.benchmark_id == "mmlu":
+        records = [
+            {
+                "subject": f"fixture_subject_{index:02d}",
+                "question": f"NON_EVIDENCE_FIXTURE question {index}?",
+                "choices": ["one", "two", "three", "four"],
+                "answer": index % 4,
+            }
+            for index in range(count)
+        ]
+    elif config.benchmark_id == "gsm8k":
+        records = [
+            {
+                "subtask": "main",
+                "question": f"NON_EVIDENCE_FIXTURE arithmetic {index}?",
+                "answer": str(index),
+            }
+            for index in range(count)
+        ]
+    else:
+        policies = sorted(contract["task_prompt_policies"])
+        records = [
+            {
+                "subtask": policies[index % len(policies)],
+                "input": f"NON_EVIDENCE_FIXTURE BBH input {index}",
+                "target": "yes",
+            }
+            for index in range(count)
+        ]
+    return frozen_items_from_records(contract, records)
 
 
 def build_fixture_run(
@@ -647,3 +732,9 @@ def _fixture_package_files() -> tuple[str, ...]:
         "predictions.jsonl",
         "matrix.csv",
     )
+
+
+def _repository_root() -> Path:
+    from valideval.execution.config import discover_repository_root
+
+    return discover_repository_root(Path(__file__))

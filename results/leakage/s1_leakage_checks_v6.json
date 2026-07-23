@@ -1,0 +1,61 @@
+{
+  "checks": {
+    "config_field_label_leakage": {
+      "status": "pass"
+    },
+    "cross_benchmark_exact_duplicates": {
+      "collision_count": 0,
+      "collisions": [],
+      "status": "pass"
+    },
+    "cross_benchmark_near_duplicate_candidates": {
+      "candidate_count": 0,
+      "candidate_file": "results/leakage/s1_overlap_candidates_v6.csv",
+      "status": "pass"
+    },
+    "gold_boundary": {
+      "generator_receives_gold": false,
+      "parser_receives_gold": false,
+      "renderer_receives_gold": false,
+      "scorer_only_gold_access": true,
+      "status": "pass",
+      "test_module": "tests/test_gold_isolation_v6.py"
+    },
+    "item_id_collisions": {
+      "status": "pass"
+    },
+    "model_pretraining_contamination": {
+      "locally_testable": false,
+      "status": "unresolved_external_validity_limitation"
+    },
+    "option_aware_target_few_shot_overlap": {
+      "overlap_count": 0,
+      "status": "pass"
+    },
+    "output_path_label_leakage": {
+      "status": "pass"
+    },
+    "prompt_contamination": {
+      "forbidden_diagnostic_labels_exposed": false,
+      "status": "pass"
+    },
+    "target_few_shot_exact_hash_overlap": {
+      "overlap_count": 0,
+      "reason": "all three S1 contracts use the versioned zero-shot policy",
+      "status": "pass"
+    },
+    "target_few_shot_normalized_text_overlap": {
+      "overlap_count": 0,
+      "status": "pass"
+    }
+  },
+  "claim_boundary": "These checks close locally testable S1 paths only. They do not establish absence of benchmark content from model pretraining data.",
+  "evidence_class": "ENGINEERING_ONLY",
+  "gate": "S1_LEAKAGE_GUARDS_COMPLETE",
+  "schema_version": "6.0",
+  "subset_manifest_hashes": {
+    "bbh": "d25ed8f57db8e5b71981773f8daa83c9f6d7565495bba64cd95ceb05cef85829",
+    "gsm8k": "ae1b46a8330ef26b67c708d02596ae100ab2687be6c7330c17d64dea0a2520f6",
+    "mmlu": "2a41fbe2bede32acd1bfb1860c714324a67141161115e271ce36cae956feb19a"
+  }
+}

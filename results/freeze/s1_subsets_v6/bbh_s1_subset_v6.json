@@ -1,0 +1,366 @@
+{
+  "benchmark_id": "bbh",
+  "dataset_repository": "lukaemon/bbh",
+  "dataset_revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+  "few_shot_examples_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "few_shot_ids": [],
+  "few_shot_policy": "zero_shot_s1_v6",
+  "item_count": 50,
+  "items": [
+    {
+      "item_hash": "24f6c5eb4e58ecc3ed145b3f7f6e87110827f616634760e1ab87e7cde1cdd79e",
+      "item_id": "bbh-boolean_expressions-24f6c5eb4e58ecc3ed145b3f",
+      "normalized_text_hash": "3b3f39ae9c85b259b8d92e29eba665fea95d41d4f0b7aade77117234b82f4935",
+      "row_index": 39,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "c0eabc8078aa316979730d12c9990652f02ed633cf02c026ef181f443ee1ed81",
+      "item_id": "bbh-causal_judgement-c0eabc8078aa316979730d12",
+      "normalized_text_hash": "54b793f5b51e3d703a36edae202fca4e26b0156e50e4018d1d5e9d27c27d053f",
+      "row_index": 23,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "e9ac8777acba15fc5c7f87cfbccf0b0cb54e75ab8f8d953e72e06f37d4ab5232",
+      "item_id": "bbh-causal_judgement-e9ac8777acba15fc5c7f87cf",
+      "normalized_text_hash": "3eecb18860b84f254aedafc8262f4b5b440dce70c4b6ff1922cc5445385ab954",
+      "row_index": 102,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "676c6dd845f8a0828e5aeceb9ece4954f44db65ea2eeb75d288cc90df49d02c4",
+      "item_id": "bbh-date_understanding-676c6dd845f8a0828e5aeceb",
+      "normalized_text_hash": "cadad8199596f7d5c742057dde004025a27269c871e9b97d5dea256d47bcc1ca",
+      "row_index": 122,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "62d5af57d0bb631ef6b79e56fdc7a9d79942ddfe094abe4315074543bea7bc5d",
+      "item_id": "bbh-disambiguation_qa-62d5af57d0bb631ef6b79e56",
+      "normalized_text_hash": "a3a0e1dec6bb66cc18f1ad52918e5a16c78be8839b610ebce5dd681b80064908",
+      "row_index": 224,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "d9a072fb88081e806afce2b57343564148af89cc44bee659670cb9a11fbbdef2",
+      "item_id": "bbh-disambiguation_qa-d9a072fb88081e806afce2b5",
+      "normalized_text_hash": "1628cccba06976155a2baeeba6d001eda0dcbdc1c4b735dd9790ce7511ea5cce",
+      "row_index": 129,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "3d4855a7118fe36a5fa9b733c7c94e345e9f331a4cf85c7c2e301818e302cd6f",
+      "item_id": "bbh-dyck_languages-3d4855a7118fe36a5fa9b733",
+      "normalized_text_hash": "5e4ce8aa0d736e79ee1f7fc45bcee52a2066997c9e3c8a8d42f90482fe865dfe",
+      "row_index": 62,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "95a936ffec94d77835a86b3c7df85f66d9b036969ebac51e4e8537f21a7b8941",
+      "item_id": "bbh-dyck_languages-95a936ffec94d77835a86b3c",
+      "normalized_text_hash": "e1d531bb9242b7a43a4bc57e456ba0fa19666569017858a0a3d8f9394b59eff5",
+      "row_index": 80,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "26f13855e12fddd7719bcc25605e3473b564231ec2cf27b5754bdee81403193b",
+      "item_id": "bbh-formal_fallacies-26f13855e12fddd7719bcc25",
+      "normalized_text_hash": "d6935c9614e5f852bd6be9f018256bb2185c509c72aa7cf4a1c695a76cd44642",
+      "row_index": 175,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "3cf273dcf0c820af738b213f83e790f8036c0d17cb3ce4892eed63130127f2a0",
+      "item_id": "bbh-formal_fallacies-3cf273dcf0c820af738b213f",
+      "normalized_text_hash": "61e61f7cf483466c7bff0e2bc513d6fd692cd85bbbb35cb1546d3f6f366631fb",
+      "row_index": 217,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "642841c1a6e17b168aedf7a183801c4b68fa3b81397ad7261daae849a3d7a748",
+      "item_id": "bbh-geometric_shapes-642841c1a6e17b168aedf7a1",
+      "normalized_text_hash": "a4ba3708deb53487cffc43ebfe9858d60c89c48221c1432be89559002a5187b6",
+      "row_index": 229,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "aacae9be8ce0e7d5e2e5250c7568298db16332f38fd7090107220bc304556b27",
+      "item_id": "bbh-geometric_shapes-aacae9be8ce0e7d5e2e5250c",
+      "normalized_text_hash": "c8d8bc10869783cba4ae9537cadf75e32d7bc42b5e096848de0ff5cd995780fc",
+      "row_index": 153,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "47d4a71061aff02abb242e321e986c54b1f1583a72ca6ce312e0f4be9b9fc61c",
+      "item_id": "bbh-hyperbaton-47d4a71061aff02abb242e32",
+      "normalized_text_hash": "497a350ef97c131bff0e158d9ab9f43eb6b74e9aa6a43a02003899377b8e9f5e",
+      "row_index": 29,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "4d9da74396cf12280955114817843eaa1b63f7aaf9ca5c7eff78514de21d8dbb",
+      "item_id": "bbh-hyperbaton-4d9da74396cf122809551148",
+      "normalized_text_hash": "963c4b1c0225d3cb90a82bd323d11d86b0652f05b1dffc098909fa2d3331d643",
+      "row_index": 85,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "22334d8145cbd8f73a5a0c83c02d41d0a6dfbea0e08c79bee354a02c91c10f04",
+      "item_id": "bbh-logical_deduction_five_objects-22334d8145cbd8f73a5a0c83",
+      "normalized_text_hash": "c97847357cb0495e28878457ba9f7a3620464360536bb5532b9e2a15d03d7569",
+      "row_index": 174,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "8222797161ce19b62a7dd1633edbf8cb51af845f380775c150e1dc596f24103a",
+      "item_id": "bbh-logical_deduction_five_objects-8222797161ce19b62a7dd163",
+      "normalized_text_hash": "1ed0f0855e22187b331be16b88828191dfc16289873c5611195b95b51d8dad4c",
+      "row_index": 7,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "15698f5c4a95dd04dc89940bf301e6978dcf05b4497ed4ac40185a25fe972eb5",
+      "item_id": "bbh-logical_deduction_seven_objects-15698f5c4a95dd04dc89940b",
+      "normalized_text_hash": "85b877911d3f2b0b4a765571ea30db37c5f00ad336dc6ce06d34b7d6ad1fb3a6",
+      "row_index": 130,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "7c0cdec1188a0b32504492c6dd097dc918bb81f4a800c58e321b90108cabbabf",
+      "item_id": "bbh-logical_deduction_seven_objects-7c0cdec1188a0b32504492c6",
+      "normalized_text_hash": "2852914bfcf8a5a553a5da7dc800b9972007940020c12a4cb195fb66bee1f45f",
+      "row_index": 8,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "6dcccc19f3ad4b846941599941bfa532a4a9bd87eabb916ef52ccfb7c4ecc6c5",
+      "item_id": "bbh-logical_deduction_three_objects-6dcccc19f3ad4b8469415999",
+      "normalized_text_hash": "dfed1f36a5a866d9b15ccc1a5eda0d74cfb23a648cbd33804abccbc389b75f26",
+      "row_index": 240,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "fd7b77288b70a736a3121dd9941658da784e6997fa26fb76bc4b1a41f4631f37",
+      "item_id": "bbh-logical_deduction_three_objects-fd7b77288b70a736a3121dd9",
+      "normalized_text_hash": "50a7df3a14b906734ba0ba5156b13802d3b181dfd9e23c1b686d4aee972ec007",
+      "row_index": 27,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "02a6da258a4104515c894a704b7be28f0d084b195e976e60098ee2e507f21e94",
+      "item_id": "bbh-movie_recommendation-02a6da258a4104515c894a70",
+      "normalized_text_hash": "8a017ef5723756998ca230e8f283017b9cc90c8bb014497fc4d07352e20452ad",
+      "row_index": 207,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "eedd5a6d7f0e94fae6e3ad27ff22b9d19ebba76fdc7a3a5c5b3f0e59de00e437",
+      "item_id": "bbh-movie_recommendation-eedd5a6d7f0e94fae6e3ad27",
+      "normalized_text_hash": "dbfdaab831ca887134ab1dd10ced82013729b71b8bf33807eef266667441f405",
+      "row_index": 125,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "718c82e4735fd3efdebe7e5e857316fd60d983842e8c35f25b5e1e1b0838f19c",
+      "item_id": "bbh-multistep_arithmetic_two-718c82e4735fd3efdebe7e5e",
+      "normalized_text_hash": "a46692b2f2e0f8854015affb84539000909a458f4c96d918617c7054b9ace493",
+      "row_index": 48,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "e263fc4276d1b523d4a9335619bf5d816a6f85f3bb988b03820a9043d4355faa",
+      "item_id": "bbh-multistep_arithmetic_two-e263fc4276d1b523d4a93356",
+      "normalized_text_hash": "554bffbe8b24be927257ca3f54de3bc4d8cfc6f889bd68f00faa4056419e4b03",
+      "row_index": 140,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "66ac4a6fedf3d5f37ff81df861fd577840bf86e0a89c4fe043752fccfb9b5fd8",
+      "item_id": "bbh-navigate-66ac4a6fedf3d5f37ff81df8",
+      "normalized_text_hash": "c5874bf7d612d3cf9db2c56274a4b87d2a38eb43e0507e9e438a87ea7d177413",
+      "row_index": 57,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "f9398b5a4e4bfa3fc34421a936f00e5fc63cb8171b3696e84bf3af7595dbb34d",
+      "item_id": "bbh-navigate-f9398b5a4e4bfa3fc34421a9",
+      "normalized_text_hash": "b3d447fe831c27f35c00235176ed5b0d8bc06c3780c93d330f785df13473b52f",
+      "row_index": 70,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "48b8655b54c2a516d530b277f3703737818fa25b0df50143ea11483e8979c40f",
+      "item_id": "bbh-object_counting-48b8655b54c2a516d530b277",
+      "normalized_text_hash": "19de4b3169b12e934807097c5f542ac9af2220b8fe6a99830f231a164879b3c3",
+      "row_index": 28,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "a33d29e71d82cdf8f47ac8b73f3da4819111597641f58bb20059b5c229ad030a",
+      "item_id": "bbh-object_counting-a33d29e71d82cdf8f47ac8b7",
+      "normalized_text_hash": "1dbb9ca166d42c74045c382078319b52a8794d1071d2b76a8b4fe5bc9e89774f",
+      "row_index": 44,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "0d9a041c55891f31f4d77364a911a764f74d83e4ce2a45cf288f5fe64c1f2009",
+      "item_id": "bbh-penguins_in_a_table-0d9a041c55891f31f4d77364",
+      "normalized_text_hash": "975b7f1958f4436f621dc919a40124b292f060d00cb08ac6864263d23e711c12",
+      "row_index": 103,
+      "subtask": "penguins_in_a_table"
+    },
+    {
+      "item_hash": "833aece989791177653d200ed05b56c339d2dd31602df81ab166185adca9afc6",
+      "item_id": "bbh-penguins_in_a_table-833aece989791177653d200e",
+      "normalized_text_hash": "3ce7c36532bb19bbf5668f455dab0df03abc7f786804e1f47211f59ac9f06ce4",
+      "row_index": 128,
+      "subtask": "penguins_in_a_table"
+    },
+    {
+      "item_hash": "0a715fffad0cb8e589561af906ccd1e6e38f954fcc6f81cfa97ee915f0094d8e",
+      "item_id": "bbh-reasoning_about_colored_objects-0a715fffad0cb8e589561af9",
+      "normalized_text_hash": "7b8ea9eff4e4f00ed655afd203d77921fc05288758c14836b011301a6b0ace3c",
+      "row_index": 61,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "e8b0e45299962bf6efc4e6cbaa9c81936cc1bac27c4b28df2aa3a43e6742d176",
+      "item_id": "bbh-reasoning_about_colored_objects-e8b0e45299962bf6efc4e6cb",
+      "normalized_text_hash": "6797419128f29a7100fda532f8297d6f12be1dc2b6d43881612514458001f093",
+      "row_index": 116,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "19c916c89ca988d0bd0fecb3b83eb5b51c83bb5359c6e78c465240886345c5f5",
+      "item_id": "bbh-ruin_names-19c916c89ca988d0bd0fecb3",
+      "normalized_text_hash": "cfbe6a46a8aaae5be719979ea82754a40d72c34fe3e9f7e78f53f9125b53651e",
+      "row_index": 32,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "b05c8504233d6dcce3131380421ab7ab34df91c80dae2e25eca0e12c2003c17c",
+      "item_id": "bbh-ruin_names-b05c8504233d6dcce3131380",
+      "normalized_text_hash": "7ad5e6bf32f4ddeff7545c3c2db00f0b52fa4ca42efbbf12dcbf33a8b59768b8",
+      "row_index": 47,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "0c61b2497c284bb6a4f4073dc84e4fd12d1f379fcab961fbd5026313bb0ef7cb",
+      "item_id": "bbh-salient_translation_error_detection-0c61b2497c284bb6a4f4073d",
+      "normalized_text_hash": "fbe6393d462cfbe72457731b9abddb40f8a584b0ca70a158f060b72bfe57ee1d",
+      "row_index": 124,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "82026094a778544cc5d9b376379d74a9956004bbb50746be70d597b07011ef98",
+      "item_id": "bbh-salient_translation_error_detection-82026094a778544cc5d9b376",
+      "normalized_text_hash": "390ff5a77710d0e88675f61c3f80523bbc91ca868aec6bdaf5a4e380acdc381d",
+      "row_index": 30,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "40809ecc114b4fe446d46dae4596f4b163290adcad3239361d23782837cd94e6",
+      "item_id": "bbh-snarks-40809ecc114b4fe446d46dae",
+      "normalized_text_hash": "2bfc5a523df3b0eb1d08e5ed9b647a45e20a9b487ebe29f67c9752ada33bf20a",
+      "row_index": 167,
+      "subtask": "snarks"
+    },
+    {
+      "item_hash": "6d511909bd53f0a7457b293ecd47536a8fb0b35f68efa96de9ff9d9a71a0d6ae",
+      "item_id": "bbh-snarks-6d511909bd53f0a7457b293e",
+      "normalized_text_hash": "88e3c8c4fbfe783422953f1d3d89e4fccf290b57c2245a86ac8bfbdf65b8130e",
+      "row_index": 93,
+      "subtask": "snarks"
+    },
+    {
+      "item_hash": "469a22d66bd853279fe41e3f2c1af81dbec137390b2e4246cf339b8e00bb9299",
+      "item_id": "bbh-sports_understanding-469a22d66bd853279fe41e3f",
+      "normalized_text_hash": "c4e193c12b7b71aa20c5aa50cb0ae6b6a15a9cdff3413e04357e0f869173d10f",
+      "row_index": 7,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "6f66fab2da6d2bfba5faf4f64296cbced20018f6b05c41364e5c5ee0376dd40e",
+      "item_id": "bbh-sports_understanding-6f66fab2da6d2bfba5faf4f6",
+      "normalized_text_hash": "8b67c6c33e2052c0d9bc863f4c9ac9315f3f4924232b3082d9519bcd277512bd",
+      "row_index": 126,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "8a8db2e969e652150ebbb7b020280f334cbed96de72742caff8940f5a8445263",
+      "item_id": "bbh-temporal_sequences-8a8db2e969e652150ebbb7b0",
+      "normalized_text_hash": "567bae0642fb6efe7878d3fb2f20788ca61b9a32913761dd42790670e42f038c",
+      "row_index": 68,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "a757087ab8eaae92c9bf2c472bd2b52e68c243ec091a21897d8734910cc6b7e2",
+      "item_id": "bbh-temporal_sequences-a757087ab8eaae92c9bf2c47",
+      "normalized_text_hash": "e416d2787b4647f80982b6ca6f050ecefb4c88e44332d87fb56306ce0c79c970",
+      "row_index": 185,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "5b2b1400fb0505c4f3098d507b4716fa06dfb8ca0ebca092559bb79cc2860f63",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-5b2b1400fb0505c4f3098d50",
+      "normalized_text_hash": "aa4ea8295f63fd74e1a312672d411678b02c59e283a59b9d02518ab7ccfa49ae",
+      "row_index": 135,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "e57db95bd3f166d4075b2165e5aa308a02222642ce0d536660763eb205d32e1e",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-e57db95bd3f166d4075b2165",
+      "normalized_text_hash": "4d31fb3c63c8850ebe87e3b6d6d90af0fb01fa78722b8e50cb5839abf56b8f65",
+      "row_index": 140,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "2d1cdd124ce7bba6166815f6360dc0844629fa5e8d9618e6e8bf0de5afe5090d",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-2d1cdd124ce7bba6166815f6",
+      "normalized_text_hash": "2b3f6074a6f902fc2cd5ac590b169cad589c089afa9aaa70abbf45857ca7f6e0",
+      "row_index": 159,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "4801c93bf86d36685a69fdd8f1986927a521cdbe6996cb40f7a27b622295499e",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-4801c93bf86d36685a69fdd8",
+      "normalized_text_hash": "211919529bf29ce68a9d0d6d0c825968ded774bd58ec32a7ae801803b89d1267",
+      "row_index": 47,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "c820264f3e234ef54690a223fd9f4b03be54d7dabf698543fdfd5328d272ab9e",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-c820264f3e234ef54690a223",
+      "normalized_text_hash": "b52d4487f476c895a4330814b623c7d55c4eaf719f391a88b353a2bbb7aea18e",
+      "row_index": 13,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "519be0f80fcc2f26cf2cbf9f1cd1773af4f518d2b3ac404426e80c2c52e363d7",
+      "item_id": "bbh-web_of_lies-519be0f80fcc2f26cf2cbf9f",
+      "normalized_text_hash": "5157babd3d8fbe03cefded821a5dd94e55cfe8982ec4b8a9a7806c550aed57ec",
+      "row_index": 124,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "aac4efc86c9d7c485fea6593147a793efdd9e48373b46f0fa1051031f3cf38b7",
+      "item_id": "bbh-web_of_lies-aac4efc86c9d7c485fea6593",
+      "normalized_text_hash": "639f43188b0597d44f090a55a56c9e10f027986edf916fbcc8a0be2aed34fe23",
+      "row_index": 97,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "6e45576ca0a001987b142c0add1a2a72ab731676ef700ad49184e82106dfe6cc",
+      "item_id": "bbh-word_sorting-6e45576ca0a001987b142c0a",
+      "normalized_text_hash": "bd681defec41596a8b3d048419ca422f003e7d1237547419d3811760bba71e14",
+      "row_index": 225,
+      "subtask": "word_sorting"
+    }
+  ],
+  "public_subset_sha256": "e811ddb328e58d502f30b2a66362ac9087ca3e94923103543b30af98feefa076",
+  "schema_version": "6.0",
+  "split": "test",
+  "subset_policy": "deterministic_task_stratified_27_plus_23_second_items",
+  "subset_seed": 20260723
+}

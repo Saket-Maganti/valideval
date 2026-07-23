@@ -12,8 +12,10 @@ from typing import Any
 
 import yaml
 
-EXECUTION_SCHEMA_VERSION = "valideval.execution.v5"
-ACCEPTED_V5_SCHEMA_VERSIONS = frozenset({EXECUTION_SCHEMA_VERSION, "v5", "5"})
+EXECUTION_SCHEMA_VERSION = "valideval.execution.v6"
+ACCEPTED_V5_SCHEMA_VERSIONS = frozenset(
+    {EXECUTION_SCHEMA_VERSION, "valideval.execution.v5", "v6", "6", "v5", "5"}
+)
 NON_EVIDENCE_FIXTURE = "NON_EVIDENCE_FIXTURE"
 
 RUN_REQUIRED_FILES = (
@@ -87,7 +89,7 @@ FAILURE_TYPES = frozenset(
 )
 
 _HEX_64 = re.compile(r"^[0-9a-f]{64}$")
-_SAFE_IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:@+\-]{0,255}$")
+_SAFE_IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/:@+\-]{0,255}$")
 
 
 class ManifestValidationError(ValueError):
@@ -331,9 +333,14 @@ def validate_run_manifest(
         raise ManifestValidationError(f"Run is not complete: {manifest['completion_state']!r}")
     if str(manifest["evidence_state"]) == NON_EVIDENCE_FIXTURE:
         mode = str(manifest.get("execution_mode", manifest.get("mode", "fixture"))).lower()
-        if mode != "fixture":
+        mocked_production_path = (
+            manifest.get("execution_backend") == "mock"
+            and manifest.get("mocked_production_path") is True
+        )
+        if mode != "fixture" and not mocked_production_path:
             raise ManifestValidationError(
-                "NON_EVIDENCE_FIXTURE manifests must declare execution_mode=fixture"
+                "NON_EVIDENCE_FIXTURE manifests must use fixture mode or explicitly declare "
+                "the mocked production path"
             )
     source_hash = manifest.get("source_zip_sha256")
     if source_hash not in (None, "") and not _HEX_64.fullmatch(str(source_hash).lower()):

@@ -423,3 +423,253 @@ def synthetic_recovery_check(
         "subject_easiness_spearman": subject_correlation,
         "claim_boundary": "Synthetic recovery checks implementation behavior only.",
     }
+
+
+def heldout_subject_model_validation(
+    matrix: pd.DataFrame,
+    subject_ids: Sequence[str] | Mapping[Any, str],
+    *,
+    model_families: Mapping[Any, str] | None = None,
+    holdout_fraction: float = 0.2,
+    interaction_shrinkage: float = 10.0,
+    smoothing: float = 0.5,
+    seed: int = 2027,
+    n_uncertainty_bootstrap: int = 200,
+) -> dict[str, Any]:
+    """Evaluate the subject-conditioned model on items hidden before fitting."""
+
+    frame = validate_binary_response_matrix(matrix)
+    subjects = normalize_subject_ids(frame.columns, subject_ids)
+    if not 0 < holdout_fraction < 0.5:
+        raise ValueError("holdout_fraction must lie in (0, 0.5)")
+    if n_uncertainty_bootstrap <= 0:
+        raise ValueError("n_uncertainty_bootstrap must be positive")
+    rng = np.random.default_rng(seed)
+    heldout_columns: list[Any] = []
+    for subject in sorted(subjects.unique()):
+        subject_columns = subjects.index[subjects.eq(subject)].to_numpy()
+        count = max(1, int(round(len(subject_columns) * holdout_fraction)))
+        heldout_columns.extend(rng.choice(subject_columns, size=count, replace=False).tolist())
+    heldout_columns = sorted(set(heldout_columns), key=lambda value: str(value))
+    training = frame.drop(columns=heldout_columns)
+    training_subjects = subjects.drop(index=heldout_columns)
+    result = fit_hierarchical_subject_model(
+        training,
+        training_subjects.to_dict(),
+        model_families=model_families,
+        interaction_shrinkage=interaction_shrinkage,
+        smoothing=smoothing,
+        assumption_overrides={
+            "max_missing_fraction": 0.5,
+            "min_models": min(8, frame.shape[0]),
+            "min_items": min(40, frame.shape[1]),
+            "min_subjects": min(2, subjects.nunique()),
+            "min_items_per_subject": 1,
+            "max_family_fraction": 1.0,
+        },
+    )
+    if result["status"] != "REPRODUCED":
+        return {
+            "status": "BLOCKED",
+            "blockers": result.get("blockers", []),
+            "heldout_item_count": len(heldout_columns),
+        }
+    model_effect = {
+        row["model_id"]: float(row["centered_model_effect"]) for row in result["model_parameters"]
+    }
+    subject_effect = {
+        row["subject_id"]: float(row["centered_subject_easiness"])
+        for row in result["subject_parameters"]
+    }
+    interactions = {
+        (row["model_id"], row["subject_id"]): float(row["regularized_interaction_logit"])
+        for row in result["model_subject_interactions"]
+    }
+    intercept = float(result["global_intercept"])
+    observed_values: list[float] = []
+    conditioned_predictions: list[float] = []
+    additive_predictions: list[float] = []
+    aggregate_predictions: list[float] = []
+    aggregate_by_model = training.mean(axis=1, skipna=True).clip(1e-6, 1.0 - 1e-6)
+    for model in frame.index:
+        model_key = str(model)
+        for column in heldout_columns:
+            observed = frame.loc[model, column]
+            if pd.isna(observed):
+                continue
+            subject = str(subjects.loc[column])
+            additive_eta = intercept + model_effect[model_key] + subject_effect[subject]
+            conditioned_eta = additive_eta + interactions[(model_key, subject)]
+            observed_values.append(float(observed))
+            additive_predictions.append(float(expit(additive_eta)))
+            conditioned_predictions.append(float(expit(conditioned_eta)))
+            aggregate_predictions.append(float(aggregate_by_model.loc[model]))
+    observed_array = np.asarray(observed_values, dtype=float)
+    conditioned_array = np.asarray(conditioned_predictions, dtype=float)
+    additive_array = np.asarray(additive_predictions, dtype=float)
+    aggregate_array = np.asarray(aggregate_predictions, dtype=float)
+    conditioned_metrics = _binary_prediction_metrics(observed_array, conditioned_array)
+    additive_metrics = _binary_prediction_metrics(observed_array, additive_array)
+    aggregate_metrics = _binary_prediction_metrics(observed_array, aggregate_array)
+    uncertainty = _bootstrap_brier_interval(
+        observed_array,
+        conditioned_array,
+        n_bootstrap=n_uncertainty_bootstrap,
+        seed=seed + 1,
+    )
+    return {
+        "status": "REPRODUCED",
+        "seed": seed,
+        "holdout_fraction": holdout_fraction,
+        "heldout_item_count": len(heldout_columns),
+        "heldout_observation_count": int(observed_array.size),
+        "interaction_shrinkage": interaction_shrinkage,
+        "smoothing": smoothing,
+        "subject_conditioned": conditioned_metrics,
+        "additive_baseline": additive_metrics,
+        "aggregate_model_baseline": aggregate_metrics,
+        "uncertainty": uncertainty,
+        "calibration": _calibration_summary(observed_array, conditioned_array),
+        "claim_boundary": (
+            "Held-out prediction assesses this response-model specification under this split; "
+            "it does not establish construct validity, unidimensionality, or invariance."
+        ),
+    }
+
+
+def validate_measurement_model_plan(
+    matrix: pd.DataFrame,
+    subject_ids: Sequence[str] | Mapping[Any, str],
+    *,
+    model_families: Mapping[Any, str] | None = None,
+    regularization_grid: Sequence[float] = (2.0, 10.0, 50.0),
+    seed: int = 2027,
+) -> dict[str, Any]:
+    """Run held-out, recovery, family, regularization, uncertainty, and calibration checks."""
+
+    if not regularization_grid or any(value <= 0 for value in regularization_grid):
+        raise ValueError("regularization_grid must contain positive values")
+    regularization = [
+        heldout_subject_model_validation(
+            matrix,
+            subject_ids,
+            model_families=model_families,
+            interaction_shrinkage=float(value),
+            seed=seed,
+            n_uncertainty_bootstrap=100,
+        )
+        for value in regularization_grid
+    ]
+    family_sensitivity: dict[str, Any]
+    if model_families is None:
+        family_sensitivity = {
+            "status": "BLOCKED",
+            "reason": "exact model-family map not supplied",
+        }
+    else:
+        frame = validate_binary_response_matrix(matrix)
+        representatives: list[Any] = []
+        seen_families: set[str] = set()
+        for model in sorted(frame.index, key=lambda value: str(value)):
+            family = str(model_families[model])
+            if family not in seen_families:
+                representatives.append(model)
+                seen_families.add(family)
+        family_sensitivity = heldout_subject_model_validation(
+            frame.loc[representatives],
+            subject_ids,
+            model_families={model: model_families[model] for model in representatives},
+            interaction_shrinkage=float(regularization_grid[len(regularization_grid) // 2]),
+            seed=seed,
+            n_uncertainty_bootstrap=100,
+        )
+        family_sensitivity["representative_policy"] = (
+            "lexicographically first observed checkpoint per declared family"
+        )
+        family_sensitivity["representative_count"] = len(representatives)
+    synthetic = synthetic_recovery_check(seed=seed)
+    reproduced = [row for row in regularization if row["status"] == "REPRODUCED"]
+    status = (
+        "MEASUREMENT_MODEL_PLAN_DEFENSIBLE"
+        if len(reproduced) == len(regularization)
+        and synthetic["status"] == "PASS"
+        and family_sensitivity.get("status") == "REPRODUCED"
+        else "MEASUREMENT_MODEL_PLAN_LIMITED"
+    )
+    return {
+        "schema_version": "6.0",
+        "status": status,
+        "selected_model": METHOD_NAME,
+        "full_parametric_2pl_forced": False,
+        "regularization_sensitivity": regularization,
+        "family_deduplicated_sensitivity": family_sensitivity,
+        "synthetic_recovery": synthetic,
+        "claim_boundary": (
+            "The selected model is a transparent exploratory response decomposition. Passing "
+            "these checks does not turn it into evidence of benchmark validity."
+        ),
+    }
+
+
+def _binary_prediction_metrics(observed: np.ndarray, predicted: np.ndarray) -> dict[str, float]:
+    clipped = np.clip(predicted, 1e-8, 1.0 - 1e-8)
+    return {
+        "brier_score": float(np.square(observed - clipped).mean()),
+        "log_loss": float(
+            -np.mean(observed * np.log(clipped) + (1.0 - observed) * np.log(1.0 - clipped))
+        ),
+    }
+
+
+def _bootstrap_brier_interval(
+    observed: np.ndarray,
+    predicted: np.ndarray,
+    *,
+    n_bootstrap: int,
+    seed: int,
+) -> dict[str, float]:
+    rng = np.random.default_rng(seed)
+    values = np.empty(n_bootstrap, dtype=float)
+    for replicate in range(n_bootstrap):
+        indices = rng.integers(0, observed.size, size=observed.size)
+        values[replicate] = np.square(observed[indices] - predicted[indices]).mean()
+    return {
+        "brier_lower_95": float(np.quantile(values, 0.025)),
+        "brier_upper_95": float(np.quantile(values, 0.975)),
+        "bootstrap_replicates": n_bootstrap,
+    }
+
+
+def _calibration_summary(
+    observed: np.ndarray,
+    predicted: np.ndarray,
+    *,
+    bins: int = 10,
+) -> dict[str, Any]:
+    edges = np.linspace(0.0, 1.0, bins + 1)
+    rows: list[dict[str, Any]] = []
+    expected_calibration_error = 0.0
+    for index in range(bins):
+        lower, upper = edges[index], edges[index + 1]
+        mask = (predicted >= lower) & (
+            predicted <= upper if index == bins - 1 else predicted < upper
+        )
+        count = int(mask.sum())
+        if not count:
+            continue
+        mean_prediction = float(predicted[mask].mean())
+        observed_rate = float(observed[mask].mean())
+        expected_calibration_error += count / observed.size * abs(mean_prediction - observed_rate)
+        rows.append(
+            {
+                "lower": float(lower),
+                "upper": float(upper),
+                "count": count,
+                "mean_prediction": mean_prediction,
+                "observed_rate": observed_rate,
+            }
+        )
+    return {
+        "expected_calibration_error": float(expected_calibration_error),
+        "bins": rows,
+    }

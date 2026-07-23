@@ -1,0 +1,53 @@
+schema_version: "6.0"
+benchmark_contract_id: gsm8k_s1_v6
+benchmark_id: gsm8k
+benchmark_version: openai_gsm8k_740312ad_main_s1_v6
+dataset_source: https://huggingface.co/datasets/openai/gsm8k
+dataset_repository: openai/gsm8k
+dataset_revision: 740312add88f781978c0658806c59bc2815b9866
+dataset_config: main
+split: test
+license: mit
+expected_full_item_count: 1319
+expected_s1_item_count: 50
+subset_policy: deterministic_smallest_seeded_item_hashes
+subset_seed: 20260723
+item_id_method: sha256_revision_config_split_normalized_question
+prompt_template_version: gsm8k_zero_shot_rationale_v6.0
+prompt_instruction: "Solve the problem. Show your reasoning, then write the final numeric answer as 'Final answer: <number>'."
+few_shot_policy: zero_shot_s1_v6
+few_shot_source: none
+few_shot_ids: []
+few_shot_examples_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+rationale_policy: generated_rationale_preserved_score_final_numeric_answer_only
+generation_config_id: gsm8k_greedy_rationale_v6.0
+generation_parameters:
+  do_sample: false
+  max_input_tokens: 2048
+  max_new_tokens: 512
+  seed: 20260723
+scoring_version: gsm8k_numeric_exact_v6.0
+extraction_version: gsm8k_gold_blind_numeric_v6.0
+invalid_output_policy: record_failure_never_coerce_to_wrong
+numeric_normalization:
+  integers: true
+  negatives: true
+  grouping_commas: true
+  decimals: true
+  simple_fractions: true
+  currency_symbols: true
+  allowlisted_units: true
+  boxed_answers: true
+  common_final_answer_phrases: true
+  multiple_distinct_final_numbers: INVALID_FORMAT
+  refusal: EXTRACTION_FAILURE
+  empty_output: EMPTY_OUTPUT
+  truncation: TRUNCATED_OUTPUT
+generation_view:
+  allowed_fields: [item_id, item_hash, question, split, public_metadata]
+  forbidden_fields: [answer, gold, gold_answer, final_answer, target, is_correct, diagnostic_label]
+scoring_contract:
+  parser_receives_gold: false
+  scorer_only_gold_access: true
+  extraction_failure_is_incorrect: false
+redistribution_policy: hashes_predictions_and_metadata_only

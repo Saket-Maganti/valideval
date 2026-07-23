@@ -1,0 +1,17 @@
+# ValidEval V6 Kaggle T4x2 environment. Bounds are intentional; do not use -U.
+torch==2.7.1
+transformers==4.53.2
+accelerate==1.8.1
+datasets==3.6.0
+tokenizers==0.21.2
+safetensors==0.5.3
+sentencepiece==0.2.0
+bitsandbytes==0.46.1
+numpy==2.0.2
+pandas==2.2.3
+pyarrow==19.0.1
+pydantic==2.11.7
+tqdm==4.67.1
+PyYAML==6.0.2
+nbclient==0.10.2
+nbformat==5.10.4

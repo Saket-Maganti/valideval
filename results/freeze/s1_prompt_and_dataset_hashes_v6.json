@@ -1,0 +1,39 @@
+{
+  "benchmarks": {
+    "bbh": {
+      "contract_path": "configs/benchmarks/bbh_s1_v6.yaml",
+      "contract_sha256": "de70e0cc3152104a1bf2b1842e9cddefac79ec9298c897c283560c97920879ec",
+      "dataset_repository": "lukaemon/bbh",
+      "dataset_revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+      "item_count": 50,
+      "prompt_hash": "7cda49fb15e77244102a4a31cdcd17b0024843cb03eb62d99b39c9eb740ec0c9",
+      "public_subset_sha256": "e811ddb328e58d502f30b2a66362ac9087ca3e94923103543b30af98feefa076",
+      "subset_manifest": "results/freeze/s1_subsets_v6/bbh_s1_subset_v6.json",
+      "subset_manifest_sha256": "d25ed8f57db8e5b71981773f8daa83c9f6d7565495bba64cd95ceb05cef85829"
+    },
+    "gsm8k": {
+      "contract_path": "configs/benchmarks/gsm8k_s1_v6.yaml",
+      "contract_sha256": "14bde26f615f3268ebe7414438f60568ec95d52f16074feec995fae12e508128",
+      "dataset_repository": "openai/gsm8k",
+      "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+      "item_count": 50,
+      "prompt_hash": "9039640ccc9917d64dbda246b2ed1d641be5efd65e1bcf54173cd458444d3d5a",
+      "public_subset_sha256": "e17352a5382f3978eff147c5123fa8b3faca71735f10b840b6d1ebb8971792ec",
+      "subset_manifest": "results/freeze/s1_subsets_v6/gsm8k_s1_subset_v6.json",
+      "subset_manifest_sha256": "ae1b46a8330ef26b67c708d02596ae100ab2687be6c7330c17d64dea0a2520f6"
+    },
+    "mmlu": {
+      "contract_path": "configs/benchmarks/mmlu_s1_v6.yaml",
+      "contract_sha256": "76cb036759dba37a804595d4905ced6873abc2028ee461e1bf349df99637fe8e",
+      "dataset_repository": "cais/mmlu",
+      "dataset_revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+      "item_count": 50,
+      "prompt_hash": "af08ee04a9053684c993da10960383c06e1a9661f77b3513fbdfe27375759424",
+      "public_subset_sha256": "757784918d803f667bb5735a826e20d4e5a43f0cc28ea257e1a02a1af9ff311a",
+      "subset_manifest": "results/freeze/s1_subsets_v6/mmlu_s1_subset_v6.json",
+      "subset_manifest_sha256": "2a41fbe2bede32acd1bfb1860c714324a67141161115e271ce36cae956feb19a"
+    }
+  },
+  "schema_version": "6.0",
+  "seed": 20260723
+}

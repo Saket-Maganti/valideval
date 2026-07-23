@@ -1,0 +1,122 @@
+{
+  "baseline_commit": "f7bdfda1676995ffda356c15884a3d10cda6b80b",
+  "baseline_tag": "valideval-v5-pre-execution",
+  "bbh_protocol": {
+    "few_shot": "zero_shot_s1_v6",
+    "status": "BBH_PROTOCOL_FROZEN",
+    "task_count": 27
+  },
+  "benchmark_contracts": {
+    "bbh": "de70e0cc3152104a1bf2b1842e9cddefac79ec9298c897c283560c97920879ec",
+    "gate": "S1_BENCHMARK_CONTRACTS_FROZEN",
+    "gsm8k": "14bde26f615f3268ebe7414438f60568ec95d52f16074feec995fae12e508128",
+    "mmlu": "76cb036759dba37a804595d4905ced6873abc2028ee461e1bf349df99637fe8e"
+  },
+  "controlled_gpu_smoke_gate": "CONTROLLED_GPU_SMOKE_READY",
+  "environment": {
+    "clean_python": "3.11.9",
+    "kaggle_environment_status": "PINNED_UNVALIDATED_ON_REMOTE_T4X2",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "requirements_sha256": "7842c8b72ce4fdc4eb5f253c115fb5aa2cbe7ed88800cc6a20bcf90d14fc4f53"
+  },
+  "exact_next_commands": [
+    "git rev-parse valideval-v6-controlled-gpu-smoke-ready^{commit}",
+    "git archive --format=zip --output valideval-v6-controlled-gpu-smoke-ready.zip valideval-v6-controlled-gpu-smoke-ready",
+    "run kaggle_max_ceiling/00_valideval_t4x2_environment_and_preflight.ipynb on Kaggle T4 x2",
+    "python -m valideval accept-s1 --input-dir kaggle_outputs/v6 --output-root imported/v6"
+  ],
+  "final_commit": null,
+  "final_commit_resolution": "Resolve final_tag^{commit}; a commit cannot embed its own SHA-1 in its contents.",
+  "final_tag": "valideval-v6-controlled-gpu-smoke-ready",
+  "format": {
+    "command": "ruff format --check .",
+    "status": "pass"
+  },
+  "generated_at": "2026-07-23T15:38:00+00:00",
+  "git_dirty": null,
+  "git_dirty_resolution": "Read at tag time with git status --short; the tagged source is required to be clean before upload.",
+  "gold_isolation": {
+    "generator_receives_gold": false,
+    "parser_receives_gold": false,
+    "renderer_receives_gold": false,
+    "scorer_only_gold_access": true,
+    "status": "pass"
+  },
+  "importer_gate": "S1_IMPORT_AND_ACCEPTANCE_READY",
+  "leakage_gate": "S1_LEAKAGE_GUARDS_COMPLETE",
+  "lint": {
+    "command": "ruff check .",
+    "status": "pass"
+  },
+  "measurement_model_gate": "MEASUREMENT_MODEL_PLAN_DEFENSIBLE",
+  "notebook_fixture_execution": {
+    "notebooks": 6,
+    "status": "pass"
+  },
+  "notebook_mocked_production_execution": {
+    "evidence_class": "NON_EVIDENCE_FIXTURE",
+    "modes": [
+      "smoke",
+      "resume",
+      "validate_only",
+      "package_only"
+    ],
+    "status": "pass"
+  },
+  "package_build": {
+    "artifacts": [
+      "valideval-0.3.0.tar.gz",
+      "valideval-0.3.0-py3-none-any.whl"
+    ],
+    "status": "pass"
+  },
+  "package_install": {
+    "command": ".venv/bin/python -m pip install -e .[dev]",
+    "environment": "clean .venv",
+    "status": "pass"
+  },
+  "paper_build": {
+    "engine": "pdfLaTeX and BibTeX",
+    "status": "pass"
+  },
+  "production_runner": "PRODUCTION_RUNNER_READY",
+  "rank_materiality_gate": "RANK_MATERIALITY_ANALYSIS_READY",
+  "remaining_blockers": [],
+  "remaining_non_p0_limitations": [
+    "Remote Kaggle T4x2 fit and throughput are unmeasured until S1.",
+    "Locally testable leakage guards cannot establish absence of model-pretraining contamination.",
+    "The five-checkpoint three-family panel is not scientifically adequate.",
+    "No real S1 ZIP has yet passed acceptance."
+  ],
+  "repository_root": "/Users/saketmaganti/Projects/Valideval",
+  "s1_acceptance_gate": "S1_IMPORT_AND_ACCEPTANCE_READY",
+  "s1_model_panel": {
+    "model_count": 5,
+    "panel_sha256": "84a65d684fb839a1929d00b04961fd99f9f6883dfa89651de0235c8fda2f394a",
+    "scientific_panel_adequacy": false,
+    "status": "S1_EXACT_PANEL_FROZEN"
+  },
+  "t4x2_scheduler": "T4X2_SCHEDULER_READY",
+  "tests": {
+    "clean_environment": {
+      "duration_seconds": 16.99,
+      "failed": 0,
+      "passed": 349,
+      "skipped": 0,
+      "warnings": 2,
+      "xfailed": 0
+    },
+    "native_environment": {
+      "duration_seconds": 17.3,
+      "failed": 0,
+      "passed": 349,
+      "skipped": 0,
+      "warnings": 2,
+      "xfailed": 0
+    }
+  },
+  "type_check": {
+    "command": "mypy <20 critical V6 modules>",
+    "status": "pass"
+  }
+}

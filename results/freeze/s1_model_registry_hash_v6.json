@@ -1,0 +1,8 @@
+{
+  "evidence_class": "ENGINEERING_ONLY",
+  "model_count": 5,
+  "panel_path": "configs/panels/s1_smoke_exact_v6.yaml",
+  "panel_sha256": "84a65d684fb839a1929d00b04961fd99f9f6883dfa89651de0235c8fda2f394a",
+  "schema_version": "6.0",
+  "scientific_panel_adequacy": false
+}

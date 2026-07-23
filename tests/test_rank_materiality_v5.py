@@ -51,6 +51,11 @@ def test_rank_materiality_returns_uncertainty_and_null_outputs():
     assert result["leave_one_subject_out_sensitivity"]
     assert result["benchmark_composition_rank_confidence"]
     assert result["family_analysis"]["status"] == "REPRODUCED"
+    assert result["family_analysis"]["family_cluster_bootstrap"]
+    assert (
+        result["model_bootstrap_decision"]["status"]
+        == "DOCUMENTED_REJECTION_FOR_FIXED_CHECKPOINT_RANKS"
+    )
     assert "does not establish benchmark invalidity" in result["claim_boundary"]
 
 

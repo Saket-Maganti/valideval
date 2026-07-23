@@ -141,6 +141,10 @@ def main(argv: list[str] | None = None) -> int:
         "null_simulations",
     ):
         _write_records(args.output, name, result)
+    pd.DataFrame(result["family_analysis"].get("family_cluster_bootstrap", [])).to_csv(
+        args.output / "family_cluster_bootstrap.csv",
+        index=False,
+    )
     print(f"Rank-materiality status: {result['status']}; output: {args.output}")
     return 0 if result["status"] == "REPRODUCED" else 2
 

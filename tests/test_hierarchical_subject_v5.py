@@ -5,7 +5,9 @@ import pandas as pd
 
 from valideval.measurement.hierarchical_subject import (
     fit_hierarchical_subject_model,
+    heldout_subject_model_validation,
     panel_size_sensitivity,
+    validate_measurement_model_plan,
 )
 
 
@@ -63,3 +65,26 @@ def test_panel_size_sensitivity_is_seeded():
     second = panel_size_sensitivity(frame, subjects, panel_sizes=(5, 8), n_repeats=2, seed=10)
     pd.testing.assert_frame_equal(first, second)
     assert set(first["status"]) == {"REPRODUCED"}
+
+
+def test_measurement_model_has_heldout_baselines_calibration_and_sensitivity():
+    frame, subjects = _adequate_matrix()
+    families = {model: f"f{index}" for index, model in enumerate(frame.index)}
+    heldout = heldout_subject_model_validation(
+        frame,
+        subjects,
+        model_families=families,
+        n_uncertainty_bootstrap=10,
+    )
+    assert heldout["status"] == "REPRODUCED"
+    assert "brier_score" in heldout["subject_conditioned"]
+    assert "brier_score" in heldout["aggregate_model_baseline"]
+    assert "expected_calibration_error" in heldout["calibration"]
+    plan = validate_measurement_model_plan(
+        frame,
+        subjects,
+        model_families=families,
+        regularization_grid=(2.0, 10.0),
+    )
+    assert plan["status"] == "MEASUREMENT_MODEL_PLAN_DEFENSIBLE"
+    assert len(plan["regularization_sensitivity"]) == 2

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gc
 import inspect
 import json
 import multiprocessing
@@ -9,6 +10,7 @@ import re
 import traceback
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, cast
 
@@ -37,6 +39,10 @@ class IncompleteShardError(ShardError):
 
 def classify_worker_failure(error: BaseException) -> str:
     message = str(error).lower()
+    if type(error).__name__ in {"ModelResolutionError", "ModelLoadError"}:
+        return "MODEL_LOAD_FAILURE"
+    if type(error).__name__ in {"DatasetResolutionError"}:
+        return "DATASET_FAILURE"
     if isinstance(error, MemoryError) or "out of memory" in message or "cuda oom" in message:
         return "OOM"
     if isinstance(error, TimeoutError) or "timed out" in message or "timeout" in message:
@@ -228,8 +234,26 @@ def plan_worker_assignments(
     if len(set(task_ids)) != len(task_ids):
         raise ShardConflictError("scheduler task_id values must be unique")
     buckets: list[list[str]] = [[] for _ in devices]
-    for index, task_id in enumerate(task_ids):
-        buckets[index % len(devices)].append(task_id)
+    loads = [0.0 for _ in devices]
+    weighted_tasks = sorted(
+        (
+            (
+                -float(
+                    task.get(
+                        "estimated_duration",
+                        task.get("estimated_download_size", task.get("estimated_weight", 1.0)),
+                    )
+                ),
+                _task_id(task),
+            )
+            for task in tasks
+        ),
+        key=lambda value: (value[0], value[1]),
+    )
+    for negative_weight, task_id in weighted_tasks:
+        worker_index = min(range(len(devices)), key=lambda index: (loads[index], index))
+        buckets[worker_index].append(task_id)
+        loads[worker_index] += -negative_weight
     return [
         WorkerAssignment(
             worker_id=f"worker-{index:02d}",
@@ -541,6 +565,8 @@ def _run_worker_tasks(
     status_dir.mkdir(parents=True, exist_ok=True)
     if assignment.gpu_id != "cpu":
         os.environ["CUDA_VISIBLE_DEVICES"] = assignment.gpu_id
+    os.environ["VALIDEVAL_WORKER_ID"] = assignment.worker_id
+    os.environ["VALIDEVAL_WORKER_HEARTBEAT_PATH"] = str(worker_root / "heartbeat.json")
     rows: list[dict[str, Any]] = []
     for task in tasks:
         task_id = _task_id(task)
@@ -548,14 +574,22 @@ def _run_worker_tasks(
         current_task = dict(task)
         fallbacks: list[dict[str, Any]] = []
         for attempt in range(1, max_retries + 2):
+            current_task["attempt_id"] = attempt
+            current_task["retry_count"] = attempt - 1
+            started_at = datetime.now(timezone.utc).isoformat()
             atomic_write_json(
                 worker_root / "heartbeat.json",
                 {
                     "worker_id": assignment.worker_id,
                     "gpu_id": assignment.gpu_id,
-                    "task_id": task_id,
+                    "current_job": task_id,
+                    "start_time": started_at,
+                    "heartbeat": started_at,
+                    "last_completed_item": None,
                     "attempt": attempt,
-                    "status": "running",
+                    "retry_count": attempt - 1,
+                    "memory_failure": False,
+                    "exit_state": "running",
                     "config_hash": config_hash,
                 },
             )
@@ -569,6 +603,14 @@ def _run_worker_tasks(
                     "gpu_id": assignment.gpu_id,
                     "status": "success",
                     "attempts": attempt,
+                    "start_time": started_at,
+                    "heartbeat": datetime.now(timezone.utc).isoformat(),
+                    "last_completed_item": _last_completed_item(output),
+                    "retry_count": attempt - 1,
+                    "memory_failure": any(
+                        fallback.get("failure_type") == "OOM" for fallback in fallbacks
+                    ),
+                    "exit_state": "complete",
                     "config_hash": config_hash,
                     "output": dict(output),
                     "fallbacks": fallbacks,
@@ -576,6 +618,8 @@ def _run_worker_tasks(
                 break
             except BaseException as exc:
                 failure_type = classify_worker_failure(exc)
+                if failure_type == "OOM":
+                    _release_cuda_after_failure()
                 current_task, fallback = apply_resource_fallback(
                     current_task,
                     failure_type=failure_type,
@@ -583,12 +627,19 @@ def _run_worker_tasks(
                 )
                 if fallback is not None:
                     fallbacks.append(fallback)
+                    current_task["resource_fallbacks"] = list(fallbacks)
                 result = {
                     "task_id": task_id,
                     "worker_id": assignment.worker_id,
                     "gpu_id": assignment.gpu_id,
                     "status": "failed",
                     "attempts": attempt,
+                    "start_time": started_at,
+                    "heartbeat": datetime.now(timezone.utc).isoformat(),
+                    "last_completed_item": None,
+                    "retry_count": attempt - 1,
+                    "memory_failure": failure_type == "OOM",
+                    "exit_state": "failed",
                     "config_hash": config_hash,
                     "error_type": type(exc).__name__,
                     "error": str(exc),
@@ -605,11 +656,27 @@ def _run_worker_tasks(
         {
             "worker_id": assignment.worker_id,
             "gpu_id": assignment.gpu_id,
-            "status": "idle",
+            "current_job": None,
+            "heartbeat": datetime.now(timezone.utc).isoformat(),
+            "last_completed_item": _latest_completed_item(rows),
+            "retry_count": 0,
+            "memory_failure": any(row.get("memory_failure") for row in rows),
+            "exit_state": "idle",
             "config_hash": config_hash,
         },
     )
     return rows
+
+
+def _release_cuda_after_failure() -> None:
+    gc.collect()
+    try:
+        import torch
+
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+    except ImportError:
+        pass
 
 
 def _process_worker_entry(
@@ -674,3 +741,44 @@ def _read_optional_json(path: Path) -> dict[str, Any] | None:
     if not isinstance(payload, dict):
         raise ShardError(f"Scheduler JSON must contain an object: {path}")
     return payload
+
+
+def heartbeat_is_stale(
+    heartbeat: Mapping[str, Any],
+    *,
+    now: datetime | None = None,
+    stale_after_seconds: float = 300.0,
+) -> bool:
+    if stale_after_seconds <= 0:
+        raise ValueError("stale_after_seconds must be positive")
+    value = heartbeat.get("heartbeat")
+    if not isinstance(value, str):
+        return True
+    try:
+        observed = datetime.fromisoformat(value)
+    except ValueError:
+        return True
+    if observed.tzinfo is None:
+        observed = observed.replace(tzinfo=timezone.utc)
+    current = now or datetime.now(timezone.utc)
+    return (current - observed).total_seconds() > stale_after_seconds
+
+
+def _last_completed_item(output: Mapping[str, Any]) -> str | None:
+    rows = output.get("rows")
+    if not isinstance(rows, list) or not rows:
+        return None
+    final = rows[-1]
+    return (
+        str(final.get("item_id")) if isinstance(final, Mapping) and final.get("item_id") else None
+    )
+
+
+def _latest_completed_item(rows: Sequence[Mapping[str, Any]]) -> str | None:
+    for row in reversed(rows):
+        output = row.get("output")
+        if isinstance(output, Mapping):
+            item_id = _last_completed_item(output)
+            if item_id is not None:
+                return item_id
+    return None

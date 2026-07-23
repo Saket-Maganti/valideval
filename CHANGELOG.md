@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 — 2026-07-23
+
+- Added the frozen V6 S1 five-checkpoint panel and immutable MMLU, GSM8K, and BBH contracts.
+- Added the configuration-driven production runner, isolated T4×2 scheduler, bounded OOM recovery,
+  exact resume identity, gold-isolated parsing/scoring, deterministic packaging, and runtime fields.
+- Upgraded the six canonical Kaggle notebooks to invoke the tested V6 package path.
+- Added the fail-closed three-ZIP S1 importer/acceptance gate and runtime recalibration command.
+- Added locally reproducible S1 leakage guards, family-cluster rank sensitivity, and held-out
+  measurement-model validation.
+- Preserved the boundary that S1 is `ENGINEERING_ONLY`, not a scientific common-panel study.
+
 ## 0.2.1-neurips-evidence-pivot - Unreleased
 
 ### Added

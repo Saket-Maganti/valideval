@@ -1,0 +1,32 @@
+schema_version: '6.0'
+run_id: s1-v6-gsm8k
+study_id: study-c-s1-v6
+evidence_class: ENGINEERING_ONLY
+mode: smoke
+benchmark_id: gsm8k
+benchmark_contract: configs/benchmarks/gsm8k_s1_v6.yaml
+benchmark_contract_sha256: 14bde26f615f3268ebe7414438f60568ec95d52f16074feec995fae12e508128
+panel_config: configs/panels/s1_smoke_exact_v6.yaml
+panel_config_sha256: 84a65d684fb839a1929d00b04961fd99f9f6883dfa89651de0235c8fda2f394a
+subset_manifest: results/freeze/s1_subsets_v6/gsm8k_s1_subset_v6.json
+subset_manifest_sha256: ae1b46a8330ef26b67c708d02596ae100ab2687be6c7330c17d64dea0a2520f6
+output_root: kaggle_max_ceiling_outputs
+required_source_ref: valideval-v6-controlled-gpu-smoke-ready
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids:
+  - '0'
+  - '1'
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 1
+  shard_count: 2
+  batch_size: 1
+  max_sequence_length: 2048
+  timeout_seconds: 900
+  minimum_free_disk_gb: 5
+  model_download_margin_gb: 2

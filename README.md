@@ -5,8 +5,30 @@
 A high benchmark score is evidence of something. This project treats benchmark-validity diagnostics
 as measurement instruments: before a diagnostic licenses a benchmark-validity claim, it needs
 evidence about sensitivity, false-positive behavior, specificity, uncertainty, materiality, and
-transfer. The authoritative current boundary is the V5 claim ledger at
+transfer. The authoritative historical-evidence boundary remains the V5 claim ledger at
 `results/evidence/claim_evidence_ledger_v5.csv`; older V4/no-run documents are historical snapshots.
+
+## V6 Controlled GPU Smoke Readiness
+
+V6 adds a fail-closed production execution path for the first controlled five-checkpoint Kaggle
+T4×2 engineering smoke. The exact public checkpoints, immutable dataset revisions,
+50-item-per-benchmark subsets, zero-shot prompt/scoring contracts, source tag, configuration hashes,
+two-worker scheduler, gold-isolated scoring, deterministic packaging, and three-ZIP acceptance gate
+are frozen. The smoke remains `ENGINEERING_ONLY` and the five-checkpoint panel is explicitly not
+scientifically adequate.
+
+Start with `VALID_EVAL_V6_CONTROLLED_GPU_SMOKE_RUNBOOK.md`. The local execution surface is:
+
+```bash
+python -m valideval run --config configs/runs/mmlu_s1_v6.yaml
+python -m valideval run --config configs/runs/gsm8k_s1_v6.yaml
+python -m valideval run --config configs/runs/bbh_s1_v6.yaml
+python -m valideval accept-s1 --input-dir kaggle_outputs/v6 --output-root imported/v6
+python -m valideval recalibrate-runtime --input-root imported/v6
+```
+
+No real S1 inference is included in this repository state. Fixture and mocked-production artifacts
+are `NON_EVIDENCE_FIXTURE`; they cannot pass the S1 acceptance gate.
 
 ## V5 Evidence Boundary
 
@@ -190,7 +212,7 @@ Validity asks: does that score support the claim we want to make? A model may sc
 
 ## CLI
 
-The V5 execution and release surface is fail-closed. The old
+The V6 production execution and V5 release surfaces are fail-closed. The old
 `import-kaggle-outputs`, `post-import-analysis`, and `cross-benchmark-analysis` commands remain for
 historical compatibility; new controlled runs should use the V5 commands:
 

@@ -26,6 +26,10 @@ from valideval.execution.notebook import (
     run_notebook_stage,
     validate_execution_mode,
 )
+from valideval.execution.runner import (
+    preflight_from_config,
+    run_from_config,
+)
 from valideval.execution.shards import (
     IncompleteShardError,
     ShardConflictError,
@@ -75,7 +79,9 @@ __all__ = [
     "merge_jsonl_shards",
     "package_fixture_runs",
     "plan_worker_assignments",
+    "preflight_from_config",
     "run_notebook_stage",
+    "run_from_config",
     "sha256_file",
     "shard_definition_hash",
     "validate_execution_mode",

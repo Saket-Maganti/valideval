@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "valideval"
-version = "0.2.0"
+version = "0.3.0"
 description = "Psychometric validity-auditing toolkit for AI benchmarks."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -108,5 +108,16 @@ no_implicit_optional = true
 check_untyped_defs = true
 
 [[tool.mypy.overrides]]
-module = ["pandas.*", "scipy.*", "yaml", "yaml.*"]
+module = [
+  "datasets",
+  "datasets.*",
+  "pandas.*",
+  "scipy.*",
+  "torch",
+  "torch.*",
+  "transformers",
+  "transformers.*",
+  "yaml",
+  "yaml.*",
+]
 ignore_missing_imports = true

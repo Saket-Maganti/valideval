@@ -46,6 +46,8 @@ from valideval.cross_benchmark.analysis import run_cross_benchmark_analysis
 from valideval.diagnostics.panel_validity import write_panel_validity_report
 from valideval.domains import describe_domain_pack, domain_diagnostic_names, list_domain_packs
 from valideval.evidence.ledger import build_claim_evidence_ledger
+from valideval.execution.config import RUN_MODES
+from valideval.execution.runner import run_from_config
 from valideval.forensics.overlap import scan_corpus_overlap
 from valideval.human import (
     create_adjudication_queue,
@@ -69,6 +71,7 @@ from valideval.importers.post_import_v5 import (
     POST_IMPORT_READY,
     build_post_import_plan_v5,
 )
+from valideval.importers.s1_v6 import accept_s1_smoke_v6
 from valideval.importers.wide_matrix import (
     build_matrix_from_wide_predictions,
     import_wide_predictions,
@@ -92,6 +95,7 @@ from valideval.leaderboard.registry import (
 from valideval.leaderboard.site import build_static_site
 from valideval.models.panel import load_panel
 from valideval.panels.ollama_panel import build_ollama_panel_preflight
+from valideval.planning.runtime_recalibration_v6 import recalibrate_runtime_from_s1
 from valideval.plugins import PLUGIN_KINDS, list_plugins
 from valideval.psychometrics.irt_2pl import fit_irt_from_matrix
 from valideval.real_panel.baselines import build_baseline_dry_run_manifest
@@ -944,6 +948,48 @@ def command_validate_prompt_variants(args: argparse.Namespace) -> int:
     )
     _print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["status"] == "pass" else 1
+
+
+def command_run_v6(args: argparse.Namespace) -> int:
+    payload = run_from_config(
+        args.config,
+        mode_override=args.mode,
+        output_root=args.output_root,
+    )
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return (
+        0
+        if payload["status"]
+        in {
+            "RUN_COMPLETE",
+            "RUN_COMPLETE_WITH_RECORDED_FAILURES",
+        }
+        else 2
+    )
+
+
+def command_accept_s1_v6(args: argparse.Namespace) -> int:
+    payload = accept_s1_smoke_v6(
+        args.input_dir,
+        output_root=args.output_root,
+        minimum_extraction_reliability=args.minimum_extraction_reliability,
+    )
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return (
+        0
+        if payload["status"]
+        in {
+            "S1_SMOKE_ACCEPTED",
+            "S1_SMOKE_ACCEPTED_WITH_RECORDED_MODEL_FAILURES",
+        }
+        else 2
+    )
+
+
+def command_recalibrate_runtime_v6(args: argparse.Namespace) -> int:
+    payload = recalibrate_runtime_from_s1(args.input_root, args.output)
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
 
 
 def command_gpqa_go_no_go(args: argparse.Namespace) -> int:
@@ -2289,6 +2335,46 @@ def build_parser() -> argparse.ArgumentParser:
     validate_run_v5.add_argument("--allow-nested-archives", action="store_true")
     validate_run_v5.add_argument("--strict", action="store_true")
     validate_run_v5.set_defaults(func=command_validate_run_v5)
+
+    run_v6 = subparsers.add_parser(
+        "run",
+        help="Run, resume, validate, or package an exact V6 controlled execution config.",
+    )
+    run_v6.add_argument("--config", required=True, help="Frozen V6 run YAML.")
+    run_v6.add_argument(
+        "--mode",
+        choices=RUN_MODES,
+        help="Operational override; resume/validate_only/package_only preserve the frozen run hash.",
+    )
+    run_v6.add_argument(
+        "--output-root",
+        help="Override the output root without changing the frozen experimental condition.",
+    )
+    run_v6.set_defaults(func=command_run_v6)
+
+    accept_s1_v6 = subparsers.add_parser(
+        "accept-s1",
+        help="Validate and optionally import the exact three V6 S1 engineering ZIPs.",
+    )
+    accept_s1_v6.add_argument("--input-dir", default="kaggle_outputs/v6")
+    accept_s1_v6.add_argument("--output-root", default=None)
+    accept_s1_v6.add_argument(
+        "--minimum-extraction-reliability",
+        type=float,
+        default=0.95,
+    )
+    accept_s1_v6.set_defaults(func=command_accept_s1_v6)
+
+    recalibrate_v6 = subparsers.add_parser(
+        "recalibrate-runtime",
+        help="Recalibrate S2-S4 planning ranges from accepted V6 S1 runtime fields.",
+    )
+    recalibrate_v6.add_argument("--input-root", default="imported/v6")
+    recalibrate_v6.add_argument(
+        "--output",
+        default="results/planning/runtime_recalibration_v6.json",
+    )
+    recalibrate_v6.set_defaults(func=command_recalibrate_runtime_v6)
 
     import_kaggle_v5 = subparsers.add_parser(
         "import-kaggle",

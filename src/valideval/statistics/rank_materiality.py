@@ -347,6 +347,51 @@ def leave_one_family_out_sensitivity(
     return pd.DataFrame(rows)
 
 
+def family_cluster_bootstrap(
+    subject_scores: pd.DataFrame,
+    model_families: Mapping[Any, str],
+    *,
+    n_bootstrap: int = 500,
+    seed: int = 2027,
+) -> pd.DataFrame:
+    """Sample one checkpoint per family and rank the resulting family-balanced panel.
+
+    The estimand is explicitly family-balanced checkpoint performance. It is not
+    a bootstrap confidence interval for the fixed 39-checkpoint roster.
+    """
+
+    if n_bootstrap <= 0:
+        raise ValueError("n_bootstrap must be positive")
+    missing = [model for model in subject_scores.index if model not in model_families]
+    if missing:
+        raise ValueError(f"model_families is missing {len(missing)} model(s)")
+    by_family: dict[str, list[Any]] = {}
+    for model in subject_scores.index:
+        by_family.setdefault(str(model_families[model]), []).append(model)
+    if len(by_family) < 2:
+        raise ValueError("family-cluster bootstrap requires at least two families")
+    rng = np.random.default_rng(seed)
+    rows: list[dict[str, Any]] = []
+    for replicate in range(n_bootstrap):
+        selected = [
+            rng.choice(np.asarray(sorted(models), dtype=object))
+            for _, models in sorted(by_family.items())
+        ]
+        selected_scores = subject_scores.loc[selected].mean(axis=1)
+        ranks = tie_aware_ranks(selected_scores)
+        for model, rank in ranks.items():
+            rows.append(
+                {
+                    "replicate": replicate,
+                    "model_id": str(model),
+                    "model_family": str(model_families[model]),
+                    "family_balanced_rank": float(rank),
+                    "aggregate_subject_accuracy": float(selected_scores.loc[model]),
+                }
+            )
+    return pd.DataFrame(rows)
+
+
 def _model_rank_materiality(
     matrix: pd.DataFrame,
     subject_scores: pd.DataFrame,
@@ -469,8 +514,16 @@ def analyze_rank_materiality(
             "blockers": ["exact_model_family_registry_not_supplied"],
             "family_deduplicated_ranking": [],
             "leave_one_family_out_sensitivity": [],
+            "family_cluster_bootstrap": [],
+            "family_cluster_estimand": None,
         }
     else:
+        family_bootstrap = family_cluster_bootstrap(
+            scores,
+            model_families,
+            n_bootstrap=n_bootstrap,
+            seed=seed + 3,
+        )
         family_analysis = {
             "status": "REPRODUCED",
             "blockers": [],
@@ -480,6 +533,11 @@ def analyze_rank_materiality(
             "leave_one_family_out_sensitivity": leave_one_family_out_sensitivity(
                 scores, model_families
             ).to_dict(orient="records"),
+            "family_cluster_bootstrap": family_bootstrap.to_dict(orient="records"),
+            "family_cluster_estimand": (
+                "Rank distribution when one observed checkpoint is sampled within each observed "
+                "family, giving each family equal panel weight."
+            ),
         }
     return {
         "schema_version": "0.1",
@@ -506,6 +564,14 @@ def analyze_rank_materiality(
         "benchmark_composition_rank_confidence": composition_confidence.to_dict(orient="records"),
         "effect_size_filtered_reversals": practical_reversals.to_dict(orient="records"),
         "family_analysis": family_analysis,
+        "model_bootstrap_decision": {
+            "status": "DOCUMENTED_REJECTION_FOR_FIXED_CHECKPOINT_RANKS",
+            "reason": (
+                "Naively resampling models omits fixed checkpoints and duplicates others, so it "
+                "does not estimate uncertainty for each named checkpoint's rank. Family-balanced "
+                "checkpoint resampling is reported instead."
+            ),
+        },
         "null_simulations": nulls.to_dict(orient="records"),
         "claim_boundary": (
             "Evidence is conditional on this response matrix, bootstrap, and null protocol; "
