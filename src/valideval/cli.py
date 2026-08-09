@@ -59,6 +59,7 @@ from valideval.human import (
     write_judge_reliability_report,
 )
 from valideval.human.common import load_annotation_tasks, load_judge_predictions
+from valideval.importers.ingest_v7 import ingest_and_analyze_v7
 from valideval.importers.kaggle_v5 import (
     import_kaggle_outputs_v5,
     validate_kaggle_zip,
@@ -216,6 +217,12 @@ def command_info(args: argparse.Namespace) -> int:
     _print("Readiness check: python3 -m valideval doctor --benchmark toy_mcq --panel mock")
     _print("Full audit preset: --diagnostics legendary")
     _print("Quick summary: python3 -m valideval audit-summary --benchmark toy_mcq --panel mock")
+    return 0
+
+
+def command_ingest_and_analyze(args: argparse.Namespace) -> int:
+    payload = ingest_and_analyze_v7(args.input, output_root=args.output_root)
+    _print(json.dumps(payload, indent=2, sort_keys=True))
     return 0
 
 
@@ -1908,6 +1915,14 @@ def build_parser() -> argparse.ArgumentParser:
     common.add_argument("--seed", type=int, default=0)
 
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    ingest_v7 = subparsers.add_parser(
+        "ingest-and-analyze",
+        help="Fail-closed V7 GPU artifact ingestion and downstream analysis routing.",
+    )
+    ingest_v7.add_argument("--input", required=True)
+    ingest_v7.add_argument("--output-root", default="imported/v7")
+    ingest_v7.set_defaults(func=command_ingest_and_analyze)
 
     info = subparsers.add_parser("info", help="Show package and demo information.")
     info.set_defaults(func=command_info)

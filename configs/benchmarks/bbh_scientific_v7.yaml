@@ -1,0 +1,171 @@
+schema_version: '7.0'
+benchmark_contract_id: bbh_scientific_v7
+benchmark_id: bbh
+benchmark_version: lukaemon/bbh_982bb89f_scientific_v7
+dataset_source: https://huggingface.co/datasets/lukaemon/bbh
+dataset_repository: lukaemon/bbh
+dataset_revision: 982bb89fd79532a8ac676a61fc42eb1aeec63f99
+split: test
+license: not_declared_by_frozen_huggingface_mirror
+expected_full_item_count: 6511
+subset_policy: full_frozen_test_split_v7
+subset_seed: 20270809
+item_id_method: sha256_revision_subtask_split_normalized_input
+prompt_template_version: bbh_task_specific_zero_shot_v6.0
+few_shot_policy: zero_shot_v7
+few_shot_decision: zero_shot_selected_to_avoid_unresolved_few_shot_provenance_and_license
+few_shot_source: none
+few_shot_ids: []
+few_shot_examples_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+generation_mode: deterministic_task_specific_generation
+generation_config_id: bbh_greedy_task_specific_v6.0
+generation_parameters:
+  do_sample: false
+  max_input_tokens: 3072
+  max_new_tokens: 512
+  seed: 20260723
+scoring_version: bbh_task_aware_v6.0
+extraction_version: bbh_task_aware_gold_blind_v6.0
+invalid_output_policy: record_failure_never_coerce_to_wrong
+subtasks:
+- boolean_expressions
+- causal_judgement
+- date_understanding
+- disambiguation_qa
+- dyck_languages
+- formal_fallacies
+- geometric_shapes
+- hyperbaton
+- logical_deduction_five_objects
+- logical_deduction_seven_objects
+- logical_deduction_three_objects
+- movie_recommendation
+- multistep_arithmetic_two
+- navigate
+- object_counting
+- penguins_in_a_table
+- reasoning_about_colored_objects
+- ruin_names
+- salient_translation_error_detection
+- snarks
+- sports_understanding
+- temporal_sequences
+- tracking_shuffled_objects_five_objects
+- tracking_shuffled_objects_seven_objects
+- tracking_shuffled_objects_three_objects
+- web_of_lies
+- word_sorting
+task_prompt_policies:
+  boolean_expressions:
+    instruction: Evaluate the Boolean expression.
+    answer_format: True or False
+  causal_judgement:
+    instruction: Choose the option that best answers the causal judgement question.
+    answer_format: (A), (B), ...
+  date_understanding:
+    instruction: Reason about the dates and choose the correct option.
+    answer_format: (A), (B), ...
+  disambiguation_qa:
+    instruction: Resolve the pronoun reference and choose the correct option.
+    answer_format: (A), (B), ...
+  dyck_languages:
+    instruction: Complete the bracket sequence so every bracket is properly closed.
+    answer_format: the bracket sequence only
+  formal_fallacies:
+    instruction: Determine whether the argument is logically valid and choose the
+      correct option.
+    answer_format: (A), (B), ...
+  geometric_shapes:
+    instruction: Identify the described geometric shape and choose the correct option.
+    answer_format: (A), (B), ...
+  hyperbaton:
+    instruction: Choose the sentence with the correct adjective order.
+    answer_format: (A), (B), ...
+  logical_deduction_five_objects:
+    instruction: Solve the ordering constraints for five objects and choose the correct
+      option.
+    answer_format: (A), (B), ...
+  logical_deduction_seven_objects:
+    instruction: Solve the ordering constraints for seven objects and choose the correct
+      option.
+    answer_format: (A), (B), ...
+  logical_deduction_three_objects:
+    instruction: Solve the ordering constraints for three objects and choose the correct
+      option.
+    answer_format: (A), (B), ...
+  movie_recommendation:
+    instruction: Choose the movie that best matches the examples.
+    answer_format: (A), (B), ...
+  multistep_arithmetic_two:
+    instruction: Compute the arithmetic expression exactly.
+    answer_format: one number
+  navigate:
+    instruction: Follow the navigation instructions and determine whether the destination
+      condition holds.
+    answer_format: Yes or No
+  object_counting:
+    instruction: Count the requested objects.
+    answer_format: one integer
+  penguins_in_a_table:
+    instruction: Reason over the table and choose the correct option.
+    answer_format: (A), (B), ...
+  reasoning_about_colored_objects:
+    instruction: Reason about the colored objects and choose the correct option.
+    answer_format: (A), (B), ...
+  ruin_names:
+    instruction: Choose the humorous edit that ruins the name.
+    answer_format: (A), (B), ...
+  salient_translation_error_detection:
+    instruction: Identify the salient translation error and choose the correct option.
+    answer_format: (A), (B), ...
+  snarks:
+    instruction: Identify the sarcastic statement and choose the correct option.
+    answer_format: (A), (B), ...
+  sports_understanding:
+    instruction: Determine whether the sports statement is plausible and choose the
+      correct option.
+    answer_format: (A), (B), ...
+  temporal_sequences:
+    instruction: Reason about the event sequence and choose the correct option.
+    answer_format: (A), (B), ...
+  tracking_shuffled_objects_five_objects:
+    instruction: Track the swaps among five objects and choose the correct option.
+    answer_format: (A), (B), ...
+  tracking_shuffled_objects_seven_objects:
+    instruction: Track the swaps among seven objects and choose the correct option.
+    answer_format: (A), (B), ...
+  tracking_shuffled_objects_three_objects:
+    instruction: Track the swaps among three objects and choose the correct option.
+    answer_format: (A), (B), ...
+  web_of_lies:
+    instruction: Resolve the truth-teller and liar statements.
+    answer_format: True or False
+  word_sorting:
+    instruction: Sort the words in the requested order.
+    answer_format: the sorted words only
+generation_view:
+  allowed_fields:
+  - item_id
+  - item_hash
+  - input
+  - subtask
+  - split
+  - public_metadata
+  forbidden_fields:
+  - answer
+  - gold
+  - gold_answer
+  - correct_answer
+  - target
+  - is_correct
+  - diagnostic_label
+scoring_contract:
+  parser_receives_gold: false
+  scorer_only_gold_access: true
+  extraction_failure_is_incorrect: false
+  preserve_subtask_identity: true
+  subtask_specific_parser_and_scorer: true
+redistribution_policy: hashes_predictions_and_metadata_only_until_upstream_terms_are_independently_confirmed
+expected_item_count: 6507
+raw_full_item_count: 6511
+exact_duplicate_items_retired: 4

@@ -1,0 +1,33 @@
+schema_version: '7.0'
+run_id: study-c-s3-bbh-v7
+study_id: study-c-s3-v7
+stage: S3
+evidence_class: CONFIRMATORY
+mode: minimum_scientific
+benchmark_id: bbh
+benchmark_contract: configs/benchmarks/bbh_scientific_v7.yaml
+benchmark_contract_sha256: aadd81d94c3a4b169874a1df323dcf7f3bf58b95938a58002a25e697919051d0
+panel_config: configs/panels/s3_scientific_v7.yaml
+panel_config_sha256: bde8e3d75f562342ea3c554313799a86fb18ab9797be03b050d3585e04d7bd0d
+subset_manifest: results/freeze/study_c_v7/bbh_scientific_full_v7.json
+subset_manifest_sha256: 540e19f811eb973316162a27fdeada1c80a0cd0acfa64c3d936449c856544f02
+output_root: kaggle_v7_outputs
+required_source_ref: valideval-v7-icml2027-max-pre-execution
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids:
+  - '0'
+  - '1'
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 2
+  shard_count: 8
+  batch_size: 1
+  max_sequence_length: 3072
+  timeout_seconds: 1800
+  minimum_free_disk_gb: 10
+  model_download_margin_gb: 5

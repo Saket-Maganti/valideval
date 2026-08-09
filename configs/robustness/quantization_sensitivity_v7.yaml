@@ -1,0 +1,7 @@
+schema_version: "7.0"
+benchmarks: [mmlu, gsm8k, bbh]
+condition: representative_quantization_sensitivity
+representatives: [Qwen/Qwen2.5-3B-Instruct, mistralai/Mistral-7B-Instruct-v0.3]
+precisions: [float16, bitsandbytes_nf4]
+temperature: 0.0
+evidence_class: ROBUSTNESS

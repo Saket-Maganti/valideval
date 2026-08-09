@@ -1,0 +1,22 @@
+schema_version: "7.0"
+panel_id: s4_fallback_v7
+study_id: study-c-s4-v7
+evidence_class: CONFIRMATORY
+frozen_before_s3: true
+reason: Open-access fallback that avoids gated Llama and Gemma checkpoints.
+inherits_exact_models_from: configs/panels/s3_scientific_v7.yaml
+model_count: 11
+family_count: 9
+allowed_model_repositories:
+  - Qwen/Qwen2.5-0.5B-Instruct
+  - Qwen/Qwen2.5-1.5B-Instruct
+  - Qwen/Qwen2.5-3B-Instruct
+  - microsoft/Phi-3-mini-4k-instruct
+  - TinyLlama/TinyLlama-1.1B-Chat-v1.0
+  - HuggingFaceTB/SmolLM2-1.7B-Instruct
+  - allenai/OLMo-2-0425-1B-Instruct
+  - ibm-granite/granite-3.3-2b-instruct
+  - stabilityai/stablelm-2-1_6b-chat
+  - deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+  - mistralai/Mistral-7B-Instruct-v0.3
+activation: Use only if a gated S4 model is unavailable or fails S2 engineering checks.

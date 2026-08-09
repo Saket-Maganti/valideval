@@ -157,10 +157,17 @@ def load_yaml_mapping(path: str | Path) -> dict[str, Any]:
     return payload
 
 
-def load_run_config(path: str | Path, *, repository_root: str | Path | None = None) -> RunConfigV6:
+def load_run_config(
+    path: str | Path, *, repository_root: str | Path | None = None
+) -> RunConfigV6 | Any:
     source = Path(path).resolve()
+    raw = load_yaml_mapping(source)
+    if str(raw.get("schema_version")) == "7.0":
+        from valideval.execution.config_v7 import load_run_config_v7
+
+        return load_run_config_v7(source, repository_root=repository_root)
     try:
-        config = RunConfigV6.model_validate(load_yaml_mapping(source))
+        config = RunConfigV6.model_validate(raw)
     except Exception as exc:
         if isinstance(exc, V6ConfigurationError):
             raise
@@ -204,10 +211,18 @@ def verify_referenced_file(path: Path, expected_sha256: str, *, label: str) -> N
         )
 
 
-def semantic_config_hash(config: RunConfigV6 | dict[str, Any]) -> str:
-    payload = config.model_dump(mode="json") if isinstance(config, RunConfigV6) else dict(config)
+def semantic_config_hash(config: BaseModel | dict[str, Any]) -> str:
+    payload = config.model_dump(mode="json") if isinstance(config, BaseModel) else dict(config)
     if payload.get("mode") in {"resume", "validate_only", "package_only"}:
-        payload["mode"] = "smoke"
+        if payload.get("schema_version") == "7.0":
+            payload["mode"] = {
+                "S2": "pilot",
+                "S3": "minimum_scientific",
+                "S4": "full_common_panel",
+                "S5": "robustness",
+            }[str(payload["stage"])]
+        else:
+            payload["mode"] = "smoke"
     return sha256_bytes(canonical_json_bytes(payload))
 
 

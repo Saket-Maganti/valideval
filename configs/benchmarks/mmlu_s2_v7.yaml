@@ -1,0 +1,57 @@
+schema_version: '7.0'
+benchmark_contract_id: mmlu_pilot_v7
+benchmark_id: mmlu
+benchmark_version: cais/mmlu_c30699e8_pilot_v7
+dataset_source: https://huggingface.co/datasets/cais/mmlu
+dataset_repository: cais/mmlu
+dataset_revision: c30699e8356da336a370243923dbaf21066bb9fe
+dataset_config: all
+split: test
+license: mit
+expected_full_item_count: 14042
+subset_policy: seeded_stratified_pilot_v7
+subset_seed: 20270809
+item_id_method: sha256_revision_subject_split_normalized_question_ordered_choices
+prompt_template_version: mmlu_zero_shot_choice_v6.0
+prompt_instruction: 'Answer the multiple-choice question. Return only one uppercase
+  letter: A, B, C, or D.'
+few_shot_policy: zero_shot_v7
+few_shot_source: none
+few_shot_ids: []
+few_shot_examples_hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+generation_mode: controlled_answer_generation
+generation_config_id: mmlu_greedy_choice_v6.0
+generation_parameters:
+  do_sample: false
+  max_input_tokens: 2048
+  max_new_tokens: 8
+  seed: 20260723
+scoring_version: mmlu_exact_choice_v6.0
+extraction_version: mmlu_choice_extractor_v6.0
+invalid_output_policy: record_failure_never_coerce_to_wrong
+generation_view:
+  allowed_fields:
+  - item_id
+  - item_hash
+  - question
+  - choices
+  - subject
+  - split
+  - public_metadata
+  forbidden_fields:
+  - answer
+  - gold
+  - gold_answer
+  - correct_answer
+  - target
+  - is_correct
+  - diagnostic_label
+scoring_contract:
+  parser_receives_gold: false
+  scorer_only_gold_access: true
+  extraction_failure_is_incorrect: false
+  option_order_preserved: true
+redistribution_policy: hashes_predictions_and_metadata_only
+expected_item_count: 200
+raw_full_item_count: 14042
+exact_duplicate_items_retired_before_sampling: 27

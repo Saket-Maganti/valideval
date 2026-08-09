@@ -1,0 +1,23 @@
+schema_version: "7.0"
+panel_id: s3_scientific_v7
+study_id: study-c-s3-v7
+evidence_class: CONFIRMATORY
+scientific_panel_adequacy: CONDITIONAL_ON_POWER_EXTRACTION_AND_FAMILY_GATES
+selection_estimands: [pairwise_difference_0.01, top_k, diagnostic_stability, decision_regret, transport]
+family_count: 9
+model_count: 11
+models:
+  - {repository: Qwen/Qwen2.5-0.5B-Instruct, revision: 7ae557604adf67be50417f59c2c2f167def9a775, family: Qwen2.5, parameters: 494032768, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 1.0, expected_vram_gb: 2.0}
+  - {repository: Qwen/Qwen2.5-1.5B-Instruct, revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306, family: Qwen2.5, parameters: 1543714304, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 3.1, expected_vram_gb: 4.5}
+  - {repository: Qwen/Qwen2.5-3B-Instruct, revision: aa8e72537993ba99e69dfaafa59ed015b17504d1, family: Qwen2.5, parameters: 3085938688, license: qwen-research, dtype: float16, quantization_fallback: bitsandbytes_nf4, expected_download_gb: 6.2, expected_vram_gb: 8.0}
+  - {repository: microsoft/Phi-3-mini-4k-instruct, revision: f39ac1d28e925b323eae81227eaba4464caced4e, family: Phi-3, parameters: 3821079552, license: mit, dtype: float16, quantization_fallback: bitsandbytes_nf4, expected_download_gb: 7.7, expected_vram_gb: 9.5}
+  - {repository: TinyLlama/TinyLlama-1.1B-Chat-v1.0, revision: fe8a4ea1ffedaf415f4da2f062534de366a451e6, family: TinyLlama, parameters: 1100048384, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 2.3, expected_vram_gb: 3.5}
+  - {repository: HuggingFaceTB/SmolLM2-1.7B-Instruct, revision: 31b70e2e869a7173562077fd711b654946d38674, family: SmolLM2, parameters: 1700000000, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 3.5, expected_vram_gb: 5.0}
+  - {repository: allenai/OLMo-2-0425-1B-Instruct, revision: 48d788eca847d4d7548f375ad03d3c9312f6139e, family: OLMo-2, parameters: 1000000000, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 2.5, expected_vram_gb: 4.0}
+  - {repository: ibm-granite/granite-3.3-2b-instruct, revision: 707f574c62054322f6b5b04b6d075f0a8f05e0f0, family: Granite-3.3, parameters: 2000000000, license: apache-2.0, dtype: float16, quantization_fallback: null, expected_download_gb: 4.2, expected_vram_gb: 6.0}
+  - {repository: stabilityai/stablelm-2-1_6b-chat, revision: f3fe67057c2789ae1bb1fe42b038da99840d4f13, family: StableLM-2, parameters: 1600000000, license: other, dtype: float16, quantization_fallback: null, expected_download_gb: 3.3, expected_vram_gb: 5.0}
+  - {repository: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B, revision: ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562, family: DeepSeek-R1-Qwen-hybrid, parameters: 1500000000, license: mit, dtype: float16, quantization_fallback: null, expected_download_gb: 3.5, expected_vram_gb: 5.0}
+  - {repository: mistralai/Mistral-7B-Instruct-v0.3, revision: c170c708c41dac9275d15a8fff4eca08d52bab71, family: Mistral, parameters: 7241732096, license: apache-2.0, dtype: float16, quantization_fallback: bitsandbytes_nf4, expected_download_gb: 14.5, expected_vram_gb: 15.0}
+family_dependence_note: The DeepSeek distill uses Qwen architecture; analyze as hybrid and merge with Qwen in sensitivity.
+fallback_panel: configs/panels/s4_fallback_v7.yaml
+claim_boundary: Confirmatory status requires unchanged preregistration and all acceptance gates.

@@ -1,0 +1,1906 @@
+{
+  "benchmark_id": "bbh",
+  "dataset_repository": "lukaemon/bbh",
+  "dataset_revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+  "few_shot_examples_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "few_shot_ids": [],
+  "few_shot_policy": "zero_shot_v7",
+  "item_count": 270,
+  "items": [
+    {
+      "item_hash": "ebb86a843735be32bbc447cc6cf0047b480b6a60cb17a6d8b4fa19d430f007de",
+      "item_id": "bbh-boolean_expressions-ebb86a843735be32bbc447cc",
+      "normalized_text_hash": "4e2ebd8a629aa618515b4c300a669397b025a93c27a891245a8bb5459212ef75",
+      "row_index": 5,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "a5661d31e2559ba39affa04ca4f2292763cedf1b31e5ccd65e4dd9e9cc8cfc10",
+      "item_id": "bbh-boolean_expressions-a5661d31e2559ba39affa04c",
+      "normalized_text_hash": "18681f285fad2be7785e43f5bb1389f4fa8bfe1880cb4fb6f6cbf7c1936468d7",
+      "row_index": 52,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "008a3722b3c18ce4a9d0970b3a97db6c12eecb79fdafda88450b18eb2f779983",
+      "item_id": "bbh-boolean_expressions-008a3722b3c18ce4a9d0970b",
+      "normalized_text_hash": "583b707faa33ec76c40a632624145d2d7380b8422f2450fbd1a3b1a80bb98450",
+      "row_index": 66,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "f74d25d9db14c10bd49b31798f2d3bc89f4365a1b157a928088a50d099ddb110",
+      "item_id": "bbh-boolean_expressions-f74d25d9db14c10bd49b3179",
+      "normalized_text_hash": "9022270043048ea9aed4b8f33adacc217154a249f476e706a9e545b7afeb5448",
+      "row_index": 69,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "3acee996e7f00db01c2e29101a3d3e602d5d5d4a3c0a882d30b32cfa693b16bf",
+      "item_id": "bbh-boolean_expressions-3acee996e7f00db01c2e2910",
+      "normalized_text_hash": "f5b12c24a362494f377e57f76dbae052f43985c73f2282b1538752c2627e8fad",
+      "row_index": 71,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "3dcf1f5aa5be135dbac99183a54da007551e1e11dcd84188487eca827ad163ff",
+      "item_id": "bbh-boolean_expressions-3dcf1f5aa5be135dbac99183",
+      "normalized_text_hash": "2bdc24bd77670d0a325374e209fca4489184abaaf02d9b1e184535e7900e0a45",
+      "row_index": 108,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "247f4b22c93c45c4860fe8f18e038565f747b0ffc916eb2bc80cd00c2c198205",
+      "item_id": "bbh-boolean_expressions-247f4b22c93c45c4860fe8f1",
+      "normalized_text_hash": "abcfcf63817eadbe143cbea7a9b39a5f47d4f8a7eff1de640735b81687566618",
+      "row_index": 123,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "954056d2d462759e08457f809eda4d4235c2ed87921ad8c79165ff3708fb6ab1",
+      "item_id": "bbh-boolean_expressions-954056d2d462759e08457f80",
+      "normalized_text_hash": "629750538cfb32ff7f5638ced325958bb2fdcf181b9de2a04465af15c4daff45",
+      "row_index": 142,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "972a2265bbb6cb6f9fc590c08d03225c5c09c4aa4d526c8852373b1e68692cfb",
+      "item_id": "bbh-boolean_expressions-972a2265bbb6cb6f9fc590c0",
+      "normalized_text_hash": "a79fc93da5f2c78c962816c8d997df181994fe9748a6b635bdff5548a150282e",
+      "row_index": 150,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "96bc4a9cfcc5f1847ed03ebba7bc009e599de241f93be9ea50a34b85da813547",
+      "item_id": "bbh-boolean_expressions-96bc4a9cfcc5f1847ed03ebb",
+      "normalized_text_hash": "d0a5dc2624de0c973b2c19c43c2c2c212a31b84681e9e2c0de4a14df4932aa3d",
+      "row_index": 168,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "33951a479e8dbd2d093609373f5c6ba45a484e7e89574b226366bc82229cd866",
+      "item_id": "bbh-boolean_expressions-33951a479e8dbd2d09360937",
+      "normalized_text_hash": "14e028cf8872f2186dde15a2580c203a3873f82297d5f18f26b6cb1461a3537d",
+      "row_index": 176,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "35de4f4033a382b8ffece1bc36b942f17cb245b99e206526da04830bd2f5f621",
+      "item_id": "bbh-boolean_expressions-35de4f4033a382b8ffece1bc",
+      "normalized_text_hash": "d2c067740efa55ad2d8b992f1d48e43dcc683c2c4e8a401cc79040d376b3465d",
+      "row_index": 194,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "9f4a0b537b3f562fe1f82371e70852c7d8dee7b3c078eba5dbb266f831eecc41",
+      "item_id": "bbh-boolean_expressions-9f4a0b537b3f562fe1f82371",
+      "normalized_text_hash": "63f493b871d344e80ecbf24d1f88bfc680e501aea1e047e82778651c489c3b95",
+      "row_index": 204,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "90bc92fdefe2a317fc5774a915f371932dec28e5f0d78d0a3662869b4d05ffc3",
+      "item_id": "bbh-boolean_expressions-90bc92fdefe2a317fc5774a9",
+      "normalized_text_hash": "5119e585578b1144813d4837394a836ba2b667b8651a7d6fe7e21ea32d3880f2",
+      "row_index": 217,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "0a230599ec542a4fa8bcc47a8b9ef2c98ac47b2bb3563b76fed38bcf2927c004",
+      "item_id": "bbh-boolean_expressions-0a230599ec542a4fa8bcc47a",
+      "normalized_text_hash": "4ff3dcc39142d9d6c27e47983e0d13015652f7854691a7583d6cb278bf4c866b",
+      "row_index": 228,
+      "subtask": "boolean_expressions"
+    },
+    {
+      "item_hash": "9bdf2a6325b5111f79c4b62d3ca2339a75a814a578638f0cf07714ee405f13db",
+      "item_id": "bbh-causal_judgement-9bdf2a6325b5111f79c4b62d",
+      "normalized_text_hash": "1ef8c306716197bb42e4f002d02ab40a5331437b7b1effab43122c76e0be4835",
+      "row_index": 24,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "2aa192878bfb3342b1099cab8b51d216b9323a28449ec6c712b34e281bf9a2e6",
+      "item_id": "bbh-causal_judgement-2aa192878bfb3342b1099cab",
+      "normalized_text_hash": "ee5a75f06dca62aa788955f6cc4cfb499ddd40894d23e7efc3f3bde38db9f4dc",
+      "row_index": 62,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "7cf8caeeed11cdc76dac06918b16217b45dde901c281e3e00eb2b338dc895e94",
+      "item_id": "bbh-causal_judgement-7cf8caeeed11cdc76dac0691",
+      "normalized_text_hash": "0d5781698ef81c9c37cadd4d4cd79342a4e30c56cb6633fb4a81c053647acc49",
+      "row_index": 76,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "34911538c0b56408a1ac73f09f974ac95d3b4be8fd3809a0056f1f1ab00e3508",
+      "item_id": "bbh-causal_judgement-34911538c0b56408a1ac73f0",
+      "normalized_text_hash": "4cc2b8cf103a54b67fe8ab300beda4221a5c2c4eb4571806537f9df0b7c5e1ac",
+      "row_index": 106,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "cb71557e9167d96f1fac44c0f9f5b7cfa906fbd85c9e964133af5964de27d78a",
+      "item_id": "bbh-causal_judgement-cb71557e9167d96f1fac44c0",
+      "normalized_text_hash": "5b7600eeecb09a0b41be9301245890e8780e3ba60374f416197af4856d023c5a",
+      "row_index": 107,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "9d7604ec00166ba33ccc20eb96730dc68e0055d3d203a63c982a285d1324092c",
+      "item_id": "bbh-causal_judgement-9d7604ec00166ba33ccc20eb",
+      "normalized_text_hash": "e542680c1187a81fa01846af5c2112136fd56b65d4efaca08a6527e594b8a05b",
+      "row_index": 109,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "1c90c85e3d311b661f0c63d4517125169ee6f929ae94224d5e75ed7ba489c832",
+      "item_id": "bbh-causal_judgement-1c90c85e3d311b661f0c63d4",
+      "normalized_text_hash": "94d6b1ad5a45fde2d747becb59e74296e2b3f147176b842aeb4aef19c6fbf15c",
+      "row_index": 113,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "e326be811557269b188062d2f3b2ce64966b4d1f2942d8665728db1a954bea82",
+      "item_id": "bbh-causal_judgement-e326be811557269b188062d2",
+      "normalized_text_hash": "8bc21fcea63f8624d0b40b51f38f5cb4d3b9a455dd073a68cf70d1b34ed88636",
+      "row_index": 168,
+      "subtask": "causal_judgement"
+    },
+    {
+      "item_hash": "b7e905da785362c30b80949cc4fc880c4359a997020ef0ad1d5ba8f5633621b9",
+      "item_id": "bbh-date_understanding-b7e905da785362c30b80949c",
+      "normalized_text_hash": "f3ace3123ab2d55fe86566fb7d534d91e08994af6005436fb6319919fa1eac43",
+      "row_index": 23,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "1eb48cc9676b288a86d372ca9895c69d4f716f05111c2b97347b5e10a871f479",
+      "item_id": "bbh-date_understanding-1eb48cc9676b288a86d372ca",
+      "normalized_text_hash": "144f42aff569ea4e84fa57c2d99e681c52cf03260bbe8089325bf6a56a167608",
+      "row_index": 31,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "46ef146f15b090b28b43fa77cbebd5e776e1316d99e8202a2bee44fae829c23f",
+      "item_id": "bbh-date_understanding-46ef146f15b090b28b43fa77",
+      "normalized_text_hash": "fd1d4fad685a8a2c8b1282950760ed6e2b90fbb4286dadcad29c22773041e951",
+      "row_index": 66,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "c4072f02f845e4b3d07e6f4829cedcdf8b345bdbaf36c12450a5072cdbffa0cb",
+      "item_id": "bbh-date_understanding-c4072f02f845e4b3d07e6f48",
+      "normalized_text_hash": "95295165fac946ee41ecd4eab147b61dfb1fc8424cca046a042e6f88bc55cda5",
+      "row_index": 67,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "5ef5571da0d6af8ea77fe805afca46600954e9efc5260eccc1cc26feadec5680",
+      "item_id": "bbh-date_understanding-5ef5571da0d6af8ea77fe805",
+      "normalized_text_hash": "199103032f5be45b2592b9c768afe5fd113a2195773413afbe5370b80779992b",
+      "row_index": 71,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "6370432b8dac6180d68df770e0a31b7239906d620e1edb1ea675f262eb35d149",
+      "item_id": "bbh-date_understanding-6370432b8dac6180d68df770",
+      "normalized_text_hash": "fc10334d09f8440a9c040e1b75eb964aa57113e7aea72e056e98539616ea4156",
+      "row_index": 86,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "e76fb0291bcc60c3a2ddfc69ed6496facdde2db07dff0632887e159725035c18",
+      "item_id": "bbh-date_understanding-e76fb0291bcc60c3a2ddfc69",
+      "normalized_text_hash": "ad199f176f5a971af83d583338dc921741837bfd1c8c6574e4316926f44e7121",
+      "row_index": 120,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "0ff17f1f63b2e57bd83bbb107a052ed3a2e9a5819ee7fc1c5ea409e386bf4cea",
+      "item_id": "bbh-date_understanding-0ff17f1f63b2e57bd83bbb10",
+      "normalized_text_hash": "20c093ec1d19a4ed306d6e4bdf4860febfb99497d18a0a88de33bc08f5c92230",
+      "row_index": 127,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "d292b7bcb981b072a9bfa5ad4532fdd3629920bd5b207c01b4306c5f51af71fd",
+      "item_id": "bbh-date_understanding-d292b7bcb981b072a9bfa5ad",
+      "normalized_text_hash": "770fa5291cbeb881213b7155142d41a3b06dfe22725490eecc217efca3bdcdf8",
+      "row_index": 186,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "485490f03d391725b9e5c3fb4376f902b33a6d1c1197b3227ed8652c42174e84",
+      "item_id": "bbh-date_understanding-485490f03d391725b9e5c3fb",
+      "normalized_text_hash": "60c144dee099f61e1a8149b7d712f5ed5dec858eee81fbeba9f1d93e674a5c2f",
+      "row_index": 203,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "ee4f13156bbbdf0e3098555ffdf0234e26c939784af3ae9c4eae5dd55c3623fa",
+      "item_id": "bbh-date_understanding-ee4f13156bbbdf0e3098555f",
+      "normalized_text_hash": "b304a9e8c45b320d8d67e152e1c41b61f8091418f52e2f7e7fb393c55f8816ab",
+      "row_index": 207,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "c75fc4c997476e4c9ba77a8372dd56e5a9ce5566780929d48e271f8d324de91f",
+      "item_id": "bbh-date_understanding-c75fc4c997476e4c9ba77a83",
+      "normalized_text_hash": "fef7878f45b60961fda0c426f9ae02fa1ca9c1520c3a652d79b68670d9f324d2",
+      "row_index": 217,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "526d6103faa00dd8c06b8b0dbef64fd345f67f9f07c99048d26467abaa374efe",
+      "item_id": "bbh-date_understanding-526d6103faa00dd8c06b8b0d",
+      "normalized_text_hash": "7a4bacdc939a7e42be54eb058466deb649b73392def4069d3b59a2fcdc622b88",
+      "row_index": 224,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "81edbde4ad499cfdb7b0b3b69cb12840f5b61677beed106b3bc8d4f9fe03d270",
+      "item_id": "bbh-date_understanding-81edbde4ad499cfdb7b0b3b6",
+      "normalized_text_hash": "662a179a8ae8889e6e81525a83d18d9092a63a282fa32a9610d34e0253ea68a7",
+      "row_index": 227,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "49e84cf06b00cb602dfd6565f8ec3eed8be3d383957ae2ae709629031a6cd79b",
+      "item_id": "bbh-date_understanding-49e84cf06b00cb602dfd6565",
+      "normalized_text_hash": "301249d3214009d64055e9a90c0854db49dfed6fda6642fe0e0273436505edc0",
+      "row_index": 236,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "32046abec43ecb2cd3fa986ae6c55c4a8416cf0415e0a05421eabba9ffe2d0b4",
+      "item_id": "bbh-date_understanding-32046abec43ecb2cd3fa986a",
+      "normalized_text_hash": "2f65036648c48631edd47786fe3181f24df2f3d5cb29f71b973d350bc5a2cea0",
+      "row_index": 248,
+      "subtask": "date_understanding"
+    },
+    {
+      "item_hash": "e5dd32bb53857d11332d00074f6fdc10011c545acbd5427b90b1064fc6b2e57f",
+      "item_id": "bbh-disambiguation_qa-e5dd32bb53857d11332d0007",
+      "normalized_text_hash": "43c1098edd66785e2d0712752b1ce3c4c20cf62b040564f5128db5d6045f52c7",
+      "row_index": 4,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "2f185152a242d09692bbb88313d2cafdf7d78d9fb9da425f2fbe5641386a73d4",
+      "item_id": "bbh-disambiguation_qa-2f185152a242d09692bbb883",
+      "normalized_text_hash": "cffcde4704f3b03641ad224cf8758492ace13fa0d7e10d0c9d6bd22b8d5519ab",
+      "row_index": 10,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "29b444e0da247e565c7ad213490db65483236c2d329c696c8185086df2a38920",
+      "item_id": "bbh-disambiguation_qa-29b444e0da247e565c7ad213",
+      "normalized_text_hash": "985ad3d528ba512b742926299e879fb376d329fc74beac2089e7633e51a138ab",
+      "row_index": 24,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "f9fc6d061f832537609c583021c168354a9584bc835de7fbc206a787fb7a253a",
+      "item_id": "bbh-disambiguation_qa-f9fc6d061f832537609c5830",
+      "normalized_text_hash": "0e6c49c6d640fbc47e9669a67fa58537edb53e63eca1d1e578f1693b9bc6057e",
+      "row_index": 33,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "531e627bccaecc82d04cfdcb0cc4ea9e26d7d8a6f23b5d130a77f69e17a0ed4b",
+      "item_id": "bbh-disambiguation_qa-531e627bccaecc82d04cfdcb",
+      "normalized_text_hash": "38d09deb8ccb3b873c62e1cc7c0f64b9498a37e766372d0329a58f764ab5802f",
+      "row_index": 66,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "bb358f397516de8dc0ea2fd44c3b441db4456a66f3813409be3780bb3d44522c",
+      "item_id": "bbh-disambiguation_qa-bb358f397516de8dc0ea2fd4",
+      "normalized_text_hash": "bdc72d72f8ff9e87a626aea2832743e99409eedef42d2bb9fbbadcb5357d75d0",
+      "row_index": 68,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "59e8b4c498123d0cbc9d00c4673fad007e9516333948e0ed50b9301379a2423d",
+      "item_id": "bbh-disambiguation_qa-59e8b4c498123d0cbc9d00c4",
+      "normalized_text_hash": "f6ca0cd0d3718aa75f88b75851782f44c26242efaff15571099b70e9f80ba83b",
+      "row_index": 87,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "63626c249282035a1c8ace5f7d751a9727b99604a67bb443e5ff22375423e015",
+      "item_id": "bbh-disambiguation_qa-63626c249282035a1c8ace5f",
+      "normalized_text_hash": "820893d879f098e1a1a9a2578d7347f4be443e12a3c2c1b8ad707e7093daa93e",
+      "row_index": 97,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "246d69cb771cc869a373a6f6ce94c4c63fc70e0abc3c71a26c043498e515e8ce",
+      "item_id": "bbh-disambiguation_qa-246d69cb771cc869a373a6f6",
+      "normalized_text_hash": "51e8cb1eceb783b5b7d1a82c3386ee2180e206e5d9630592fdc20d3435cdd040",
+      "row_index": 112,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "a27293b3e9851558dcca75a7d1f471e5094eaf4a78a168e144f5941a5d3d337b",
+      "item_id": "bbh-disambiguation_qa-a27293b3e9851558dcca75a7",
+      "normalized_text_hash": "dba5bc857e4b5c1c0b760e09f6d067e12ac47360d011f272b9f8344964cadc4f",
+      "row_index": 117,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "d1a220b42a8c170900bc88f5b9343eaa87a0fa3f9db33ed5b68fd8536dd44b28",
+      "item_id": "bbh-disambiguation_qa-d1a220b42a8c170900bc88f5",
+      "normalized_text_hash": "50e9dd891db032e75a257d88af6038194cd89ced1eb9ad5b1cc35314bd9092b0",
+      "row_index": 153,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "23cdd536891cfae87008aca5354cec42944cf22b9f88097f7338a0c1ee3bf472",
+      "item_id": "bbh-disambiguation_qa-23cdd536891cfae87008aca5",
+      "normalized_text_hash": "95d150b8ed8269111c353b206024ff865e56efa9b5b1371746b36d8380c508fe",
+      "row_index": 164,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "6e35e68ecf12770198573f023cacd3742ee3af486daf0b1aa20aa224f488ebe3",
+      "item_id": "bbh-disambiguation_qa-6e35e68ecf12770198573f02",
+      "normalized_text_hash": "42b48bdce3963ab5271ba9a2f85ec202e901882f5aea54b25442e6f53e14240c",
+      "row_index": 177,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "db0217beda2e5d2f1361cdc45a6e09befd6c88d7e3dd92978bb6fd575f0da286",
+      "item_id": "bbh-disambiguation_qa-db0217beda2e5d2f1361cdc4",
+      "normalized_text_hash": "1b5e79b52eda76aaac0f22046b2ae31a190dd1e1cf99c35e3c75bf9febfc15be",
+      "row_index": 194,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "c408dab577b162a0b535adba57b281621726a2f656014db00560f9792c444330",
+      "item_id": "bbh-disambiguation_qa-c408dab577b162a0b535adba",
+      "normalized_text_hash": "66a03b19ff1ec358d5cd0397868f39898ceedc781ba17b59bf8b0ffcd16e804f",
+      "row_index": 199,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "851964a1534542630e1965cf637d6a28a601dbaead3085853b7d12e992f15527",
+      "item_id": "bbh-disambiguation_qa-851964a1534542630e1965cf",
+      "normalized_text_hash": "6232f62203b9437815d001f417f5a07a36a1196a9f76ed2dfa99ae1ff7291366",
+      "row_index": 204,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "960d6a597d8eced0d3d983487a502693648805553aeb3d7a397bbe3f4521492b",
+      "item_id": "bbh-disambiguation_qa-960d6a597d8eced0d3d98348",
+      "normalized_text_hash": "0e1593c3ecb33ae791ff3062c07ee05358510cdfc6316f926593985ac21a3230",
+      "row_index": 222,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "6561006eb9d8471de92ad41f432605e6df408e4dd968a992124d70a80d5faa6e",
+      "item_id": "bbh-disambiguation_qa-6561006eb9d8471de92ad41f",
+      "normalized_text_hash": "ecadfdd04100a2974a6813447b46d8ad35a209da06d99d908fb58874574b6fd7",
+      "row_index": 227,
+      "subtask": "disambiguation_qa"
+    },
+    {
+      "item_hash": "ba7961e59c8c5f6475d02a1c50a3a2b7e43b59c81c5b6f9156f2a7b723c7c546",
+      "item_id": "bbh-dyck_languages-ba7961e59c8c5f6475d02a1c",
+      "normalized_text_hash": "e44fb87bea70e26b9ce8480c0472f69792349503fe34046ba561e79b04e3ad44",
+      "row_index": 41,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "06500f32d2516c6906ac0bba254d1898d3b9306c6206e6ed5be5f03190729f3a",
+      "item_id": "bbh-dyck_languages-06500f32d2516c6906ac0bba",
+      "normalized_text_hash": "c4170b58bf87bb8e3ac6982fa6961c91aa12dffb49261166997966f76b2b1ddd",
+      "row_index": 42,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "779f4cd97badd139a23bb21b3afb04c462eca937b0f6864d9bcd46f24021c138",
+      "item_id": "bbh-dyck_languages-779f4cd97badd139a23bb21b",
+      "normalized_text_hash": "30a06cece84ac5b30af94eaa63efb2aac9ab04c23a01c8d99bd6945fe798b2c4",
+      "row_index": 57,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "8c00bbf43dfab1c3b4ea6ecb91fd1277f01963a3bc92c5afc2d342d69238b59a",
+      "item_id": "bbh-dyck_languages-8c00bbf43dfab1c3b4ea6ecb",
+      "normalized_text_hash": "4d83179490c86ff7c8ca32a3d3d952bd6464f0a23d2d30bc09971acdef6e71d8",
+      "row_index": 68,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "04636f9d165772e90c16a51014c4ba3f7cdd95c51183cb5f06d76d23c7d7a08d",
+      "item_id": "bbh-dyck_languages-04636f9d165772e90c16a510",
+      "normalized_text_hash": "130630707b2a433d5ca2122f59068fe2121399a4a161a940ce9743f95d692a54",
+      "row_index": 103,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "4e47def9add647c8f36ef2ca7e21d6d107479a62f7613dfd225d97b40ca4996e",
+      "item_id": "bbh-dyck_languages-4e47def9add647c8f36ef2ca",
+      "normalized_text_hash": "fb98cb793a14d6028a14ca82ad53cc8a745291d840fc95bb4e97e671f17e47e0",
+      "row_index": 114,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "40e73d77fa14e1fe0042a78af6a656210e2f24a4a4ceb26b0817d558e50e3481",
+      "item_id": "bbh-dyck_languages-40e73d77fa14e1fe0042a78a",
+      "normalized_text_hash": "39e592e551dd50d0c647b8bd224faa2df83e4850ba826731adbef5d390dd50a5",
+      "row_index": 124,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "7de8a4307c1a272144c82a44650e385e035f8bea505b76c52f76440e5a128288",
+      "item_id": "bbh-dyck_languages-7de8a4307c1a272144c82a44",
+      "normalized_text_hash": "8598b4f52f4aea3e4a3d6aee449020b79734ae437811371f50931b68559ed9fb",
+      "row_index": 129,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "2cd482ae1537d5dbaf6a59496252eee1609d5965a6d19fb644bedc946b8f48e2",
+      "item_id": "bbh-dyck_languages-2cd482ae1537d5dbaf6a5949",
+      "normalized_text_hash": "85436342072dec746d4d8ac60e400c888661df611d194483caf259e9245fbbef",
+      "row_index": 146,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "eadae29c4b65a74e943fe557b4e5701475debd752b25a6af49d1fa8385b70d24",
+      "item_id": "bbh-dyck_languages-eadae29c4b65a74e943fe557",
+      "normalized_text_hash": "86358578115d7734b6d548a44f2832ea46a8cd73bdf58b81314c01caee0346bd",
+      "row_index": 174,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "0e01b7af7bb22d75fa3d0422baf0b80d923d558d5b79a7b50d8a74bdeefdfdf0",
+      "item_id": "bbh-dyck_languages-0e01b7af7bb22d75fa3d0422",
+      "normalized_text_hash": "8de6b72d7c0c20390aa0e6f72bbb3214b564fa8402b2df85988d65adfe30efdf",
+      "row_index": 218,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "8438ef3f3d8c7cf63a7e5e4e698fa14f1c391daac124ce08295d89d4d959a606",
+      "item_id": "bbh-dyck_languages-8438ef3f3d8c7cf63a7e5e4e",
+      "normalized_text_hash": "231c220011ffec5680764e30901a216c0a4c0b08d6dc7d577978a838ee156007",
+      "row_index": 238,
+      "subtask": "dyck_languages"
+    },
+    {
+      "item_hash": "a9f85f61aa71514297e132bccd184e93f8d88222eac0f7a7b58f693e58577912",
+      "item_id": "bbh-formal_fallacies-a9f85f61aa71514297e132bc",
+      "normalized_text_hash": "ef0026d63849c214d118e928534e2cdd8a599f6ad85a1d2664e66076dc1083f1",
+      "row_index": 42,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "8d9b56e916d5ea522461eef55607b1766ab81afa74c0fdfb520a36e3e6cf2eeb",
+      "item_id": "bbh-formal_fallacies-8d9b56e916d5ea522461eef5",
+      "normalized_text_hash": "5668d8f34a240432d08bd36c42afce49cc947e84327f87d6c3c7012715903b5e",
+      "row_index": 71,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "db2a99a1b4b47fcaa48c76d9aaa374f0dc76739ee3f12703e3c25629a3e8e3ee",
+      "item_id": "bbh-formal_fallacies-db2a99a1b4b47fcaa48c76d9",
+      "normalized_text_hash": "4aabef738221ce66d65e0425c1177b1f997dccf0adbb808ac118a45bff179b71",
+      "row_index": 72,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "74388138226f03984bbc6a30d31dd954594504a9afe1d1c972009606a6ef0531",
+      "item_id": "bbh-formal_fallacies-74388138226f03984bbc6a30",
+      "normalized_text_hash": "7df4ef500ad297d486285a2e3e031d548a11bf6717acdcba42c54764cd1e58ad",
+      "row_index": 99,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "01e4960e15f307bf3e5852d7aff9bc3b0e46831f31087a9afd7d0dd13dc22577",
+      "item_id": "bbh-formal_fallacies-01e4960e15f307bf3e5852d7",
+      "normalized_text_hash": "c807d3caa3ed83c976c50e7af6b9ff6bd9cc305c1ce3ffef94999d33585b2506",
+      "row_index": 110,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "24a37c5f1a76a13485d78245d838475a78c0e355f054279f1ea56b801773a618",
+      "item_id": "bbh-formal_fallacies-24a37c5f1a76a13485d78245",
+      "normalized_text_hash": "c57f193a0fd9cd946285b2d1b4f45da3d4316886e7aedb9e4bbba9886b63a6e2",
+      "row_index": 131,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "3477ea9ae4392878eaa6b541620cf461624fdc7866993a070a3429d24bb31bf7",
+      "item_id": "bbh-formal_fallacies-3477ea9ae4392878eaa6b541",
+      "normalized_text_hash": "f1df0e148b6d7cd5ba3f5619064f26b167ee4d994ad31ef5aa1d5b6ea19124ea",
+      "row_index": 158,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "f45405a5c775453e94cce7fa3826e471aebdcaf5c23399b57b2638b3e0d93994",
+      "item_id": "bbh-formal_fallacies-f45405a5c775453e94cce7fa",
+      "normalized_text_hash": "370a840a844ce664d4424b54bab6216c962e1d942413242c727286ea4c9b7ec7",
+      "row_index": 192,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "47e64a27c395727e18ebfa693195ea1654c86c2eb1290d5b7b3c2287c2eced2d",
+      "item_id": "bbh-formal_fallacies-47e64a27c395727e18ebfa69",
+      "normalized_text_hash": "acbeb1c0ccceb9adb8dc02fc45c9c9620385dc7163c6958954bcb95e35943c90",
+      "row_index": 201,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "faaa9b662b196936d2d6caa1ff13519c56032fff19b9e2d99219a986ac346aa7",
+      "item_id": "bbh-formal_fallacies-faaa9b662b196936d2d6caa1",
+      "normalized_text_hash": "19d9e69951f0d80eae3fd77bfee9ae7a0a81adef2376e18aa347df48ea1ec008",
+      "row_index": 246,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "6645034b474d13459c964b3182d3a5d20190bae419914e181607f3e5433207db",
+      "item_id": "bbh-formal_fallacies-6645034b474d13459c964b31",
+      "normalized_text_hash": "a5394ae64cf92d1f43b5876b3e7e0ebffe9c7971a72bb74703ce2d391ce2e6ba",
+      "row_index": 248,
+      "subtask": "formal_fallacies"
+    },
+    {
+      "item_hash": "830832548d1421f4312dca29817be3303fff9278e3e49dea86155bd1c3643f0d",
+      "item_id": "bbh-geometric_shapes-830832548d1421f4312dca29",
+      "normalized_text_hash": "5caaff7a05d009bd8b9df6e4853baae7a003d8d1146472a91011413ba388cea6",
+      "row_index": 53,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "aa74e496015ba029830ae7ca49ea4cee1f7f2fab662deff8783ea643fbc6fa2f",
+      "item_id": "bbh-geometric_shapes-aa74e496015ba029830ae7ca",
+      "normalized_text_hash": "1ab005adf72deadc8df6e4a75cb8d5a1d02001552c8204cdc1ffe6935fb57712",
+      "row_index": 56,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "f8115b1e34e0f9fd0d23144d54814cfccce39044692835f8e3d77306e81eaeee",
+      "item_id": "bbh-geometric_shapes-f8115b1e34e0f9fd0d23144d",
+      "normalized_text_hash": "d6063917212c0b7c9e8b6f3519593a51cb61bafec766702403793680b13aa4d9",
+      "row_index": 68,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "cc75753cccb24eefafbb935c7cc0a86f73e014ec913769a4abed73247f92e131",
+      "item_id": "bbh-geometric_shapes-cc75753cccb24eefafbb935c",
+      "normalized_text_hash": "ad818edc2caad5287cec3e81767d5b2740d5ed7d96af12c3c7e0cef4d934c27a",
+      "row_index": 74,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "acd284c6d53320bba7e4a580a883f1e9f029b0cc692205cb48dded6cb76379d9",
+      "item_id": "bbh-geometric_shapes-acd284c6d53320bba7e4a580",
+      "normalized_text_hash": "9ec888eb39d1f856f14294e92c2d6315d880cb66b8e892931692d9e3d5d33bfe",
+      "row_index": 90,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "0d58e0fbeabc5aefa5b8007bdbda6f761a9328e6ff695a70a0701d0cba8b61cf",
+      "item_id": "bbh-geometric_shapes-0d58e0fbeabc5aefa5b8007b",
+      "normalized_text_hash": "f88ccd521381a0f34d1a67754b124c611c4defa0fb619aa02851d434b932ced2",
+      "row_index": 148,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "62d968df2746ccb7df9145c8a4eaa36e1fc480fb9b176dbccf3566e8b98a681e",
+      "item_id": "bbh-geometric_shapes-62d968df2746ccb7df9145c8",
+      "normalized_text_hash": "f976eb65b6ba16538d30dd73de37421a7a15555d73a32f4a6e565ab1b2e31952",
+      "row_index": 175,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "d5ef5e9cec5210e08f7abd7e9bc52a18b64bce875e0e3d257a9d073536dcc6db",
+      "item_id": "bbh-geometric_shapes-d5ef5e9cec5210e08f7abd7e",
+      "normalized_text_hash": "9458ca51dc2898bcdf920919c56aecf9682d5d86029205556c44f999c278c29e",
+      "row_index": 179,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "fb1149cb7878321ca3f695d6372fd6b40c6f95bbc314a68948af57eb81ef59ff",
+      "item_id": "bbh-geometric_shapes-fb1149cb7878321ca3f695d6",
+      "normalized_text_hash": "7471c1e621d25b38895f32d864cddaa9448f69a6a9a5f5ba0098ce444629a496",
+      "row_index": 186,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "c17c29e706bba9e87be4a20dc561d20ed86fbb19f3b4aa02df53d91ed4d0e793",
+      "item_id": "bbh-geometric_shapes-c17c29e706bba9e87be4a20d",
+      "normalized_text_hash": "23e83b4de102bb6926fba0eda18db3ef118192b1e538e8632dfeadf6e43f4b89",
+      "row_index": 188,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "07283b45e919ea08d597030570b69534baa71d0a52610caa582215def800a6b0",
+      "item_id": "bbh-geometric_shapes-07283b45e919ea08d5970305",
+      "normalized_text_hash": "0710365752d4776dbaa7c2be938702ad77d47749e06f2f8c471d7e8fa77d04a5",
+      "row_index": 224,
+      "subtask": "geometric_shapes"
+    },
+    {
+      "item_hash": "89a66d5a6642970a0b9a67a57abbcba54c3b3c970d93c5e30629201c8abc31cb",
+      "item_id": "bbh-hyperbaton-89a66d5a6642970a0b9a67a5",
+      "normalized_text_hash": "41616864aaadc7a8c7ed5ae144e69d975adb42a570af82cc647c49415aad112c",
+      "row_index": 10,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "1b2b1a0f4ee78194464be970d3d0f73ea0f7a9564968454a2020efc2db34b950",
+      "item_id": "bbh-hyperbaton-1b2b1a0f4ee78194464be970",
+      "normalized_text_hash": "d4caa8a80be375da16cffa4f42678d70ca8a2ca8264f2e29aeadf664008d4200",
+      "row_index": 11,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "0193d3f12aee13c7eaba0892b5b17d61fbab344f2521e5c7a28950ad8c43fa22",
+      "item_id": "bbh-hyperbaton-0193d3f12aee13c7eaba0892",
+      "normalized_text_hash": "8f01b76edd89f20dcef8940d69271ce427a35ce77ad479e155908d8c87efeff9",
+      "row_index": 12,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "9316e8a0f4e88fcb8a000aee9c7d44e86f32c282f5274e973cea4ed4f48820d2",
+      "item_id": "bbh-hyperbaton-9316e8a0f4e88fcb8a000aee",
+      "normalized_text_hash": "10ef502fe37dfba49e0d3cf61e325b73c2f14f16c174739642672d30c9250768",
+      "row_index": 18,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "a939a9a02c6c848489827439e805c8dd53e0f173a8fc753c088f52d33d75d030",
+      "item_id": "bbh-hyperbaton-a939a9a02c6c848489827439",
+      "normalized_text_hash": "e82f1ed548f5658ae6d82e09dd79ca20691175b4595848b8d927724aa9c10846",
+      "row_index": 43,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "7ed896cfc15ccbdc31298d74b751259af11644d4d0a93ed0d187c29dc5dc9182",
+      "item_id": "bbh-hyperbaton-7ed896cfc15ccbdc31298d74",
+      "normalized_text_hash": "6e2fb6b2901b8060e9be575715b828678183e6714bc08d980b1ed452dac20b5b",
+      "row_index": 75,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "a34b75e8d44400a31c561f1f506b59d66bea73b7d8e7dd843df7a4ec884439b6",
+      "item_id": "bbh-hyperbaton-a34b75e8d44400a31c561f1f",
+      "normalized_text_hash": "101199a77ae10070d57d620cd2ff3984fa95cbecd6655619474241712ae8a9d6",
+      "row_index": 82,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "eeea13934d820c23e75e65263ed6f69248d1b907edb42629c0804d2898d8da12",
+      "item_id": "bbh-hyperbaton-eeea13934d820c23e75e6526",
+      "normalized_text_hash": "958224dafe8a38c200b6ad9ce35ea19a4fb0802353bd115bcac5bb76d863e98f",
+      "row_index": 102,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "8a26260fa4da2745dd07f594fab041b3edb504349520a9cb6f71793d1e6db050",
+      "item_id": "bbh-hyperbaton-8a26260fa4da2745dd07f594",
+      "normalized_text_hash": "db6f0688cedea51106d7dd71d21f1e893f444f3ebba432a8925eaa728b63b660",
+      "row_index": 119,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "1a99e847f979fd369d9921beaddb8244b414dae05d854c6b40849c095b336974",
+      "item_id": "bbh-hyperbaton-1a99e847f979fd369d9921be",
+      "normalized_text_hash": "b964f6280900631aff185b3ac624864ccfc5d7c908f90ef7b3ecfb7cdb321d2c",
+      "row_index": 125,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "1eea3da8a2ac2f6b53a1c2873ec9ba4d01371fd03c480f0d1f16264eaa2b0054",
+      "item_id": "bbh-hyperbaton-1eea3da8a2ac2f6b53a1c287",
+      "normalized_text_hash": "829b67f8c2733e87798b8e5b547fd8a154f5f28ae9d21911499b8963cbe42b3e",
+      "row_index": 127,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "f9a48e2df42218a337a58ed1ea134df9dcc7c2d9a8c8aa3d8565f85625ae934c",
+      "item_id": "bbh-hyperbaton-f9a48e2df42218a337a58ed1",
+      "normalized_text_hash": "edb8c1c1b3018e5d006be459810c59ca9ac6481d862d72c4cb8368f8d0c2cb4f",
+      "row_index": 152,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "23c5812cb02092223db43eece426f899aab06a31b26e78d2038d16e8873e6760",
+      "item_id": "bbh-hyperbaton-23c5812cb02092223db43eec",
+      "normalized_text_hash": "a0bbbcb34955b1836e9a1a53a5788bbcfdda97a46d1d8234dcdd89d6fb094fe9",
+      "row_index": 164,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "1db2bb2bb440082e0bec7586712928efa76cfd1d269770ebf0ba9eedf9fdaf6b",
+      "item_id": "bbh-hyperbaton-1db2bb2bb440082e0bec7586",
+      "normalized_text_hash": "1183221616ddf7cfcd398c2cae58e92fb6c5b5676139e3fc26eaf8f445aca271",
+      "row_index": 172,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "b771eb6f16ad51d2d4eb1b12151a26d10b8856ec868de9360b176916a8fdfab6",
+      "item_id": "bbh-hyperbaton-b771eb6f16ad51d2d4eb1b12",
+      "normalized_text_hash": "1d8ee4c1cdf1ec62a2adfd9493e918364b0b658257f6520a4cedb7d33a08f76f",
+      "row_index": 197,
+      "subtask": "hyperbaton"
+    },
+    {
+      "item_hash": "a17a09154bdf282141640a62b2db70f86ecdb0cb363a59495d8ee6be1b9f9b6e",
+      "item_id": "bbh-logical_deduction_five_objects-a17a09154bdf282141640a62",
+      "normalized_text_hash": "a49dfd096f3c0b8e3f80eb3b6df9f5062c6b2aecd0f4abca162783e99a54e2af",
+      "row_index": 13,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "c347cf152eeb097e7b865230c6bf59387308dc6ddece80da4c40da0acba2cbdb",
+      "item_id": "bbh-logical_deduction_five_objects-c347cf152eeb097e7b865230",
+      "normalized_text_hash": "7546def07974711228f03835c177ba6dc20f2f9790a4ab717885eb446ba7030c",
+      "row_index": 45,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "304ed0f80b63d67c80a626701f7bf7e91c6ecf7767ae2c00c4ff8bd2cd3a4d7e",
+      "item_id": "bbh-logical_deduction_five_objects-304ed0f80b63d67c80a62670",
+      "normalized_text_hash": "c3934948840a1f527ccb7bc01a97a75ab8b1c31282e17f78a110a9620193d968",
+      "row_index": 63,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "848c8226fe31941d8ea14345bee98e47a1203fe1a9611b2fe5a92c6dcff08e3b",
+      "item_id": "bbh-logical_deduction_five_objects-848c8226fe31941d8ea14345",
+      "normalized_text_hash": "e96a419492ee6e8a8a7a5bfc7948165fcff7d2cd1449c6cf38e5ecde9834a63e",
+      "row_index": 99,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "eb24ab957f03e43cab8a311dffe07bb8e49aae9a0a3a637871566173cf501b0b",
+      "item_id": "bbh-logical_deduction_five_objects-eb24ab957f03e43cab8a311d",
+      "normalized_text_hash": "87ff230037af5f909419b9478b61581f99cf9ff34c09f0d36ef773effcccb41c",
+      "row_index": 106,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "d5616825ee8f0c567f607b6961df8d6c01f175b9aa8999cad48d4dfd2978e5fe",
+      "item_id": "bbh-logical_deduction_five_objects-d5616825ee8f0c567f607b69",
+      "normalized_text_hash": "81b929838c99644fe830adbb6650723eb9ae7c2b38790510025e55ea6fa51c85",
+      "row_index": 107,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "2421d5c6a8a574f5e0b722669f1e1d4eb57da9fb33e86c3d1c93295c8651fffb",
+      "item_id": "bbh-logical_deduction_five_objects-2421d5c6a8a574f5e0b72266",
+      "normalized_text_hash": "2cc1c6e9e57b9da120432a95a4c08115a27d73cb10be60a72359a857953c8e05",
+      "row_index": 134,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "984e727fc84e31d61e4f186885c7752fe25d6835f68b8fb5b1c258480506cac7",
+      "item_id": "bbh-logical_deduction_five_objects-984e727fc84e31d61e4f1868",
+      "normalized_text_hash": "ab2e68146b9dc5d74b43168f1f9b680e53be747b78de8e3756648db14c97e57d",
+      "row_index": 189,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "8dbd2af631cc1412732235299ebbdbc0e6a6c1ddee60b3a042acbeea54103e1b",
+      "item_id": "bbh-logical_deduction_five_objects-8dbd2af631cc141273223529",
+      "normalized_text_hash": "bbe75394f469b99b5d9e76830d71465aca3f9fa77b0d83a1c09bd93d0afc9b8d",
+      "row_index": 190,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "67c408c8b884ea5c0ab77eb3dfe37bfe907d7e7b41b607fec4280649d938dc48",
+      "item_id": "bbh-logical_deduction_five_objects-67c408c8b884ea5c0ab77eb3",
+      "normalized_text_hash": "b649c7d72cc02051b609d80c17adb4360f1b39af5ac51ad4f7aee3ed454851f3",
+      "row_index": 198,
+      "subtask": "logical_deduction_five_objects"
+    },
+    {
+      "item_hash": "4da07b812c151aeb2f31dd670a8e7ff9e1cc2b1481d716cdf0dd0e36d0921581",
+      "item_id": "bbh-logical_deduction_seven_objects-4da07b812c151aeb2f31dd67",
+      "normalized_text_hash": "5c7c64fbd03af4c9b9ada2c127f25aef35b700d5a8ebe084ea14fa2cb59e11c1",
+      "row_index": 6,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "6fbd9e02394acb4839ff84050518ed21b3363711c4670c1f2707f9e35c729867",
+      "item_id": "bbh-logical_deduction_seven_objects-6fbd9e02394acb4839ff8405",
+      "normalized_text_hash": "be460caf71e58f37a88eae9a764dbdb7313b19f5297b6a2ec6d18d791271e9e6",
+      "row_index": 37,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "91d6cbacce416a109325e1adf953a4b4e2611e52aadc20bfda2768dd4ea49c2e",
+      "item_id": "bbh-logical_deduction_seven_objects-91d6cbacce416a109325e1ad",
+      "normalized_text_hash": "a799308d227ee7463e89a204cfa4532b1b91b009fd85dd0abd7f0b01c84dcbbd",
+      "row_index": 56,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "86304882e6c61f9a6f2981e1fde560b2fa658c24c7a7c48ece4a88ed6933ab86",
+      "item_id": "bbh-logical_deduction_seven_objects-86304882e6c61f9a6f2981e1",
+      "normalized_text_hash": "97fc57afe2dd0e3979614ff41129902ae0b15622e5cc035e6ccd0f47b5f18179",
+      "row_index": 74,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "f8a017d1900443d890238b2ad240b510c7243f52aa1d498d3a19fcaaa641ce18",
+      "item_id": "bbh-logical_deduction_seven_objects-f8a017d1900443d890238b2a",
+      "normalized_text_hash": "c71d1626f41b73ff144e1e1cc01743b5a743ee002660399bcaeb98181162f2e2",
+      "row_index": 84,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "db75c87a7bd51e30ebb9d12dddf40a9b958aad7251b08d96c6431d58933dea59",
+      "item_id": "bbh-logical_deduction_seven_objects-db75c87a7bd51e30ebb9d12d",
+      "normalized_text_hash": "ea7bb9c5132cc00782512d9df1df88187e56ced88525a98396118cd9b6e30a11",
+      "row_index": 88,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "913289b918f29814f0f356e673d46ff024410ff63e758531fb27172e7a1097d4",
+      "item_id": "bbh-logical_deduction_seven_objects-913289b918f29814f0f356e6",
+      "normalized_text_hash": "9a955de44c9e3617f8c82791807ee9adaf29bca2cf2ab16c82564d483a2221b7",
+      "row_index": 123,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "6e7cf0ec8b5f3a426e3f5644810b2cacc1d5d737b659ba52808b6f14f6dc7b10",
+      "item_id": "bbh-logical_deduction_seven_objects-6e7cf0ec8b5f3a426e3f5644",
+      "normalized_text_hash": "84b34e3f6f9d1d2a1ceb463ec5bef41f05d2378516363d07d34b48435e168333",
+      "row_index": 162,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "45f00906f095f9c9fd172db4da1989296d05bb605d3ba55bdc97142b4784fb4f",
+      "item_id": "bbh-logical_deduction_seven_objects-45f00906f095f9c9fd172db4",
+      "normalized_text_hash": "23c2bdf40118bcbd56a10aa8a11a0bfdf319729ff9792c3798600e99f550b256",
+      "row_index": 196,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "3f21af4ca52cedccd38eb2b6feb0bb26f7845c311b46933c31ed6db35b5a3473",
+      "item_id": "bbh-logical_deduction_seven_objects-3f21af4ca52cedccd38eb2b6",
+      "normalized_text_hash": "5705a891aaace62dbc1096b4064cb737d4f26006eaf2fc01912512935c06a608",
+      "row_index": 246,
+      "subtask": "logical_deduction_seven_objects"
+    },
+    {
+      "item_hash": "a5497b8189aed13ca10f0a08b94418d9167d82f15e584b9731205e94a9c5abe5",
+      "item_id": "bbh-logical_deduction_three_objects-a5497b8189aed13ca10f0a08",
+      "normalized_text_hash": "859d99fd0818150ee01af0ce0a99d86dde9c495baeccae2962937a1cb8cd001f",
+      "row_index": 17,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "9f4d958ca655c78dd5a5016addfd6feeb222e60fb3c6b18d870e3bd48153e909",
+      "item_id": "bbh-logical_deduction_three_objects-9f4d958ca655c78dd5a5016a",
+      "normalized_text_hash": "a1d8536e5412d8ebc62dab05f9e41364ca83c6e2e30fdbd54f8a790bf8714a6b",
+      "row_index": 25,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "2796853b7dcc9b7e23089ad2ac12d0a4a42d0df42e0ef0dccc882ac08c4205f3",
+      "item_id": "bbh-logical_deduction_three_objects-2796853b7dcc9b7e23089ad2",
+      "normalized_text_hash": "cf765115f4c69558a37569c9db8d7d71bc5371fbd85d9dcc5ba306421be0b1fa",
+      "row_index": 53,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "6cc02368e661a106b6f971800272adc435f961a3d30c1c35ddc08be91c227eb1",
+      "item_id": "bbh-logical_deduction_three_objects-6cc02368e661a106b6f97180",
+      "normalized_text_hash": "e07cd3aa6968035e6d10bc7a577d633f15afd173bf73d63f3a5ca1ab76ba1e00",
+      "row_index": 54,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "83f29a36b490b19694fae8b71d2352b29107a78868263ed559d106309ed76f12",
+      "item_id": "bbh-logical_deduction_three_objects-83f29a36b490b19694fae8b7",
+      "normalized_text_hash": "e102c5d3967914de3d5d57250ee56136e657fe65d4e5d25ed863dc43dc7605f6",
+      "row_index": 90,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "96a93a1597d37d358a9cdd09bf64e8f4bf988456f98dfbd090460552e6573653",
+      "item_id": "bbh-logical_deduction_three_objects-96a93a1597d37d358a9cdd09",
+      "normalized_text_hash": "5218b5038eaf60549e6ca88a319be9a01a0829a20c75844b66e5971d724554df",
+      "row_index": 95,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "7777ffe151ac5e3ae4e66b728b9a7da76db359739b6e41edabf6b80b0a987f8b",
+      "item_id": "bbh-logical_deduction_three_objects-7777ffe151ac5e3ae4e66b72",
+      "normalized_text_hash": "5dc00470b85ddef528d21700b3b93af2080673f5598656d9f907917253e969dc",
+      "row_index": 96,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "173873930f3caa6712324bedb69238e3dc5ac88a305863cb51b6e55fd45a8358",
+      "item_id": "bbh-logical_deduction_three_objects-173873930f3caa6712324bed",
+      "normalized_text_hash": "856872ad78357b9786b66de80f99692f3ae726e528a023addf8ff23c92c06ec2",
+      "row_index": 106,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "c63f66329e9748402eb741ed49a90e439adb493330d2392b99275fe9f4b20f93",
+      "item_id": "bbh-logical_deduction_three_objects-c63f66329e9748402eb741ed",
+      "normalized_text_hash": "58eb648d203e5968786f5d5382989d068da3efcb636e1114250d3a7c65c13dd5",
+      "row_index": 112,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "684cecdf7d2ad415a90281a9b29f85e08a55d8f89e097236d9e6b737188f1350",
+      "item_id": "bbh-logical_deduction_three_objects-684cecdf7d2ad415a90281a9",
+      "normalized_text_hash": "6feefd824dff27b69313340970abec5616941baf1f32e2e039c0fcb2ea5a806b",
+      "row_index": 113,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "b0b09d0c795af688db8e5460c037cf4a604fa161ba630962d992315f0cf43ccc",
+      "item_id": "bbh-logical_deduction_three_objects-b0b09d0c795af688db8e5460",
+      "normalized_text_hash": "b3f58eba7c2d325a400924ae2913b5e0e5fe0610a873e9162b7ff85075e5a7de",
+      "row_index": 131,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "d96ea861d305b053fd7b7b70e9792cf98587127d30409bdbb4bd8331771923d0",
+      "item_id": "bbh-logical_deduction_three_objects-d96ea861d305b053fd7b7b70",
+      "normalized_text_hash": "77ccc06d94d230bb14393c8b4707144521f98b3285769d7d1120dc5531a4681e",
+      "row_index": 151,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "639a6e3b01e1dbae499c139e0356fe9c05e4465a66c5fab8ba77440f060ed674",
+      "item_id": "bbh-logical_deduction_three_objects-639a6e3b01e1dbae499c139e",
+      "normalized_text_hash": "f6f7fdf4625da8b46feb6cfa929728b849102732699f309371eda7e133faad95",
+      "row_index": 167,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "40917a67c87367c95886f7446e2424213dbd1c987fdb8a28fa9563670399675a",
+      "item_id": "bbh-logical_deduction_three_objects-40917a67c87367c95886f744",
+      "normalized_text_hash": "c3fcf3933ad99c90dc5ee05fe3240a803d03fe582b3d5d3cfed63621652649fc",
+      "row_index": 180,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "f02a92a22ab82fa588b3135da45b4ce0c5974288819cbc180513f54ba04efdf2",
+      "item_id": "bbh-logical_deduction_three_objects-f02a92a22ab82fa588b3135d",
+      "normalized_text_hash": "ac7f811c3a88b15ad8d7b1e14b1af12a138f78aa8ee346d0621bab7621532ae3",
+      "row_index": 185,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "01025a0f8768a0e3775cc5190d473f46cc8563c46d3257c06414c238d959f6c1",
+      "item_id": "bbh-logical_deduction_three_objects-01025a0f8768a0e3775cc519",
+      "normalized_text_hash": "df0bf1983e660905cde1ccb47646c2c3dea0bd06a6975ae591b6f3cae7e889a0",
+      "row_index": 244,
+      "subtask": "logical_deduction_three_objects"
+    },
+    {
+      "item_hash": "baac35bb76b9a863351cb0c987de6107d5f1f4e50d11590783980b4de83d4fdf",
+      "item_id": "bbh-movie_recommendation-baac35bb76b9a863351cb0c9",
+      "normalized_text_hash": "c1ae55d27d07804890960798932a91e9c3abca6f1428ff7c291b05b1488f9a5c",
+      "row_index": 17,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "0b3ebcba4704a76d20e91be0366e2246b5add52391ebe2d4602a05734d788754",
+      "item_id": "bbh-movie_recommendation-0b3ebcba4704a76d20e91be0",
+      "normalized_text_hash": "c58190c02877f060ce4d7d9b35c5199beb71db0600616ed762720a152b97e889",
+      "row_index": 22,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "15fb4b492ebe26ae50d74302ecd16eccf6ee0de3e7402ea69eecb789039d58a8",
+      "item_id": "bbh-movie_recommendation-15fb4b492ebe26ae50d74302",
+      "normalized_text_hash": "ced032365e6bd6de6ae4ef2cc81b1757c0c52eff4e372f15752fea471a45df10",
+      "row_index": 28,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "5b5bc13e30530ac6ce1613cc98cd114d6e8e29257212b8be8db860a7e7d55631",
+      "item_id": "bbh-movie_recommendation-5b5bc13e30530ac6ce1613cc",
+      "normalized_text_hash": "7e604f49753ebc2abb5ec06837c01696d7f83ec7251d17e92dc9c220bac32d2d",
+      "row_index": 52,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "aa0d4f83c0d9135d2c8430da416d27abd30af34d195f1f788dd846fef1c8605e",
+      "item_id": "bbh-movie_recommendation-aa0d4f83c0d9135d2c8430da",
+      "normalized_text_hash": "ff7de8ac279569a40125ba496cb9bad891b9340b31a00446109464ae2cc115f0",
+      "row_index": 67,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "73cde6eb98e3417984ec5c1ac59584a46fac35bd92d9332f8e233bc6a1097e66",
+      "item_id": "bbh-movie_recommendation-73cde6eb98e3417984ec5c1a",
+      "normalized_text_hash": "10eaac3e6091a6c5e31b3abce2d32cc637cddeb006ddba8329d4f9241d2e826c",
+      "row_index": 72,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "8e9d5484da7f1de9c40122e5ae7416a403a594150563ee8232ff9935309a6056",
+      "item_id": "bbh-movie_recommendation-8e9d5484da7f1de9c40122e5",
+      "normalized_text_hash": "9b01c220865992b8a004698904014846dc66d3cafdfa7514fda882723516e320",
+      "row_index": 168,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "bb64c98abfded039f00dfb373e03a8907e22ecd15bda3909870a14edae90194e",
+      "item_id": "bbh-movie_recommendation-bb64c98abfded039f00dfb37",
+      "normalized_text_hash": "ab6ff94651393bd14a2c878c07cc143924c2ae14bd0c21974ebf8b446b996fe9",
+      "row_index": 184,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "901cb0c1a2e54cf06bf23400607be0ef8cbfe23fa7742af9eb46e86594e91224",
+      "item_id": "bbh-movie_recommendation-901cb0c1a2e54cf06bf23400",
+      "normalized_text_hash": "77ce3a0ba406cedccac2644a972566697d90158c41ca19ec939eded0c9769a10",
+      "row_index": 214,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "87a70dd9d30376e9b550ea3bc79c5eb304848ba2e51795e77776baa66ff9a98f",
+      "item_id": "bbh-movie_recommendation-87a70dd9d30376e9b550ea3b",
+      "normalized_text_hash": "85dc4a51db88c1bd9a73b143d26a8c72cd4d9228af4344d198c58a84905ced4d",
+      "row_index": 232,
+      "subtask": "movie_recommendation"
+    },
+    {
+      "item_hash": "6b350e5810131218b6889d92b7136dccc23c79763ee91b2f80135934158dd867",
+      "item_id": "bbh-multistep_arithmetic_two-6b350e5810131218b6889d92",
+      "normalized_text_hash": "2818e553b787d7f267441d5ba5df3603b019e70b2125a0260a3d24704f197e2b",
+      "row_index": 37,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "a464938e792d5a9be4e0301215a882e1aad55390319ad6c99a932785adafd304",
+      "item_id": "bbh-multistep_arithmetic_two-a464938e792d5a9be4e03012",
+      "normalized_text_hash": "a050b8e7758a9f503cb570b07db8b9c0f4f71730e14db845bc2499a22e43b47e",
+      "row_index": 59,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "e369da954011d158a66956a5270fdabf9255e7717c797c6fa2197c1b2fda66e6",
+      "item_id": "bbh-multistep_arithmetic_two-e369da954011d158a66956a5",
+      "normalized_text_hash": "ff4f38d366c9cd448ea322044e68b9647eca61e6156324ae7b53a73edffcaf28",
+      "row_index": 73,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "a85be43aa5f59953687dc8d4f039e058f00a182cbf0fd79104bb392e19a6df50",
+      "item_id": "bbh-multistep_arithmetic_two-a85be43aa5f59953687dc8d4",
+      "normalized_text_hash": "7572bddfa15e085e8d953790f1c2507479e9c4864e13747d15e495d339433459",
+      "row_index": 76,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "b8faa54ec2e9f6f0378bb123ee1c39973abd83208c2e709bd7208d1cb8cb4c30",
+      "item_id": "bbh-multistep_arithmetic_two-b8faa54ec2e9f6f0378bb123",
+      "normalized_text_hash": "75bc59184249c211d9a7d8d336b0e14a0c6107cefea06fb4b7888a8752c95fc8",
+      "row_index": 161,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "48a23f81e0463edde2bdcf6a625aab89be874c7f3651b4cca0d40b78764a5eeb",
+      "item_id": "bbh-multistep_arithmetic_two-48a23f81e0463edde2bdcf6a",
+      "normalized_text_hash": "b04e60c275eaae46f3d6f72358f4f4993ef682d393c9b7374ac41d2e476685ee",
+      "row_index": 171,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "76dfcadf2031f6d129e47204d965c2c5518309a12cde2baf310cfe0d691a563e",
+      "item_id": "bbh-multistep_arithmetic_two-76dfcadf2031f6d129e47204",
+      "normalized_text_hash": "95ed0ed855e0e4a89a8c757e0f2c8965b3cd4bab41d6ba2fd69ed7cbc8b169d9",
+      "row_index": 172,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "f495e31d39ef545f07e2ed98f21c45f450078775e85c7957726e665937ac62fc",
+      "item_id": "bbh-multistep_arithmetic_two-f495e31d39ef545f07e2ed98",
+      "normalized_text_hash": "2836c76315ca0e2f552a3dfd572e809bf1fae42fc2c1c85e3a9b1f82f6f25cc3",
+      "row_index": 187,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "80da3abede9ee6e73e3684c2bfa926b4e09e2f4ad6d577e1d9ef22ef7797c947",
+      "item_id": "bbh-multistep_arithmetic_two-80da3abede9ee6e73e3684c2",
+      "normalized_text_hash": "c61bedf3327f249d12c1d290cc4aadb583a7179701b8e3b9e9d609a881e0b22a",
+      "row_index": 190,
+      "subtask": "multistep_arithmetic_two"
+    },
+    {
+      "item_hash": "6ee56e124df8689513b7fd3769c4e0c6058d052f29178a9b2d646130232246d2",
+      "item_id": "bbh-navigate-6ee56e124df8689513b7fd37",
+      "normalized_text_hash": "94231b278eb9498787057b08c6009208c067faa2b8ee3772bbbafb9f477d61e4",
+      "row_index": 49,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "1e6150391a4392b64644c8a5f69f343bcdb6911668ed23faaea4db1b7e723f5c",
+      "item_id": "bbh-navigate-1e6150391a4392b64644c8a5",
+      "normalized_text_hash": "eac06ff6303c369fe786691e417199a7c0682a36527bd158ebbb092934edaa9b",
+      "row_index": 61,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "f72e1803b8295708e6320d4f7b1daf55e81382c8c8737a365a6aacbfcd1beefc",
+      "item_id": "bbh-navigate-f72e1803b8295708e6320d4f",
+      "normalized_text_hash": "2cbbd797790acb165d6d1f43308e53203d33ae9e2203e43801948f6eda6451da",
+      "row_index": 75,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "e569eabcf832f303ba107cec3be5517e5925ac1c37ec3c90d3c8154a865d5b1a",
+      "item_id": "bbh-navigate-e569eabcf832f303ba107cec",
+      "normalized_text_hash": "294de4ebb751aa8127fa9e7313b52ae1b51db4af0ecd6c9a214ffe7130004061",
+      "row_index": 87,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "790a40f0f7db2fe90680fafe586245fc283283e224ea3ded211505fb7f925cf3",
+      "item_id": "bbh-navigate-790a40f0f7db2fe90680fafe",
+      "normalized_text_hash": "78b62db34065b072457c224134f9c143478fc2f3619bb8c9b1d5e1a0ffdce163",
+      "row_index": 115,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "99cc23aabf8c8c1f9b61a87caa7ec9ad10c87def092314fc42d2374f450b29cf",
+      "item_id": "bbh-navigate-99cc23aabf8c8c1f9b61a87c",
+      "normalized_text_hash": "86051f55c62f22ff0225659050ba1792db9d6b4fca1ff7bce0cff294f09c6207",
+      "row_index": 128,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "c68f95f516fae02bc6fa03cb106df448c8401f0fc260e9dfec5c58bfb1f00e19",
+      "item_id": "bbh-navigate-c68f95f516fae02bc6fa03cb",
+      "normalized_text_hash": "4bb29d979201a710038d379a90fb40bf6ab01e2f85ca4c69d5f375bd5c8bba8c",
+      "row_index": 155,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "85a2ff2bdf6fa7343426879c5ba391ee0ef52685da1232b0867950f87ac7dee4",
+      "item_id": "bbh-navigate-85a2ff2bdf6fa7343426879c",
+      "normalized_text_hash": "3b28a490e9df564d0e5b9cf32616acf95f307c81e2075ef8fba0b390da709785",
+      "row_index": 157,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "b4b99b521010905a968586d1325b27ca4ff204dec9a161668e4e5eff708ec90d",
+      "item_id": "bbh-navigate-b4b99b521010905a968586d1",
+      "normalized_text_hash": "3af5d2297823bfb151959aa6e070c8524cf508f9244f5b28fad44eda87095a3b",
+      "row_index": 218,
+      "subtask": "navigate"
+    },
+    {
+      "item_hash": "98c49c1ee085bad26df965b4dac5b3ad6efff6ecb2718776707e18117678434f",
+      "item_id": "bbh-object_counting-98c49c1ee085bad26df965b4",
+      "normalized_text_hash": "b2edabb27ffd0d6fc263ec97b4bc92914dfdb30274f3c7f4c00cd8981562742e",
+      "row_index": 22,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "b371f290f8d9f40e3332a62826d46ffe50ef592c38c119d42f52ad88cd5ad3f0",
+      "item_id": "bbh-object_counting-b371f290f8d9f40e3332a628",
+      "normalized_text_hash": "2a6d94bd43bfcf1c94ef3ec2cec99613a68b34ab423b886bbe8fc1c4e93dfe5d",
+      "row_index": 38,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "59923adbba7ab4a519be3156f67e09b991d6039b874e712c3e0d80605d604a23",
+      "item_id": "bbh-object_counting-59923adbba7ab4a519be3156",
+      "normalized_text_hash": "d2dc1788fd86021e3248a6ba730a6caad8ea9af02413f9b407c4b21a4950e2ad",
+      "row_index": 67,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "607db725ce0b3e06d9c62a72e95fb823d7a09e8a135abf99dda7b21bb1f31047",
+      "item_id": "bbh-object_counting-607db725ce0b3e06d9c62a72",
+      "normalized_text_hash": "b0db0828f8f2385075f47801801c1fa055aacd736219db15a5c62dadb0980385",
+      "row_index": 94,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "f642cec24b610a6562f349d20e8b2f37e1a0302abd6d632e1e8b3fceabbf0d54",
+      "item_id": "bbh-object_counting-f642cec24b610a6562f349d2",
+      "normalized_text_hash": "acb018325bfb8fe965a005c1f98f5ad4828f695e6399dc73f8c678c5b5720a3d",
+      "row_index": 114,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "40297b1419978ea88d984b8e37ed25dd3679c711bd62112ee1d45cb866715155",
+      "item_id": "bbh-object_counting-40297b1419978ea88d984b8e",
+      "normalized_text_hash": "caa46cb684a9b173f2277a112b19abe1b3506ee539b27c443058d04d97b95491",
+      "row_index": 178,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "37414763ae147dbc65877eb43922fef8f38992186e531a5973538b9488b9cfd8",
+      "item_id": "bbh-object_counting-37414763ae147dbc65877eb4",
+      "normalized_text_hash": "cca8e31f6eeea41352b84e1cd6ebd27db54556b260d84278941e69129370c5ed",
+      "row_index": 184,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "0266458bbdfe88008ad3600154099c2cf0a96acf93e563a8133bb17069501834",
+      "item_id": "bbh-object_counting-0266458bbdfe88008ad36001",
+      "normalized_text_hash": "8c02fd4388bcca5ff78e51f246464d40def922496dbe2356ff102033453e401e",
+      "row_index": 200,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "231435d9927774b36446693297cc1ac0de36cc9e59e8c772c927512820d79dc8",
+      "item_id": "bbh-object_counting-231435d9927774b364466932",
+      "normalized_text_hash": "cfe2bba0da7de8fb7a6e6f838d88646e7dee1cdfa82009e21599561f6643fabe",
+      "row_index": 219,
+      "subtask": "object_counting"
+    },
+    {
+      "item_hash": "cb74fa68f6092e2fd7c3260ae3a27dfbed9019a3b4dd529df1bf446fafaf1e40",
+      "item_id": "bbh-penguins_in_a_table-cb74fa68f6092e2fd7c3260a",
+      "normalized_text_hash": "5e95eb4d25bb30b305086137f737504f501473a9e9df7f01031c75e1c788c947",
+      "row_index": 73,
+      "subtask": "penguins_in_a_table"
+    },
+    {
+      "item_hash": "db79a0a386cad1a7ddd814d4a7e0a51bebe2bb6c7d26d4cf459b72d91eacce71",
+      "item_id": "bbh-penguins_in_a_table-db79a0a386cad1a7ddd814d4",
+      "normalized_text_hash": "d60b4a03e37f5bf0482604b4dcfdddf8b6b52a89524d005e21757d86b88b6b75",
+      "row_index": 136,
+      "subtask": "penguins_in_a_table"
+    },
+    {
+      "item_hash": "edc2bec2786c4b9a1ea2e3c3e02ffb661818700915899cb1503c89b6b045ac3a",
+      "item_id": "bbh-reasoning_about_colored_objects-edc2bec2786c4b9a1ea2e3c3",
+      "normalized_text_hash": "b67689aa10b5fea5f21423dfa365f780f4cc97f6d9a116c7dc55ef4a56697923",
+      "row_index": 19,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "12fab87c665ef4ad3f8e92b4f98c14dbbf8b93491780d769075f12cb4b95952a",
+      "item_id": "bbh-reasoning_about_colored_objects-12fab87c665ef4ad3f8e92b4",
+      "normalized_text_hash": "13b1c99e870697c50e9bee5523ee28746490db0431f8d4c076ffc26a2e446503",
+      "row_index": 27,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "fbb6709164e0828d2d3516aee8fc08d8c51aee1aa0326125387a73ce412b2e0d",
+      "item_id": "bbh-reasoning_about_colored_objects-fbb6709164e0828d2d3516ae",
+      "normalized_text_hash": "2e3f8968821903679e34f976b4a25c1fb68c9ec4acd217250ed28c6091a5494d",
+      "row_index": 108,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "58d6299345f0a38b4f20983cda04ae0ca2d68bbf0105f207dd3fce9e4bf7cbb4",
+      "item_id": "bbh-reasoning_about_colored_objects-58d6299345f0a38b4f20983c",
+      "normalized_text_hash": "8eb221ea3ef092bd62568b6a0daecfe2cb2d2b726dd33a854b80e167b4202077",
+      "row_index": 114,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "68e5569fb52661ef68ef03de8ad0eb3e198826b7e5cb7535207b07ab6bd8bbba",
+      "item_id": "bbh-reasoning_about_colored_objects-68e5569fb52661ef68ef03de",
+      "normalized_text_hash": "335bcdc6394d232449b7de2a16cd09fc1dfea1df9075f8dd2c91cc58e8dd4314",
+      "row_index": 128,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "fcc3f2d8e588781951fe275ba340464d045efc4a97a43922dffce8ec1a39ba47",
+      "item_id": "bbh-reasoning_about_colored_objects-fcc3f2d8e588781951fe275b",
+      "normalized_text_hash": "a68e26eb5aeda0663c89147b7b6a5c7107dedc8e6738678a5a36a675ccfa656a",
+      "row_index": 130,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "503859ec61135efce246675217071052b02ed3c47cd8ccb7a514f99cd04a5966",
+      "item_id": "bbh-reasoning_about_colored_objects-503859ec61135efce2466752",
+      "normalized_text_hash": "7dc7d31b32e142c94aefe8283a260609338efc3e4906f5960aa56545eb78b805",
+      "row_index": 131,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "495245d59f4b099d2a013405f2a3414232e35d2cffddc74ea0b8e82388eeb769",
+      "item_id": "bbh-reasoning_about_colored_objects-495245d59f4b099d2a013405",
+      "normalized_text_hash": "1d82f56ec1d81894502b16f9c7f5277e88ec661848c200961dd0533aea5220b6",
+      "row_index": 140,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "51a60363af442f741fed6390f72c68e0b403468ebc064c01e5051b1e8abd44f8",
+      "item_id": "bbh-reasoning_about_colored_objects-51a60363af442f741fed6390",
+      "normalized_text_hash": "c5749a33a2ef85578a491be249b8e29c3fe76ad650cb71b5cddaddd550425f78",
+      "row_index": 155,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "40532825c6fe8cbb1d7e57991339f96093806810f57e3917b11f43bd8edf1fc6",
+      "item_id": "bbh-reasoning_about_colored_objects-40532825c6fe8cbb1d7e5799",
+      "normalized_text_hash": "4d16706227e4e381dc68a38c4dcbf6d78299d5afbcace63797d11422dd02e249",
+      "row_index": 157,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "acccccea21d7f7094aa20061fdfaf5e97e5186608fd9bffa935f80b95fad46e3",
+      "item_id": "bbh-reasoning_about_colored_objects-acccccea21d7f7094aa20061",
+      "normalized_text_hash": "f0b9a626c5dcfea6f16973ade66fb7653e2237f61c61013c68e295d1e631e53a",
+      "row_index": 174,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "63f49fc0af1a46136f7def217e724e405a84d56f4b72a21cecf6d681df947730",
+      "item_id": "bbh-reasoning_about_colored_objects-63f49fc0af1a46136f7def21",
+      "normalized_text_hash": "15ced352b2bb7b0a15dcdd7e020a13b19488522e74f92e909f7e233cd992e029",
+      "row_index": 182,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "b9698457d8716dc2beb8a16d647d28be054e76ed079ec71700e5c73ca73bce9c",
+      "item_id": "bbh-reasoning_about_colored_objects-b9698457d8716dc2beb8a16d",
+      "normalized_text_hash": "2c9c26435e46175403e26222c350d78a89a2119092664650d147e8be9aa8525c",
+      "row_index": 238,
+      "subtask": "reasoning_about_colored_objects"
+    },
+    {
+      "item_hash": "07d9e098468537b7875e699c734f39a1a0e7b3243dea27e871ed8432a29c5a82",
+      "item_id": "bbh-ruin_names-07d9e098468537b7875e699c",
+      "normalized_text_hash": "d6e7dc9a83235f410f23fd27cfc3b1eb304dd2651e90907a544da13d790f6bc2",
+      "row_index": 12,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "87a77167ac5bfcb45e60ee22aaf7c5a357b75f7306773be899153f79ce490019",
+      "item_id": "bbh-ruin_names-87a77167ac5bfcb45e60ee22",
+      "normalized_text_hash": "0eb70dfc68abbdad62e91cb91d33b5c8e3caf4cfe1e35178f6181d61685c276a",
+      "row_index": 96,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "cb0934601fa97de070b50fa89b5ad1ca436cdc2b8116b3f1cb78520d38b41f44",
+      "item_id": "bbh-ruin_names-cb0934601fa97de070b50fa8",
+      "normalized_text_hash": "3fce1edcdda719f308857c208faa75fe3123deefc41c336a9b7acd80ea5d98f6",
+      "row_index": 133,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "03acbe53cd774a5d3555a753394b41602db2a3d42067fd4cdd8477cd46b2292e",
+      "item_id": "bbh-ruin_names-03acbe53cd774a5d3555a753",
+      "normalized_text_hash": "8dbb38f1560857a8532d79604e99014f5c778e241b4c2b939779d7e6b57dda7c",
+      "row_index": 151,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "e329c62d3085807766da84265314370c3a5cc7cf2f5d4decd6712e63f92f0c0a",
+      "item_id": "bbh-ruin_names-e329c62d3085807766da8426",
+      "normalized_text_hash": "c98fda0c73314bc553118b3beb9b087c845485b5aecd5f399617a1b410b31a8c",
+      "row_index": 197,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "62687c7401f4797f760fb76365143cb29a30b02492dd5216d602de4eae5edd8d",
+      "item_id": "bbh-ruin_names-62687c7401f4797f760fb763",
+      "normalized_text_hash": "e88bcdbfbd468b7e7c18f0b3d53519e8edfd1dd3dec442da1c60869d80eff9ca",
+      "row_index": 200,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "f82e19c379b5a31afb959236f63e9db75fd8bb422d9e1e2aa29d21f3802df5ff",
+      "item_id": "bbh-ruin_names-f82e19c379b5a31afb959236",
+      "normalized_text_hash": "b469acc482820ce67b58cd165434329372da1d28cbd3f18ec5f8453dfa57bde5",
+      "row_index": 243,
+      "subtask": "ruin_names"
+    },
+    {
+      "item_hash": "f73a5a67db30ec8bd5bc78bcbbc755a3fc80c6a3b55a6e6fd64dafaf18029a5f",
+      "item_id": "bbh-salient_translation_error_detection-f73a5a67db30ec8bd5bc78bc",
+      "normalized_text_hash": "43390aa899051c0616d06ba974fdb3a1761599b1a413d8023c25c78219df1a86",
+      "row_index": 3,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "02fa8597b458320fe7024843ee0a5be651d254d8604210db15d16163d789df53",
+      "item_id": "bbh-salient_translation_error_detection-02fa8597b458320fe7024843",
+      "normalized_text_hash": "9bceb2adae4afce953f67b93f2031f5acafb9e952adf5d9488907c5d9874ad52",
+      "row_index": 34,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "7e10186f294ab612a92594198e3f355d177e6619e0f684b0069df4ec99bf9a56",
+      "item_id": "bbh-salient_translation_error_detection-7e10186f294ab612a9259419",
+      "normalized_text_hash": "936627d38a279c918f9baa4ba7d0645c4249a1db23a9632c8b0f0121c74f8aae",
+      "row_index": 61,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "5875c07414b021d5c6828681953e5d9929cca3798fc795ef28ac11ec698849d8",
+      "item_id": "bbh-salient_translation_error_detection-5875c07414b021d5c6828681",
+      "normalized_text_hash": "673ae568241b1e521a5d45331c6913722613b19123cf552b9cfe54e6226bb2d1",
+      "row_index": 68,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "d6f1b937f69607a6842095bb5294928d27ca1429b8dfb94f8d3d0b76c51203fe",
+      "item_id": "bbh-salient_translation_error_detection-d6f1b937f69607a6842095bb",
+      "normalized_text_hash": "df031d8cdda7614a9246e7abc81be0e775436da8900a0312ddbfa91f598a7b37",
+      "row_index": 109,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "27d04489ead13a05c0938889d0fc9335a1e61ecd141c2bf867ca92a2adc21060",
+      "item_id": "bbh-salient_translation_error_detection-27d04489ead13a05c0938889",
+      "normalized_text_hash": "03c3b4bcc20c3d576798ee5774c466126d91b69bfd84e31a31716491b554d5ab",
+      "row_index": 126,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "fecac38f562eefe7eed9e2fcefa1e813f78f5261426b745fd488fe493029d5fe",
+      "item_id": "bbh-salient_translation_error_detection-fecac38f562eefe7eed9e2fc",
+      "normalized_text_hash": "1a7b8e69972ae02212d988c0165645af73c7898972c63c7af44eeb67deba04ea",
+      "row_index": 174,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "ae211e206f9f682336064141d53e74fa6a755f71d0e1eb610e71a0f3cf3ab332",
+      "item_id": "bbh-salient_translation_error_detection-ae211e206f9f682336064141",
+      "normalized_text_hash": "a1b02f0a808a15fde83ea8237e7bc1e8c3a7c265cf8e8acc81f71f9db6157624",
+      "row_index": 175,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "0cd905dc2cdcd6763fd582922c753309e5eac984b371a7bf4c21f4fcdb913eea",
+      "item_id": "bbh-salient_translation_error_detection-0cd905dc2cdcd6763fd58292",
+      "normalized_text_hash": "d3c62417b08795dfc3055d757340a7523318c475f498749f7712a56684d9f717",
+      "row_index": 192,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "a48e05b61e5a9853aaa067978767f313a0023ebd23a09280ab8fa6df3150ebe5",
+      "item_id": "bbh-salient_translation_error_detection-a48e05b61e5a9853aaa06797",
+      "normalized_text_hash": "682f359fbb01b7d9995c7f8891fa3b3eb2b0e6e611a0411d78d499df04861ea4",
+      "row_index": 210,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "313b9a4a8d70affb08e0189e824aa052cfbbb335c5f212bb0bd5bb9d9d70ef4b",
+      "item_id": "bbh-salient_translation_error_detection-313b9a4a8d70affb08e0189e",
+      "normalized_text_hash": "b64ad6225f37ae166140880768d46cfd89deadd0f747fc6b64e97047e363facd",
+      "row_index": 221,
+      "subtask": "salient_translation_error_detection"
+    },
+    {
+      "item_hash": "fdcc557c9490539e09d1c98f6e1f6fb4f9fb6dc1489b0d8747245f7b88a6a5eb",
+      "item_id": "bbh-snarks-fdcc557c9490539e09d1c98f",
+      "normalized_text_hash": "940051e03e1396687a93caa84b0b69af7b9c4d53af5745c353fbf4ec4df5557e",
+      "row_index": 34,
+      "subtask": "snarks"
+    },
+    {
+      "item_hash": "6346bb804f8bd9bdd6c73093c822d26eabec36a672ed3a06b6e3187d968f7090",
+      "item_id": "bbh-snarks-6346bb804f8bd9bdd6c73093",
+      "normalized_text_hash": "42d6b3358bef76e6ca7ccb08e7ccc21543b575f4ebd34cf2b14498943cbf4f2d",
+      "row_index": 64,
+      "subtask": "snarks"
+    },
+    {
+      "item_hash": "1e10493a088f043907f1b6b7d36d7887be45b2ca7536259991b58d8acd3bc32f",
+      "item_id": "bbh-sports_understanding-1e10493a088f043907f1b6b7",
+      "normalized_text_hash": "cfa1aebf5ea0b29589d1a9ae43f4174b2c870e71bbfd27e5c4b403a0c81f678c",
+      "row_index": 36,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "b084be524555793c10e7a3c4ece4818d4e12b7bc496d02ff945a98315851bbca",
+      "item_id": "bbh-sports_understanding-b084be524555793c10e7a3c4",
+      "normalized_text_hash": "59d3583521a393252682af564a74d7b0dc87ededd0dcb86082cc81b69b983b87",
+      "row_index": 77,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "27c00e7cb9f77fd936711a1441900a6f59216ddc11d1236e6cf38db650abf2a9",
+      "item_id": "bbh-sports_understanding-27c00e7cb9f77fd936711a14",
+      "normalized_text_hash": "a18fd41d948ed17a35dc020a819921fc73aa150c5335ef24dca1ab8b9db2b023",
+      "row_index": 119,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "159d3de6357c0205c54e830a9cfd00f4cae47c1ac33986d6ce483b289912586a",
+      "item_id": "bbh-sports_understanding-159d3de6357c0205c54e830a",
+      "normalized_text_hash": "e42db54591fd9e8d3d3f2aae1831643df4e5c1dd6829a9183426fa7f934b041e",
+      "row_index": 122,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "d23e5db92b227e4ed3fc17cedc5af574ef6210109911e045c38f88e2461c19f8",
+      "item_id": "bbh-sports_understanding-d23e5db92b227e4ed3fc17ce",
+      "normalized_text_hash": "a7ed4ca7e8827a08d4a39b5023c69d0fc63d5b150a07a5e2cbe5c0a401d200f1",
+      "row_index": 185,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "a285f5b9463e41ba924e954985d26eab55ef9666b9a887e2053f31acf112378e",
+      "item_id": "bbh-sports_understanding-a285f5b9463e41ba924e9549",
+      "normalized_text_hash": "dcfd83a37316c4e5febc501973629478b02510cc4c71d812a45a19439eadca21",
+      "row_index": 243,
+      "subtask": "sports_understanding"
+    },
+    {
+      "item_hash": "68d18dd91847d9003e381d197d3abcd67be1669e57c30e3230619008122c926c",
+      "item_id": "bbh-temporal_sequences-68d18dd91847d9003e381d19",
+      "normalized_text_hash": "4add2a376ecc703bea2ca8fd91200de197c99a0185aa70c7b0a715fd6ca0690e",
+      "row_index": 12,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "f437a6111cc41bb9e2ab3d8c437580fd7bd719244aa776e5c68074b47c524bc8",
+      "item_id": "bbh-temporal_sequences-f437a6111cc41bb9e2ab3d8c",
+      "normalized_text_hash": "5f1c5dcf033e753cbc930841ce3ad96384292b7e509e49492091ccfe8b6f1afb",
+      "row_index": 54,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "d9c4a386cde8058f4d5740523aedea24e515e8c9c65023e6ff794a49f59731bb",
+      "item_id": "bbh-temporal_sequences-d9c4a386cde8058f4d574052",
+      "normalized_text_hash": "beb8d50b1a1bf0e58ce3cb9d1e2d02bc5a24bf943e827681d57a2beee0a6bcd8",
+      "row_index": 83,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "f7ac0391dae36ba4d7250dfeb1e15d561e056beffd055fb82194865a64d0d991",
+      "item_id": "bbh-temporal_sequences-f7ac0391dae36ba4d7250dfe",
+      "normalized_text_hash": "a1d6e526d452dc59a1db4021cc27e4d9f4a9bdb60055e8d32894e1a4d68ca584",
+      "row_index": 89,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "39fceb482b25a3a482ffb2a1d83925186b879698d5d7642988eafa854e21978e",
+      "item_id": "bbh-temporal_sequences-39fceb482b25a3a482ffb2a1",
+      "normalized_text_hash": "05c6bbddbacef4a8610ad4082f1a6805e304115f36612dff38f3a2302b25c0a7",
+      "row_index": 99,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "0f86b8c0ddabca499d5673faf11c63a98e8ce0f550afcfffeb2b4026c7aaf13c",
+      "item_id": "bbh-temporal_sequences-0f86b8c0ddabca499d5673fa",
+      "normalized_text_hash": "ee71e602d1888e15f7a3735bb8d13b32d3d2d1e6f5a49c77775831f0bba04142",
+      "row_index": 105,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "f8dcee67e8a8bc86c9f020992b8bceb31de6346c3d6fc1f8c7173340f4a83a60",
+      "item_id": "bbh-temporal_sequences-f8dcee67e8a8bc86c9f02099",
+      "normalized_text_hash": "50a49f33b35120ca97454a39557186aad8417cda4c4f17670674d27fc230192f",
+      "row_index": 142,
+      "subtask": "temporal_sequences"
+    },
+    {
+      "item_hash": "8ccc0c9352ac467127110af7f7eb250fce810ef311fd65f6e6938e554c377eb6",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-8ccc0c9352ac467127110af7",
+      "normalized_text_hash": "737d681137b091fda58cbe6a0ad481f37994c5929c14ffe162515fa543ae54c0",
+      "row_index": 20,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "2fb71f93c98c3d741f0b1f76a55cfd48349aad87ac5f56b81509394b549644f2",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-2fb71f93c98c3d741f0b1f76",
+      "normalized_text_hash": "0f1a4a0798a78a0a288418ffc72b03bb6a18d68b09bb9937f20c091244d7756b",
+      "row_index": 54,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "2c776a169d5b460ccbd282b70f4315e9fd1ba3bb7723ea90b2c403be00cd2fa4",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-2c776a169d5b460ccbd282b7",
+      "normalized_text_hash": "2b0b774de1985aea31c43dab11ead3c1d8f7c7a01edbf32f87da9ea01637a49b",
+      "row_index": 98,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "639cebc249c252a310f2c47b5e0f75fde67c62ec141d133cd3585293acd5c3a8",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-639cebc249c252a310f2c47b",
+      "normalized_text_hash": "f2ad2d947c28c2b0d812a20334e94e68bfc9448710645c7e3424b9d7fb3617ee",
+      "row_index": 170,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "e6953a1cfaea09df1c48b43747910875d1bf6c95059f3ed31208dda961fc2981",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-e6953a1cfaea09df1c48b437",
+      "normalized_text_hash": "a61d768634465318972db4d37df59c8ba86ed24d3eb8e01e4df0a55ced58683c",
+      "row_index": 182,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "dbded738acf50b43e5d8217f9b433557f102a1a3f893d22d14c95ed719edaffd",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-dbded738acf50b43e5d8217f",
+      "normalized_text_hash": "fe4b24730a02600adb51880c94bf1f5bab4247b2406b6cc8fe2cfad8469cb378",
+      "row_index": 203,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "83ab93c924e06c1d8fbc4df28f37c151945956fbf3be13eb4c0e109f9a96b071",
+      "item_id": "bbh-tracking_shuffled_objects_five_objects-83ab93c924e06c1d8fbc4df2",
+      "normalized_text_hash": "4ab7c07afa93d0f75fefda44f2cd24df37229b6fe3255c45d5ccf190178bd89a",
+      "row_index": 220,
+      "subtask": "tracking_shuffled_objects_five_objects"
+    },
+    {
+      "item_hash": "171dc9988670f0c4093ca6caeaa0bf218144d88fd523642679b49b261b103de8",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-171dc9988670f0c4093ca6ca",
+      "normalized_text_hash": "1ada97c0db1aa7ae2f50f32b388c4e577917440052a1d8eb354f6db5177c5d05",
+      "row_index": 51,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "2ebd232dfd1c53623c9c3ec28cdac977a0f6c4ed5325d0accec2df0c64697bc0",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-2ebd232dfd1c53623c9c3ec2",
+      "normalized_text_hash": "6b8dff5e9526e9549de53b56798d3af4dd4803446a7532fa1bdfd1d5ba17cc3e",
+      "row_index": 87,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "4a2ca38c31bcb7261a2a912fa42684bb868b49fa2cb7a359fb7a2afd60794975",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-4a2ca38c31bcb7261a2a912f",
+      "normalized_text_hash": "9c16d247063b88710d60b31ad6d92b2a582a0ba9191a9a37c8a9d6748af6abc5",
+      "row_index": 105,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "92048b31d5350303171222312372afba354599b37c048b0cc339cd12faa50bd7",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-92048b31d535030317122231",
+      "normalized_text_hash": "b162236994a8f77a8cb93dacb990b9293b03daeb241874e2961c3e8d27c3297b",
+      "row_index": 110,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "bcbd24f55afc4d18bdb76b3844fa0fa34bcd99939dfebd45cfb6dcf55fc41ee8",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-bcbd24f55afc4d18bdb76b38",
+      "normalized_text_hash": "4f21a8579793f8b48d92852362a64bf0cc6d102d3e26a45836f6ca75d85e014a",
+      "row_index": 228,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "12fbd2a824287a64c82e74b8ebc8c7aabfbd64963949e79e74ae75b080999667",
+      "item_id": "bbh-tracking_shuffled_objects_seven_objects-12fbd2a824287a64c82e74b8",
+      "normalized_text_hash": "b360387cea1c033086a59e03e665e483a51c986ce971079011559d2a5971376d",
+      "row_index": 230,
+      "subtask": "tracking_shuffled_objects_seven_objects"
+    },
+    {
+      "item_hash": "62e5b8b7bc5451920b455cf422580ce987be3b502cd541993d84f9b12a5a22fc",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-62e5b8b7bc5451920b455cf4",
+      "normalized_text_hash": "5b7a0fe6e4fc2130caaac587ce95f9dd475f596a65f8171a31de26021c7ebcea",
+      "row_index": 28,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "fbe85dbf6fb1ae727a49b4df2d04667525fb88dd903fcda89a2c3a0159f6248c",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-fbe85dbf6fb1ae727a49b4df",
+      "normalized_text_hash": "c0a8270936150ec80d0bd341a89c687b969ae7baef51b6efa3125ef0c15b02df",
+      "row_index": 29,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "942bb64a67519fd18c4e4ec17b0e1b75aa6419169b5534b1c1752761acd2aeda",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-942bb64a67519fd18c4e4ec1",
+      "normalized_text_hash": "b9358446d4823c7cad93d3e5dc3bf5390e1c6ee57eb1070aeeabe754f6fd586b",
+      "row_index": 32,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "30e9956a2972c3b796ebce0d318c51f448c89f2a221e1395b53e9baf85e64ea8",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-30e9956a2972c3b796ebce0d",
+      "normalized_text_hash": "03fa3fdaedc06e24185eebe7c718dd7adecd6a2cb7ddb3945be9cad2f953f2d3",
+      "row_index": 39,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "eacaf462f761d83fd0db9a57a982018c7bbf661feb5c60851d1831a1cb9955ce",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-eacaf462f761d83fd0db9a57",
+      "normalized_text_hash": "c172c4b6e74b7d983f044f7f3a9adfed5ef384e17f19684684e74993d4c69db8",
+      "row_index": 72,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "5248a45561888ae756d6e9c5f330775391ddda5a120fb623e3d1235e94b64062",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-5248a45561888ae756d6e9c5",
+      "normalized_text_hash": "1b7a5c8c29845ac2644943c296ceb787aea22dfacf0dc34e1822970ff995f837",
+      "row_index": 110,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "9c73d61c9fda22d1c1d3e42c521ebba5a5676f30f4db1103a265d3bc67854049",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-9c73d61c9fda22d1c1d3e42c",
+      "normalized_text_hash": "2a465d47d14c2a64ebfe283569cec8b27f01f2b09271c855f5e86f3230577376",
+      "row_index": 111,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "411d58b68f46a435622e596666a229e31bb6d474d960d8626a3d019eb3227086",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-411d58b68f46a435622e5966",
+      "normalized_text_hash": "9ee90ec7b77b30a77fd452bd6c105b27bc1893aa8a24705ec4512ca86c2bd297",
+      "row_index": 155,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "aa916224d92a1f31512e276a1354c0f181e6ffaa723c01918843df0302197a79",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-aa916224d92a1f31512e276a",
+      "normalized_text_hash": "0f223a579d6fe20b78cd74311720e27b19994729edb74221230674082253c6c3",
+      "row_index": 174,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "88a4041aafd17ddd9e5c2de045316ae219f089bd61d264805fdba9890c7910de",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-88a4041aafd17ddd9e5c2de0",
+      "normalized_text_hash": "410d24aba00520b2adeb4ef0b70bfe2d6623b1bf257b57b4db0a7567fb385049",
+      "row_index": 177,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "2536938ce336e2c8992330b508a31492ade276d20b16abb5111e9f307b8fa6d4",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-2536938ce336e2c8992330b5",
+      "normalized_text_hash": "bd24f68c4fb30a499693f96918c238f5bedc7fd5093aae6a8a327b74e3299e14",
+      "row_index": 196,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "b76ec8b381a2c4c33af5358dfe3c5b7339451587e3b1b7d2975167af84a6058b",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-b76ec8b381a2c4c33af5358d",
+      "normalized_text_hash": "1ae353e5552b85287bd26a2f9d72bf298be72930f0f850c928c29e8b731dd85f",
+      "row_index": 209,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "990d631612d41db9d44f5eb58fbbf9d7621ce2798ebae5103361abb6a5f27578",
+      "item_id": "bbh-tracking_shuffled_objects_three_objects-990d631612d41db9d44f5eb5",
+      "normalized_text_hash": "30e5df28d182251b4c02724fa1ba6e6a0bbc6f4ab30cc50fc4e5c6f54396a336",
+      "row_index": 216,
+      "subtask": "tracking_shuffled_objects_three_objects"
+    },
+    {
+      "item_hash": "f35d3eabf9747722bedcdaebb23a3a26190efc628ec3d0016dd3d3b7ef4b0340",
+      "item_id": "bbh-web_of_lies-f35d3eabf9747722bedcdaeb",
+      "normalized_text_hash": "67ee6abfe25fbf3b249102e52b249aa27440cf23b51f337839224bbb3de51d49",
+      "row_index": 31,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "99811c32286332cab80ec9b2cb34859a01ab34a30a8d0ef0c1c8a8da6f874747",
+      "item_id": "bbh-web_of_lies-99811c32286332cab80ec9b2",
+      "normalized_text_hash": "a6b26fe6ae696537a32c9166658bd2f6cb1c93b337c02657104e893af7005384",
+      "row_index": 39,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "659fa0007af0b84a231e1d559da13c1318997541bd384b86d14acec8064ff4cd",
+      "item_id": "bbh-web_of_lies-659fa0007af0b84a231e1d55",
+      "normalized_text_hash": "ead8789b62b650e5e731030bc24e41fba7d99bb813258a3f296b18a73c7f8bbe",
+      "row_index": 74,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "9c6044dcd1690f62399e10538fc3eaaf784b4e55cba186eb60f625edb00eefa1",
+      "item_id": "bbh-web_of_lies-9c6044dcd1690f62399e1053",
+      "normalized_text_hash": "b77991f1c9bfc2d34912a0bc4c04c2c6979cc9925a770c40b650f7c0b16fb291",
+      "row_index": 189,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "ae8b1ddf44c4de5e1d14380b85840ce76d66704af805224b4686c138f29545bc",
+      "item_id": "bbh-web_of_lies-ae8b1ddf44c4de5e1d14380b",
+      "normalized_text_hash": "2a41237f3e220a566b90bec8d624aa854843a01ab76ff7cb331702a9f06b5e15",
+      "row_index": 208,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "c7ea7d6bd9cdbacb8d0f5e294a3b34c5a66ebf4ea7f0615a7eea79732193581b",
+      "item_id": "bbh-web_of_lies-c7ea7d6bd9cdbacb8d0f5e29",
+      "normalized_text_hash": "71760570f23e811c8f502ce91e6ac2cd6396846e01f0bc435203cebd1cf429df",
+      "row_index": 210,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "1a63e8cc9d1daf565e9b8a3e7aad536c39b39342fdff20acc3f090143b85648e",
+      "item_id": "bbh-web_of_lies-1a63e8cc9d1daf565e9b8a3e",
+      "normalized_text_hash": "10c6af6f07b9377db677d13b73711bc23ee1499f15b89c8aff76272dd081c75b",
+      "row_index": 213,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "e69556b00b09aa892fd363af9169cceb6ccf7fba85adef6c0d4abb373a415f7c",
+      "item_id": "bbh-web_of_lies-e69556b00b09aa892fd363af",
+      "normalized_text_hash": "21bdf72fc78da4ac4f5a18af1630a442e00c76a139b9721a19a0850237f3344f",
+      "row_index": 230,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "1202f3cd3aeb38b330e93ba14d3ab801ea74a2f24089027e73884f53c2f802bf",
+      "item_id": "bbh-web_of_lies-1202f3cd3aeb38b330e93ba1",
+      "normalized_text_hash": "be91a1c810d34fc31833fdf5276c5b8b04543a8f4067fef3331433dd405fcec4",
+      "row_index": 245,
+      "subtask": "web_of_lies"
+    },
+    {
+      "item_hash": "9cff9116380c99904630c8042d603c94866aec7393838998c15d988cab2e2875",
+      "item_id": "bbh-word_sorting-9cff9116380c99904630c804",
+      "normalized_text_hash": "cf82ec8d31de1750950128b287c70ccb9299c0759f2e73949f2eaf13b3da06a8",
+      "row_index": 13,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "6b57ffc6d7e9c0e4a96b86ab45f44c9348fc07ce1c4a34450e56c2bc9ffc1c3d",
+      "item_id": "bbh-word_sorting-6b57ffc6d7e9c0e4a96b86ab",
+      "normalized_text_hash": "7fb816bdf618ebe007ef9b0c4582077772937dd0c555527ff929b9058d8aa645",
+      "row_index": 136,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "b6ffe36d5c7e11ccb5e87a2d72c109b07897b1647ab168a8516f742b21ef2d59",
+      "item_id": "bbh-word_sorting-b6ffe36d5c7e11ccb5e87a2d",
+      "normalized_text_hash": "f9d85a86504a59f841bd244ad7752c597ace04d84100d15c36c8f7cc496017c1",
+      "row_index": 137,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "7b4d4f469a88fbee22802bacac78e6e3ce171357c4bac8d96486f666169ee748",
+      "item_id": "bbh-word_sorting-7b4d4f469a88fbee22802bac",
+      "normalized_text_hash": "8cb999e47d8cc3d21df68c370c7e4bde7debeddf966b71c392354e7471a57a34",
+      "row_index": 184,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "e3f47ebaaf7d47360e23bd32a99cf9703cbe7d6c8446c2910e383dee049df669",
+      "item_id": "bbh-word_sorting-e3f47ebaaf7d47360e23bd32",
+      "normalized_text_hash": "d0240a6750372bdcf21d373c05eabeb26f258e0defb3eb24f52c9f31fbfd6677",
+      "row_index": 187,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "66b979b76092016d9e75e998cce95e5126f82f57d9f8dbfb6278b054698aff6a",
+      "item_id": "bbh-word_sorting-66b979b76092016d9e75e998",
+      "normalized_text_hash": "fce48c5f8d001a04061f9023e4ce5366ff8268095dd4d91a402e3cfaca7002d6",
+      "row_index": 209,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "4c3d18b19353d578a6ea105973f8b2a965fc658bcbcb2c43d698b197ae0f9c72",
+      "item_id": "bbh-word_sorting-4c3d18b19353d578a6ea1059",
+      "normalized_text_hash": "3bbd73f9cfd9b35066e88b96e7d07f5d85ac903b0210d61359b96a85ce362789",
+      "row_index": 217,
+      "subtask": "word_sorting"
+    },
+    {
+      "item_hash": "b7f1f5d806a26fecd05a6d4b8d481c6b2299f1e853a789c596ecb8f8e70e7a4c",
+      "item_id": "bbh-word_sorting-b7f1f5d806a26fecd05a6d4b",
+      "normalized_text_hash": "646aafb1f41ac3b43da3607be4969da6a85d09c02fb93e49525e7383159cb2a7",
+      "row_index": 218,
+      "subtask": "word_sorting"
+    }
+  ],
+  "public_subset_sha256": "7bcdb80709841e52218b44e2dcd5a8aa8908a812bd2aee22011566c31a896983",
+  "schema_version": "7.0",
+  "split": "test",
+  "subset_policy": "seeded_stratified_pilot_v7",
+  "subset_seed": 20270809
+}

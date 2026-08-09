@@ -113,7 +113,9 @@ def load_frozen_benchmark_items(
         raise DatasetResolutionError(
             f"subset benchmark mismatch: {subset.get('benchmark_id')!r} != {benchmark_id!r}"
         )
-    expected_count = int(contract.get("expected_s1_item_count", 0))
+    expected_count = int(
+        contract.get("expected_item_count", contract.get("expected_s1_item_count", 0))
+    )
     entries = subset.get("items")
     if not isinstance(entries, list) or len(entries) != expected_count:
         raise DatasetResolutionError(

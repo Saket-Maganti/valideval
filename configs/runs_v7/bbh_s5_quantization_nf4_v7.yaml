@@ -1,0 +1,35 @@
+schema_version: '7.0'
+run_id: study-c-s5-bbh-quantization_nf4-v7
+study_id: study-c-s5-v7
+stage: S5
+evidence_class: ROBUSTNESS
+mode: robustness
+benchmark_id: bbh
+benchmark_contract: configs/benchmarks/bbh_s2_v7.yaml
+benchmark_contract_sha256: cc6fdbc777ca282e5c4464ac1fad2b5532ef1177324d75bb8208a451d5f482ac
+panel_config: configs/panels/s5_quantization_nf4_v7.yaml
+panel_config_sha256: 47a1522c3b366f1650e5c60df5c177215f3a02cc6d09e2e7fb9b6c6ce6ccd97d
+subset_manifest: results/freeze/study_c_v7/bbh_s2_pilot_v7.json
+subset_manifest_sha256: 5cc5843fbf7696464124c3e6f765bbd10b442148c5848d8093842fcdd04ae0b0
+output_root: kaggle_v7_outputs
+required_source_ref: valideval-v7-icml2027-max-pre-execution
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids:
+  - '0'
+  - '1'
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 2
+  shard_count: 8
+  batch_size: 1
+  max_sequence_length: 3072
+  timeout_seconds: 1800
+  minimum_free_disk_gb: 10
+  model_download_margin_gb: 5
+robustness_config: configs/robustness/quantization_sensitivity_v7.yaml
+robustness_config_sha256: 9d94e23baa33e09bf929591e21a06015f44a56f16149f18cb5c28ec17eb2c521

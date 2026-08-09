@@ -101,7 +101,16 @@ def _run_one_item(
             int(generation_parameters.get("max_input_tokens", task["max_sequence_length"])),
             int(task["max_sequence_length"]),
         )
-        generated = generator.generate(prompt, generation_parameters)
+        if contract.get("generation_mode") == "option_log_likelihood":
+            if item.benchmark_id != "mmlu" or len(item.choices) != 4:
+                raise ValueError("option log-likelihood requires a four-choice MMLU item")
+            generated = generator.score_choices(
+                prompt,
+                ("A", "B", "C", "D"),
+                generation_parameters,
+            )
+        else:
+            generated = generator.generate(prompt, generation_parameters)
         raw_output = str(generated["raw_output"])
         input_tokens = int(generated["input_tokens"])
         output_tokens = int(generated["output_tokens"])
@@ -194,6 +203,10 @@ def _parse_without_gold(raw_output: str, item: PublicInferenceItem, contract: Ma
     if item.benchmark_id == "mmlu":
         return parse_mmlu_answer(raw_output)
     if item.benchmark_id == "gsm8k":
+        if contract.get("extraction_version") == "final_answer_marker_strict_v7":
+            from valideval.scoring.gsm8k import parse_gsm8k_answer_strict
+
+            return parse_gsm8k_answer_strict(raw_output)
         return parse_gsm8k_answer(raw_output)
     policies = contract.get("task_prompt_policies", {})
     policy = policies.get(item.subtask_id, {}) if isinstance(policies, Mapping) else {}

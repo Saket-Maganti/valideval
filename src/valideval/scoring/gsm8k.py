@@ -67,6 +67,38 @@ def parse_gsm8k_answer(raw_output: str) -> ParsedPrediction:
     return ParsedPrediction(None, "failed", "EXTRACTION_FAILURE", "no numeric final answer")
 
 
+def parse_gsm8k_answer_strict(raw_output: str) -> ParsedPrediction:
+    """Require exactly one explicit ``Final answer:`` numeric segment."""
+
+    text = str(raw_output).strip()
+    if not text:
+        return ParsedPrediction(None, "failed", "EMPTY_OUTPUT", "empty model output")
+    matches = re.findall(r"final\s+answer\s*:\s*([^\n]+)", text, flags=re.I)
+    if len(matches) != 1:
+        return ParsedPrediction(
+            None,
+            "failed",
+            "INVALID_FORMAT",
+            "strict parser requires exactly one Final answer marker",
+        )
+    tokens = [match.group(0).strip() for match in _NUMBER.finditer(matches[0])]
+    normalized: list[str] = []
+    for token in tokens:
+        try:
+            normalized.append(normalize_numeric_answer(token))
+        except ValueError:
+            continue
+    unique = list(dict.fromkeys(normalized))
+    if len(unique) == 1:
+        return ParsedPrediction(unique[0], "success", "SUCCESS")
+    return ParsedPrediction(
+        None,
+        "failed",
+        "INVALID_FORMAT" if unique else "EXTRACTION_FAILURE",
+        "strict final-answer segment must contain one numeric value",
+    )
+
+
 def normalize_numeric_answer(value: Any) -> str:
     text = str(value).strip()
     text = re.sub(r"^[\$€£₹]\s*", "", text)

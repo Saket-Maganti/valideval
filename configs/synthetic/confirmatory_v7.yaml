@@ -1,0 +1,38 @@
+schema_version: "7.0"
+protocol_status: FROZEN_BEFORE_EXECUTION
+freeze_ref: valideval-v7-confirmatory-freeze
+primary_metric: AUPRC
+primary_threshold_rule: no_flaw_95th_percentile
+target_fdr: 0.05
+success_criteria:
+  median_AUPRC_minimum: 0.50
+  median_precision_at_k_minimum: 0.50
+  median_FDR_maximum: 0.10
+  interpretation: Joint criteria are descriptive synthetic-protocol gates, not real-benchmark claims.
+flaw_classes:
+  - NO_FLAW
+  - LABEL_ERROR
+  - MULTIPLE_LABEL_ERRORS
+  - AMBIGUITY
+  - DISTRACTOR_FAILURE
+  - SUBJECT_MISASSIGNMENT
+  - DUPLICATE_ITEM
+  - MISSINGNESS
+  - CORRELATED_MODEL_FAILURE
+severities: [0.25, 0.50, 0.80]
+prevalences: [0.05, 0.15]
+seeds: [2027, 2028, 2029]
+model_count: 40
+family_count: 8
+item_count: 400
+subject_count: 10
+dependence: 0.40
+controls:
+  - label_permutation
+  - no_flaw
+  - unseen_flaw
+  - held_out_generator_family
+  - mixed_flaws
+  - diagnostic_ablation
+secondary_metrics: [AUROC, enrichment]
+claim_boundary: Synthetic evidence is limited to the frozen generator and readout.

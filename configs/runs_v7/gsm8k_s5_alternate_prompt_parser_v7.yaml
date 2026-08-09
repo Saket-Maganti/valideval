@@ -1,0 +1,35 @@
+schema_version: '7.0'
+run_id: study-c-s5-gsm8k-alternate_prompt_parser-v7
+study_id: study-c-s5-v7
+stage: S5
+evidence_class: ROBUSTNESS
+mode: robustness
+benchmark_id: gsm8k
+benchmark_contract: configs/benchmarks/gsm8k_s2_v7.yaml
+benchmark_contract_sha256: a22a66d7c34c0ae1190b25e21774009b2590a3ee00fbc7f989d722b6730795b4
+panel_config: configs/panels/s3_scientific_v7.yaml
+panel_config_sha256: bde8e3d75f562342ea3c554313799a86fb18ab9797be03b050d3585e04d7bd0d
+subset_manifest: results/freeze/study_c_v7/gsm8k_s2_pilot_v7.json
+subset_manifest_sha256: 0dc784ff869710c747f200783bb3f17f17ee4c98f9708d4beb0fae6f9724f637
+output_root: kaggle_v7_outputs
+required_source_ref: valideval-v7-icml2027-max-pre-execution
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids:
+  - '0'
+  - '1'
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 2
+  shard_count: 8
+  batch_size: 1
+  max_sequence_length: 2048
+  timeout_seconds: 1800
+  minimum_free_disk_gb: 10
+  model_download_margin_gb: 5
+robustness_config: configs/robustness/gsm8k_alternate_prompt_parser_v7.yaml
+robustness_config_sha256: 661cab5681b13705e1ea74646bca23f06645af80d6f0da27eeb1aee112dbae6a
