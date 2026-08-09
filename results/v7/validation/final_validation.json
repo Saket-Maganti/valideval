@@ -12,7 +12,7 @@
     "command": "python -m pytest -q",
     "failed": 0,
     "passed": 392,
-    "runtime_seconds": 21.34,
+    "runtime_seconds": 26.05,
     "skipped": 0,
     "status": "PASS",
     "warnings": 2,
@@ -27,7 +27,7 @@
   },
   "lint_and_format": {
     "commands": [
-      "python3 -m ruff check src tests scripts",
+      "python3 -m ruff check .",
       "python3 -m ruff format --check src tests scripts"
     ],
     "formatted_files_checked": 404,

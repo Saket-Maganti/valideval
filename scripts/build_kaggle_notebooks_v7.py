@@ -70,7 +70,8 @@ if MODE != "fixture" and importlib.util.find_spec("valideval") is None:
     subprocess.run([sys.executable, "-m", "pip", "install", "-r", str(REQUIREMENTS)], check=True)
     subprocess.run([sys.executable, "-m", "pip", "install", "--no-deps", str(ROOT)], check=True)
 
-from valideval.execution.notebook_v7 import run_notebook_config_v7
+from valideval.execution.notebook_v7 import run_notebook_config_v7  # noqa: E402, I001
+
 print(json.dumps({{"mode": MODE, "configs": CONFIGS, "output_root": str(OUTPUT_ROOT)}}, indent=2))
 """
     run = """

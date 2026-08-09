@@ -630,9 +630,11 @@ def _machine_state(
         "freeze_commit": _git("rev-parse", "valideval-v7-confirmatory-freeze^{commit}"),
         "final_commit": None,
         "final_commit_resolution": (
-            "Resolve final_tag^{commit}; a commit cannot embed its own object ID in its contents."
+            "Resolve ci_patch_tag^{commit}; the required final tag was preserved under the "
+            "no-force policy after a GitHub-only lint compatibility patch."
         ),
         "final_tag": "valideval-v7-icml2027-max-pre-execution",
+        "ci_patch_tag": "valideval-v7-icml2027-max-pre-execution-ci1",
         "final_gate": "ICML2027_STRONG_PRE_EXECUTION_BUILD_PARTIAL",
         "statuses": {
             "claim_licensing": "CLAIM_LICENSING_METHOD_READY",
