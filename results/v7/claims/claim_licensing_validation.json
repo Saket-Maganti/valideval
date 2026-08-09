@@ -1,0 +1,100 @@
+{
+  "contract_examples_only": true,
+  "policy": {
+    "bootstrap_stability_threshold": 0.8,
+    "confidence_level": 0.95,
+    "decision_regret_bound": 0.01,
+    "effect_size_threshold": 0.01,
+    "external_validation_required": false,
+    "fdr_level": 0.05,
+    "held_out_validation_required": false,
+    "minimum_exact_model_overlap": 8,
+    "minimum_human_precision": 0.7,
+    "minimum_independent_model_families": 5,
+    "minimum_power": 0.8,
+    "minimum_sample_size": 100,
+    "require_by_sensitivity": false,
+    "transport_heterogeneity_threshold": 0.5
+  },
+  "results": [
+    {
+      "checks": {
+        "decision_regret": true,
+        "identity_verified": true,
+        "leakage_guard_passed": true,
+        "minimum_power": null,
+        "minimum_sample_size": true,
+        "uncertainty_and_materiality": true
+      },
+      "claim_class": "DECISION_LICENSED",
+      "claim_type": "MODEL_A_OUTPERFORMS_MODEL_B",
+      "licensed": true,
+      "reasons": [
+        "All applicable predeclared gates passed."
+      ],
+      "scope": [
+        "synthetic contract test"
+      ],
+      "status": "LICENSED_WITH_SCOPE"
+    },
+    {
+      "checks": {
+        "decision_regret": true,
+        "identity_verified": true,
+        "leakage_guard_passed": true,
+        "minimum_power": null,
+        "minimum_sample_size": true,
+        "uncertainty_and_materiality": true
+      },
+      "claim_class": "DECISION_LICENSED",
+      "claim_type": "MODEL_IN_TOP_K",
+      "licensed": true,
+      "reasons": [
+        "All applicable predeclared gates passed."
+      ],
+      "scope": [],
+      "status": "LICENSED"
+    },
+    {
+      "checks": {
+        "external_validation": false,
+        "identity_verified": true,
+        "leakage_guard_passed": true,
+        "minimum_power": null,
+        "minimum_sample_size": true,
+        "multiplicity": true,
+        "uncertainty_and_materiality": true
+      },
+      "claim_class": "BLOCKED",
+      "claim_type": "ITEM_IS_SUSPICIOUS",
+      "licensed": false,
+      "reasons": [
+        "Required independent or human validation has not passed."
+      ],
+      "scope": [],
+      "status": "BLOCKED_BY_EXTERNAL_VALIDATION"
+    },
+    {
+      "checks": {
+        "exact_model_overlap": false,
+        "identity_verified": true,
+        "independent_model_families": false,
+        "leakage_guard_passed": true,
+        "minimum_power": null,
+        "minimum_sample_size": true,
+        "transport_direction": false,
+        "transport_heterogeneity": false,
+        "uncertainty_and_materiality": true
+      },
+      "claim_class": "BLOCKED",
+      "claim_type": "DIAGNOSTIC_TRANSFERS",
+      "licensed": false,
+      "reasons": [
+        "Held-out transport evidence does not pass overlap, family, direction, and heterogeneity gates."
+      ],
+      "scope": [],
+      "status": "BLOCKED_BY_TRANSPORT"
+    }
+  ],
+  "status": "CLAIM_LICENSING_METHOD_READY"
+}

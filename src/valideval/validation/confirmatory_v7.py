@@ -77,7 +77,8 @@ def generate_confirmatory_matrix(
     elif flaw_class == "DUPLICATE_ITEM":
         targets = np.flatnonzero(flawed)
         for target in targets:
-            source = int(rng.integers(0, max(target, 1)))
+            upper = max(int(target), 1)
+            source = int(rng.integers(0, upper))
             matrix[:, target] = matrix[:, source]
     elif flaw_class == "MISSINGNESS":
         missing = rng.random((model_count, flawed.sum())) < max(severity, 0.05)

@@ -10,7 +10,7 @@ from valideval.human.planning_v7 import annotation_power_plan
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run V7 human annotation precision planning.")
     parser.add_argument(
-        "--output", type=Path, default=Path("results/planning/human_annotation_power_v7.csv")
+        "--output", type=Path, default=Path("results/v7/planning/human_annotation_power.csv")
     )
     args = parser.parse_args()
     started = time.perf_counter()

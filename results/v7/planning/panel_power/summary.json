@@ -1,0 +1,19 @@
+{
+  "claim_boundary": "Power values are design calculations under declared Bernoulli/correlation assumptions.",
+  "materiality_threshold": 0.01,
+  "primary_estimand": "pairwise_accuracy_difference",
+  "runtime_seconds": 0.011122292024083436,
+  "s2_materiality_power_range": [
+    0.05459560714944878,
+    0.062464189843046025
+  ],
+  "s3_materiality_power_range": [
+    0.08073422869899427,
+    0.6583604486964467
+  ],
+  "s4_materiality_power_range": [
+    0.08073422869899427,
+    0.6583604486964467
+  ],
+  "status": "PANEL_POWER_PLANNING_COMPLETE"
+}

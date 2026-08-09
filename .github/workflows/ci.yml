@@ -17,6 +17,7 @@ jobs:
       - run: python -m ruff check .
       - run: python -m ruff format --check src/valideval tests scripts
       - run: python -m pytest -q
+      - run: python scripts/validate_v7_artifacts.py
       - run: python -m build
       - run: python scripts/build_release_v5.py --profile source
       - run: python -m valideval --help

@@ -565,7 +565,9 @@ def _materialize_run(
                 "successful_resource_fallbacks": successful_resource_fallbacks,
             },
             "merge_summary": merge,
-            "engineering_only": config.evidence_class == "ENGINEERING_ONLY",
+            # Every V6 S1 artifact belongs to the engineering-smoke protocol, including
+            # NON_EVIDENCE_FIXTURE exercises of that path. V7 uses stage-scoped claim gates.
+            "engineering_only": config.schema_version == "6.0",
         },
     )
     if manifest["config_hash"] != config_hash:

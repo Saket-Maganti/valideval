@@ -1,0 +1,20 @@
+# Offline-safe CPU analysis source plus derived V7 results; cached benchmark inputs excluded.
+LICENSE
+README.md
+pyproject.toml
+requirements-cpu-v7.txt
+Dockerfile.cpu
+src/**/*.py
+tests/**/*.py
+scripts/run_*_v7.py
+scripts/estimate_execution_runtime_v7.py
+configs/synthetic/*.yaml
+configs/statistics/*.yaml
+configs/preregistration/*.yaml
+configs/human/*.yaml
+results/v7/**/*.json
+results/v7/**/*.csv
+reports/v7/*.md
+VALID_EVAL_ICML2027_EXECUTION_PLAN.md
+VALID_EVAL_V7_FINAL_MAXIMUM_PRE_EXECUTION_HANDOFF.md
+VALID_EVAL_V7_MACHINE_STATE.json

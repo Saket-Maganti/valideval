@@ -42,6 +42,8 @@ results/freeze/*
 !results/freeze/study_c_v7/*.json
 !results/v7/
 !results/v7/**
+# Keep macOS metadata excluded after the V7 evidence-tree exception.
+.DS_Store
 reportcards/*
 !reportcards/.gitkeep
 

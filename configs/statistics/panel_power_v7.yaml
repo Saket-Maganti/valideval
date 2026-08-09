@@ -1,0 +1,18 @@
+schema_version: "7.0"
+status: PLANNING_ASSUMPTIONS_NOT_EMPIRICAL_RESULTS
+primary_estimand: pairwise_accuracy_difference
+materiality_threshold: 0.01
+alpha: 0.05
+baseline_accuracy: 0.50
+paired_response_correlations: [0.00, 0.25, 0.50]
+effect_sizes: [0.01, 0.02, 0.03]
+simulation_note: Analytic paired-normal planning approximation; actual power must be recalibrated from S2.
+panels:
+  S2: {model_count: 8, family_count: 7, role: execution_pilot}
+  S3: {model_count: 11, family_count: 9, role: minimum_scientific}
+  S4: {model_count: 13, family_count: 11, role: maximum_ceiling}
+benchmarks:
+  mmlu: {pilot_items: 200, scientific_items: 14015, duplicate_items_retired: 27}
+  gsm8k: {pilot_items: 200, scientific_items: 1319, duplicate_items_retired: 0}
+  bbh: {pilot_items: 270, scientific_items: 6507, duplicate_items_retired: 4}
+claim_boundary: Power values are design calculations under declared Bernoulli/correlation assumptions.

@@ -1,0 +1,6 @@
+policy,discovery_models,held_out_models,items_removed,removal_fraction,held_out_rank_spearman,held_out_maximum_rank_change,held_out_maximum_score_change,held_out_winner_changed
+suspicious_crossfit,19,20,702,0.04999287850733514,1.0,0.0,0.025563649595227944,False
+random,19,20,702,0.04999287850733514,1.0,0.0,0.0015973710908396832,False
+matched_difficulty,19,20,702,0.04999287850733514,1.0,0.0,0.018919008662596548,False
+high_difficulty,19,20,702,0.04999287850733514,1.0,0.0,0.041774280926763496,False
+high_variance,19,20,702,0.04999287850733514,0.9984962406015038,1.0,0.017593033706761463,False

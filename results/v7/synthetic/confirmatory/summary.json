@@ -1,0 +1,21 @@
+{
+  "acceptance_criteria": {
+    "median_AUPRC": false,
+    "median_FDR": false,
+    "median_precision_at_k": false
+  },
+  "acceptance_status": "FROZEN_ACCEPTANCE_GATES_FAILED",
+  "claim_boundary": "These are results under a frozen synthetic generator/readout protocol, not evidence that the same flaw classes or effect sizes occur in real benchmarks.",
+  "config_sha256": "a7f98b074b5059a9f0f9c1290b3284573e8c9f6723a8a2577b90a290268ef1f6",
+  "evidence_class": "CPU_SYNTHETIC_CONFIRMATORY",
+  "freeze_commit": "08336a3948db69de931e7582650abbd2f6ae0a70",
+  "freeze_ref": "valideval-v7-confirmatory-freeze",
+  "median_AUPRC": 0.11269648374857474,
+  "median_FDR": 0.9658564814814814,
+  "median_power": 0.016666666666666666,
+  "median_precision_at_k": 0.05,
+  "runtime_seconds": 1.8995852920343168,
+  "scenario_count": 162,
+  "status": "SYNTHETIC_CONFIRMATORY_COMPLETE",
+  "threshold_from_no_flaw_controls": 0.7188124999999992
+}

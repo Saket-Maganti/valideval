@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "The regime map concerns recovery under declared generators; it does not establish latent-trait validity in observed benchmarks.",
+  "regime_counts": {
+    "CAUTION": 1,
+    "SUPPORTED": 16,
+    "UNIDENTIFIABLE": 1,
+    "UNRELIABLE": 1
+  },
+  "runtime_seconds": 0.2935457500279881,
+  "scenarios": 19,
+  "status": "MEASUREMENT_REGIME_STUDY_COMPLETE"
+}

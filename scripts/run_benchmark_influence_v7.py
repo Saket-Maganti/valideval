@@ -17,7 +17,7 @@ from valideval.influence import (
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run exact/scalable V7 benchmark influence.")
     parser.add_argument("--matrix", type=Path, default=Path("cache/mmlu/wide/matrix.csv"))
-    parser.add_argument("--output", type=Path, default=Path("results/influence/mmlu_v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/influence/mmlu_v7"))
     args = parser.parse_args()
     started = time.perf_counter()
     matrix = pd.read_csv(args.matrix, index_col=0)

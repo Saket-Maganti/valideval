@@ -10,7 +10,7 @@ from valideval.measurement.regime_study import run_regime_study
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run V7 measurement-model regime simulation.")
-    parser.add_argument("--output", type=Path, default=Path("results/measurement/regime_study_v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/measurement/regime_study"))
     args = parser.parse_args()
     started = time.perf_counter()
     results = run_regime_study()

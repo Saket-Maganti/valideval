@@ -62,7 +62,7 @@ def analyze_mcq_answer_positions(predictions_path: str | Path) -> dict[str, Any]
     }
 
 
-def _normalize(counts: Counter[str]) -> dict[str, float | int]:
+def _normalize(counts: Counter[str]) -> dict[str, dict[str, float | int]]:
     total = sum(counts.values())
     return {
         key: {"count": int(value), "fraction": value / total if total else 0.0}

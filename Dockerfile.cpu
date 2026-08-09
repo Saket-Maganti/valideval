@@ -1,0 +1,11 @@
+FROM python:3.11.9-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+WORKDIR /opt/valideval
+COPY requirements-cpu-v7.txt ./
+RUN python -m pip install --no-cache-dir -r requirements-cpu-v7.txt
+COPY pyproject.toml README.md LICENSE ./
+COPY src ./src
+RUN python -m pip install --no-cache-dir --no-deps .
+ENTRYPOINT ["python", "-m", "valideval"]

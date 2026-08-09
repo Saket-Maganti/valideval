@@ -8,6 +8,42 @@ evidence about sensitivity, false-positive behavior, specificity, uncertainty, m
 transfer. The authoritative historical-evidence boundary remains the V5 claim ledger at
 `results/evidence/claim_evidence_ledger_v5.csv`; older V4/no-run documents are historical snapshots.
 
+## V7 ICML 2027 pre-execution build
+
+V7 adds multidimensional, fail-closed claim licensing; family-aware inference and multiplicity;
+generalizability, decision-materiality, influence, measurement-regime, transport, human-study, and
+benchmark-forensics protocols; and frozen S2–S5 controlled GPU contracts. The CPU studies and a
+frozen confirmatory synthetic study have been executed from cached or generated data. The final
+gate is `ICML2027_STRONG_PRE_EXECUTION_BUILD_PARTIAL`: this is a reproducible pre-execution build,
+not a completed empirical paper.
+
+The main limitations are substantive. The frozen synthetic detector missed its acceptance criteria,
+Study H conclusions vary across null generators, the planned panels do not reach 0.80 power for a
+0.01 paired difference, and controlled GPU, human-label, cross-benchmark transport, and held-out
+repair evidence have not been collected. No result licenses a global benchmark-validity claim.
+
+Start with `VALID_EVAL_V7_FINAL_MAXIMUM_PRE_EXECUTION_HANDOFF.md` and
+`VALID_EVAL_ICML2027_EXECUTION_PLAN.md`. Reproduce the CPU evidence with:
+
+```bash
+python3 -m pip install -r requirements-cpu-v7.txt
+python3 scripts/run_diagnostic_inference_v7.py
+python3 scripts/run_study_h_v7.py
+python3 scripts/run_confirmatory_synthetic_v7.py
+python3 scripts/build_evidence_ledger_v7.py
+python3 scripts/validate_v7_artifacts.py
+```
+
+The ten notebooks in `kaggle_v7/` are the GPU handoff. Every returned ZIP must enter through the
+same fail-closed route:
+
+```bash
+python3 -m valideval ingest-and-analyze --input <zip-or-directory>
+```
+
+The S4 fallback panels are public and frozen in advance. They may be selected only for a recorded
+feasibility failure, never after looking at benchmark scores.
+
 ## V6 Controlled GPU Smoke Readiness
 
 V6 adds a fail-closed production execution path for the first controlled five-checkpoint Kaggle
@@ -98,10 +134,10 @@ python3 -m valideval report --benchmark toy_mcq --panel mock
 
 Use `python` instead of `python3` if that is the Python executable exposed by your environment.
 
-## Confirmatory Synthetic Validation Status
+## Historical pre-V7 confirmatory synthetic status
 
-The cross-flaw and held-out synthetic confirmatory phase is preregistered, but execution is
-intentionally deferred until explicit approval. The current build-only readiness surface is:
+The following section describes the historical V5 build-only surface. V7 supersedes it with a
+separately frozen protocol and recorded negative acceptance result under `results/v7/synthetic/`:
 
 - `CONFIRMATORY_RUN_COMMAND_MANIFEST.md`
 - `RUNBOOK_CONFIRMATORY_SYNTHETIC_VALIDATION.md`
@@ -214,7 +250,8 @@ Validity asks: does that score support the claim we want to make? A model may sc
 
 The V6 production execution and V5 release surfaces are fail-closed. The old
 `import-kaggle-outputs`, `post-import-analysis`, and `cross-benchmark-analysis` commands remain for
-historical compatibility; new controlled runs should use the V5 commands:
+historical compatibility. V7 controlled artifacts use `ingest-and-analyze`; the following V5
+commands remain available for their frozen release surface:
 
 ```bash
 python3 -m valideval validate-run kaggle_outputs_v5 --strict

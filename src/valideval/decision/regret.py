@@ -44,7 +44,7 @@ def compare_selection_rules(
         if float(summary["regret_upper"]) <= regret_bound:
             candidates.append((float(summary["expected_regret"]), str(model)))
     licensed = min(candidates)[1] if candidates else None
-    rows = []
+    rows: list[dict[str, object]] = []
     for rule, model in (
         ("naive_leaderboard", naive),
         ("uncertainty_aware", uncertainty_aware),
@@ -62,5 +62,7 @@ def compare_selection_rules(
             )
             continue
         summary = expected_decision_regret(score_draws, model, confidence_level=confidence_level)
-        rows.append({"rule": rule, "status": "SELECT", **summary})
+        row: dict[str, object] = {"rule": rule, "status": "SELECT"}
+        row.update(summary)
+        rows.append(row)
     return pd.DataFrame(rows)

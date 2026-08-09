@@ -1,0 +1,96 @@
+{
+  "edges": [
+    {
+      "kind": "uses",
+      "source": "external_labels",
+      "target": "external_issue_match"
+    },
+    {
+      "kind": "uses",
+      "source": "binary_response_matrix",
+      "target": "extreme_difficulty"
+    },
+    {
+      "kind": "uses",
+      "source": "binary_response_matrix",
+      "target": "legacy_accuracy_weight"
+    },
+    {
+      "kind": "duplicate",
+      "source": "extreme_difficulty",
+      "target": "legacy_accuracy_weight"
+    },
+    {
+      "kind": "uses",
+      "source": "binary_response_matrix",
+      "target": "negative_discrimination"
+    }
+  ],
+  "nodes": [
+    {
+      "depends_on_accuracy": false,
+      "depends_on_external_labels": true,
+      "depends_on_rank": false,
+      "diagnostic": "external_issue_match",
+      "duplicate_of": null,
+      "formula": "held-out criterion match",
+      "label_contaminated": false,
+      "post_selected": false,
+      "source_data": [
+        "external_labels"
+      ],
+      "status": "RETAIN"
+    },
+    {
+      "depends_on_accuracy": true,
+      "depends_on_external_labels": false,
+      "depends_on_rank": false,
+      "diagnostic": "extreme_difficulty",
+      "duplicate_of": null,
+      "formula": "absolute distance from preregistered difficulty center",
+      "label_contaminated": false,
+      "post_selected": false,
+      "source_data": [
+        "binary_response_matrix"
+      ],
+      "status": "RETAIN"
+    },
+    {
+      "depends_on_accuracy": true,
+      "depends_on_external_labels": false,
+      "depends_on_rank": false,
+      "diagnostic": "legacy_accuracy_weight",
+      "duplicate_of": "extreme_difficulty",
+      "formula": "absolute distance from preregistered difficulty center",
+      "label_contaminated": false,
+      "post_selected": false,
+      "source_data": [
+        "binary_response_matrix"
+      ],
+      "status": "RETIRE"
+    },
+    {
+      "depends_on_accuracy": true,
+      "depends_on_external_labels": false,
+      "depends_on_rank": false,
+      "diagnostic": "negative_discrimination",
+      "duplicate_of": null,
+      "formula": "negative leave-one-item response/ability correlation",
+      "label_contaminated": false,
+      "post_selected": false,
+      "source_data": [
+        "binary_response_matrix"
+      ],
+      "status": "RETAIN"
+    }
+  ],
+  "retained": [
+    "external_issue_match",
+    "extreme_difficulty",
+    "negative_discrimination"
+  ],
+  "retired": [
+    "legacy_accuracy_weight"
+  ],
+  "schema_version": "v7"
+}

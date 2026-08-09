@@ -10,7 +10,7 @@ from valideval.claims.reporting import render_claim_table
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate every V7 claim-license state.")
-    parser.add_argument("--output", type=Path, default=Path("results/claims/v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/claims"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     policy = ClaimPolicy()

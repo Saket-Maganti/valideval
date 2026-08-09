@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_all_frozen_v7_run_configs_resolve_hashes_and_contracts() -> None:
     paths = sorted((ROOT / "configs/runs_v7").glob("*.yaml"))
-    assert len(paths) == 19
+    assert len(paths) == 22
     for path in paths:
         config = load_run_config(path, repository_root=ROOT)
         panel = load_panel_config(ROOT / config.panel_config)

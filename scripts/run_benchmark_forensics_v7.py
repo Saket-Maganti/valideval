@@ -15,7 +15,7 @@ def main() -> int:
         type=Path,
         default=Path("data/external/mmlu/prediction_details_wide.jsonl"),
     )
-    parser.add_argument("--output", type=Path, default=Path("results/forensics/mmlu_v7.json"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/forensics/mmlu_v7.json"))
     args = parser.parse_args()
     started = time.perf_counter()
     result = analyze_mcq_answer_positions(args.predictions)

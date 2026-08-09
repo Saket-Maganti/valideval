@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0-v7-icml2027-pre-execution — 2026-08-09
+
+- Added explicit claim contracts with identity, leakage, sample-size, power, multiplicity,
+  stability, external-validation, transport, and regret gates.
+- Added family-aware inferential diagnostics, seven-null Study H analysis, outcome-specific
+  generalizability, selective ranking, exact influence analyses, and measurement-regime studies.
+- Froze and executed a decoupled confirmatory synthetic protocol; its failed acceptance criteria
+  remain visible and block confirmatory diagnostic claims.
+- Added six-estimand transport and balanced blinded human protocols without inventing missing
+  cross-benchmark effects or human labels.
+- Added frozen S2–S5 panels, public S4 fallback routes, ten T4×2 notebooks, option-log-likelihood
+  MCQ scoring, strict answer parsing, secure ingestion, and deterministic evidence routing.
+- Retired exact duplicate benchmark rows from scientific manifests and preserved the fail-closed
+  MMLU-Redux retirement after the available artifacts could not support exact identity linkage.
+- Added CPU/reviewer/source/evidence release profiles, artifact validation, checksums, reports,
+  runtime and power planning, and an explicit partial pre-execution gate.
+
 ## 0.3.0 — 2026-07-23
 
 - Added the frozen V6 S1 five-checkpoint panel and immutable MMLU, GSM8K, and BBH contracts.

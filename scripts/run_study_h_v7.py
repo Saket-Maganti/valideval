@@ -35,7 +35,7 @@ def main() -> int:
     )
     parser.add_argument("--bootstrap", type=int, default=500)
     parser.add_argument("--null-simulations", type=int, default=200)
-    parser.add_argument("--output", type=Path, default=Path("results/mmlu/study_h_v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/study_h"))
     args = parser.parse_args()
     started = time.perf_counter()
     matrix = pd.read_csv(args.matrix, index_col=0)
@@ -94,8 +94,10 @@ def main() -> int:
     kendall_draws = []
     rng = np.random.default_rng(2029)
     for _ in range(args.bootstrap):
-        sampled = rng.choice(subject_ranks.columns, len(subject_ranks.columns), replace=True)
-        kendall_draws.append(kendalls_w(subject_ranks.loc[:, sampled]))
+        sampled = rng.integers(0, subject_ranks.shape[1], size=subject_ranks.shape[1])
+        bootstrap_ranks = subject_ranks.iloc[:, sampled].copy()
+        bootstrap_ranks.columns = [f"draw_{index}" for index in range(len(sampled))]
+        kendall_draws.append(kendalls_w(bootstrap_ranks))
     output = args.output
     output.mkdir(parents=True, exist_ok=True)
     score_draws.to_csv(output / "nested_bootstrap_score_draws.csv", index=False)
@@ -122,8 +124,17 @@ def main() -> int:
     family_cluster_bootstrap(
         subject_scores, families, n_bootstrap=args.bootstrap, seed=2030
     ).to_csv(output / "family_cluster_bootstrap.csv", index=False)
+    null_sensitivity_range = [
+        float(null_comparison["median_rank_range_exceedance"].min()),
+        float(null_comparison["median_rank_range_exceedance"].max()),
+    ]
+    null_sensitive = null_sensitivity_range[1] - null_sensitivity_range[0] > 0.50
     summary = {
-        "status": "STUDY_H_REPRODUCED_AND_STABLE",
+        "status": (
+            "STUDY_H_REPRODUCED_WITH_LIMITATIONS"
+            if null_sensitive
+            else "STUDY_H_REPRODUCED_AND_STABLE"
+        ),
         "models": matrix.shape[0],
         "items": matrix.shape[1],
         "subjects": len(set(subjects.values())),
@@ -135,6 +146,8 @@ def main() -> int:
             float(np.quantile(kendall_draws, 0.025)),
             float(np.quantile(kendall_draws, 0.975)),
         ],
+        "null_median_rank_range_exceedance_range": null_sensitivity_range,
+        "null_model_sensitivity_flag": null_sensitive,
         "runtime_seconds": time.perf_counter() - started,
         "claim_boundary": (
             "Study H is an imported historical panel. Results are conditional on observed "

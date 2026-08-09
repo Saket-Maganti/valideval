@@ -12,7 +12,7 @@ from valideval.transport import analyze_transportability
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run V7 transportability analysis or build gate.")
     parser.add_argument("--effects", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("results/transport/v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/transport"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     if args.effects is None:

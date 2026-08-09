@@ -57,6 +57,11 @@ ROOT = Path(os.environ.get("VALIDEVAL_REPOSITORY_ROOT", ".")).resolve()
 MODE = os.environ.get("VALIDEVAL_EXECUTION_MODE", "fixture").strip()
 OUTPUT_ROOT = Path(os.environ.get("VALIDEVAL_NOTEBOOK_OUTPUT_ROOT", "kaggle_v7_outputs"))
 CONFIGS = {configs!r}
+S4_ROUTE = os.environ.get("VALIDEVAL_S4_ROUTE", "maximum").strip().lower()
+if S4_ROUTE == "fallback":
+    CONFIGS = [config.replace("_s4_v7.yaml", "_s4_fallback_v7.yaml") for config in CONFIGS]
+elif S4_ROUTE != "maximum":
+    raise ValueError("VALIDEVAL_S4_ROUTE must be maximum or fallback")
 REQUIREMENTS = ROOT / "requirements-kaggle-t4x2-v7.txt"
 EXPECTED_REQUIREMENTS_SHA256 = {requirements_hash!r}
 assert hashlib.sha256(REQUIREMENTS.read_bytes()).hexdigest() == EXPECTED_REQUIREMENTS_SHA256

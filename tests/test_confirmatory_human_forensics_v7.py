@@ -1,8 +1,12 @@
 import json
 from pathlib import Path
 
+import numpy as np
+import pandas as pd
+
 from valideval.forensics.benchmark_v7 import analyze_mcq_answer_positions
 from valideval.human.planning_v7 import annotation_power_plan
+from valideval.human.protocol_v7 import stratified_candidate_sample
 from valideval.validation.confirmatory_v7 import (
     fixed_confirmatory_readout,
     generate_confirmatory_matrix,
@@ -50,6 +54,26 @@ def test_human_power_intervals_narrow_with_sample_size() -> None:
     result = annotation_power_plan((50, 500))
     widths = result["precision_ci_upper"] - result["precision_ci_lower"]
     assert widths.iloc[1] < widths.iloc[0]
+
+
+def test_human_stratified_sample_is_balanced_and_disjoint() -> None:
+    candidates = pd.DataFrame(
+        {
+            "item_id": [f"item_{index}" for index in range(80)],
+            "diagnostic_score": np.linspace(0.0, 1.0, 80),
+            "subject": [f"s{index % 4}" for index in range(80)],
+            "benchmark": ["mmlu" if index % 2 else "bbh" for index in range(80)],
+        }
+    )
+    result = stratified_candidate_sample(candidates, per_stratum=5, seed=9)
+    assert len(result) == 20
+    assert result["item_id"].is_unique
+    assert set(result["diagnostic_stratum"]) == {
+        "high_diagnostic",
+        "medium_diagnostic",
+        "low_diagnostic",
+        "random_control",
+    }
 
 
 def test_answer_position_forensics(tmp_path: Path) -> None:

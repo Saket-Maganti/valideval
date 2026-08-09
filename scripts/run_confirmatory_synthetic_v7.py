@@ -17,7 +17,7 @@ def main() -> int:
     parser.add_argument(
         "--config", type=Path, default=Path("configs/synthetic/confirmatory_v7.yaml")
     )
-    parser.add_argument("--output", type=Path, default=Path("results/synthetic/confirmatory_v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/synthetic/confirmatory"))
     args = parser.parse_args()
     started = time.perf_counter()
     config_bytes = args.config.read_bytes()
@@ -32,6 +32,19 @@ def main() -> int:
     if current_blob != config_bytes:
         raise ValueError("working confirmatory config differs from the frozen commit")
     results, summary = run_confirmatory_validation(config)
+    criteria = config["success_criteria"]
+    acceptance = {
+        "median_AUPRC": summary["median_AUPRC"] >= float(criteria["median_AUPRC_minimum"]),
+        "median_precision_at_k": summary["median_precision_at_k"]
+        >= float(criteria["median_precision_at_k_minimum"]),
+        "median_FDR": summary["median_FDR"] <= float(criteria["median_FDR_maximum"]),
+    }
+    summary["acceptance_criteria"] = acceptance
+    summary["acceptance_status"] = (
+        "FROZEN_ACCEPTANCE_GATES_PASSED"
+        if all(acceptance.values())
+        else "FROZEN_ACCEPTANCE_GATES_FAILED"
+    )
     args.output.mkdir(parents=True, exist_ok=True)
     results.to_csv(args.output / "scenario_metrics.csv", index=False)
     summary.update(

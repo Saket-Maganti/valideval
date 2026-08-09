@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from valideval.execution.config import load_run_config, load_yaml_mapping, semantic_config_hash
+from valideval.execution.config_v7 import RunConfigV7
 from valideval.execution.models import load_panel_config
 from valideval.execution.notebook import build_fixture_run
 from valideval.execution.runner import (
@@ -26,7 +27,7 @@ def run_notebook_config_v7(
     source = Path(config_path).resolve()
     root = _repository_root(source)
     config = load_run_config(source, repository_root=root)
-    if config.schema_version != "7.0":
+    if not isinstance(config, RunConfigV7):
         raise ValueError("the V7 notebook runner rejects non-V7 configurations")
     panel = load_panel_config(root / config.panel_config)
     contract = _load_contract(root / config.benchmark_contract, config.benchmark_id)

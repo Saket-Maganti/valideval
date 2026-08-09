@@ -4,12 +4,15 @@ import os
 import re
 import subprocess
 from pathlib import Path
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from valideval.execution.manifest import canonical_json_bytes, sha256_bytes, sha256_file
+
+if TYPE_CHECKING:
+    from valideval.execution.config_v7 import RunConfigV7
 
 V6_SCHEMA_VERSION = "6.0"
 RUN_MODES = (
@@ -159,7 +162,7 @@ def load_yaml_mapping(path: str | Path) -> dict[str, Any]:
 
 def load_run_config(
     path: str | Path, *, repository_root: str | Path | None = None
-) -> RunConfigV6 | Any:
+) -> RunConfigV6 | RunConfigV7:
     source = Path(path).resolve()
     raw = load_yaml_mapping(source)
     if str(raw.get("schema_version")) == "7.0":

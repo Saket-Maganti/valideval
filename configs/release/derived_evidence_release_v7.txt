@@ -1,0 +1,10 @@
+# Derived redistributable results only; no raw benchmark text or model outputs.
+LICENSE
+results/v7/**/*.json
+results/v7/**/*.csv
+reports/v7/*.md
+VALID_EVAL_ICML2027_EXECUTION_PLAN.md
+VALID_EVAL_V7_FINAL_MAXIMUM_PRE_EXECUTION_HANDOFF.md
+VALID_EVAL_V7_MACHINE_STATE.json
+configs/preregistration/icml2027_primary_v7.yaml
+configs/synthetic/confirmatory_v7.yaml

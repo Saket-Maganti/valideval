@@ -24,10 +24,10 @@ def main() -> int:
     parser.add_argument(
         "--score-draws",
         type=Path,
-        default=Path("results/mmlu/study_h_v7/nested_bootstrap_score_draws.csv"),
+        default=Path("results/v7/study_h/nested_bootstrap_score_draws.csv"),
     )
     parser.add_argument("--bootstrap", type=int, default=500)
-    parser.add_argument("--output", type=Path, default=Path("results/decision/materiality_v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/decision/materiality"))
     args = parser.parse_args()
     started = time.perf_counter()
     matrix = pd.read_csv(args.matrix, index_col=0)

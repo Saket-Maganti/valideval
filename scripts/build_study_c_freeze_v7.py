@@ -100,6 +100,18 @@ def main(argv: list[str] | None = None) -> int:
                 subset_path=subset_path,
             )
             _write_yaml(run_root / f"{benchmark}_{stage.lower()}_v7.yaml", run)
+        fallback_run = _run_config(
+            root=root,
+            benchmark=benchmark,
+            stage="S4",
+            mode="full_common_panel",
+            evidence="CONFIRMATORY",
+            panel="configs/panels/s4_fallback_v7.yaml",
+            contract_path=scientific_path,
+            subset_path=full_path,
+            run_suffix="fallback",
+        )
+        _write_yaml(run_root / f"{benchmark}_s4_fallback_v7.yaml", fallback_run)
         robustness_runs: list[tuple[str, str, str]] = []
         if benchmark == "mmlu":
             robustness_runs.extend(

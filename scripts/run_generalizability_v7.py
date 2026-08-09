@@ -21,7 +21,7 @@ def main() -> int:
         "--families", type=Path, default=Path("configs/models/study_h_family_map_v5.csv")
     )
     parser.add_argument(
-        "--output", type=Path, default=Path("results/reliability/generalizability_v7")
+        "--output", type=Path, default=Path("results/v7/reliability/generalizability")
     )
     args = parser.parse_args()
     started = time.perf_counter()

@@ -47,7 +47,9 @@ def simulate_measurement_regime(
         + np.sqrt(1.0 - family_correlation) * individual
     )
     subjects = np.arange(item_count) % subject_count
-    item_loading = rng.normal(size=(item_count, latent_dimensions))
+    # Positive loadings preserve the declared direction of ability. Random signed
+    # one-dimensional loadings would make the scalar target cancel by construction.
+    item_loading = rng.lognormal(-0.05, 0.3, size=(item_count, latent_dimensions))
     item_loading /= np.maximum(np.linalg.norm(item_loading, axis=1, keepdims=True), 1e-8)
     difficulty = rng.normal(0.0, 0.9, size=item_count)
     if saturation > 0.0:

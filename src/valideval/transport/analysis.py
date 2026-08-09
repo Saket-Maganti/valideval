@@ -4,6 +4,7 @@ import math
 
 import numpy as np
 import pandas as pd
+from scipy.stats import norm
 
 TRANSPORT_ESTIMANDS = (
     "score_transport",
@@ -43,6 +44,8 @@ def analyze_transportability(
     unknown = set(effects["estimand"]) - set(TRANSPORT_ESTIMANDS)
     if unknown:
         raise ValueError(f"unknown transport estimand(s): {sorted(unknown)}")
+    if not 0.0 < confidence_level < 1.0:
+        raise ValueError("confidence_level must lie in (0, 1)")
     rows = []
     for estimand, group in effects.groupby("estimand", sort=True):
         rows.append(
@@ -105,7 +108,7 @@ def _analyze_estimand(
     random_weight = 1.0 / (standard_error**2 + tau_squared)
     pooled = float(np.sum(random_weight * estimate) / np.sum(random_weight))
     pooled_se = math.sqrt(1.0 / float(np.sum(random_weight)))
-    z = 1.959963984540054 if confidence_level == 0.95 else 1.959963984540054
+    z = float(norm.ppf(0.5 + confidence_level / 2.0))
     lower = pooled - z * pooled_se
     upper = pooled + z * pooled_se
     i_squared = max((q - degrees) / q, 0.0) if q > 0.0 else 0.0

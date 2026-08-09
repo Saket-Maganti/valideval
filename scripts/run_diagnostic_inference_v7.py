@@ -21,7 +21,7 @@ def main() -> int:
     )
     parser.add_argument("--bootstrap", type=int, default=500)
     parser.add_argument("--permutations", type=int, default=500)
-    parser.add_argument("--output", type=Path, default=Path("results/diagnostics/v7"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7/diagnostics"))
     args = parser.parse_args()
     started = time.perf_counter()
     matrix = pd.read_csv(args.matrix, index_col=0)
@@ -61,7 +61,7 @@ def main() -> int:
     )
     args.output.mkdir(parents=True, exist_ok=True)
     result.to_csv(args.output / "item_inferential_diagnostics.csv", index=False)
-    graph_path = Path("results/diagnostics/diagnostic_dependency_graph_v7.json")
+    graph_path = args.output / "diagnostic_dependency_graph.json"
     graph_path.parent.mkdir(parents=True, exist_ok=True)
     graph_path.write_text(json.dumps(dependency, indent=2, sort_keys=True), encoding="utf-8")
     summary = {

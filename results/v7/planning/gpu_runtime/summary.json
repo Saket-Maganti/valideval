@@ -1,0 +1,19 @@
+{
+  "all_run_hours_excluding_download": {
+    "conservative": 1803.8972800925926,
+    "expected": 785.2814261272139,
+    "optimistic": 441.09729308390024
+  },
+  "calibration_state": "UNMEASURED_ASSUMPTIONS",
+  "claim_boundary": "Ranges use frozen token/throughput/retry assumptions and are not measured T4x2 runtime. Recalibrate after accepted S1/S2 outputs. Downloads are excluded from sums.",
+  "configured_run_count_including_fallback_alternatives": 25,
+  "mandatory_pre_s4_hours_excluding_download": {
+    "conservative": 814.9733253761573,
+    "expected": 354.7601414678944,
+    "optimistic": 199.293467439059
+  },
+  "maximum_single_run_download_gb": 63.995012707,
+  "primary_route_run_count": 22,
+  "recommended_free_storage_gb": 95,
+  "status": "GPU_RUNTIME_PLANNING_COMPLETE_UNCALIBRATED"
+}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -14,7 +15,7 @@ def subject_weight_fragility(subject_scores: pd.DataFrame) -> dict[str, object]:
         raise ValueError("subject_scores must contain at least two models and subjects")
     aggregate = subject_scores.mean(axis=1)
     winner = str(aggregate.idxmax())
-    best: dict[str, object] | None = None
+    best: dict[str, Any] | None = None
     n_subjects = subject_scores.shape[1]
     baseline = np.full(n_subjects, 1.0 / n_subjects)
     for challenger in subject_scores.index:
@@ -38,7 +39,7 @@ def subject_weight_fragility(subject_scores: pd.DataFrame) -> dict[str, object]:
         )
         if not result.success:
             continue
-        candidate = {
+        candidate: dict[str, Any] = {
             "winner": winner,
             "challenger": str(challenger),
             "minimum_total_variation": float(result.fun),
@@ -73,7 +74,7 @@ def item_removal_fragility(
         raise ValueError("matrix must contain at least two models and items")
     scores = matrix.mean(axis=1)
     winner = str(scores.idxmax())
-    best: dict[str, object] | None = None
+    best: dict[str, Any] | None = None
     for challenger in matrix.index:
         if str(challenger) == winner:
             continue
@@ -87,7 +88,7 @@ def item_removal_fragility(
         if not len(feasible):
             continue
         count = int(feasible[0] + 1)
-        candidate = {
+        candidate: dict[str, Any] = {
             "winner": winner,
             "challenger": str(challenger),
             "items_removed": count,
@@ -96,7 +97,7 @@ def item_removal_fragility(
         }
         if best is None or float(candidate["removal_fraction"]) < float(best["removal_fraction"]):
             best = candidate
-    output = best or {
+    output: dict[str, Any] = best or {
         "winner": winner,
         "challenger": None,
         "items_removed": None,
