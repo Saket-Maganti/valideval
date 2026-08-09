@@ -59,7 +59,7 @@ bundles/
 dashboard_data/
 external_review_packet/
 external_review_packets/
-leaderboard/
+/leaderboard/
 site/
 validation_reports/
 kaggle_outputs/

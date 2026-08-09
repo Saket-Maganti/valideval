@@ -634,7 +634,7 @@ def _machine_state(
             "no-force policy after a GitHub-only lint compatibility patch."
         ),
         "final_tag": "valideval-v7-icml2027-max-pre-execution",
-        "ci_patch_tag": "valideval-v7-icml2027-max-pre-execution-ci1",
+        "ci_patch_tag": "valideval-v7-icml2027-max-pre-execution-ci2",
         "final_gate": "ICML2027_STRONG_PRE_EXECUTION_BUILD_PARTIAL",
         "statuses": {
             "claim_licensing": "CLAIM_LICENSING_METHOD_READY",

@@ -4,7 +4,8 @@
     "status": "PASS"
   },
   "clean_install": {
-    "command": "python3 -m venv <temporary> && <temporary>/bin/python -m pip install -e '.[dev]'",
+    "clean_checkout": true,
+    "command": "git worktree add --detach <temporary> HEAD && python3 -m venv <temporary-venv> && <temporary-venv>/bin/python -m pip install -e '.[dev]'",
     "python": "3.11.9",
     "status": "PASS"
   },
@@ -12,7 +13,7 @@
     "command": "python -m pytest -q",
     "failed": 0,
     "passed": 392,
-    "runtime_seconds": 26.05,
+    "runtime_seconds": 33.95,
     "skipped": 0,
     "status": "PASS",
     "warnings": 2,
@@ -30,7 +31,7 @@
       "python3 -m ruff check .",
       "python3 -m ruff format --check src tests scripts"
     ],
-    "formatted_files_checked": 404,
+    "formatted_files_checked": 405,
     "status": "PASS"
   },
   "mypy_v7": {

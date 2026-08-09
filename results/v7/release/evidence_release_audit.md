@@ -2,9 +2,9 @@
 
 - Status: `RELEASE_DRY_RUN_SAFE`
 - Included files: `67`
-- Included bytes: `7822248`
+- Included bytes: `7822418`
 - Excluded matched files: `0`
-- Manifest SHA-256: `6bc39e3f72806e3e8e5440d709f1d497bc4565fd0f17023ce81cf2fdf8547c94`
+- Manifest SHA-256: `1057ec049409c214a7ee574b7ac67e70812035b96eb9b49591a7f826e7f9bda8`
 
 The plan is allowlist-only. Raw benchmark inputs, caches, generated model outputs, secrets, compiled files, and nested archives are excluded.
 

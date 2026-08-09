@@ -1,5 +1,3 @@
-# Ruff classifies these same-package imports differently across the macOS and Linux resolvers.
-# ruff: noqa: I001
 from __future__ import annotations
 
 import json
