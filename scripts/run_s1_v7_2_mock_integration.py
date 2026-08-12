@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import tempfile
 import time
@@ -58,6 +59,7 @@ def main() -> int:
             allow_non_evidence_fixture=True,
         )
         accepted = acceptance["status"] == "S1_V7_2_ACCEPTED"
+        normalized_acceptance = _normalize_acceptance(acceptance)
         payload = {
             "schema_version": "valideval.s1-mock-integration.v7.2",
             "status": ("S1_V7_2_END_TO_END_READY" if accepted else "S1_V7_2_END_TO_END_BLOCKED"),
@@ -69,7 +71,7 @@ def main() -> int:
                 "V7.2 acceptance"
             ),
             "packages": package_records,
-            "acceptance": acceptance,
+            "acceptance": normalized_acceptance,
             "runtime_seconds": time.perf_counter() - started,
             "claim_boundary": (
                 "This deterministic mock run proves integration readiness only. It is not an "
@@ -86,6 +88,19 @@ def _head(root: Path) -> str:
     import subprocess
 
     return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+
+
+def _normalize_acceptance(acceptance: dict[str, object]) -> dict[str, object]:
+    normalized = copy.deepcopy(acceptance)
+    normalized["output_root"] = "TEMPORARY_INTEGRATION_ROOT/accepted"
+    benchmarks = normalized.get("benchmarks", [])
+    if isinstance(benchmarks, list):
+        for entry in benchmarks:
+            if isinstance(entry, dict) and "import_destination" in entry:
+                entry["import_destination"] = (
+                    f"TEMPORARY_INTEGRATION_ROOT/accepted/{entry['benchmark_id']}/{entry['run_id']}"
+                )
+    return normalized
 
 
 if __name__ == "__main__":
