@@ -48,6 +48,7 @@ def main() -> int:
         ],
         "mypy": [sys.executable, "-m", "mypy", *CRITICAL_MODULES],
         "build": [sys.executable, "-m", "build"],
+        "v7_artifacts": [sys.executable, "scripts/validate_v7_artifacts.py"],
     }
     for name, command in commands.items():
         checks[name] = _run(command, root)
