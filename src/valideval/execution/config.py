@@ -58,6 +58,9 @@ class ExecutionOptions(BaseModel):
     shard_count: int = 2
     batch_size: int = 1
     max_sequence_length: int = 4096
+    allow_batch_size_fallback: bool = True
+    allow_sequence_length_fallback: bool = False
+    minimum_sequence_length: int = 512
     timeout_seconds: float = 900.0
     minimum_free_disk_gb: float = 2.0
     model_download_margin_gb: float = 2.0
@@ -78,6 +81,10 @@ class ExecutionOptions(BaseModel):
             raise ValueError("max_retries must be non-negative")
         if self.shard_count <= 0 or self.batch_size <= 0 or self.max_sequence_length <= 0:
             raise ValueError("shard_count, batch_size, and max_sequence_length must be positive")
+        if self.minimum_sequence_length <= 0:
+            raise ValueError("minimum_sequence_length must be positive")
+        if self.minimum_sequence_length > self.max_sequence_length:
+            raise ValueError("minimum_sequence_length cannot exceed max_sequence_length")
         if self.timeout_seconds <= 0:
             raise ValueError("timeout_seconds must be positive")
         if self.minimum_free_disk_gb < 0 or self.model_download_margin_gb < 0:
@@ -217,7 +224,14 @@ def verify_referenced_file(path: Path, expected_sha256: str, *, label: str) -> N
 def semantic_config_hash(config: BaseModel | dict[str, Any]) -> str:
     payload = config.model_dump(mode="json") if isinstance(config, BaseModel) else dict(config)
     if payload.get("mode") in {"resume", "validate_only", "package_only"}:
-        if payload.get("schema_version") == "7.0":
+        execution = payload.get("execution", {})
+        if (
+            payload.get("schema_version") == "7.0"
+            and isinstance(execution, dict)
+            and execution.get("backend") == "mock"
+        ):
+            payload["mode"] = "fixture"
+        elif payload.get("schema_version") == "7.0":
             payload["mode"] = {
                 "S2": "pilot",
                 "S3": "minimum_scientific",

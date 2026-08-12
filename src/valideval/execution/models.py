@@ -139,16 +139,17 @@ class TransformersTextGenerator:
         self.cache_status = _cache_status(repository, revision, cache_dir)
         started = time.perf_counter()
         try:
-            self.tokenizer = AutoTokenizer.from_pretrained(
+            self.tokenizer: Any = AutoTokenizer.from_pretrained(
                 repository,
                 revision=tokenizer_revision,
                 trust_remote_code=trust_remote_code,
                 cache_dir=str(cache_dir) if cache_dir else None,
                 use_fast=True,
             )
-            self.model = AutoModelForCausalLM.from_pretrained(repository, **model_kwargs)
+            self.model: Any = AutoModelForCausalLM.from_pretrained(repository, **model_kwargs)
             if quantization in {"none", "unquantized"}:
-                self.model.to("cuda:0")
+                move_to_device: Any = self.model.to
+                move_to_device("cuda:0")
             self.model.eval()
         except Exception as exc:
             raise ModelResolutionError(

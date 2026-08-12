@@ -8,9 +8,13 @@ from valideval.claims.contracts import (
     ClaimLicenseResult,
     ClaimStatus,
     ClaimType,
+    DecisionDirection,
+    InferentialUnit,
+    RankIntervalType,
 )
 from valideval.claims.evidence import ClaimEvidence
 from valideval.claims.policies import ClaimPolicy
+from valideval.transport.folds import FoldManifestError, validate_fold_manifest
 
 _EXTERNAL_CLAIMS = {ClaimType.ITEM_IS_SUSPICIOUS, ClaimType.REPAIR_IMPROVES_DECISION}
 _TRANSPORT_CLAIMS = {ClaimType.DIAGNOSTIC_TRANSFERS}
@@ -22,6 +26,20 @@ _DECISION_CLAIMS = {
     ClaimType.REPAIR_IMPROVES_DECISION,
 }
 _MULTIPLE_TEST_CLAIMS = {ClaimType.ITEM_IS_SUSPICIOUS, ClaimType.SUBJECT_IS_UNSTABLE}
+_INFERENTIAL_UNITS = {
+    ClaimType.MODEL_A_OUTPERFORMS_MODEL_B: {InferentialUnit.ITEM, InferentialUnit.SUBJECT},
+    ClaimType.MODEL_IN_TOP_K: {InferentialUnit.ITEM, InferentialUnit.SUBJECT},
+    ClaimType.MODEL_CROSSES_THRESHOLD: {InferentialUnit.ITEM, InferentialUnit.SUBJECT},
+    ClaimType.MODEL_FAMILY_BEST: {InferentialUnit.MODEL_FAMILY},
+    ClaimType.ITEM_IS_SUSPICIOUS: {InferentialUnit.MODEL_FAMILY},
+    ClaimType.SUBJECT_IS_UNSTABLE: {InferentialUnit.SUBJECT},
+    ClaimType.BENCHMARK_RANKING_IS_STABLE: {InferentialUnit.SUBJECT},
+    ClaimType.DIAGNOSTIC_TRANSFERS: {InferentialUnit.BENCHMARK, InferentialUnit.MODEL_FAMILY},
+    ClaimType.REPAIR_IMPROVES_DECISION: {
+        InferentialUnit.MODEL_FAMILY,
+        InferentialUnit.BENCHMARK,
+    },
+}
 
 
 def license_claim(
@@ -60,20 +78,23 @@ def license_claim(
     checks.append(("leakage_guard_passed", ev.leakage_guard_passed))
     if not ev.leakage_guard_passed:
         return result(ClaimStatus.BLOCKED_BY_LEAKAGE, "A preregistered leakage guard failed.")
-    checks.append(("minimum_sample_size", ev.sample_size >= resolved_policy.minimum_sample_size))
-    if ev.sample_size < resolved_policy.minimum_sample_size:
-        return result(ClaimStatus.UNDERPOWERED, "The effective sample size is below policy.")
+    effective_n_pass, effective_n_reason = _effective_n_passes(claim_type, ev, resolved_policy)
+    checks.append(("dependence_aware_effective_n", effective_n_pass))
+    if not effective_n_pass:
+        return result(ClaimStatus.UNDERPOWERED, effective_n_reason)
     power_pass = ev.power is None or ev.power >= resolved_policy.minimum_power
     checks.append(("minimum_power", power_pass if ev.power is not None else None))
     if ev.power is not None and not power_pass:
         return result(ClaimStatus.UNDERPOWERED, "Estimated power is below policy.")
 
-    if claim_type in _MULTIPLE_TEST_CLAIMS:
+    if _requires_multiplicity(claim_type, ev):
         q_value = ev.by_q_value if resolved_policy.require_by_sensitivity else ev.q_value
         multiple_pass = (
             ev.multiplicity_controlled
             and q_value is not None
             and q_value <= resolved_policy.fdr_level
+            and bool(ev.hypothesis_family_id)
+            and bool(ev.multiplicity_scope)
         )
         checks.append(("multiplicity", multiple_pass))
         if not multiple_pass:
@@ -114,13 +135,23 @@ def license_claim(
             and ev.transport_heterogeneity <= resolved_policy.transport_heterogeneity_threshold
         )
         direction_pass = ev.transport_direction_consistent is True
-        transport_pass = overlap_pass and family_pass and heterogeneity_pass and direction_pass
+        fold_pass = False
+        if ev.transport_fold_manifest is not None:
+            try:
+                fold = validate_fold_manifest(ev.transport_fold_manifest)
+                fold_pass = fold["execution_status"] == "EXECUTED"
+            except FoldManifestError:
+                fold_pass = False
+        transport_pass = (
+            overlap_pass and family_pass and heterogeneity_pass and direction_pass and fold_pass
+        )
         checks.extend(
             [
                 ("exact_model_overlap", overlap_pass),
                 ("independent_model_families", family_pass),
                 ("transport_heterogeneity", heterogeneity_pass),
                 ("transport_direction", direction_pass),
+                ("transport_fold_manifest", fold_pass),
             ]
         )
         if not transport_pass:
@@ -167,16 +198,28 @@ def _uncertainty_passes(
             and evidence.confidence_lower > policy.effect_size_threshold
         )
     if claim_type is ClaimType.MODEL_IN_TOP_K:
+        try:
+            interval_type = RankIntervalType(evidence.rank_interval_type)
+        except (TypeError, ValueError):
+            interval_type = None
         return (
             evidence.simultaneous_rank_upper is not None
             and evidence.requested_top_k is not None
+            and interval_type is RankIntervalType.BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS
             and evidence.simultaneous_rank_upper <= evidence.requested_top_k
         )
     if claim_type is ClaimType.MODEL_CROSSES_THRESHOLD:
+        if evidence.decision_threshold is None:
+            return False
+        direction = DecisionDirection(evidence.decision_direction)
+        if direction is DecisionDirection.ABOVE:
+            return (
+                evidence.confidence_lower is not None
+                and evidence.confidence_lower > evidence.decision_threshold
+            )
         return (
-            evidence.confidence_lower is not None
-            and evidence.effect_size is not None
-            and evidence.confidence_lower > evidence.effect_size
+            evidence.confidence_upper is not None
+            and evidence.confidence_upper < evidence.decision_threshold
         )
     if claim_type is ClaimType.ITEM_IS_SUSPICIOUS:
         return (
@@ -210,3 +253,49 @@ def _licensed_class(claim_type: ClaimType) -> ClaimClass:
     if claim_type in {ClaimType.BENCHMARK_RANKING_IS_STABLE, ClaimType.SUBJECT_IS_UNSTABLE}:
         return ClaimClass.STABLE
     return ClaimClass.MATERIAL
+
+
+def _effective_n_passes(
+    claim_type: ClaimType,
+    evidence: ClaimEvidence,
+    policy: ClaimPolicy,
+) -> tuple[bool, str]:
+    if evidence.effective_n is None or evidence.estimand_unit is None:
+        return False, "Dependence-aware effective_n and estimand_unit are required."
+    try:
+        unit = InferentialUnit(evidence.estimand_unit)
+    except ValueError:
+        return False, "The estimand unit is not recognized."
+    if unit not in _INFERENTIAL_UNITS[claim_type]:
+        allowed = ", ".join(sorted(value.value for value in _INFERENTIAL_UNITS[claim_type]))
+        return False, f"{claim_type.value} requires one of these inferential units: {allowed}."
+    if not evidence.effective_n > 0:
+        return False, "effective_n must be positive."
+    if evidence.raw_n is not None and evidence.effective_n > evidence.raw_n:
+        return False, "effective_n cannot exceed raw_n."
+    if evidence.cluster_count is not None and evidence.cluster_count <= 0:
+        return False, "cluster_count must be positive when supplied."
+    minimum = policy.minimum_sample_size
+    if unit in {InferentialUnit.MODEL_FAMILY, InferentialUnit.HUMAN_ANNOTATOR}:
+        minimum = policy.minimum_independent_model_families
+    elif unit is InferentialUnit.BENCHMARK:
+        minimum = policy.minimum_transport_benchmarks
+    if evidence.effective_n < minimum:
+        return (
+            False,
+            f"The effective sample size {evidence.effective_n:g} is below the {unit.value} policy minimum {minimum}.",
+        )
+    if evidence.independence_unit is None or not evidence.dependence_structure:
+        return False, "independence_unit and dependence_structure are required."
+    return True, ""
+
+
+def _requires_multiplicity(claim_type: ClaimType, evidence: ClaimEvidence) -> bool:
+    if claim_type in _MULTIPLE_TEST_CLAIMS:
+        return True
+    scope = str(evidence.multiplicity_scope or "").upper()
+    return claim_type in {
+        ClaimType.MODEL_A_OUTPERFORMS_MODEL_B,
+        ClaimType.MODEL_IN_TOP_K,
+        ClaimType.MODEL_FAMILY_BEST,
+    } and scope not in {"", "SINGLE_PRESPECIFIED_COMPARISON"}

@@ -12,7 +12,7 @@ panel_config_sha256: 47a1522c3b366f1650e5c60df5c177215f3a02cc6d09e2e7fb9b6c6ce6c
 subset_manifest: results/freeze/study_c_v7/bbh_s2_pilot_v7.json
 subset_manifest_sha256: 5cc5843fbf7696464124c3e6f765bbd10b442148c5848d8093842fcdd04ae0b0
 output_root: kaggle_v7_outputs
-required_source_ref: valideval-v7-icml2027-max-pre-execution
+required_source_ref: valideval-v7.1-icml2027-scientific-execution-ready
 expected_source_commit: null
 allow_source_commit_from_environment: true
 execution:

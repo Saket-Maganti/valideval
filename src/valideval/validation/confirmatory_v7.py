@@ -7,7 +7,11 @@ import numpy as np
 import pandas as pd
 from scipy.special import expit
 
-from valideval.validation.detector_metrics import precision_recall_auc, roc_auc
+from valideval.validation.detector_metrics import (
+    expected_precision_at_k,
+    precision_recall_auc,
+    roc_auc,
+)
 
 FLAW_CLASSES = (
     "NO_FLAW",
@@ -114,6 +118,12 @@ def generate_confirmatory_matrix(
 def fixed_confirmatory_readout(matrix: pd.DataFrame) -> np.ndarray:
     """Frozen flaw-agnostic readout based only on observable response behavior."""
 
+    return np.maximum.reduce(list(confirmatory_readout_components(matrix).values()))
+
+
+def confirmatory_readout_components(matrix: pd.DataFrame) -> dict[str, np.ndarray]:
+    """Return the unchanged V7 readout components for V7.1 ablation accounting."""
+
     values = matrix.to_numpy(dtype=float)
     missing = np.mean(~np.isfinite(values), axis=0)
     observed_count = np.sum(np.isfinite(values), axis=0)
@@ -147,15 +157,13 @@ def fixed_confirmatory_readout(matrix: pd.DataFrame) -> np.ndarray:
         indices = np.flatnonzero(subject_names == subject)
         expected = float(np.mean(filled[:, indices]))
         subject_residual[indices] = np.abs(np.mean(filled[:, indices], axis=0) - expected)
-    return np.maximum.reduce(
-        [
-            missing,
-            duplicate,
-            negative_discrimination,
-            centered_difficulty * 0.35,
-            np.clip(subject_residual * 2.0, 0.0, 1.0),
-        ]
-    )
+    return {
+        "missingness": missing,
+        "duplicate": duplicate,
+        "negative_discrimination": negative_discrimination,
+        "centered_difficulty": centered_difficulty * 0.35,
+        "subject_residual": np.clip(subject_residual * 2.0, 0.0, 1.0),
+    }
 
 
 def run_confirmatory_validation(config: Mapping[str, Any]) -> tuple[pd.DataFrame, dict[str, Any]]:
@@ -208,7 +216,6 @@ def run_confirmatory_validation(config: Mapping[str, Any]) -> tuple[pd.DataFrame
         positive = int(labels.sum())
         discoveries = int(selected.sum())
         k = max(1, positive)
-        top = np.argsort(scores)[-k:]
         rows.append(
             {
                 "flaw_class": flaw_class,
@@ -217,7 +224,8 @@ def run_confirmatory_validation(config: Mapping[str, Any]) -> tuple[pd.DataFrame
                 "seed": seed,
                 "AUPRC": precision_recall_auc(labels.tolist(), scores.tolist()),
                 "AUROC": roc_auc(labels.tolist(), scores.tolist()),
-                "precision_at_k": float(labels[top].mean()),
+                "precision_at_k": expected_precision_at_k(labels.tolist(), scores.tolist(), k),
+                "precision_at_k_tie_policy": "EXPECTED_RANDOM_BOUNDARY_TIE",
                 "FDR": false_positive / discoveries if discoveries else 0.0,
                 "recall_at_fixed_FDR": true_positive / positive if positive else None,
                 "power": true_positive / positive if positive else None,

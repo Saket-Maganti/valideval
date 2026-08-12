@@ -8,6 +8,33 @@ evidence about sensitivity, false-positive behavior, specificity, uncertainty, m
 transfer. The authoritative historical-evidence boundary remains the V5 claim ledger at
 `results/evidence/claim_evidence_ledger_v5.csv`; older V4/no-run documents are historical snapshots.
 
+## V7.1 scientific-integrity closure
+
+V7.1 repairs the execution and inferential contracts without changing the frozen V7 empirical
+result. Runner output, ZIP packaging, and import now use one schema; source identity and checksums
+are verified fail-closed; model-load and generation OOMs propagate into bounded scheduler recovery;
+and resume/package imports have end-to-end fixture coverage. Claim licenses now require an explicit
+inferential unit, dependence-aware effective sample size, decision threshold direction, true
+simultaneous rank interval type, and multiplicity-family metadata where applicable.
+
+The closure does not turn missing evidence into findings. The frozen V7 synthetic grid remains
+failed, transport folds are planned but not executed, human results remain planning-only, the
+generalizability and measurement-regime analyses remain supporting-only, and the current Study-C
+design grid is underpowered for all declared primary estimands. Start with
+`VALID_EVAL_V7_1_FINAL_SCIENTIFIC_EXECUTION_HANDOFF.md` and `reports/v7_1/`.
+
+Reproduce the new CPU closure artifacts with:
+
+```bash
+python3 scripts/run_claim_calibration_v7_1.py
+python3 scripts/run_rank_coverage_v7_1.py
+python3 scripts/run_synthetic_controls_v7_1.py
+python3 scripts/run_study_h_v7.py
+python3 scripts/run_study_c_power_v7_1.py
+python3 scripts/run_transport_folds_v7_1.py
+python3 scripts/run_estimand_conditions_v7_1.py
+```
+
 ## V7 ICML 2027 pre-execution build
 
 V7 adds multidimensional, fail-closed claim licensing; family-aware inference and multiplicity;

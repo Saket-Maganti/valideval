@@ -1,0 +1,20 @@
+schema_version: "7.1"
+study_id: V7_1_SYNTHETIC_CONTROL_COMPLETION
+status: SEPARATE_CONTROL_COMPLETION_NOT_V7_CONFIRMATION
+seeds: [3101, 3102, 3103]
+model_count: 32
+family_count: 8
+item_count: 200
+subject_count: 10
+prevalence: 0.15
+severity: 0.60
+controls:
+  - LABEL_PERMUTATION
+  - NO_FLAW
+  - UNSEEN_FLAW
+  - HELD_OUT_GENERATOR_FAMILY
+  - MIXED_FLAWS
+  - DIAGNOSTIC_ABLATION
+  - FAMILY_DEPENDENCE_STRESS
+  - DIFFICULTY_CONDITIONED_NEGATIVE_CONTROL
+claim_boundary: The failed frozen V7 primary result remains immutable.

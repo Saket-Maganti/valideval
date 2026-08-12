@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.1-v7.1-scientific-closure — 2026-08-12
+
+- Unified the V7.1 runner, deterministic package, and importer schema and added real
+  runner-to-ZIP-to-import fixture tests, resume coverage, and fail-closed provenance checks.
+- Propagated typed model-load and generation OOMs into bounded scheduler recovery.
+- Repaired threshold direction, dependence-aware effective-N, simultaneous rank, pairwise
+  multiplicity, claim-family, and executed transport-fold licensing semantics.
+- Added versioned synthetic controls with tie-invariant metrics while preserving the failed frozen
+  V7 primary result.
+- Added known-truth claim calibration, rank-coverage simulations, family-dependence stress,
+  primary-estimand power planning, grouped cross-fitting, null contracts, Study-H estimand
+  sensitivity, human resource accounting, benchmark forensics, and canonical-versus-deduplicated
+  analysis.
+- Kept unavailable evidence blocked: no executed transport folds, human labels, accepted S1/S2,
+  measured T4 throughput, or exact BBH response matrix were fabricated.
+
 ## 0.4.0-v7-icml2027-pre-execution — 2026-08-09
 
 - Added explicit claim contracts with identity, leakage, sample-size, power, multiplicity,

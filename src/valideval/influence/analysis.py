@@ -78,6 +78,7 @@ def leave_one_subject_influence(
 def crossfit_removal_evaluation(
     matrix: pd.DataFrame,
     *,
+    model_families: Mapping[str, str],
     removal_fraction: float = 0.05,
     seed: int = 2027,
 ) -> pd.DataFrame:
@@ -87,12 +88,28 @@ def crossfit_removal_evaluation(
     if not 0.0 < removal_fraction < 0.5:
         raise ValueError("removal_fraction must be in (0, 0.5)")
     rng = np.random.default_rng(seed)
-    permutation = rng.permutation(frame.shape[0])
-    split = max(2, frame.shape[0] // 2)
-    discovery = frame.iloc[permutation[:split]]
-    validation = frame.iloc[permutation[split:]]
-    if validation.shape[0] < 2:
-        raise ValueError("at least four models are required for cross-fitting")
+    missing_families = sorted(set(map(str, frame.index)) - set(map(str, model_families)))
+    if missing_families:
+        raise ValueError(f"model_families is missing models: {missing_families}")
+    families = sorted({str(model_families[str(model)]) for model in frame.index})
+    if len(families) < 4:
+        raise ValueError("family-grouped cross-fitting requires at least four families")
+    family_order = rng.permutation(np.asarray(families, dtype=object))
+    split = len(family_order) // 2
+    discovery_families = set(map(str, family_order[:split]))
+    validation_families = set(map(str, family_order[split:]))
+    if discovery_families & validation_families:
+        raise AssertionError("family leakage across cross-fit folds")
+    discovery_models = [
+        model for model in frame.index if str(model_families[str(model)]) in discovery_families
+    ]
+    validation_models = [
+        model for model in frame.index if str(model_families[str(model)]) in validation_families
+    ]
+    discovery = frame.loc[discovery_models]
+    validation = frame.loc[validation_models]
+    if discovery.shape[0] < 2 or validation.shape[0] < 2:
+        raise ValueError("each family-grouped fold requires at least two checkpoints")
     count = max(1, int(round(removal_fraction * frame.shape[1])))
     risk = -np.nan_to_num(item_discrimination_scores(discovery), nan=0.0)
     difficulty = frame.mean(axis=0).to_numpy(dtype=float)
@@ -127,6 +144,10 @@ def crossfit_removal_evaluation(
                 "policy": name,
                 "discovery_models": int(discovery.shape[0]),
                 "held_out_models": int(validation.shape[0]),
+                "discovery_families": "|".join(sorted(discovery_families)),
+                "held_out_families": "|".join(sorted(validation_families)),
+                "family_overlap_count": len(discovery_families & validation_families),
+                "crossfit_method": "REPEATED_FAMILY_GROUP_SPLIT_SINGLE_FROZEN_SEED",
                 "items_removed": int(len(removed)),
                 "removal_fraction": float(len(removed) / frame.shape[1]),
                 "held_out_rank_spearman": float(ranks.corr(baseline_ranks, method="spearman")),

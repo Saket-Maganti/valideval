@@ -12,9 +12,19 @@ from typing import Any
 
 import yaml
 
-EXECUTION_SCHEMA_VERSION = "valideval.execution.v6"
+EXECUTION_SCHEMA_VERSION = "valideval.execution.v7.1"
 ACCEPTED_V5_SCHEMA_VERSIONS = frozenset(
-    {EXECUTION_SCHEMA_VERSION, "valideval.execution.v5", "v6", "6", "v5", "5"}
+    {
+        EXECUTION_SCHEMA_VERSION,
+        "valideval.execution.v6",
+        "valideval.execution.v5",
+        "v7.1",
+        "7.1",
+        "v6",
+        "6",
+        "v5",
+        "5",
+    }
 )
 NON_EVIDENCE_FIXTURE = "NON_EVIDENCE_FIXTURE"
 
@@ -28,6 +38,7 @@ RUN_REQUIRED_FILES = (
     "shard_status.json",
     "failure_summary.csv",
     "predictions.jsonl",
+    "matrix.csv",
 )
 
 PREDICTION_REQUIRED_FIELDS = (

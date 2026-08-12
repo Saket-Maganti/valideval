@@ -12,6 +12,7 @@ class ClaimPolicy:
     effect_size_threshold: float = 0.01
     minimum_exact_model_overlap: int = 8
     minimum_independent_model_families: int = 5
+    minimum_transport_benchmarks: int = 3
     minimum_sample_size: int = 100
     minimum_power: float = 0.80
     external_validation_required: bool = False
@@ -43,6 +44,7 @@ class ClaimPolicy:
         counts = {
             "minimum_exact_model_overlap": self.minimum_exact_model_overlap,
             "minimum_independent_model_families": self.minimum_independent_model_families,
+            "minimum_transport_benchmarks": self.minimum_transport_benchmarks,
             "minimum_sample_size": self.minimum_sample_size,
         }
         for name, value in counts.items():

@@ -12,7 +12,7 @@ panel_config_sha256: 0745a73182776b248d648997849a8684febe13d8875ecdf3816615994ce
 subset_manifest: results/freeze/study_c_v7/gsm8k_s2_pilot_v7.json
 subset_manifest_sha256: 0dc784ff869710c747f200783bb3f17f17ee4c98f9708d4beb0fae6f9724f637
 output_root: kaggle_v7_outputs
-required_source_ref: valideval-v7-icml2027-max-pre-execution
+required_source_ref: valideval-v7.1-icml2027-scientific-execution-ready
 expected_source_commit: null
 allow_source_commit_from_environment: true
 execution:

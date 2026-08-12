@@ -15,13 +15,58 @@ from valideval.statistics.rank_nulls import (
 
 NULL_SUITE = (
     "ADD_ABILITY_SUBJECT",
-    "EMPIRICAL_BAYES_ADDITIVE",
+    "FIXED_PRIOR_SHRUNK_ADDITIVE",
     "SUBJECT_SIZE_ONLY",
-    "FIXED_MARGIN_PERMUTATION",
+    "MODEL_TOTAL_SUBJECT_SIZE_HYPERGEOMETRIC",
     "FAMILY_CORRELATED_NULL",
     "LATENT_FACTOR_NULL",
-    "MODEL_SUBJECT_RANDOM_EFFECT_NULL",
+    "DETERMINISTIC_MODEL_SUBJECT_PERTURBATION_NULL",
 )
+
+NULL_MODEL_CONTRACTS = {
+    "ADD_ABILITY_SUBJECT": {
+        "fixed": "observed model and subject aggregate rates plus subject sample sizes",
+        "randomized": "binomial subject-level success counts",
+        "estimated": "additive logit model and subject effects",
+        "hypothesis": "no model-by-subject interaction beyond additive ability and difficulty",
+    },
+    "FIXED_PRIOR_SHRUNK_ADDITIVE": {
+        "fixed": "prior strength 20 and observed subject sample sizes",
+        "randomized": "binomial subject-level success counts",
+        "estimated": "model rates and fixed-prior shrunk subject rates",
+        "hypothesis": "additive effects after prespecified shrinkage; not empirical Bayes",
+    },
+    "SUBJECT_SIZE_ONLY": {
+        "fixed": "model aggregate rates and subject sample sizes",
+        "randomized": "binomial subject-level success counts",
+        "estimated": "model aggregate rates",
+        "hypothesis": "no subject effect",
+    },
+    "MODEL_TOTAL_SUBJECT_SIZE_HYPERGEOMETRIC": {
+        "fixed": "each model total successes and subject item counts",
+        "randomized": "allocation of model successes across subject-size blocks",
+        "estimated": "nothing beyond observed margins",
+        "hypothesis": "responses are exchangeable across subjects within model",
+    },
+    "FAMILY_CORRELATED_NULL": {
+        "fixed": "observed family membership",
+        "randomized": "binomial counts from additive plus family residual probabilities",
+        "estimated": "additive rates and family mean residuals",
+        "hypothesis": "family-correlated deviations explain observed subject dispersion",
+    },
+    "LATENT_FACTOR_NULL": {
+        "fixed": "rank-two latent approximation",
+        "randomized": "binomial counts from latent probabilities",
+        "estimated": "two singular components",
+        "hypothesis": "low-rank model-subject structure explains dispersion",
+    },
+    "DETERMINISTIC_MODEL_SUBJECT_PERTURBATION_NULL": {
+        "fixed": "deterministic perturbation grid scaled by observed residual spread",
+        "randomized": "binomial counts from perturbed probabilities",
+        "estimated": "residual spread only",
+        "hypothesis": "structured perturbation sensitivity; not a random-effects model",
+    },
+}
 
 
 def nested_subject_item_bootstrap(
@@ -30,8 +75,9 @@ def nested_subject_item_bootstrap(
     *,
     n_bootstrap: int = 500,
     seed: int = 2027,
+    estimand: str = "BALANCED_SUBJECT_WEIGHTED",
 ) -> pd.DataFrame:
-    """Nested subject/item bootstrap returning equal-subject-weight model scores."""
+    """Nested bootstrap for one explicitly named MMLU score estimand."""
 
     frame = validate_binary_response_matrix(matrix)
     subject_map = normalize_subject_ids(frame.columns, subjects)
@@ -45,11 +91,21 @@ def nested_subject_item_bootstrap(
     for replicate in range(n_bootstrap):
         sampled_subjects = rng.choice(subject_names, size=len(subject_names), replace=True)
         subject_draws = []
+        subject_weights = []
         for subject in sampled_subjects:
             available = indices[str(subject)]
             sampled_items = rng.choice(available, size=len(available), replace=True)
             subject_draws.append(np.nanmean(values[:, sampled_items], axis=1))
-        draws[replicate] = np.nanmean(np.column_stack(subject_draws), axis=1)
+            subject_weights.append(len(sampled_items))
+        stacked = np.column_stack(subject_draws)
+        if estimand == "BALANCED_SUBJECT_WEIGHTED":
+            draws[replicate] = np.nanmean(stacked, axis=1)
+        elif estimand == "CANONICAL_ITEM_WEIGHTED":
+            draws[replicate] = np.average(stacked, axis=1, weights=subject_weights)
+        else:
+            raise ValueError(
+                "estimand must be CANONICAL_ITEM_WEIGHTED or BALANCED_SUBJECT_WEIGHTED"
+            )
     return pd.DataFrame(draws, columns=frame.index.astype(str)).rename_axis("replicate")
 
 
@@ -75,7 +131,7 @@ def simulate_null_suite(
     rows = []
     for method in NULL_SUITE:
         for simulation in range(n_simulations):
-            if method == "FIXED_MARGIN_PERMUTATION":
+            if method == "MODEL_TOTAL_SUBJECT_SIZE_HYPERGEOMETRIC":
                 sampled_scores = np.empty(scores.shape, dtype=float)
                 for model_index, model in enumerate(frame.index):
                     total_success = int(frame.loc[model].sum())
@@ -142,80 +198,107 @@ def sensitivity_sweep(
     subjects: Sequence[str] | Mapping[str, str],
     *,
     seed: int = 2027,
+    replicates: int = 100,
 ) -> pd.DataFrame:
-    """One-factor-at-a-time panel/composition sensitivity with fixed deterministic subsets."""
+    """Monte Carlo panel/composition sensitivity with uncertainty per grid point."""
 
     frame = validate_binary_response_matrix(matrix)
     subject_map = normalize_subject_ids(frame.columns, subjects)
     baseline_rank = frame.mean(axis=1).rank(ascending=False, method="average")
-    rng = np.random.default_rng(seed)
+    if replicates < 2:
+        raise ValueError("replicates must be at least two")
     rows = []
+
+    def summarize(dimension: str, value: float | int, draws: list[float], **metadata: int):
+        values = np.asarray(draws, dtype=float)
+        rows.append(
+            {
+                "dimension": dimension,
+                "value": value,
+                **metadata,
+                "replicates": replicates,
+                "rank_spearman_mean": float(np.nanmean(values)),
+                "rank_spearman_monte_carlo_se": float(
+                    np.nanstd(values, ddof=1) / np.sqrt(np.isfinite(values).sum())
+                ),
+                "rank_spearman_q025": float(np.nanquantile(values, 0.025)),
+                "rank_spearman_q975": float(np.nanquantile(values, 0.975)),
+                "sweep_type": "STOCHASTIC_MONTE_CARLO",
+            }
+        )
+
     for model_count in (5, 10, 20, 30, frame.shape[0]):
         if model_count > frame.shape[0]:
             continue
-        selected_models = rng.choice(frame.index, size=model_count, replace=False)
-        selected = frame.loc[selected_models]
-        rank = selected.mean(axis=1).rank(ascending=False, method="average")
-        rows.append(
-            {
-                "dimension": "model_count",
-                "value": model_count,
-                "model_count": model_count,
-                "subject_count": int(subject_map.nunique()),
-                "item_count": frame.shape[1],
-                "rank_spearman_with_full": float(
-                    rank.corr(baseline_rank.loc[selected_models], method="spearman")
-                ),
-            }
+        draws = []
+        for replicate in range(replicates):
+            rng = np.random.default_rng(seed + model_count * 10_000 + replicate)
+            selected_models = rng.choice(frame.index, size=model_count, replace=False)
+            rank = frame.loc[selected_models].mean(axis=1).rank(ascending=False, method="average")
+            draws.append(float(rank.corr(baseline_rank.loc[selected_models], method="spearman")))
+        summarize(
+            "model_count",
+            model_count,
+            draws,
+            model_count=model_count,
+            subject_count=int(subject_map.nunique()),
+            item_count=frame.shape[1],
         )
     subject_names = np.asarray(sorted(subject_map.unique()))
     for subject_count in (5, 10, 20, 40, len(subject_names)):
         if subject_count > len(subject_names):
             continue
-        selected_subjects = rng.choice(subject_names, size=subject_count, replace=False)
-        columns = subject_map.index[subject_map.isin(selected_subjects)]
-        rank = frame.loc[:, columns].mean(axis=1).rank(ascending=False, method="average")
-        rows.append(
-            {
-                "dimension": "subject_count",
-                "value": subject_count,
-                "model_count": frame.shape[0],
-                "subject_count": subject_count,
-                "item_count": len(columns),
-                "rank_spearman_with_full": float(rank.corr(baseline_rank, method="spearman")),
-            }
+        draws = []
+        item_counts = []
+        for replicate in range(replicates):
+            rng = np.random.default_rng(seed + subject_count * 20_000 + replicate)
+            selected_subjects = rng.choice(subject_names, size=subject_count, replace=False)
+            columns = subject_map.index[subject_map.isin(selected_subjects)]
+            rank = frame.loc[:, columns].mean(axis=1).rank(ascending=False, method="average")
+            draws.append(float(rank.corr(baseline_rank, method="spearman")))
+            item_counts.append(len(columns))
+        summarize(
+            "subject_count",
+            subject_count,
+            draws,
+            model_count=frame.shape[0],
+            subject_count=subject_count,
+            item_count=int(round(np.mean(item_counts))),
         )
     for item_count in (250, 500, 1000, 2500, 5000, 10000, frame.shape[1]):
         if item_count > frame.shape[1]:
             continue
-        columns = rng.choice(frame.columns, size=item_count, replace=False)
-        rank = frame.loc[:, columns].mean(axis=1).rank(ascending=False, method="average")
-        rows.append(
-            {
-                "dimension": "item_count",
-                "value": item_count,
-                "model_count": frame.shape[0],
-                "subject_count": int(subject_map.loc[columns].nunique()),
-                "item_count": item_count,
-                "rank_spearman_with_full": float(rank.corr(baseline_rank, method="spearman")),
-            }
+        draws = []
+        subject_counts = []
+        for replicate in range(replicates):
+            rng = np.random.default_rng(seed + item_count * 30_000 + replicate)
+            columns = rng.choice(frame.columns, size=item_count, replace=False)
+            rank = frame.loc[:, columns].mean(axis=1).rank(ascending=False, method="average")
+            draws.append(float(rank.corr(baseline_rank, method="spearman")))
+            subject_counts.append(int(subject_map.loc[columns].nunique()))
+        summarize(
+            "item_count",
+            item_count,
+            draws,
+            model_count=frame.shape[0],
+            subject_count=int(round(np.mean(subject_counts))),
+            item_count=item_count,
         )
     for removal_fraction in (0.01, 0.05, 0.10, 0.20, 0.40):
-        retained = rng.choice(
-            frame.columns,
-            size=max(2, int(round(frame.shape[1] * (1.0 - removal_fraction)))),
-            replace=False,
-        )
-        rank = frame.loc[:, retained].mean(axis=1).rank(ascending=False, method="average")
-        rows.append(
-            {
-                "dimension": "random_item_removal",
-                "value": removal_fraction,
-                "model_count": frame.shape[0],
-                "subject_count": int(subject_map.loc[retained].nunique()),
-                "item_count": len(retained),
-                "rank_spearman_with_full": float(rank.corr(baseline_rank, method="spearman")),
-            }
+        retained_count = max(2, int(round(frame.shape[1] * (1.0 - removal_fraction))))
+        draws = []
+        for replicate in range(replicates):
+            rng = np.random.default_rng(seed + int(removal_fraction * 1000) * 40_000 + replicate)
+            retained = rng.choice(frame.columns, size=retained_count, replace=False)
+            rank = frame.loc[:, retained].mean(axis=1).rank(ascending=False, method="average")
+            draws.append(float(rank.corr(baseline_rank, method="spearman")))
+        summarize(
+            "random_item_removal",
+            removal_fraction,
+            draws,
+            model_count=frame.shape[0],
+            subject_count=int(subject_map.nunique()),
+            item_count=retained_count,
         )
     return pd.DataFrame(rows)
 
@@ -263,9 +346,9 @@ def _null_probabilities(
     random_effect = expit(additive_eta + row_subject_effect)
     return {
         "ADD_ABILITY_SUBJECT": additive,
-        "EMPIRICAL_BAYES_ADDITIVE": eb,
+        "FIXED_PRIOR_SHRUNK_ADDITIVE": eb,
         "SUBJECT_SIZE_ONLY": subject_size_only,
         "FAMILY_CORRELATED_NULL": family_correlated,
         "LATENT_FACTOR_NULL": latent,
-        "MODEL_SUBJECT_RANDOM_EFFECT_NULL": random_effect,
+        "DETERMINISTIC_MODEL_SUBJECT_PERTURBATION_NULL": random_effect,
     }

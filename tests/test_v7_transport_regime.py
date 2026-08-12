@@ -5,7 +5,25 @@ from valideval.measurement.regime_study import (
     simulate_measurement_regime,
 )
 from valideval.statistics.panel_power_v7 import paired_difference_power
-from valideval.transport import analyze_transportability
+from valideval.transport import analyze_transportability, build_fold_manifest
+
+
+def _fold(benchmark: str) -> dict[str, object]:
+    return build_fold_manifest(
+        fold_id=f"lobo-{benchmark}",
+        training_benchmarks=[name for name in ("mmlu", "gsm8k", "bbh") if name != benchmark],
+        held_out_benchmark=benchmark,
+        training_families=["f1", "f2", "f3", "f4", "f5"],
+        held_out_families=[],
+        training_model_ids=["train-1"],
+        evaluation_model_ids=["eval-1"],
+        discovery_item_ids=["discover-1"],
+        evaluation_item_ids=["eval-item-1"],
+        source_commit="a" * 40,
+        config_hash="b" * 64,
+        execution_status="EXECUTED",
+        data_artifact_hashes={"effects.csv": "c" * 64},
+    )
 
 
 def test_transport_supported_requires_heldout_exact_effects() -> None:
@@ -16,7 +34,7 @@ def test_transport_supported_requires_heldout_exact_effects() -> None:
             "estimate": [0.4, 0.35, 0.45],
             "standard_error": [0.05] * 3,
             "exact_identity": [True] * 3,
-            "held_out": [True] * 3,
+            "fold_manifest": [_fold(name) for name in ("mmlu", "gsm8k", "bbh")],
             "independent_families": [6] * 3,
         }
     )
@@ -31,7 +49,7 @@ def test_transport_blocks_identity_failure() -> None:
             "estimate": [0.4],
             "standard_error": [0.05],
             "exact_identity": [False],
-            "held_out": [True],
+            "fold_manifest": [_fold("mmlu")],
             "independent_families": [6],
         }
     )

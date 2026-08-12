@@ -313,6 +313,10 @@ def environment_preflight(
         "package_version": __version__,
         "execution_schema_version": EXECUTION_SCHEMA_VERSION,
         "source_commit": source_commit,
+        "required_source_ref": config.required_source_ref,
+        "expected_source_commit": source_commit,
+        "actual_source_commit": source_commit,
+        "source_match": True,
         "config_hash": semantic_config_hash(config),
         "visible_gpu_count": visible_gpu_count,
         "configured_gpu_ids": list(config.execution.gpu_ids),
@@ -368,6 +372,9 @@ def _execute_jobs(
                 "evidence_class": config.evidence_class,
                 "batch_size": config.execution.batch_size,
                 "max_sequence_length": config.execution.max_sequence_length,
+                "allow_batch_size_fallback": config.execution.allow_batch_size_fallback,
+                "allow_sequence_length_fallback": config.execution.allow_sequence_length_fallback,
+                "minimum_sequence_length": config.execution.minimum_sequence_length,
                 "dtype": model["dtype"],
                 "quantization": model["quantization"],
                 "estimated_duration": float(model["expected_download_size"]),
@@ -383,9 +390,7 @@ def _execute_jobs(
         use_processes=config.execution.use_processes,
         process_start_method=config.execution.process_start_method,
     )
-    scheduler_run_config = config.model_dump(mode="json")
-    if scheduler_run_config["mode"] in {"resume", "validate_only", "package_only"}:
-        scheduler_run_config["mode"] = "smoke"
+    scheduler_run_config = _frozen_config_payload(config)
     scheduler_config = {
         "run_config": scheduler_run_config,
         "config_hash": config_hash,
@@ -552,6 +557,10 @@ def _materialize_run(
             "execution_backend": config.execution.backend,
             "mocked_production_path": config.execution.backend == "mock",
             "source_commit": source_commit,
+            "required_source_ref": config.required_source_ref,
+            "expected_source_commit": source_commit,
+            "actual_source_commit": source_commit,
+            "source_match": True,
             "dataset_revision": contract["dataset_revision"],
             "prompt_hash": prompt_hash,
             "subset_manifest_sha256": config.subset_manifest_sha256,
@@ -921,7 +930,12 @@ def _safe_task_id(model_id: str) -> str:
 def _frozen_config_payload(config: Any) -> dict[str, Any]:
     payload = config.model_dump(mode="json")
     if payload["mode"] in {"resume", "validate_only", "package_only"}:
-        if payload.get("schema_version") == "7.0":
+        if (
+            payload.get("schema_version") == "7.0"
+            and payload.get("execution", {}).get("backend") == "mock"
+        ):
+            payload["mode"] = "fixture"
+        elif payload.get("schema_version") == "7.0":
             payload["mode"] = {
                 "S2": "pilot",
                 "S3": "minimum_scientific",

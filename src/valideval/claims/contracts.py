@@ -27,6 +27,37 @@ class ClaimType(str, Enum):
     REPAIR_IMPROVES_DECISION = "REPAIR_IMPROVES_DECISION"
 
 
+class InferentialUnit(str, Enum):
+    ITEM = "ITEM"
+    SUBJECT = "SUBJECT"
+    MODEL_CHECKPOINT = "MODEL_CHECKPOINT"
+    MODEL_FAMILY = "MODEL_FAMILY"
+    BENCHMARK = "BENCHMARK"
+    MODEL_BENCHMARK_PAIR = "MODEL_BENCHMARK_PAIR"
+    HUMAN_ANNOTATOR = "HUMAN_ANNOTATOR"
+    HUMAN_ITEM = "HUMAN_ITEM"
+
+
+class DecisionDirection(str, Enum):
+    ABOVE = "above"
+    BELOW = "below"
+
+
+class RankIntervalType(str, Enum):
+    MARGINAL_BOOTSTRAP = "MARGINAL_BOOTSTRAP"
+    BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS = "BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS"
+
+
+class PrimarySecondary(str, Enum):
+    PRIMARY = "PRIMARY"
+    SECONDARY = "SECONDARY"
+
+
+class AnalysisPhase(str, Enum):
+    CONFIRMATORY = "CONFIRMATORY"
+    EXPLORATORY = "EXPLORATORY"
+
+
 class ClaimStatus(str, Enum):
     LICENSED = "LICENSED"
     LICENSED_WITH_SCOPE = "LICENSED_WITH_SCOPE"

@@ -1,6 +1,13 @@
 import pytest
 
-from valideval.claims import ClaimEvidence, ClaimPolicy, ClaimStatus, ClaimType, license_claim
+from valideval.claims import (
+    ClaimEvidence,
+    ClaimPolicy,
+    ClaimStatus,
+    ClaimType,
+    InferentialUnit,
+    license_claim,
+)
 
 
 @pytest.mark.parametrize(
@@ -22,9 +29,15 @@ def test_by_sensitivity_can_block_bh_positive_item() -> None:
             q_value=0.01,
             by_q_value=0.2,
             multiplicity_controlled=True,
+            hypothesis_family_id="ITEM_DIAGNOSTICS",
+            multiplicity_scope="ALL_ITEMS",
             bootstrap_stability=0.9,
             effect_size=0.2,
-            sample_size=500,
+            estimand_unit=InferentialUnit.MODEL_FAMILY,
+            raw_n=500,
+            effective_n=10,
+            independence_unit=InferentialUnit.MODEL_FAMILY,
+            dependence_structure="family clustered",
             external_validated=True,
         ),
         ClaimPolicy(require_by_sensitivity=True),
@@ -37,7 +50,11 @@ def test_transport_checks_overlap_families_direction_and_heterogeneity() -> None
         ClaimType.DIAGNOSTIC_TRANSFERS,
         ClaimEvidence(
             confidence_lower=0.1,
-            sample_size=500,
+            estimand_unit=InferentialUnit.BENCHMARK,
+            raw_n=3,
+            effective_n=3,
+            independence_unit=InferentialUnit.BENCHMARK,
+            dependence_structure="held-out benchmark folds",
             exact_model_overlap=4,
             independent_model_families=8,
             transport_heterogeneity=0.1,

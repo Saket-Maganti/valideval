@@ -16,6 +16,7 @@ from valideval.execution.config import (
 
 _SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:+@-]{0,255}$")
 _HEX_64 = re.compile(r"^[0-9a-f]{64}$")
+V7_1_CANONICAL_SOURCE_REF = "valideval-v7.1-icml2027-scientific-execution-ready"
 
 
 class RunConfigV7(BaseModel):
@@ -86,7 +87,12 @@ class RunConfigV7(BaseModel):
     @model_validator(mode="after")
     def _validate_scientific_boundary(self) -> RunConfigV7:
         if self.execution.backend == "mock":
-            if self.evidence_class != "NON_EVIDENCE_FIXTURE" or self.mode != "fixture":
+            if self.evidence_class != "NON_EVIDENCE_FIXTURE" or self.mode not in {
+                "fixture",
+                "resume",
+                "validate_only",
+                "package_only",
+            }:
                 raise ValueError("mock execution must be a NON_EVIDENCE_FIXTURE")
             return self
         expected = {
@@ -102,10 +108,8 @@ class RunConfigV7(BaseModel):
                     f"{self.stage} requires mode={required_mode} and "
                     f"evidence_class={required_evidence}"
                 )
-        if self.stage in {"S3", "S4"} and self.required_source_ref != (
-            "valideval-v7-icml2027-max-pre-execution"
-        ):
-            raise ValueError("confirmatory Study C runs must pin the final V7 source tag")
+        if self.required_source_ref != V7_1_CANONICAL_SOURCE_REF:
+            raise ValueError("all Study C runs must pin the canonical V7.1 scientific source tag")
         if self.stage == "S5" and not (self.robustness_config and self.robustness_config_sha256):
             raise ValueError("S5 requires a hashed robustness_config")
         if bool(self.robustness_config) != bool(self.robustness_config_sha256):

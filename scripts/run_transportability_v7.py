@@ -12,7 +12,7 @@ from valideval.transport import analyze_transportability
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run V7 transportability analysis or build gate.")
     parser.add_argument("--effects", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("results/v7/transport"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7_1/transport"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     if args.effects is None:
@@ -23,7 +23,7 @@ def main() -> int:
                 "estimate",
                 "standard_error",
                 "exact_identity",
-                "held_out",
+                "fold_manifest",
                 "independent_families",
             ]
         )
@@ -31,11 +31,11 @@ def main() -> int:
         result = {
             "overall_status": "BLOCKED",
             "reason": "No exact-model controlled cross-benchmark effects exist before GPU Study C.",
-            "build_status": "TRANSPORTABILITY_BUILD_READY",
+            "build_status": "TRANSPORT_FOLD_PROVENANCE_REQUIRED",
         }
     else:
         result = analyze_transportability(pd.read_csv(args.effects))
-        result["build_status"] = "TRANSPORTABILITY_BUILD_READY"
+        result["build_status"] = "TRANSPORT_FOLD_PROVENANCE_READY"
     (args.output / "summary.json").write_text(
         json.dumps(result, indent=2, sort_keys=True), encoding="utf-8"
     )

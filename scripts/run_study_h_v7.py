@@ -8,6 +8,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from valideval.statistics.rank_inference_v7_1 import (
+    marginal_rank_intervals,
+    pairwise_multiplicity_analysis,
+    simultaneous_rank_confidence_sets,
+)
 from valideval.statistics.rank_materiality import (
     effect_size_filtered_reversals,
     family_cluster_bootstrap,
@@ -20,6 +25,7 @@ from valideval.statistics.rank_materiality import (
 )
 from valideval.statistics.rank_nulls import subject_accuracy_matrix
 from valideval.statistics.study_h_v7 import (
+    NULL_MODEL_CONTRACTS,
     nested_subject_item_bootstrap,
     null_suite_comparison,
     sensitivity_sweep,
@@ -28,14 +34,14 @@ from valideval.statistics.study_h_v7 import (
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run complete CPU Study H V7 analysis.")
+    parser = argparse.ArgumentParser(description="Run repaired CPU Study H V7.1 analysis.")
     parser.add_argument("--matrix", type=Path, default=Path("cache/mmlu/wide/matrix.csv"))
     parser.add_argument(
         "--families", type=Path, default=Path("configs/models/study_h_family_map_v5.csv")
     )
     parser.add_argument("--bootstrap", type=int, default=500)
     parser.add_argument("--null-simulations", type=int, default=200)
-    parser.add_argument("--output", type=Path, default=Path("results/v7/study_h"))
+    parser.add_argument("--output", type=Path, default=Path("results/v7_1/study_h"))
     args = parser.parse_args()
     started = time.perf_counter()
     matrix = pd.read_csv(args.matrix, index_col=0)
@@ -44,10 +50,21 @@ def main() -> int:
     subjects = {str(item): str(item).split("::", 1)[0] for item in matrix.columns}
     subject_scores = subject_accuracy_matrix(matrix, subjects)
     subject_ranks = tie_aware_ranks(subject_scores)
-    score_draws = nested_subject_item_bootstrap(
-        matrix, subjects, n_bootstrap=args.bootstrap, seed=2027
+    canonical_draws = nested_subject_item_bootstrap(
+        matrix,
+        subjects,
+        n_bootstrap=args.bootstrap,
+        seed=2027,
+        estimand="CANONICAL_ITEM_WEIGHTED",
     )
-    rank_draws = score_draws.rank(axis=1, ascending=False, method="average")
+    balanced_draws = nested_subject_item_bootstrap(
+        matrix,
+        subjects,
+        n_bootstrap=args.bootstrap,
+        seed=2027,
+        estimand="BALANCED_SUBJECT_WEIGHTED",
+    )
+    rank_draws = canonical_draws.rank(axis=1, ascending=False, method="average")
     nulls = simulate_null_suite(
         matrix,
         subjects,
@@ -56,15 +73,12 @@ def main() -> int:
         seed=2028,
     )
     null_comparison = null_suite_comparison(subject_scores, nulls)
-    alpha = 0.025
-    rank_sets = pd.DataFrame(
-        {
-            "model_id": rank_draws.columns,
-            "median_rank": rank_draws.median(axis=0).to_numpy(),
-            "simultaneous_rank_lower": rank_draws.quantile(alpha, axis=0).to_numpy(),
-            "simultaneous_rank_upper": rank_draws.quantile(1 - alpha, axis=0).to_numpy(),
-        }
+    rank_sets = simultaneous_rank_confidence_sets(
+        canonical_draws,
+        observed_scores=matrix.mean(axis=1),
+        resampling_unit="nested_subject_item_joint_draws_model_dependence_preserved",
     )
+    marginal_rank_sets = marginal_rank_intervals(canonical_draws)
     top_rows = []
     for model in rank_draws.columns:
         for k in (1, 3, 5, 10):
@@ -75,22 +89,7 @@ def main() -> int:
                     "probability": float((rank_draws[model] <= k).mean()),
                 }
             )
-    pairwise_rows = []
-    for left, model_a in enumerate(score_draws.columns):
-        for model_b in score_draws.columns[left + 1 :]:
-            difference = score_draws[model_a] - score_draws[model_b]
-            pairwise_rows.append(
-                {
-                    "model_a": model_a,
-                    "model_b": model_b,
-                    "superiority_probability": float(
-                        (difference > 0).mean() + 0.5 * (difference == 0).mean()
-                    ),
-                    "mean_difference": float(difference.mean()),
-                    "confidence_lower": float(difference.quantile(0.025)),
-                    "confidence_upper": float(difference.quantile(0.975)),
-                }
-            )
+    pairwise = pairwise_multiplicity_analysis(canonical_draws)
     kendall_draws = []
     rng = np.random.default_rng(2029)
     for _ in range(args.bootstrap):
@@ -100,11 +99,16 @@ def main() -> int:
         kendall_draws.append(kendalls_w(bootstrap_ranks))
     output = args.output
     output.mkdir(parents=True, exist_ok=True)
-    score_draws.to_csv(output / "nested_bootstrap_score_draws.csv", index=False)
+    canonical_draws.to_csv(output / "canonical_item_weighted_bootstrap_draws.csv", index=False)
+    balanced_draws.to_csv(output / "balanced_subject_weighted_bootstrap_draws.csv", index=False)
     rank_sets.to_csv(output / "simultaneous_rank_confidence_sets.csv", index=False)
+    marginal_rank_sets.to_csv(output / "marginal_bootstrap_rank_intervals.csv", index=False)
     pd.DataFrame(top_rows).to_csv(output / "top_k_probabilities.csv", index=False)
-    pd.DataFrame(pairwise_rows).to_csv(output / "pairwise_superiority.csv", index=False)
+    pairwise.to_csv(output / "pairwise_multiplicity.csv", index=False)
     nulls.to_csv(output / "null_suite_simulations.csv", index=False)
+    (output / "null_model_contracts.json").write_text(
+        json.dumps(NULL_MODEL_CONTRACTS, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     null_comparison.to_csv(output / "null_suite_comparison.csv", index=False)
     sensitivity_sweep(matrix, subjects).to_csv(output / "sensitivity_sweep.csv", index=False)
     top_k_jaccard_stability(subject_ranks).to_csv(output / "top_k_jaccard.csv", index=False)
@@ -124,6 +128,22 @@ def main() -> int:
     family_cluster_bootstrap(
         subject_scores, families, n_bootstrap=args.bootstrap, seed=2030
     ).to_csv(output / "family_cluster_bootstrap.csv", index=False)
+    canonical_point_ranks = matrix.mean(axis=1).rank(ascending=False, method="average")
+    balanced_point_ranks = subject_scores.mean(axis=1).rank(ascending=False, method="average")
+    estimand_sensitivity = pd.DataFrame(
+        {
+            "model_id": matrix.index.astype(str),
+            "canonical_item_weighted_score": matrix.mean(axis=1).to_numpy(dtype=float),
+            "balanced_subject_weighted_score": subject_scores.mean(axis=1).to_numpy(dtype=float),
+            "canonical_rank": canonical_point_ranks.to_numpy(dtype=float),
+            "balanced_rank": balanced_point_ranks.to_numpy(dtype=float),
+            "rank_changed": (
+                canonical_point_ranks.to_numpy(dtype=float)
+                != balanced_point_ranks.to_numpy(dtype=float)
+            ),
+        }
+    )
+    estimand_sensitivity.to_csv(output / "estimand_sensitivity.csv", index=False)
     null_sensitivity_range = [
         float(null_comparison["median_rank_range_exceedance"].min()),
         float(null_comparison["median_rank_range_exceedance"].max()),
@@ -131,9 +151,9 @@ def main() -> int:
     null_sensitive = null_sensitivity_range[1] - null_sensitivity_range[0] > 0.50
     summary = {
         "status": (
-            "STUDY_H_REPRODUCED_WITH_LIMITATIONS"
+            "STUDY_H_V7_1_REPRODUCED_WITH_LIMITATIONS"
             if null_sensitive
-            else "STUDY_H_REPRODUCED_AND_STABLE"
+            else "STUDY_H_V7_1_REPRODUCED_AND_STABLE"
         ),
         "models": matrix.shape[0],
         "items": matrix.shape[1],
@@ -148,6 +168,17 @@ def main() -> int:
         ],
         "null_median_rank_range_exceedance_range": null_sensitivity_range,
         "null_model_sensitivity_flag": null_sensitive,
+        "score_estimands": ["CANONICAL_ITEM_WEIGHTED", "BALANCED_SUBJECT_WEIGHTED"],
+        "estimand_winner_changed": str(canonical_point_ranks.idxmin())
+        != str(balanced_point_ranks.idxmin()),
+        "estimand_rank_spearman": float(
+            canonical_point_ranks.corr(balanced_point_ranks, method="spearman")
+        ),
+        "rank_interval_type": "BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS",
+        "pairwise_primary_control": "FDR_CONTROLLED_PAIRWISE_BH",
+        "pairwise_sensitivity_control": "FWER_CONTROLLED_PAIRWISE_HOLM",
+        "null_model_contracts": NULL_MODEL_CONTRACTS,
+        "sensitivity_monte_carlo_replicates": 100,
         "runtime_seconds": time.perf_counter() - started,
         "claim_boundary": (
             "Study H is an imported historical panel. Results are conditional on observed "

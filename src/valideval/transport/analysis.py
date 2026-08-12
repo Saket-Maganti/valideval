@@ -6,6 +6,8 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
+from valideval.transport.folds import FoldManifestError, validate_fold_manifest
+
 TRANSPORT_ESTIMANDS = (
     "score_transport",
     "ranking_transport",
@@ -27,7 +29,8 @@ def analyze_transportability(
     """Random-effects transport analysis with fail-closed identity and holdout gates.
 
     Required columns: estimand, benchmark, estimate, standard_error, exact_identity,
-    held_out, and independent_families.
+    fold_manifest, and independent_families. A user-provided ``held_out`` Boolean is
+    deliberately insufficient in V7.1.
     """
 
     required = {
@@ -36,7 +39,7 @@ def analyze_transportability(
         "estimate",
         "standard_error",
         "exact_identity",
-        "held_out",
+        "fold_manifest",
         "independent_families",
     }
     if not required.issubset(effects.columns):
@@ -89,8 +92,29 @@ def _analyze_estimand(
             "benchmark_count": benchmark_count,
             "minimum_independent_families": families,
         }
-    if not frame["held_out"].astype(bool).all():
-        return {"estimand": estimand, "status": "BLOCKED", "reason": "not held out"}
+    try:
+        fold_manifests = [validate_fold_manifest(value) for value in frame["fold_manifest"]]
+    except FoldManifestError as exc:
+        return {
+            "estimand": estimand,
+            "status": "BLOCKED",
+            "reason": "invalid fold provenance",
+            "detail": str(exc),
+        }
+    if any(fold["execution_status"] != "EXECUTED" for fold in fold_manifests):
+        return {
+            "estimand": estimand,
+            "status": "BLOCKED",
+            "reason": "folds are planned but not executed",
+        }
+    for benchmark, fold in zip(frame["benchmark"], fold_manifests, strict=True):
+        held_out_benchmark = fold["held_out_benchmark"]
+        if held_out_benchmark is not None and str(held_out_benchmark) != str(benchmark):
+            return {
+                "estimand": estimand,
+                "status": "BLOCKED",
+                "reason": "fold benchmark mismatch",
+            }
     estimate = frame["estimate"].to_numpy(dtype=float)
     standard_error = frame["standard_error"].to_numpy(dtype=float)
     if (
@@ -137,6 +161,8 @@ def _analyze_estimand(
         "i_squared": i_squared,
         "leave_one_benchmark_out_required": True,
         "leave_one_family_out_required": True,
+        "fold_ids": [str(fold["fold_id"]) for fold in fold_manifests],
+        "fold_hashes": [str(fold["fold_hash"]) for fold in fold_manifests],
     }
 
 
