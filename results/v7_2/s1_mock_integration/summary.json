@@ -1,0 +1,197 @@
+{
+  "acceptance": {
+    "authorization_updated": false,
+    "benchmarks": [
+      {
+        "archive_sha256": "c1ee5fdb6999bb8a0c9db946712a0ed1e88ec88d2ea8e9734a88761ac2ab0d38",
+        "benchmark_id": "mmlu",
+        "config_hash": "f8dc83876856700f0fbc3f847de0ac79f8b5649f309cf71eccb2ddd62041bfb5",
+        "disk_high_water_mark_bytes_lower_bound": 0,
+        "download_volume_bytes": 0,
+        "expected_item_count": 50,
+        "extraction_reliability": 1.0,
+        "failed_models": [],
+        "failure_types": {
+          "SUCCESS": 250
+        },
+        "fallback_count": 0,
+        "fixture_only": true,
+        "import_destination": "/private/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/valideval-s1-v7-2-integration-uf9tvw5h/accepted/mmlu/s1-v7-2-mmlu",
+        "import_success": true,
+        "items_per_second": 655598.4367178218,
+        "model_load_success": 5,
+        "package_success": true,
+        "peak_gpu_memory_bytes": null,
+        "resume_success": 0,
+        "row_count": 250,
+        "run_id": "s1-v7-2-mmlu",
+        "tokens_per_second": 19012354.66481683
+      },
+      {
+        "archive_sha256": "71d523ea424b31ada789fc7d0cfb8d48ec595e444be088a228b3f5b77c3d12c5",
+        "benchmark_id": "gsm8k",
+        "config_hash": "bd15b9d3975a4021801baf3f16fb7646512756b9ebb255df84b0a1e5712e650e",
+        "disk_high_water_mark_bytes_lower_bound": 0,
+        "download_volume_bytes": 0,
+        "expected_item_count": 50,
+        "extraction_reliability": 1.0,
+        "failed_models": [],
+        "failure_types": {
+          "SUCCESS": 250
+        },
+        "fallback_count": 0,
+        "fixture_only": true,
+        "import_destination": "/private/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/valideval-s1-v7-2-integration-uf9tvw5h/accepted/gsm8k/s1-v7-2-gsm8k",
+        "import_success": true,
+        "items_per_second": 629802.2026235018,
+        "model_load_success": 5,
+        "package_success": true,
+        "peak_gpu_memory_bytes": null,
+        "resume_success": 0,
+        "row_count": 250,
+        "run_id": "s1-v7-2-gsm8k",
+        "tokens_per_second": 15745055.065587543
+      },
+      {
+        "archive_sha256": "e825e6e0152e0f6c0df9a6d44b8919110afc31c0866cd10525c1eb89a4df5882",
+        "benchmark_id": "bbh",
+        "config_hash": "6ed6379565039f89d1e29a0e202da2a409fdfa57dd4a4f96d52e290167c3d74b",
+        "disk_high_water_mark_bytes_lower_bound": 0,
+        "download_volume_bytes": 0,
+        "expected_item_count": 50,
+        "extraction_reliability": 1.0,
+        "failed_models": [],
+        "failure_types": {
+          "SUCCESS": 250
+        },
+        "fallback_count": 0,
+        "fixture_only": true,
+        "import_destination": "/private/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/valideval-s1-v7-2-integration-uf9tvw5h/accepted/bbh/s1-v7-2-bbh",
+        "import_success": true,
+        "items_per_second": 662179.429636386,
+        "model_load_success": 5,
+        "package_success": true,
+        "peak_gpu_memory_bytes": null,
+        "resume_success": 0,
+        "row_count": 250,
+        "run_id": "s1-v7-2-bbh",
+        "tokens_per_second": 19203203.459455192
+      }
+    ],
+    "fixture_only": true,
+    "health": {
+      "disk_high_water_mark_bytes_lower_bound": 0,
+      "download_volume_bytes": 0,
+      "failure_types": {
+        "bbh": {
+          "SUCCESS": 250
+        },
+        "gsm8k": {
+          "SUCCESS": 250
+        },
+        "mmlu": {
+          "SUCCESS": 250
+        }
+      },
+      "fallback_count": 0,
+      "fixture_only": true,
+      "import_success": true,
+      "items_per_second": [
+        655598.4367178218,
+        629802.2026235018,
+        662179.429636386
+      ],
+      "minimum_extraction_reliability": 1.0,
+      "model_load_success": 15,
+      "note": "Fixture peak memory is unavailable by design. Disk high-water is a measured lower bound; missing production metrics are never imputed.",
+      "package_success": true,
+      "peak_gpu_memory_bytes": null,
+      "resume_success": 0,
+      "runtime_recalibration_required": true,
+      "status": "S1_HEALTHY",
+      "tokens_per_second": [
+        19012354.66481683,
+        15745055.065587543,
+        19203203.459455192
+      ]
+    },
+    "output_root": "/private/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/valideval-s1-v7-2-integration-uf9tvw5h/accepted",
+    "schema_version": "valideval.s1-acceptance.v7.2",
+    "source_commit": "729727cc83c990f2a63dfa842997b6a98275f520",
+    "source_ref": "valideval-v7.2-icml2027-kaggle-s1-ready",
+    "status": "S1_V7_2_ACCEPTED"
+  },
+  "authorization_updated": false,
+  "claim_boundary": "This deterministic mock run proves integration readiness only. It is not an accepted real S1 and cannot support scientific claims or S2 authorization.",
+  "fixture_only": true,
+  "packages": [
+    {
+      "benchmark_id": "mmlu",
+      "config_hash": "f8dc83876856700f0fbc3f847de0ac79f8b5649f309cf71eccb2ddd62041bfb5",
+      "evidence_class": "NON_EVIDENCE_FIXTURE",
+      "members": [
+        "benchmark_contract.json",
+        "config_snapshot.yaml",
+        "environment.json",
+        "failure_summary.csv",
+        "file_checksums.json",
+        "matrix.csv",
+        "models.json",
+        "predictions.jsonl",
+        "run_manifest.json",
+        "shard_status.json"
+      ],
+      "row_count": 250,
+      "status": "RUN_COMPLETE",
+      "zip_name": "valideval_v7_2_s1_mmlu_s1-v7-2-mmlu.zip",
+      "zip_sha256": "c1ee5fdb6999bb8a0c9db946712a0ed1e88ec88d2ea8e9734a88761ac2ab0d38"
+    },
+    {
+      "benchmark_id": "gsm8k",
+      "config_hash": "bd15b9d3975a4021801baf3f16fb7646512756b9ebb255df84b0a1e5712e650e",
+      "evidence_class": "NON_EVIDENCE_FIXTURE",
+      "members": [
+        "benchmark_contract.json",
+        "config_snapshot.yaml",
+        "environment.json",
+        "failure_summary.csv",
+        "file_checksums.json",
+        "matrix.csv",
+        "models.json",
+        "predictions.jsonl",
+        "run_manifest.json",
+        "shard_status.json"
+      ],
+      "row_count": 250,
+      "status": "RUN_COMPLETE",
+      "zip_name": "valideval_v7_2_s1_gsm8k_s1-v7-2-gsm8k.zip",
+      "zip_sha256": "71d523ea424b31ada789fc7d0cfb8d48ec595e444be088a228b3f5b77c3d12c5"
+    },
+    {
+      "benchmark_id": "bbh",
+      "config_hash": "6ed6379565039f89d1e29a0e202da2a409fdfa57dd4a4f96d52e290167c3d74b",
+      "evidence_class": "NON_EVIDENCE_FIXTURE",
+      "members": [
+        "benchmark_contract.json",
+        "config_snapshot.yaml",
+        "environment.json",
+        "failure_summary.csv",
+        "file_checksums.json",
+        "matrix.csv",
+        "models.json",
+        "predictions.jsonl",
+        "run_manifest.json",
+        "shard_status.json"
+      ],
+      "row_count": 250,
+      "status": "RUN_COMPLETE",
+      "zip_name": "valideval_v7_2_s1_bbh_s1-v7-2-bbh.zip",
+      "zip_sha256": "e825e6e0152e0f6c0df9a6d44b8919110afc31c0866cd10525c1eb89a4df5882"
+    }
+  ],
+  "runtime_seconds": 0.5022392499959096,
+  "schema_version": "valideval.s1-mock-integration.v7.2",
+  "source_commit": "729727cc83c990f2a63dfa842997b6a98275f520",
+  "status": "S1_V7_2_END_TO_END_READY",
+  "transaction": "config -> runner -> scheduler -> canonical package -> ZIP -> V7 importer -> V7.2 acceptance"
+}

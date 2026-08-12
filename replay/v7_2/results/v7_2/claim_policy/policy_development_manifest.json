@@ -1,0 +1,14 @@
+{
+  "generator_versions": [
+    "gaussian_mixture_v1.1",
+    "gaussian_mixture_v1.2",
+    "gaussian_mixture_v1.3"
+  ],
+  "row_count": 720,
+  "rows_sha256": "7e4765cf7919d72763cf08327f96abe6066180456858e7beec78828d2ea37fa0",
+  "scenario_ids_sha256": "89a42ff4305d06e61a53ff8126235caa80488dd3989a28b45f5a5d642823b15e",
+  "schema_version": "valideval.claim-policy-split.v7.2",
+  "seed_max": 820719,
+  "seed_min": 820000,
+  "split": "POLICY_DEVELOPMENT"
+}

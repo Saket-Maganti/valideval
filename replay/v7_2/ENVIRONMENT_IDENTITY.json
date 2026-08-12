@@ -1,0 +1,15 @@
+{
+  "config_hash": "9a96382a3a38aeac3de6e5534792b5afda67808a86485ec209b6d5f8e0912274",
+  "dependency_lock_hash": "d83b3ac2249e20e0591f74330606cef7ef9a50ccccc83aa96f1c43ed443b305c",
+  "normalized_result_hash": "5a2d4858f648a7c5e5d36047884d350a2c5ab351192d70bd00e17edfe7f92333",
+  "platform_metadata": {
+    "implementation": "CPython",
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]"
+  },
+  "replay_boundary": "Exact replay is required only within this frozen dependency/platform identity. No identical-hash promise is made across arbitrary NumPy/SciPy versions.",
+  "schema_version": "valideval.environment-identity.v7.2",
+  "seed_manifest_hash": "23d42f9040a28aa0ce8f0b5e9dca037eacb5da08394914525c622206f14e3516",
+  "source_commit": "729727cc83c990f2a63dfa842997b6a98275f520"
+}

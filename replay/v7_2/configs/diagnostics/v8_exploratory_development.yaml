@@ -1,0 +1,23 @@
+schema_version: valideval.diagnostic-development.v8
+evidence_role: EXPLORATORY_DEVELOPMENT_ONLY
+seeds: [8101, 8102, 8103, 8104, 8105]
+flaw_classes:
+  - LABEL_ERROR
+  - AMBIGUITY
+  - DISTRACTOR_FAILURE
+  - DUPLICATE_ITEM
+  - MISSINGNESS
+  - CORRELATED_MODEL_FAILURE
+severities: [0.4, 0.7]
+prevalence: 0.15
+model_count: 32
+family_count: 8
+item_count: 240
+subject_count: 12
+dependence: 0.55
+development_gate:
+  difficulty_negative_auprc_reduction_minimum: 0.10
+  true_flaw_median_auprc_retention_minimum: 0.80
+claim_boundary: >-
+  Labels are sealed from detector construction and scoring, then opened only for
+  exploratory metric computation. No V8 confirmatory run is authorized in V7.2.

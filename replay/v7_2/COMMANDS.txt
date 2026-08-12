@@ -1,0 +1,5 @@
+python3 scripts/run_claim_policy_v7_2.py --phase select
+python3 scripts/run_claim_policy_v7_2.py --phase confirm
+python3 scripts/run_v7_2_stress_studies.py
+python3 scripts/run_v8_difficulty_development.py
+python3 scripts/run_s1_v7_2_mock_integration.py

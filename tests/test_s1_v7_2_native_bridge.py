@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import shutil
 import subprocess
 import zipfile
 from pathlib import Path
@@ -15,6 +17,9 @@ from valideval.execution.manifest import sha256_file
 from valideval.execution.runner import run_from_config
 from valideval.importers.s1_v7_2 import (
     S1_V7_2_ACCEPTED,
+    S1_V7_2_REJECTED_CONFIG,
+    S1_V7_2_REJECTED_COVERAGE,
+    S1_V7_2_REJECTED_EXTRACTION,
     S1_V7_2_REJECTED_IDENTITY,
     S1_V7_2_REJECTED_PROVENANCE,
     S1_V7_2_REQUIRES_RERUN,
@@ -139,6 +144,79 @@ def test_s1_v7_2_archives_have_canonical_members(native_s1_packages: dict[str, A
         assert len(sha256_file(archive)) == 64
 
 
+@pytest.mark.parametrize(
+    ("mutation", "expected_status"),
+    [
+        ("checkpoint", S1_V7_2_REJECTED_IDENTITY),
+        ("coverage", S1_V7_2_REJECTED_COVERAGE),
+        ("extraction", S1_V7_2_REJECTED_EXTRACTION),
+        ("config", S1_V7_2_REJECTED_CONFIG),
+        ("prompt", S1_V7_2_REJECTED_CONFIG),
+        ("duplicate", S1_V7_2_REJECTED_IDENTITY),
+    ],
+)
+def test_s1_v7_2_native_acceptance_negative_matrix(
+    native_s1_packages: dict[str, Any],
+    tmp_path: Path,
+    mutation: str,
+    expected_status: str,
+) -> None:
+    packages = tmp_path / "packages"
+    shutil.copytree(native_s1_packages["packages"], packages)
+    archive = next(packages.glob("valideval_v7_2_s1_mmlu_*.zip"))
+    run_dir = tmp_path / "run"
+    with zipfile.ZipFile(archive) as handle:
+        handle.extractall(run_dir)
+    if mutation == "checkpoint":
+        payload = json.loads((run_dir / "models.json").read_text())
+        payload["models"][0]["family"] = "wrong-family"
+        (run_dir / "models.json").write_text(json.dumps(payload), encoding="utf-8")
+        _resign(run_dir, "models.json")
+    elif mutation in {"coverage", "extraction", "duplicate"}:
+        path = run_dir / "predictions.jsonl"
+        lines = path.read_text(encoding="utf-8").splitlines()
+        if mutation == "coverage":
+            lines = lines[1:]
+        elif mutation == "duplicate":
+            lines.append(lines[0])
+        else:
+            for index in range(20):
+                row = json.loads(lines[index])
+                row.update(
+                    {
+                        "parsed_output": None,
+                        "is_correct": None,
+                        "extraction_status": "failed",
+                        "failure_type": "EXTRACTION_FAILURE",
+                    }
+                )
+                lines[index] = json.dumps(row)
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        _resign(run_dir, "predictions.jsonl")
+    elif mutation == "config":
+        payload = yaml.safe_load((run_dir / "config_snapshot.yaml").read_text())
+        payload["output_root"] = "wrong-output-root"
+        (run_dir / "config_snapshot.yaml").write_text(
+            yaml.safe_dump(payload), encoding="utf-8"
+        )
+        _resign(run_dir, "config_snapshot.yaml")
+    else:
+        payload = json.loads((run_dir / "benchmark_contract.json").read_text())
+        payload["prompt_hash"] = "0" * 64
+        (run_dir / "benchmark_contract.json").write_text(
+            json.dumps(payload), encoding="utf-8"
+        )
+        _resign(run_dir, "benchmark_contract.json")
+    _write_sorted_zip(run_dir, archive)
+    result = accept_s1_v7_2(
+        packages,
+        repository_root=ROOT,
+        expected_source_commit=native_s1_packages["commit"],
+        allow_non_evidence_fixture=True,
+    )
+    assert result["status"] == expected_status
+
+
 def _mock_config(root: Path, benchmark: str, commit: str) -> Path:
     source = ROOT / f"configs/runs_v7_2/{benchmark}_s1_v7_2.yaml"
     payload = yaml.safe_load(source.read_text(encoding="utf-8"))
@@ -185,3 +263,22 @@ def _fixture_items(benchmark: str) -> list[FrozenBenchmarkItem]:
         )
         items.append(FrozenBenchmarkItem(public=public, private_gold=gold))
     return items
+
+
+def _resign(run_dir: Path, filename: str) -> None:
+    digest = hashlib.sha256((run_dir / filename).read_bytes()).hexdigest()
+    checksums = json.loads((run_dir / "file_checksums.json").read_text())
+    manifest = json.loads((run_dir / "run_manifest.json").read_text())
+    checksums["files"][filename] = digest
+    manifest["file_checksums"][filename] = digest
+    (run_dir / "file_checksums.json").write_text(
+        json.dumps(checksums), encoding="utf-8"
+    )
+    (run_dir / "run_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+
+
+def _write_sorted_zip(run_dir: Path, archive: Path) -> None:
+    archive.unlink()
+    with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as handle:
+        for path in sorted(run_dir.iterdir()):
+            handle.write(path, arcname=path.name)

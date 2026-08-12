@@ -1,0 +1,16 @@
+{
+  "files": {
+    "COMMANDS.txt": "a25d4b8bf98066e7fd7c5f9cea592aad42862479d376be0f94f772b5962cea57",
+    "configs/diagnostics/v8_exploratory_development.yaml": "7c8d27fb0e56d1f1aade0a1d0aa78888054c3f733629bb6a6a8b1384898ae6a0",
+    "configs/statistics/claim_policy_v7_2_candidates.yaml": "9a96382a3a38aeac3de6e5534792b5afda67808a86485ec209b6d5f8e0912274",
+    "configs/statistics/claim_policy_v7_2_scenarios.yaml": "3cc93450cfed739aa3ae71765eaec11c3451906e3e9e7f3c41b5639360ca0c48",
+    "configs/statistics/study_c_claim_hierarchy_v7_2.yaml": "a358ca8a8718f2105adfbecc5a8b3b2040ed87025266ec7d09bfd1946c0bb749",
+    "configs/statistics/study_c_power_v7_1.yaml": "c193b33445589e25892beecbfe9713a2edee453b94e454ebdfcafb5031a5eb4d",
+    "requirements-cpu-v7-2.lock": "d83b3ac2249e20e0591f74330606cef7ef9a50ccccc83aa96f1c43ed443b305c",
+    "results/v7_2/claim_policy/claim_policy_v7_2_frozen.yaml": "dbfa5aee2413a307ed72cf8f131b10fcc820a4371386a24e8ed16183dec5f84f",
+    "results/v7_2/claim_policy/policy_confirmation_manifest.json": "23d42f9040a28aa0ce8f0b5e9dca037eacb5da08394914525c622206f14e3516",
+    "results/v7_2/claim_policy/policy_development_manifest.json": "201ec5d139182bccd7a71b970783ff1040eb1219e0e7893bc374fede07f5d64a",
+    "results/v7_2/claim_policy/policy_validation_manifest.json": "e4a0e3fc5a4b8c976910975e19f78ec7c2248f8edf5677833c9d764c950e62d1"
+  },
+  "schema_version": "valideval.cpu-replay-checksums.v7.2"
+}

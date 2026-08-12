@@ -1,0 +1,26 @@
+schema_version: valideval.study-c-claim-hierarchy.v7.2
+status: FROZEN_BEFORE_S3_RESULTS
+primary:
+  - claim_id: COMMON_PANEL_PAIRWISE_DIRECTIONAL_EFFECTS
+    rationale: central to distinguishing validity-aware rankings from raw accuracy
+    power_requirement: 0.80 after accepted S2 recalibration
+  - claim_id: SIMULTANEOUS_RANK_UNCERTAINTY_SETS
+    rationale: decision-relevant uncertainty for the common panel
+    power_requirement: 0.80 after accepted S2 recalibration
+secondary:
+  - claim_id: CROSS_BENCHMARK_TRANSPORT_HETEROGENEITY
+    rationale: important but dependent on three accepted benchmark matrices
+    power_requirement: report achieved power and label underpowered results
+  - claim_id: FAMILY_BALANCED_ESTIMAND_SENSITIVITY
+    rationale: robustness to checkpoint-family dependence
+    power_requirement: report achieved power and abstain when gates fail
+exploratory:
+  - claim_id: ITEM_DIAGNOSTIC_CAUSE
+    rationale: requires external and human validation beyond response matrices
+  - claim_id: V8_DIFFICULTY_ADJUSTED_FLAGS
+    rationale: V8 remains development-only in V7.2
+  - claim_id: REPAIR_EFFECTIVENESS
+    rationale: requires held-out post-repair confirmation
+selection_boundary: >-
+  The hierarchy is frozen before S3 results. Primary claims may not be swapped after
+  observing S3 to manufacture adequate power.

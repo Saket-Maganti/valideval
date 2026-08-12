@@ -1,0 +1,14 @@
+{
+  "generator_versions": [
+    "student_t_v2.1",
+    "student_t_v2.2",
+    "student_t_v2.3"
+  ],
+  "row_count": 720,
+  "rows_sha256": "f5df71500ce210bb407bfba7a9b392ecf235047abc3712b7a3856fdf8100c884",
+  "scenario_ids_sha256": "1d4775679785bfcf0e9759c88240c976303ce6fbf36fc3752272962e18cc223b",
+  "schema_version": "valideval.claim-policy-split.v7.2",
+  "seed_max": 920719,
+  "seed_min": 920000,
+  "split": "POLICY_VALIDATION"
+}
