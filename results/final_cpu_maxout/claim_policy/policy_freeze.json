@@ -1,0 +1,57 @@
+{
+  "allowed_confirmation_inputs": [
+    "configs/statistics/claim_policy_v7_2_1.yaml",
+    "results/final_cpu_maxout/claim_policy/policy_freeze.json"
+  ],
+  "confirmation_generators": [
+    "gaussian_mixture",
+    "skewed",
+    "contaminated_gaussian",
+    "correlated_bernoulli",
+    "nonlinear_benchmark_effect"
+  ],
+  "confirmation_split": "POLICY_CONFIRMATION",
+  "critical_strata": [
+    "LOW_EFFECTIVE_N",
+    "HIGH_FAMILY_CORRELATION",
+    "LOW_FAMILY_COUNT",
+    "HIGH_FAMILY_IMBALANCE",
+    "HIGH_MULTIPLICITY",
+    "HIGH_MEASUREMENT_NOISE",
+    "NEAR_MATERIALITY_BOUNDARY",
+    "NEAR_TIE_TOP_K",
+    "TRANSPORT_REVERSAL_RISK",
+    "DISCOVERY_VALIDATION_SHIFT"
+  ],
+  "critical_stratum_false_license_bound": 0.05,
+  "family_false_license_bound": 0.05,
+  "forbidden_confirmation_inputs": [
+    "development_records.csv",
+    "validation_records.csv",
+    "selection_metrics.json"
+  ],
+  "freeze_hash": "b095b6ee41b93fef6cac885bc8060cc78ca646a65bc511416149ee242ff4bea0",
+  "minimum_confirmation_null_count_per_safety_cell": 250,
+  "policy": {
+    "bootstrap_stability_threshold": 0.85,
+    "confidence_level": 0.975,
+    "decision_regret_bound": 0.015,
+    "effect_size_threshold": 0.015,
+    "external_validation_required": false,
+    "fdr_level": 0.025,
+    "held_out_validation_required": false,
+    "minimum_exact_model_overlap": 8,
+    "minimum_human_precision": 0.72,
+    "minimum_independent_model_families": 5,
+    "minimum_power": 0.8,
+    "minimum_sample_size": 60,
+    "minimum_transport_benchmarks": 4,
+    "require_by_sensitivity": false,
+    "transport_heterogeneity_threshold": 0.4
+  },
+  "policy_id": "NATIVE_BALANCED",
+  "schema_version": "valideval.claim-policy-freeze.v7.2.1",
+  "selection_split": "POLICY_VALIDATION",
+  "selection_summary_sha256": "36e31376e64ee80393368ebe87bf9b5d5137bfdc9706b245314ad6546900883b",
+  "status": "CLAIM_POLICY_NATIVE_FROZEN_BEFORE_CONFIRMATION"
+}

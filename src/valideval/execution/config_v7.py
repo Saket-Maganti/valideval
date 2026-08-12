@@ -16,7 +16,7 @@ from valideval.execution.config import (
 
 _SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:+@-]{0,255}$")
 _HEX_64 = re.compile(r"^[0-9a-f]{64}$")
-V7_2_CANONICAL_SOURCE_REF = "valideval-v7.2-icml2027-kaggle-s1-ready"
+V7_2_CANONICAL_SOURCE_REF = "valideval-v7.2.1-icml2027-kaggle-s1-ready"
 
 
 class RunConfigV7(BaseModel):

@@ -1,0 +1,26 @@
+{
+  "canonical_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
+  "canonical_s1_schema": "7.2",
+  "historical_source_refs": [
+    "valideval-v7-confirmatory-freeze",
+    "valideval-v7.1-icml2027-scientific-execution-ready",
+    "valideval-v7.2-claim-policy-freeze",
+    "valideval-v7.2-icml2027-kaggle-s1-ready"
+  ],
+  "import_command": "python -m valideval accept-s1-v7-2-1 --input-dir kaggle_icml2027_outputs/packages --output-root imported/v7_2_1/s1",
+  "kaggle_notebooks": [
+    "kaggle_icml2027/00_v7_2_t4x2_preflight.ipynb",
+    "kaggle_icml2027/01_v7_2_s1_mmlu.ipynb",
+    "kaggle_icml2027/02_v7_2_s1_gsm8k.ipynb",
+    "kaggle_icml2027/03_v7_2_s1_bbh.ipynb",
+    "kaggle_icml2027/04_v7_2_s1_validate_package.ipynb"
+  ],
+  "runbook": "VALID_EVAL_V7_2_KAGGLE_S1_RUNBOOK.md",
+  "s1_configs": [
+    "configs/runs_v7_2/mmlu_s1_v7_2.yaml",
+    "configs/runs_v7_2/gsm8k_s1_v7_2.yaml",
+    "configs/runs_v7_2/bbh_s1_v7_2.yaml"
+  ],
+  "source_commit_resolution": "DYNAMIC_ANNOTATED_TAG",
+  "status": "RUNBOOK_PROVENANCE_COHERENT"
+}

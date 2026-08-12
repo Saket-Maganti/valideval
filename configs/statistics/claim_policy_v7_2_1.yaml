@@ -1,0 +1,84 @@
+schema_version: valideval.claim-policy-native.v7.2.1
+evidence_class: SYNTHETIC_KNOWN_TRUTH_CONFIRMATORY
+generic_v7_2_result: GENERIC_KNOWN_TRUTH_POLICY_CALIBRATION_PASS
+split_seeds:
+  POLICY_DEVELOPMENT: 7211000
+  POLICY_VALIDATION: 7212000
+  POLICY_CONFIRMATION: 7213000
+replicates_per_claim_family:
+  development: 600
+  validation: 600
+  confirmation: 6000
+quick_replicates_per_claim_family:
+  development: 60
+  validation: 60
+  confirmation: 120
+minimum_confirmation_null_count_per_safety_cell: 250
+family_false_license_bound: 0.05
+critical_stratum_false_license_bound: 0.05
+critical_strata:
+  - LOW_EFFECTIVE_N
+  - HIGH_FAMILY_CORRELATION
+  - LOW_FAMILY_COUNT
+  - HIGH_FAMILY_IMBALANCE
+  - HIGH_MULTIPLICITY
+  - HIGH_MEASUREMENT_NOISE
+  - NEAR_MATERIALITY_BOUNDARY
+  - NEAR_TIE_TOP_K
+  - TRANSPORT_REVERSAL_RISK
+  - DISCOVERY_VALIDATION_SHIFT
+split_generators:
+  POLICY_DEVELOPMENT:
+    - gaussian
+    - beta_binomial
+    - logistic_mixed_effects
+  POLICY_VALIDATION:
+    - student_t
+    - heteroskedastic
+    - latent_family_mixture
+  POLICY_CONFIRMATION:
+    - gaussian_mixture
+    - skewed
+    - contaminated_gaussian
+    - correlated_bernoulli
+    - nonlinear_benchmark_effect
+candidates:
+  - policy_id: NATIVE_HIGH_SAFETY
+    confidence_level: 0.99
+    fdr_level: 0.01
+    bootstrap_stability_threshold: 0.90
+    effect_size_threshold: 0.02
+    minimum_exact_model_overlap: 8
+    minimum_independent_model_families: 6
+    minimum_transport_benchmarks: 5
+    minimum_sample_size: 100
+    minimum_power: 0.80
+    minimum_human_precision: 0.75
+    transport_heterogeneity_threshold: 0.35
+    decision_regret_bound: 0.01
+  - policy_id: NATIVE_BALANCED
+    confidence_level: 0.975
+    fdr_level: 0.025
+    bootstrap_stability_threshold: 0.85
+    effect_size_threshold: 0.015
+    minimum_exact_model_overlap: 8
+    minimum_independent_model_families: 5
+    minimum_transport_benchmarks: 4
+    minimum_sample_size: 60
+    minimum_power: 0.80
+    minimum_human_precision: 0.72
+    transport_heterogeneity_threshold: 0.40
+    decision_regret_bound: 0.015
+  - policy_id: NATIVE_HIGH_COVERAGE
+    confidence_level: 0.95
+    fdr_level: 0.05
+    bootstrap_stability_threshold: 0.80
+    effect_size_threshold: 0.01
+    minimum_exact_model_overlap: 8
+    minimum_independent_model_families: 4
+    minimum_transport_benchmarks: 3
+    minimum_sample_size: 30
+    minimum_power: 0.80
+    minimum_human_precision: 0.70
+    transport_heterogeneity_threshold: 0.50
+    decision_regret_bound: 0.02

@@ -1,9 +1,18 @@
-# ValidEval V7.2 Kaggle S1 Runbook
+# ValidEval V7.2.1 Kaggle S1 Runbook
 
-Authorized source: `valideval-v7.2-icml2027-kaggle-s1-ready` at `342d3536cb9858b35288f2456ac2aa0a19c88d6a`.
+Authorized source: `valideval-v7.2.1-icml2027-kaggle-s1-ready`. Resolve the annotated tag at
+execution time; this runbook intentionally contains no intermediate source SHA.
 
-1. Check out exactly: `git checkout valideval-v7.2-icml2027-kaggle-s1-ready` and verify `git rev-parse HEAD` equals
-   `342d3536cb9858b35288f2456ac2aa0a19c88d6a`. Archive or upload this tagged tree without caches, secrets, or model weights.
+1. Check out and verify the canonical source dynamically:
+
+   ```bash
+   git checkout valideval-v7.2.1-icml2027-kaggle-s1-ready
+   EXPECTED_SOURCE_COMMIT="$(git rev-parse 'valideval-v7.2.1-icml2027-kaggle-s1-ready^{commit}')"
+   ACTUAL_SOURCE_COMMIT="$(git rev-parse HEAD)"
+   test "$ACTUAL_SOURCE_COMMIT" = "$EXPECTED_SOURCE_COMMIT"
+   ```
+
+   Archive or upload this tagged tree without caches, secrets, or model weights.
 2. In Kaggle choose two T4 GPUs, enable Internet for public Hugging Face downloads, and provide at
    least the fail-closed disk amount printed by notebook 00.
 3. Run notebooks in order: `00_v7_2_t4x2_preflight.ipynb`, then the MMLU, GSM8K, and BBH notebooks,
@@ -35,7 +44,7 @@ Download these files:
 Place them in `kaggle_icml2027_outputs/packages`, then run:
 
 ```bash
-python -m valideval accept-s1-v7-2   --input-dir kaggle_icml2027_outputs/packages   --output-root imported/v7_2/s1
+python -m valideval accept-s1-v7-2-1 --input-dir kaggle_icml2027_outputs/packages --output-root imported/v7_2_1/s1
 python -m valideval recalibrate-study-c-after-s1   --input-root imported/v7_2/s1   --output results/v7_2/planning/study_c_recalibration_after_s1.json
 ```
 

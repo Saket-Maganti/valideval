@@ -360,7 +360,7 @@ def _run_config(
         "subset_manifest": subset_path.relative_to(root).as_posix(),
         "subset_manifest_sha256": sha256_file(subset_path),
         "output_root": "kaggle_v7_outputs",
-        "required_source_ref": "valideval-v7.2-icml2027-kaggle-s1-ready",
+        "required_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
         "expected_source_commit": None,
         "allow_source_commit_from_environment": True,
         "execution": {

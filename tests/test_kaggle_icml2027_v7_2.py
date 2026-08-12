@@ -27,7 +27,7 @@ def test_canonical_v7_2_notebooks_compile_and_delegate_to_package_code() -> None
         assert notebook["metadata"]["valideval"]["schema_version"] == "7.2"
         assert (
             notebook["metadata"]["valideval"]["required_source_ref"]
-            == "valideval-v7.2-icml2027-kaggle-s1-ready"
+            == "valideval-v7.2.1-icml2027-kaggle-s1-ready"
         )
         code = "\n".join(
             "".join(cell["source"]) for cell in notebook["cells"] if cell["cell_type"] == "code"

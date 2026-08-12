@@ -23,7 +23,7 @@ CRITICAL_MODULES = (
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the final V7.2 source validation.")
-    parser.add_argument("--expected-tag", default="valideval-v7.2-icml2027-kaggle-s1-ready")
+    parser.add_argument("--expected-tag", default="valideval-v7.2.1-icml2027-kaggle-s1-ready")
     parser.add_argument(
         "--output",
         type=Path,

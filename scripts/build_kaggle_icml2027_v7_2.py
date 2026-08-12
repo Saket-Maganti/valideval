@@ -115,7 +115,7 @@ print("python -m valideval recalibrate-study-c-after-s1 --input-root imported/v7
             "valideval": {
                 "schema_version": "7.2",
                 "stage": stage,
-                "required_source_ref": "valideval-v7.2-icml2027-kaggle-s1-ready",
+                "required_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
                 "requirements_sha256": requirements_hash,
                 "hardware": "Kaggle T4x2",
                 "real_evidence_class": "ENGINEERING_ONLY",
