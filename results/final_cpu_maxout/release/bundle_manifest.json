@@ -1,0 +1,223 @@
+{
+  "exclusions": [
+    "mutable caches",
+    "virtual environments",
+    "model weights",
+    "secrets"
+  ],
+  "members": {
+    "VALID_EVAL_FINAL_CPU_MAXOUT_HANDOFF.md": {
+      "sha256": "77df28777db7b9275aae87c532b1ba6e152f284922943c33c9b095cd1d36672b",
+      "size": 3140
+    },
+    "VALID_EVAL_FINAL_CPU_MAXOUT_MACHINE_STATE.json": {
+      "sha256": "22281883fcd14088e4a53b2f58cb957b0feb9307b34f2a8a1df14ae554c46ba8",
+      "size": 3738
+    },
+    "VALID_EVAL_ICML2027_CANONICAL_EXECUTION_HANDBOOK.md": {
+      "sha256": "79b085cf918572f7f903530b725cac13988a539fa4f9115f776a3bdc6d093c3b",
+      "size": 1513
+    },
+    "VALID_EVAL_V7_2_1_FAILURE_RECOVERY_RUNBOOK.md": {
+      "sha256": "6aefe43c66dfecba253fecb2c5cd8aba1bc67a2e91344e2b0f4e9087699d6680",
+      "size": 883
+    },
+    "VALID_EVAL_V7_2_1_S2_DRAFT_RUNBOOK.md": {
+      "sha256": "5e0101a96512456df1d00a09fed424c2a450bde121ee7f732e3660ec0e5e40b3",
+      "size": 401
+    },
+    "VALID_EVAL_V7_2_1_S3_PROPOSAL_CONTRACT.md": {
+      "sha256": "1fb7b7c8e7afce24ed0c94a866aa27ee54ef7cd0110fad3a778771b9c2079107",
+      "size": 319
+    },
+    "VALID_EVAL_V7_2_1_S4_OPTIONAL_TEMPLATE.md": {
+      "sha256": "759a66e5e5a15346b23ad81b05c013d15e73ebb327155034b02d979c0099cfca",
+      "size": 272
+    },
+    "VALID_EVAL_V7_2_KAGGLE_S1_RUNBOOK.md": {
+      "sha256": "d30ab23039e99e1f571868d2ceae8079bacb968e280a683f0aaf08b7cca2e683",
+      "size": 3333
+    },
+    "configs/release/legacy_compatibility_v7_2_1.json": {
+      "sha256": "01323c7a6f48efb22b4f623a416aec7ed09c0378b2d229740faeedcf745b6dad",
+      "size": 912
+    },
+    "configs/release/seed_registry_v7_2_1.json": {
+      "sha256": "1d0b8f49ff248b95bcf7f05f3bd3e893a7a0282a96430e0c7a98d7f65d6a5996",
+      "size": 914
+    },
+    "configs/release/source_manifest_v7_2_1.json": {
+      "sha256": "7b24e3bc83c042c4fadb9837befaa510ba564f89c9e27e322f3709241d2c8962",
+      "size": 1721
+    },
+    "configs/runs_v7_2/bbh_s1_v7_2.yaml": {
+      "sha256": "d9af9a28a23f690b4ad74073d991c0bd71c4e1010dbabdc3e3db4e69611fd518",
+      "size": 1184
+    },
+    "configs/runs_v7_2/gsm8k_s1_v7_2.yaml": {
+      "sha256": "19c2c223623dd659c46de855e075b9e3ff2e0ad6c96b11c6227ddbb2614a7576",
+      "size": 1192
+    },
+    "configs/runs_v7_2/mmlu_s1_v7_2.yaml": {
+      "sha256": "fa541651e0cf2e19fec3d49186b3320b926554e0c258bbf1c11ea550a9c50ed8",
+      "size": 1188
+    },
+    "configs/statistics/claim_policy_v7_2_1.yaml": {
+      "sha256": "ca30dbf363106cd77f66f806fc680b78c92d819f705c9c58c52e6f272f8c84c4",
+      "size": 2485
+    },
+    "data/replay/v7_2_1/historical_mmlu_matrix.csv": {
+      "sha256": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74",
+      "size": 2872534
+    },
+    "kaggle_icml2027/00_v7_2_t4x2_preflight.ipynb": {
+      "sha256": "5b5fec344dd0102fed0752dec9bd1ca5c22e3fbe2b5b4df1fbddf9c4e96a37ff",
+      "size": 4016
+    },
+    "kaggle_icml2027/01_v7_2_s1_mmlu.ipynb": {
+      "sha256": "19a1c8b9be96ec771f01a13ab5d816f270993f6fad0870b7fdb578173a61df4b",
+      "size": 3976
+    },
+    "kaggle_icml2027/02_v7_2_s1_gsm8k.ipynb": {
+      "sha256": "e2d2e50cb2d8b931803818932464cb0c8a9720dc4c069940983fa570f47fe28b",
+      "size": 3983
+    },
+    "kaggle_icml2027/03_v7_2_s1_bbh.ipynb": {
+      "sha256": "728e6e9953681efe844ef8f249950f00cd37ed74c56c71c195725235080b0bcb",
+      "size": 3969
+    },
+    "kaggle_icml2027/04_v7_2_s1_validate_package.ipynb": {
+      "sha256": "d39f2607ada2e3b11770a1b51fa5e50b006e0eb20d7691273278424cb13c991c",
+      "size": 4077
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_ARCHITECTURE_HARDENING.md": {
+      "sha256": "68127b837cdc6ca1c2b6ea507789c7bfbfb3c0631c9964c76f2986a3cb9eb5ce",
+      "size": 553
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_CLAIM_POLICY.md": {
+      "sha256": "dbbf7c7ca09589a2546258246ad9f211c84c968cead66650bd42f83e6eace91e",
+      "size": 1301
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_CLAIM_TRACE.md": {
+      "sha256": "083f40417b5c7ad7872c047e666cb3189e980845dcd0ed00e180fdce58ae4041",
+      "size": 2063
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_DEPENDENCE.md": {
+      "sha256": "914c5983792f9303bbd2464d7161a2ce4db90fa24393a7a74c1f592dcf54d31b",
+      "size": 585
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_EXECUTIVE_VERDICT.md": {
+      "sha256": "1fd41aa4c800681d99c2488c551174fa9affbc2b727c2a5b37cb92477cfa890d",
+      "size": 727
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_FINITE_SAMPLE_CALIBRATION.md": {
+      "sha256": "2d12bc24226570fae0fe6404cbc6f23c079852b064906091bb9667e7b86844c4",
+      "size": 564
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_HISTORICAL_MMLU.md": {
+      "sha256": "845f309c2a7d469035e211998a7f3cc811901dad152c94649f3790161c78d4e6",
+      "size": 507
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_HUMAN_PLANNING.md": {
+      "sha256": "0349ab8426ab1c90ba92b7e3acce726d4c1d86934c73135c0b28b36b48448076",
+      "size": 440
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_ICML_RED_TEAM.md": {
+      "sha256": "f97ec1d31b45ee7b5c84edc53de7d141ed83f26a8af34bafe3e80aa271c7a01d",
+      "size": 1018
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_KAGGLE_PREP.md": {
+      "sha256": "03ba6b2695b15eac695bf7a579fe858eb0bcb91b42f124169b93546d4fc4ee4b",
+      "size": 490
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_NULL_SENSITIVITY.md": {
+      "sha256": "8077209845d5f250e1e2465df4ee5b59f88adb590f292cd5363940a9ffae8d54",
+      "size": 460
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_POWER_AND_COMPUTE.md": {
+      "sha256": "fbba03af990fc4615a692f46991446a46106371f7deebe3f2ccd8843db019999",
+      "size": 461
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_RANK_INFERENCE.md": {
+      "sha256": "ba7720ffe30096982af0d2aebd69e6d3dc19e6ae88c3b278e5879aedba85d2e6",
+      "size": 540
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_RARE_EVENT_SAFETY.md": {
+      "sha256": "34824691189d50d1cc9a60eba72ad536558d11b4c4f5dfb85449ab8cd65ec6eb",
+      "size": 606
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_REMAINING_BLOCKERS.md": {
+      "sha256": "23fa760f0f4d9ee7de854d273a99e0429a758f6076d8e7b003c23742301c32e3",
+      "size": 779
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_REPAIR_LEDGER.md": {
+      "sha256": "a642d93452598c2282e303f81cdf0f2cf7fa49980548f0cae843e8639a3ec629",
+      "size": 1052
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_REPRODUCIBILITY.md": {
+      "sha256": "65860a518dabf5a71c12d0affc32173e0e45b6e4637697b1b2461d3e1d4f3c61",
+      "size": 517
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_SELECTIVE_DECISIONS.md": {
+      "sha256": "a18a89e0dc7df4da39991efc096ffdb8b9bea9cf10e40f92236576a2fe3dfee2",
+      "size": 536
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_TESTING_AND_SECURITY.md": {
+      "sha256": "098014abcc44f86e223e70696b17172d54578093800164c71ccd2fafcc83ac74",
+      "size": 586
+    },
+    "reports/final_cpu_maxout/CPU_MAXOUT_V8_EXPLORATORY.md": {
+      "sha256": "24f014223c5efc252289085d282419d8a0abdd04d4616ccccf3d40162bf104f7",
+      "size": 429
+    },
+    "reports/final_cpu_maxout/RARE_EVENT_INTERVAL_AUDIT.md": {
+      "sha256": "34824691189d50d1cc9a60eba72ad536558d11b4c4f5dfb85449ab8cd65ec6eb",
+      "size": 606
+    },
+    "requirements-cpu-v7-2-1.lock": {
+      "sha256": "51abef2ef9c0284f576745a289096f59f4752ac622f64e5602845c988538b049",
+      "size": 311
+    },
+    "requirements-kaggle-t4x2-v7-2-1.lock": {
+      "sha256": "efe3bb0e05f9df4fb7b9fde8bbab059003a7d5d3d58ab0cadf29b06433bab565",
+      "size": 384
+    },
+    "results/claims/claim_registry.json": {
+      "sha256": "9b99298f418da48514bb1cf74004773381e80c4dc099fec6218a554f8ed4bf41",
+      "size": 2627
+    },
+    "results/experiments/experiment_registry.json": {
+      "sha256": "ba29789321ea24723d05f5c22b2550641c38336b17657a15613d18cfff45b1dc",
+      "size": 2255
+    },
+    "results/final_cpu_maxout/release/report_inputs.json": {
+      "sha256": "4907b8223b9a98ebff94b22fa69b1acf37b205834207e11ee10fcedd6d8d01f7",
+      "size": 107504
+    },
+    "results/final_cpu_maxout/release/report_manifest.json": {
+      "sha256": "01cb5ce39cf8844b7a997b784b718f5903c6c66720576238f7ca78d0ea1e7a72",
+      "size": 2994
+    },
+    "results/final_cpu_maxout/replay/cpu_replay.json": {
+      "sha256": "eceb2290226b45c8d939baeb4866eb5f58e979a9d32ceac392217369e63df3f8",
+      "size": 5591
+    },
+    "results/methods/method_contracts.json": {
+      "sha256": "7707fbed3848aeb0c2e647fe8438195a370a922e4eb76af1b93feacb3cfb899c",
+      "size": 2836
+    },
+    "results/v7_1/planning/power/primary_estimand_power_grid.csv": {
+      "sha256": "1a642258396d8653b1515311d5a56b3bc5a68635233f486cc800125f46f72329",
+      "size": 16921
+    },
+    "results/v7_1/planning/power/summary.json": {
+      "sha256": "bcb0030a8b0634f1cfb96f5730c6318cbf76a16991b9dd7d6835a4776d82b5fa",
+      "size": 1755
+    },
+    "results/v7_1/study_h/summary.json": {
+      "sha256": "dcb9e2736b0a9af1779f130beca2adda0d478001d93c3cd4de9cb717b246aab6",
+      "size": 3258
+    }
+  },
+  "schema_version": "valideval.pre-gpu-bundle.v7.2.1"
+}

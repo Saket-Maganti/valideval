@@ -1,0 +1,88 @@
+{
+  "architecture_status": "ACTIVE_V7_2_1_PATHS_HARDENED",
+  "baseline_commit": "49bdc529a482596bb4bcb308b3d96df34e8dcd80",
+  "canonical_s1_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
+  "ci": {
+    "status": "PENDING_PUSH"
+  },
+  "claim_family_scope": [
+    "ITEM_DIAGNOSTICS",
+    "PRIMARY_PAIRWISE",
+    "REPAIR",
+    "THRESHOLD_PASS",
+    "TOP_K",
+    "TRANSPORT"
+  ],
+  "claim_policy_status": "CLAIM_POLICY_CONFIRMATION_SUPPORTING_ONLY",
+  "cpu_runs": {
+    "components": {
+      "cpu_replay": "RUNTIME_NOT_RECORDED",
+      "extraction_differential": "RUNTIME_NOT_RECORDED",
+      "historical_mmlu": 1.0378289999789558,
+      "native_policy_confirmation": 23.18104879098246,
+      "native_policy_development_validation": 10.023972792027052,
+      "statistical_stress": 1.2771199580165558
+    },
+    "monte_carlo_replicates": 81500,
+    "registered_runs": 14,
+    "runtime_seconds": 35.51997054100502,
+    "runtime_semantics": "SUM_OF_RECORDED_ANALYSIS_RUNTIME_FIELDS"
+  },
+  "critical_strata": {
+    "failed": 21,
+    "maximum_simultaneous_upper": 0.08331506080822099,
+    "passed": 39,
+    "total": 60,
+    "underpowered": 0
+  },
+  "evidence_state_status": "TRANSITIONS_AND_INVALIDATION_PROPAGATION_ENFORCED",
+  "exact_next_action": "Check out valideval-v7.2.1-icml2027-kaggle-s1-ready and run kaggle_icml2027/00_v7_2_t4x2_preflight.ipynb on Kaggle with two T4 GPUs.",
+  "final_source_commit": "PENDING_FINAL_SOURCE_TAG",
+  "final_source_tag": "valideval-icml2027-pre-gpu-cpu-maxout",
+  "git_clean": "PENDING_FINAL_VALIDATION",
+  "importer_security": "ADVERSARIAL_ARCHIVE_REJECTION_TESTED",
+  "metadata_commit": "PENDING_METADATA_COMMIT",
+  "numerical_reproducibility": {
+    "GPU_inference": "ENVIRONMENT_SENSITIVE_NOT_RUN",
+    "frozen_json_hashes": "BITWISE_STABLE",
+    "gate_states": "CONCLUSION_STABLE",
+    "recomputed_native_aggregates": "NUMERICALLY_STABLE",
+    "v8_exploratory_recompute": "TOLERANCE_AND_CONCLUSION_STABLE"
+  },
+  "oom_status": "TYPED_BOUNDED_RECOVERY_TESTED",
+  "remaining_cpu_work": [],
+  "remaining_gpu_work": [
+    "Run and accept the three real Kaggle T4x2 S1 engineering packages.",
+    "Measure S1 runtime, extraction reliability, failures, and package health.",
+    "Do not authorize S2 until S1 acceptance and recalibration pass.",
+    "V8 independent confirmation remains unrun and unauthorized.",
+    "Execute future held-out transport and repair studies before those claims."
+  ],
+  "remaining_human_work": [
+    "Collect independent item labels under the frozen annotation protocol.",
+    "Complete adjudication and reliability acceptance before human validation."
+  ],
+  "resume_status": "IDENTITY_PRESERVING_RESUME_TESTED",
+  "runbook_provenance": "RUNBOOK_PROVENANCE_COHERENT",
+  "s1_status": "S1_ENGINEERING_SMOKE_AUTHORIZED",
+  "s2_status": "DRAFT_PENDING_ACCEPTED_S1",
+  "s3_status": "BLOCKED_PENDING_S2",
+  "s4_status": "TEMPLATE_ONLY_BLOCKED_PENDING_S3",
+  "schema_status": "CANONICAL_SCHEMA_AND_EXPLICIT_LEGACY_ADAPTERS",
+  "schema_version": "valideval.final-cpu-maxout-machine-state.v7.2.1",
+  "v7_2_1_closure_status": "V7_2_1_INTEGRITY_CLOSURE_COMPLETE",
+  "v8_status": "V8_EXPLORATORY_IMPROVEMENT_FOUND_CONFIRMATION_NOT_RUN",
+  "validation": {
+    "build": "PENDING_FINAL_VALIDATION",
+    "coverage": "PENDING_FINAL_VALIDATION",
+    "format": "PENDING_FINAL_VALIDATION",
+    "fuzz": "ARCHIVE_AND_IMPORTER_ADVERSARIAL_TESTS_REGISTERED",
+    "lint": "PENDING_FINAL_VALIDATION",
+    "mutation_testing": "MANUAL_CRITICAL_MUTATION_PROBES_REGISTERED",
+    "mypy": "PENDING_FINAL_VALIDATION",
+    "notebooks": "PENDING_FINAL_VALIDATION",
+    "release": "PENDING_FINAL_VALIDATION",
+    "secret_scan": "PENDING_FINAL_VALIDATION",
+    "tests": "PENDING_FINAL_VALIDATION"
+  }
+}

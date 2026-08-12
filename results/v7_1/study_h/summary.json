@@ -1,0 +1,75 @@
+{
+  "bootstrap": 500,
+  "claim_boundary": "Study H is an imported historical panel. Results are conditional on observed checkpoints, inferred families, resampling, and null protocols.",
+  "estimand_rank_spearman": 0.9961538461538463,
+  "estimand_winner_changed": false,
+  "families": 10,
+  "items": 14042,
+  "kendalls_w": 0.8780649053860935,
+  "kendalls_w_ci": [
+    0.8598891034035995,
+    0.8983328971271606
+  ],
+  "models": 39,
+  "null_median_rank_range_exceedance_range": [
+    0.009950248756218905,
+    1.0
+  ],
+  "null_model_contracts": {
+    "ADD_ABILITY_SUBJECT": {
+      "estimated": "additive logit model and subject effects",
+      "fixed": "observed model and subject aggregate rates plus subject sample sizes",
+      "hypothesis": "no model-by-subject interaction beyond additive ability and difficulty",
+      "randomized": "binomial subject-level success counts"
+    },
+    "DETERMINISTIC_MODEL_SUBJECT_PERTURBATION_NULL": {
+      "estimated": "residual spread only",
+      "fixed": "deterministic perturbation grid scaled by observed residual spread",
+      "hypothesis": "structured perturbation sensitivity; not a random-effects model",
+      "randomized": "binomial counts from perturbed probabilities"
+    },
+    "FAMILY_CORRELATED_NULL": {
+      "estimated": "additive rates and family mean residuals",
+      "fixed": "observed family membership",
+      "hypothesis": "family-correlated deviations explain observed subject dispersion",
+      "randomized": "binomial counts from additive plus family residual probabilities"
+    },
+    "FIXED_PRIOR_SHRUNK_ADDITIVE": {
+      "estimated": "model rates and fixed-prior shrunk subject rates",
+      "fixed": "prior strength 20 and observed subject sample sizes",
+      "hypothesis": "additive effects after prespecified shrinkage; not empirical Bayes",
+      "randomized": "binomial subject-level success counts"
+    },
+    "LATENT_FACTOR_NULL": {
+      "estimated": "two singular components",
+      "fixed": "rank-two latent approximation",
+      "hypothesis": "low-rank model-subject structure explains dispersion",
+      "randomized": "binomial counts from latent probabilities"
+    },
+    "MODEL_TOTAL_SUBJECT_SIZE_HYPERGEOMETRIC": {
+      "estimated": "nothing beyond observed margins",
+      "fixed": "each model total successes and subject item counts",
+      "hypothesis": "responses are exchangeable across subjects within model",
+      "randomized": "allocation of model successes across subject-size blocks"
+    },
+    "SUBJECT_SIZE_ONLY": {
+      "estimated": "model aggregate rates",
+      "fixed": "model aggregate rates and subject sample sizes",
+      "hypothesis": "no subject effect",
+      "randomized": "binomial subject-level success counts"
+    }
+  },
+  "null_model_sensitivity_flag": true,
+  "null_simulations_per_method": 200,
+  "pairwise_primary_control": "FDR_CONTROLLED_PAIRWISE_BH",
+  "pairwise_sensitivity_control": "FWER_CONTROLLED_PAIRWISE_HOLM",
+  "rank_interval_type": "BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS",
+  "runtime_seconds": 12.22206999998889,
+  "score_estimands": [
+    "CANONICAL_ITEM_WEIGHTED",
+    "BALANCED_SUBJECT_WEIGHTED"
+  ],
+  "sensitivity_monte_carlo_replicates": 100,
+  "status": "STUDY_H_V7_1_REPRODUCED_WITH_LIMITATIONS",
+  "subjects": 57
+}

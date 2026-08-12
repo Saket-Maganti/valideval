@@ -1,0 +1,12 @@
+{
+  "schema_version": "valideval.coverage-summary.v7.2.1",
+  "command": "python3 -m coverage run -m pytest -q",
+  "tests_passed": 506,
+  "repository_total_statements": 30810,
+  "repository_missing_statements": 4794,
+  "repository_coverage_percent": 84,
+  "active_v7_2_1_statements": 1896,
+  "active_v7_2_1_missing_statements": 515,
+  "active_v7_2_1_coverage_percent": 73,
+  "interpretation": "Measured coverage; not a scientific evidence gate and not optimized toward 100 percent."
+}

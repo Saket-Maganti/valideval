@@ -1,0 +1,738 @@
+{
+  "bootstrap_convergence": [
+    {
+      "convergence_status": "AVAILABLE",
+      "mean_rank_set_width": 9.23076923076923,
+      "pairwise_bh_calls": 673,
+      "pairwise_holm_calls": 0,
+      "requested_draws": 100,
+      "used_draws": 100
+    },
+    {
+      "convergence_status": "AVAILABLE",
+      "mean_rank_set_width": 9.23076923076923,
+      "pairwise_bh_calls": 675,
+      "pairwise_holm_calls": 0,
+      "requested_draws": 250,
+      "used_draws": 250
+    },
+    {
+      "convergence_status": "AVAILABLE",
+      "mean_rank_set_width": 9.23076923076923,
+      "pairwise_bh_calls": 677,
+      "pairwise_holm_calls": 0,
+      "requested_draws": 500,
+      "used_draws": 500
+    },
+    {
+      "convergence_status": "NOT_AVAILABLE",
+      "mean_rank_set_width": 9.23076923076923,
+      "pairwise_bh_calls": 677,
+      "pairwise_holm_calls": 0,
+      "requested_draws": 1000,
+      "used_draws": 500
+    }
+  ],
+  "canonical_vs_deduplicated": {
+    "bbh_reason": "No cached exact-model BBH response matrix exists; no comparison was fabricated.",
+    "bbh_status": "BLOCKED_PENDING_EXACT_STUDY_C_RESPONSE_MATRIX",
+    "benchmark_id": "mmlu",
+    "claim_boundary": "The deduplicated condition is a validity-analysis estimand and is never labeled canonical mmlu.",
+    "directional_pairwise_decision_count_changed": false,
+    "mmlu_identity_mapping": "Frozen zero-based test-split row_index mapped to HELM source IDs by the canonical subject offset and within-subject numeric source order.",
+    "rank_interval_type": "BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS",
+    "runtime_seconds": 0.9388469999830704,
+    "status": "CANONICAL_AND_DEDUPLICATED_ESTIMANDS_READY",
+    "top_5_changed": false,
+    "winner_changed": false
+  },
+  "claim_boundary": "This is sensitivity analysis on the historical 39×14,042 MMLU panel. It does not turn one weighting or deletion scheme into a uniquely correct global ranking.",
+  "estimands": {
+    "BALANCED_SUBJECT_WEIGHTED": {
+      "top_5": [
+        "deepseek-ai/deepseek-v3",
+        "meta/llama-3.1-405b-instruct-turbo",
+        "qwen/qwen2.5-72b-instruct-turbo",
+        "qwen/qwen2-72b-instruct",
+        "meta/llama-3.2-90b-vision-instruct-turbo"
+      ],
+      "winner": "deepseek-ai/deepseek-v3"
+    },
+    "CANONICAL_ITEM_WEIGHTED": {
+      "top_5": [
+        "deepseek-ai/deepseek-v3",
+        "meta/llama-3.1-405b-instruct-turbo",
+        "qwen/qwen2.5-72b-instruct-turbo",
+        "qwen/qwen2-72b-instruct",
+        "meta/llama-3.2-90b-vision-instruct-turbo"
+      ],
+      "winner": "deepseek-ai/deepseek-v3"
+    },
+    "TRIMMED_SUBJECT_WEIGHTED": {
+      "top_5": [
+        "deepseek-ai/deepseek-v3",
+        "meta/llama-3.1-405b-instruct-turbo",
+        "qwen/qwen2.5-72b-instruct-turbo",
+        "qwen/qwen2-72b-instruct",
+        "meta/llama-3.2-90b-vision-instruct-turbo"
+      ],
+      "winner": "deepseek-ai/deepseek-v3"
+    }
+  },
+  "evidence_class": "HISTORICAL_SENSITIVITY",
+  "families": 10,
+  "items": 14042,
+  "jackknife": [
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "abstract_algebra",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "anatomy",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "astronomy",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "business_ethics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "clinical_knowledge",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "college_biology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "college_chemistry",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "college_computer_science",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.5,
+      "removed_id": "college_mathematics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "college_medicine",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "college_physics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "computer_security",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "conceptual_physics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "econometrics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 2.0,
+      "removed_id": "electrical_engineering",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "elementary_mathematics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "formal_logic",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.5,
+      "removed_id": "global_facts",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "high_school_biology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_chemistry",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_computer_science",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_european_history",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.5,
+      "removed_id": "high_school_geography",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "high_school_government_and_politics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_macroeconomics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_mathematics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_microeconomics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_physics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "high_school_psychology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "high_school_statistics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "high_school_us_history",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "high_school_world_history",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "human_aging",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "human_sexuality",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "international_law",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "jurisprudence",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "logical_fallacies",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "machine_learning",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "management",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "marketing",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "medical_genetics",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "miscellaneous",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "moral_disputes",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "moral_scenarios",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "nutrition",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "philosophy",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "prehistory",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "professional_accounting",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 2.0,
+      "removed_id": "professional_law",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "professional_medicine",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "professional_psychology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.5,
+      "removed_id": "public_relations",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "security_studies",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "sociology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "us_foreign_policy",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "virology",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "SUBJECT",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "world_religions",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "01-ai/yi-34b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "01-ai/yi-6b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "01-ai/yi-large-preview",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "allenai/olmo-1.7-7b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 0.0,
+      "removed_id": "allenai/olmo-7b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "databricks/dbrx-instruct",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "deepseek-ai/deepseek-llm-67b-chat",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "deepseek-ai/deepseek-v3",
+      "winner_changed": true
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "google/gemma-2-27b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "google/gemma-2-9b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "google/gemma-7b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-2-13b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-2-70b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-2-7b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3-70b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3-8b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.1-405b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.1-70b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.1-8b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.2-11b-vision-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.2-90b-vision-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "meta/llama-3.3-70b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "microsoft/phi-2",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "microsoft/phi-3-medium-4k-instruct",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "microsoft/phi-3-small-8k-instruct",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "mistralai/mistral-7b-instruct-v0.3",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "mistralai/mistral-7b-v0.1",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "mistralai/mixtral-8x22b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "mistralai/mixtral-8x7b-32kseqlen",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "mistralai/open-mistral-nemo-2407",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen1.5-110b-chat",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen1.5-14b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen1.5-32b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen1.5-72b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen1.5-7b",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen2-72b-instruct",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen2.5-72b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "qwen/qwen2.5-7b-instruct-turbo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "snowflake/snowflake-arctic-instruct",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "arctic",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "dbrx",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 2.0,
+      "removed_id": "deepseek",
+      "winner_changed": true
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "gemma",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 11.0,
+      "removed_id": "llama",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 5.0,
+      "removed_id": "mistral",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 1.0,
+      "removed_id": "olmo",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "phi",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 8.0,
+      "removed_id": "qwen",
+      "winner_changed": false
+    },
+    {
+      "jackknife_unit": "MODEL_FAMILY",
+      "maximum_absolute_rank_change": 3.0,
+      "removed_id": "yi",
+      "winner_changed": false
+    }
+  ],
+  "mode": "FULL_REGISTERED",
+  "models": 39,
+  "runtime_seconds": 1.0378289999789558,
+  "schema_version": "valideval.historical-mmlu-maxout.v7.2.1",
+  "status": "HISTORICAL_MMLU_CPU_MAXOUT_COMPLETE",
+  "subjects": 57,
+  "top_5_stable": true,
+  "trimmed_pairwise_bh_calls": 684,
+  "trimmed_pairwise_holm_calls": 0,
+  "trimmed_simultaneous_rank_set_count": 39,
+  "trimmed_subject_weight_quantiles": [
+    100.0,
+    382.79999999999995
+  ],
+  "winner_stable": true
+}

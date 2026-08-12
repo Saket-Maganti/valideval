@@ -5,6 +5,7 @@ import json
 import time
 from pathlib import Path
 
+from valideval.execution.manifest import atomic_write_text
 from valideval.statistics.claim_policy_v7_2_1 import (
     load_native_policy_spec,
     native_policy_confirmation,
@@ -30,7 +31,10 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     if args.phase == "develop":
         records, selection, freeze = native_policy_development(spec, quick=args.quick)
-        records.to_csv(output / "development_validation_records.csv", index=False)
+        atomic_write_text(
+            output / "development_validation_records.csv",
+            records.to_csv(index=False, lineterminator="\n"),
+        )
         selection = {
             **selection,
             "records_sha256": records_sha256(records),
@@ -42,7 +46,10 @@ def main() -> int:
     else:
         freeze = json.loads((output / "policy_freeze.json").read_text(encoding="utf-8"))
         records, summary = native_policy_confirmation(spec, freeze, quick=args.quick)
-        records.to_csv(output / "confirmation_records.csv", index=False)
+        atomic_write_text(
+            output / "confirmation_records.csv",
+            records.to_csv(index=False, lineterminator="\n"),
+        )
         summary = {
             **summary,
             "records_sha256": records_sha256(records),

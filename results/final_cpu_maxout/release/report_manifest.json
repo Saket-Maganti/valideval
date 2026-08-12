@@ -1,0 +1,28 @@
+{
+  "reports": {
+    "reports/final_cpu_maxout/CPU_MAXOUT_ARCHITECTURE_HARDENING.md": "68127b837cdc6ca1c2b6ea507789c7bfbfb3c0631c9964c76f2986a3cb9eb5ce",
+    "reports/final_cpu_maxout/CPU_MAXOUT_CLAIM_POLICY.md": "dbbf7c7ca09589a2546258246ad9f211c84c968cead66650bd42f83e6eace91e",
+    "reports/final_cpu_maxout/CPU_MAXOUT_CLAIM_TRACE.md": "083f40417b5c7ad7872c047e666cb3189e980845dcd0ed00e180fdce58ae4041",
+    "reports/final_cpu_maxout/CPU_MAXOUT_DEPENDENCE.md": "914c5983792f9303bbd2464d7161a2ce4db90fa24393a7a74c1f592dcf54d31b",
+    "reports/final_cpu_maxout/CPU_MAXOUT_EXECUTIVE_VERDICT.md": "1fd41aa4c800681d99c2488c551174fa9affbc2b727c2a5b37cb92477cfa890d",
+    "reports/final_cpu_maxout/CPU_MAXOUT_FINITE_SAMPLE_CALIBRATION.md": "2d12bc24226570fae0fe6404cbc6f23c079852b064906091bb9667e7b86844c4",
+    "reports/final_cpu_maxout/CPU_MAXOUT_HISTORICAL_MMLU.md": "845f309c2a7d469035e211998a7f3cc811901dad152c94649f3790161c78d4e6",
+    "reports/final_cpu_maxout/CPU_MAXOUT_HUMAN_PLANNING.md": "0349ab8426ab1c90ba92b7e3acce726d4c1d86934c73135c0b28b36b48448076",
+    "reports/final_cpu_maxout/CPU_MAXOUT_ICML_RED_TEAM.md": "f97ec1d31b45ee7b5c84edc53de7d141ed83f26a8af34bafe3e80aa271c7a01d",
+    "reports/final_cpu_maxout/CPU_MAXOUT_KAGGLE_PREP.md": "03ba6b2695b15eac695bf7a579fe858eb0bcb91b42f124169b93546d4fc4ee4b",
+    "reports/final_cpu_maxout/CPU_MAXOUT_NULL_SENSITIVITY.md": "8077209845d5f250e1e2465df4ee5b59f88adb590f292cd5363940a9ffae8d54",
+    "reports/final_cpu_maxout/CPU_MAXOUT_POWER_AND_COMPUTE.md": "fbba03af990fc4615a692f46991446a46106371f7deebe3f2ccd8843db019999",
+    "reports/final_cpu_maxout/CPU_MAXOUT_RANK_INFERENCE.md": "ba7720ffe30096982af0d2aebd69e6d3dc19e6ae88c3b278e5879aedba85d2e6",
+    "reports/final_cpu_maxout/CPU_MAXOUT_RARE_EVENT_SAFETY.md": "34824691189d50d1cc9a60eba72ad536558d11b4c4f5dfb85449ab8cd65ec6eb",
+    "reports/final_cpu_maxout/CPU_MAXOUT_REMAINING_BLOCKERS.md": "23fa760f0f4d9ee7de854d273a99e0429a758f6076d8e7b003c23742301c32e3",
+    "reports/final_cpu_maxout/CPU_MAXOUT_REPAIR_LEDGER.md": "a642d93452598c2282e303f81cdf0f2cf7fa49980548f0cae843e8639a3ec629",
+    "reports/final_cpu_maxout/CPU_MAXOUT_REPRODUCIBILITY.md": "65860a518dabf5a71c12d0affc32173e0e45b6e4637697b1b2461d3e1d4f3c61",
+    "reports/final_cpu_maxout/CPU_MAXOUT_SELECTIVE_DECISIONS.md": "a18a89e0dc7df4da39991efc096ffdb8b9bea9cf10e40f92236576a2fe3dfee2",
+    "reports/final_cpu_maxout/CPU_MAXOUT_TESTING_AND_SECURITY.md": "098014abcc44f86e223e70696b17172d54578093800164c71ccd2fafcc83ac74",
+    "reports/final_cpu_maxout/CPU_MAXOUT_V8_EXPLORATORY.md": "24f014223c5efc252289085d282419d8a0abdd04d4616ccccf3d40162bf104f7",
+    "reports/final_cpu_maxout/RARE_EVENT_INTERVAL_AUDIT.md": "34824691189d50d1cc9a60eba72ad536558d11b4c4f5dfb85449ab8cd65ec6eb"
+  },
+  "schema_version": "valideval.report-manifest.v7.2.1",
+  "structured_input": "results/final_cpu_maxout/release/report_inputs.json",
+  "structured_input_sha256": "4907b8223b9a98ebff94b22fa69b1acf37b205834207e11ee10fcedd6d8d01f7"
+}

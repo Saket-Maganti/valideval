@@ -1,0 +1,5 @@
+requested_draws,used_draws,mean_rank_set_width,pairwise_bh_calls,pairwise_holm_calls,convergence_status
+100,100,9.23076923076923,673,0,AVAILABLE
+250,250,9.23076923076923,675,0,AVAILABLE
+500,500,9.23076923076923,677,0,AVAILABLE
+1000,500,9.23076923076923,677,0,NOT_AVAILABLE

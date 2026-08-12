@@ -5,7 +5,11 @@ from pathlib import Path
 
 import pytest
 
-from valideval.execution.notebook_v7_2 import run_notebook_stage_v7_2
+from valideval.execution.notebook_v7_2 import (
+    _validate_v7_2_hardware,
+    _verify_huggingface_access,
+    run_notebook_stage_v7_2,
+)
 from valideval.planning.runtime_recalibration_v7_2 import recalibrate_study_c_after_s1
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +40,9 @@ def test_canonical_v7_2_notebooks_compile_and_delegate_to_package_code() -> None
         assert "run_notebook_stage_v7_2" in code
         assert "AutoModelForCausalLM" not in code
         assert "model.generate(" not in code
-        assert "accept-s1-v7-2" in code
+        assert "accept-s1-v7-2-1" in code
+        assert "imported/v7_2_1/s1" in code
+        assert "requirements-kaggle-t4x2-v7-2-1.lock" in code
 
 
 def test_notebook_fixture_preflight_validates_all_production_identities(tmp_path: Path) -> None:
@@ -54,6 +60,34 @@ def test_notebook_fixture_preflight_validates_all_production_identities(tmp_path
         "bbh",
     }
     assert all(len(row["model_revisions"]) == 5 for row in result["configs"])
+
+
+def test_v7_2_hardware_requires_exactly_two_t4s() -> None:
+    result = _validate_v7_2_hardware(["Tesla T4", "NVIDIA T4"], 16 * 1024**3)
+    assert result["gpu_count"] == 2
+    with pytest.raises(RuntimeError, match="exactly two T4"):
+        _validate_v7_2_hardware(["NVIDIA A100", "NVIDIA A100"], 80 * 1024**3)
+    with pytest.raises(RuntimeError, match="12 GiB RAM"):
+        _validate_v7_2_hardware(["Tesla T4", "Tesla T4"], 8 * 1024**3)
+
+
+def test_v7_2_access_preflight_resolves_every_exact_revision() -> None:
+    class FakeApi:
+        def __init__(self) -> None:
+            self.models: list[tuple[str, str]] = []
+            self.datasets: list[tuple[str, str]] = []
+
+        def model_info(self, *, repo_id: str, revision: str) -> None:
+            self.models.append((repo_id, revision))
+
+        def dataset_info(self, *, repo_id: str, revision: str) -> None:
+            self.datasets.append((repo_id, revision))
+
+    api = FakeApi()
+    result = _verify_huggingface_access(ROOT, api)
+    assert len(api.models) == 5
+    assert len(api.datasets) == 3
+    assert result["internet"] == "PASS"
 
 
 def test_post_s1_recalibration_rejects_fixture_receipt(tmp_path: Path) -> None:

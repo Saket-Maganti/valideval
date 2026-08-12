@@ -15,8 +15,9 @@ from pathlib import Path
 from typing import Any, cast
 
 from valideval.execution.errors import (
-    CudaResourceFailure,
-    ModelLoadOOM,
+    OperationalFailureType,
+    classify_operational_failure,
+    retry_directive,
 )
 from valideval.execution.manifest import (
     EXECUTION_SCHEMA_VERSION,
@@ -42,20 +43,37 @@ class IncompleteShardError(ShardError):
 
 
 def classify_worker_failure(error: BaseException) -> str:
-    message = str(error).lower()
-    if isinstance(error, ModelLoadOOM):
+    operational = classify_operational_failure(error)
+    if operational in {
+        OperationalFailureType.LOAD_OOM,
+        OperationalFailureType.GENERATION_OOM,
+    }:
         return "OOM"
-    if type(error).__name__ in {"ModelResolutionError", "ModelLoadError"}:
+    if operational in {
+        OperationalFailureType.DOWNLOAD_FAILURE,
+        OperationalFailureType.CUDA_FAILURE,
+    } or type(error).__name__ in {"ModelResolutionError", "ModelLoadError"}:
         return "MODEL_LOAD_FAILURE"
-    if type(error).__name__ in {"DatasetResolutionError"}:
+    if operational is OperationalFailureType.DATASET_FAILURE:
         return "DATASET_FAILURE"
-    if isinstance(error, (CudaResourceFailure, MemoryError)) or (
-        "out of memory" in message or "cuda oom" in message
-    ):
-        return "OOM"
-    if isinstance(error, TimeoutError) or "timed out" in message or "timeout" in message:
+    if operational is OperationalFailureType.TIMEOUT:
         return "TIMEOUT"
+    if operational is OperationalFailureType.PARSER_FAILURE:
+        return "EXTRACTION_FAILURE"
+    if operational is OperationalFailureType.SCORER_FAILURE:
+        return "SCORING_FAILURE"
+    if operational in {
+        OperationalFailureType.CHECKSUM_FAILURE,
+        OperationalFailureType.CONFIG_FAILURE,
+        OperationalFailureType.SOURCE_MISMATCH,
+    }:
+        return operational.value
     return "GENERATION_FAILURE"
+
+
+def worker_failure_is_retryable(error: BaseException, *, attempt: int) -> bool:
+    directive = retry_directive(classify_operational_failure(error))
+    return directive.retryable and attempt <= directive.maximum_retries
 
 
 def apply_resource_fallback(
@@ -666,6 +684,8 @@ def _run_worker_tasks(
                     "failure_type": failure_type,
                     "fallbacks": fallbacks,
                 }
+                if not worker_failure_is_retryable(exc, attempt=attempt):
+                    break
         if result is None:
             raise AssertionError("unreachable scheduler result state")
         atomic_write_json(status_dir / f"{_safe_filename(task_id)}.json", result)

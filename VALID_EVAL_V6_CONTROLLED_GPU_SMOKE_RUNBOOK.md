@@ -1,5 +1,8 @@
 # ValidEval V6 Controlled GPU Smoke Runbook
 
+> **HISTORICAL — NOT CANONICAL FOR NEW EXECUTION.** Use the V7.2.1 canonical execution handbook
+> and Kaggle S1 runbook for new work.
+
 ## 1. Purpose and boundary
 
 This run exercises loading, prompting, extraction, resume, merge, packaging, and import for the

@@ -13,7 +13,12 @@ import yaml
 
 from valideval.execution.config import discover_repository_root, load_run_config
 from valideval.execution.config_v7_2 import V7_2_CANONICAL_SOURCE_REF
-from valideval.execution.manifest import NON_EVIDENCE_FIXTURE, read_json, sha256_file
+from valideval.execution.manifest import (
+    NON_EVIDENCE_FIXTURE,
+    atomic_write_json,
+    read_json,
+    sha256_file,
+)
 from valideval.execution.models import load_panel_config
 from valideval.importers.ingest_v7 import IngestV7Error, ingest_and_analyze_v7
 
@@ -389,25 +394,18 @@ def _write_accepted_import(
             payload_benchmark["import_destination"] = str(
                 destination / benchmark / str(receipt["run_id"])
             )
-        (staging / "s1_acceptance_receipt_v7_2.json").write_text(
-            json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-        )
+        atomic_write_json(staging / "s1_acceptance_receipt_v7_2.json", payload)
         if not payload["fixture_only"]:
-            (staging / "study_c_authorization_v7_2.json").write_text(
-                json.dumps(
-                    {
-                        "schema_version": "valideval.study-c-authorization.v7.2",
-                        "s1": "S1_V7_2_ACCEPTED",
-                        "s2": "S2_BLOCKED_PENDING_POST_S1_RECALIBRATION",
-                        "s3": "S3_BLOCKED_PENDING_S2",
-                        "s4": "S4_BLOCKED_PENDING_S3",
-                        "source_commit": expected_commit,
-                    },
-                    indent=2,
-                    sort_keys=True,
-                )
-                + "\n",
-                encoding="utf-8",
+            atomic_write_json(
+                staging / "study_c_authorization_v7_2.json",
+                {
+                    "schema_version": "valideval.study-c-authorization.v7.2",
+                    "s1": "S1_V7_2_ACCEPTED",
+                    "s2": "S2_BLOCKED_PENDING_POST_S1_RECALIBRATION",
+                    "s3": "S3_BLOCKED_PENDING_S2",
+                    "s4": "S4_BLOCKED_PENDING_S3",
+                    "source_commit": expected_commit,
+                },
             )
         os.replace(staging, destination)
     except Exception:

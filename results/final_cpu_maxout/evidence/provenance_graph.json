@@ -1,0 +1,71 @@
+{
+  "edges": [
+    {
+      "dependency": "package:confirmation-records",
+      "dependent": "analysis:native-policy"
+    },
+    {
+      "dependency": "analysis:native-policy",
+      "dependent": "claim:native-policy-safety"
+    },
+    {
+      "dependency": "source:v7.2.1",
+      "dependent": "config:native-policy"
+    },
+    {
+      "dependency": "run:native-confirmation",
+      "dependent": "package:confirmation-records"
+    },
+    {
+      "dependency": "config:native-policy",
+      "dependent": "run:native-confirmation"
+    }
+  ],
+  "nodes": [
+    {
+      "artifact_hash": "bf4be9a1384e135d78a9e8400983e37305699c2e7e138f11a83a165357c47e3c",
+      "evidence_class": "SYNTHETIC_CONFIRMATORY",
+      "kind": "ANALYSIS",
+      "node_id": "analysis:native-policy"
+    },
+    {
+      "artifact_hash": null,
+      "evidence_class": null,
+      "kind": "CLAIM",
+      "node_id": "claim:native-policy-safety"
+    },
+    {
+      "artifact_hash": null,
+      "evidence_class": null,
+      "kind": "CONFIG",
+      "node_id": "config:native-policy"
+    },
+    {
+      "artifact_hash": null,
+      "evidence_class": null,
+      "kind": "IMPORTED_PACKAGE",
+      "node_id": "package:confirmation-records"
+    },
+    {
+      "artifact_hash": null,
+      "evidence_class": null,
+      "kind": "RAW_RUN",
+      "node_id": "run:native-confirmation"
+    },
+    {
+      "artifact_hash": null,
+      "evidence_class": null,
+      "kind": "SOURCE",
+      "node_id": "source:v7.2.1"
+    }
+  ],
+  "schema_version": "valideval.provenance-dag.v7.2.1",
+  "topological_order": [
+    "source:v7.2.1",
+    "config:native-policy",
+    "run:native-confirmation",
+    "package:confirmation-records",
+    "analysis:native-policy",
+    "claim:native-policy-safety"
+  ]
+}

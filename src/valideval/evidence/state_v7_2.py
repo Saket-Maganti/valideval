@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from enum import StrEnum
+from enum import Enum
 from typing import Any
 
 
-class EvidenceStateV72(StrEnum):
+class EvidenceStateV72(str, Enum):
     PLANNED = "PLANNED"
     ENGINEERING_VALIDATED = "ENGINEERING_VALIDATED"
     EXPLORATORY_OBSERVED = "EXPLORATORY_OBSERVED"
@@ -15,6 +15,91 @@ class EvidenceStateV72(StrEnum):
     TRANSPORT_VALIDATED = "TRANSPORT_VALIDATED"
     DECISION_LICENSED = "DECISION_LICENSED"
     BLOCKED = "BLOCKED"
+    INVALIDATED = "INVALIDATED"
+
+
+ALLOWED_EVIDENCE_TRANSITIONS: dict[EvidenceStateV72, frozenset[EvidenceStateV72]] = {
+    EvidenceStateV72.PLANNED: frozenset(
+        {
+            EvidenceStateV72.ENGINEERING_VALIDATED,
+            EvidenceStateV72.EXPLORATORY_OBSERVED,
+            EvidenceStateV72.CONFIRMATORY_OBSERVED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.ENGINEERING_VALIDATED: frozenset(
+        {
+            EvidenceStateV72.EXPLORATORY_OBSERVED,
+            EvidenceStateV72.CONFIRMATORY_OBSERVED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.EXPLORATORY_OBSERVED: frozenset(
+        {
+            EvidenceStateV72.CONFIRMATORY_OBSERVED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.CONFIRMATORY_OBSERVED: frozenset(
+        {
+            EvidenceStateV72.HELD_OUT_VALIDATED,
+            EvidenceStateV72.HUMAN_VALIDATED,
+            EvidenceStateV72.TRANSPORT_VALIDATED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.HELD_OUT_VALIDATED: frozenset(
+        {
+            EvidenceStateV72.HUMAN_VALIDATED,
+            EvidenceStateV72.TRANSPORT_VALIDATED,
+            EvidenceStateV72.DECISION_LICENSED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.HUMAN_VALIDATED: frozenset(
+        {
+            EvidenceStateV72.TRANSPORT_VALIDATED,
+            EvidenceStateV72.DECISION_LICENSED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.TRANSPORT_VALIDATED: frozenset(
+        {
+            EvidenceStateV72.HUMAN_VALIDATED,
+            EvidenceStateV72.DECISION_LICENSED,
+            EvidenceStateV72.BLOCKED,
+            EvidenceStateV72.INVALIDATED,
+        }
+    ),
+    EvidenceStateV72.DECISION_LICENSED: frozenset(
+        {EvidenceStateV72.BLOCKED, EvidenceStateV72.INVALIDATED}
+    ),
+    EvidenceStateV72.BLOCKED: frozenset({EvidenceStateV72.PLANNED, EvidenceStateV72.INVALIDATED}),
+    EvidenceStateV72.INVALIDATED: frozenset(),
+}
+
+
+def transition_evidence_state_v7_2(
+    current: EvidenceStateV72 | str,
+    target: EvidenceStateV72 | str,
+    *,
+    reason: str,
+) -> dict[str, str]:
+    """Apply an explicit legal transition; invalidation is terminal and fail-closed."""
+
+    source = EvidenceStateV72(current)
+    destination = EvidenceStateV72(target)
+    if not reason.strip():
+        raise ValueError("evidence transition reason is required")
+    if destination not in ALLOWED_EVIDENCE_TRANSITIONS[source]:
+        raise ValueError(f"illegal evidence transition: {source.value} -> {destination.value}")
+    return {"from": source.value, "to": destination.value, "reason": reason.strip()}
 
 
 @dataclass(frozen=True, slots=True)

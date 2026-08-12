@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import math
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
@@ -24,7 +23,7 @@ from valideval.claims.contracts import (
 from valideval.claims.evidence import ClaimEvidence
 from valideval.claims.licensing import license_claim
 from valideval.claims.policies import ClaimPolicy
-from valideval.execution.manifest import canonical_json_bytes, sha256_bytes
+from valideval.execution.manifest import atomic_write_json, canonical_json_bytes, sha256_bytes
 from valideval.statistics.rank_inference_v7_1 import simultaneous_rank_confidence_sets
 from valideval.statistics.rare_events import (
     monte_carlo_standard_error,
@@ -916,9 +915,4 @@ def records_sha256(records: pd.DataFrame) -> str:
 
 
 def write_json(path: str | Path, payload: Mapping[str, Any]) -> Path:
-    destination = Path(path)
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
-        json.dumps(dict(payload), indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
-    return destination
+    return atomic_write_json(path, dict(payload))

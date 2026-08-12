@@ -21,6 +21,17 @@ execution time; this runbook intentionally contains no intermediate source SHA.
    Bounded batch fallback is allowed. Sequence-length fallback is forbidden. A persistent OOM or
    systemic model failure requires repair and rerun, never silent checkpoint substitution.
 
+Cache and connectivity contract:
+
+- The five pinned checkpoints declare 20,129,278,931 bytes of downloads in total. The production
+  preflight requires that cache volume plus 7 GiB of disk margin (about 25.75 GiB total free).
+- The initial smoke requires Internet and resolves every model and dataset at its exact revision.
+  It never silently requests a latest revision.
+- Reuse the same Hugging Face cache across MMLU, GSM8K, and BBH in one Kaggle session. Do not clear
+  model files between notebooks. A resume may operate from the exact-revision cache after Internet
+  loss; a missing pinned artifact blocks the resume.
+- Clear the model cache only after all three ZIPs have been validated, hashed, and downloaded.
+
 Exact checkpoints:
 
 - `Qwen/Qwen2.5-0.5B-Instruct` @ `7ae557604adf67be50417f59c2c2f167def9a775`
@@ -45,7 +56,7 @@ Place them in `kaggle_icml2027_outputs/packages`, then run:
 
 ```bash
 python -m valideval accept-s1-v7-2-1 --input-dir kaggle_icml2027_outputs/packages --output-root imported/v7_2_1/s1
-python -m valideval recalibrate-study-c-after-s1   --input-root imported/v7_2/s1   --output results/v7_2/planning/study_c_recalibration_after_s1.json
+python -m valideval recalibrate-study-c-after-s1 --input-root imported/v7_2_1/s1 --output results/final_cpu_maxout/planning/study_c_recalibration_after_s1.json
 ```
 
 Accepted S1 unlocks engineering-health assessment and possible S2 authorization after measured

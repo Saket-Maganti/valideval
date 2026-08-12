@@ -1,0 +1,12 @@
+{
+  "schema_version": "valideval.compatibility-matrix.v7.2.1",
+  "versions": [
+    {"version": "V5", "executable": false, "importable": true, "historical_only": true, "canonical": false, "adapter": "kaggle_v5"},
+    {"version": "V6", "executable": true, "importable": true, "historical_only": true, "canonical": false, "adapter": "s1_v6"},
+    {"version": "V7", "executable": true, "importable": true, "historical_only": true, "canonical": false, "adapter": "ingest_v7"},
+    {"version": "V7.1", "executable": true, "importable": true, "historical_only": true, "canonical": false, "adapter": "ingest_v7"},
+    {"version": "V7.2", "executable": true, "importable": true, "historical_only": true, "canonical": false, "adapter": "s1_v7_2"},
+    {"version": "V7.2.1", "executable": true, "importable": true, "historical_only": false, "canonical": true, "adapter": "s1_v7_2"}
+  ],
+  "implicit_compatibility": false
+}

@@ -1,0 +1,10 @@
+{
+  "evidence_class": "NON_EVIDENCE_FIXTURE",
+  "fixture_count": 14,
+  "incorrect_scoring_risk_rate": 0.0,
+  "production_expected_agreement": 1.0,
+  "production_reference_agreement": 1.0,
+  "reference_expected_agreement": 1.0,
+  "schema_version": "valideval.extraction-stress.v7.2.1",
+  "status": "EXTRACTION_DIFFERENTIAL_PASS"
+}

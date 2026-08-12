@@ -1,0 +1,16 @@
+{
+  "schema_version": "valideval.experiment-registry.v7.2.1",
+  "experiments": [
+    {"study_id": "V7-FROZEN-SYNTHETIC", "kind": "historical_cpu", "evidence_class": "FROZEN_CONFIRMATORY", "status": "FAILED_AND_PRESERVED", "frozen": true, "confirmatory": true, "exploratory": false},
+    {"study_id": "V7.1-SCIENTIFIC-CLOSURE", "kind": "historical_cpu", "evidence_class": "SUPPORTING", "status": "COMPLETE", "frozen": true, "confirmatory": false, "exploratory": false},
+    {"study_id": "V7.2-GENERIC-POLICY", "kind": "synthetic_cpu", "evidence_class": "CONFIRMATORY", "status": "GENERIC_KNOWN_TRUTH_POLICY_CALIBRATION_PASS", "frozen": true, "confirmatory": true, "exploratory": false},
+    {"study_id": "V7.2.1-NATIVE-POLICY", "kind": "synthetic_cpu", "evidence_class": "CONFIRMATORY", "status": "CLAIM_POLICY_CONFIRMATION_SUPPORTING_ONLY", "frozen": true, "confirmatory": true, "exploratory": false},
+    {"study_id": "V7.2.1-RANK-STRESS", "kind": "synthetic_cpu", "evidence_class": "STRESS_TEST", "status": "RANK_SCOPE_RESTRICTION_REQUIRED", "frozen": false, "confirmatory": false, "exploratory": false},
+    {"study_id": "V7.2.1-HISTORICAL-MMLU", "kind": "historical_cpu", "evidence_class": "SENSITIVITY", "status": "COMPLETE", "frozen": false, "confirmatory": false, "exploratory": false},
+    {"study_id": "V8-EXPLORATORY", "kind": "synthetic_cpu", "evidence_class": "EXPLORATORY", "status": "EXPLORATORY_IMPROVEMENT_FOUND", "frozen": false, "confirmatory": false, "exploratory": true},
+    {"study_id": "S1-KAGGLE-T4X2", "kind": "future_gpu", "evidence_class": "ENGINEERING_ONLY", "status": "AUTHORIZED_NOT_RUN", "frozen": true, "confirmatory": false, "exploratory": false},
+    {"study_id": "S2-PILOT", "kind": "future_gpu", "evidence_class": "ENGINEERING_AND_PILOT", "status": "DRAFT_PENDING_ACCEPTED_S1", "frozen": false, "confirmatory": false, "exploratory": false},
+    {"study_id": "S3-COMMON-PANEL", "kind": "future_gpu", "evidence_class": "SCIENTIFIC_PENDING_DESIGN", "status": "BLOCKED_PENDING_S2", "frozen": false, "confirmatory": false, "exploratory": false},
+    {"study_id": "HUMAN-VALIDATION", "kind": "human", "evidence_class": "HUMAN_PENDING", "status": "NOT_RUN", "frozen": false, "confirmatory": false, "exploratory": false}
+  ]
+}

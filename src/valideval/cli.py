@@ -45,8 +45,10 @@ from valideval.config import load_default_config, load_yaml
 from valideval.cross_benchmark.analysis import run_cross_benchmark_analysis
 from valideval.diagnostics.panel_validity import write_panel_validity_report
 from valideval.domains import describe_domain_pack, domain_diagnostic_names, list_domain_packs
+from valideval.evidence.cpu_replay_v7_2_1 import replay_cpu_evidence
 from valideval.evidence.ledger import build_claim_evidence_ledger
 from valideval.execution.config import RUN_MODES
+from valideval.execution.doctor_v7_2_1 import run_cpu_maxout_doctor
 from valideval.execution.runner import run_from_config
 from valideval.forensics.overlap import scan_corpus_overlap
 from valideval.human import (
@@ -116,6 +118,7 @@ from valideval.release.neurips import neurips_readiness_report
 from valideval.release.paper_assets import generate_paper_assets
 from valideval.release.reviewer import reviewer_risk_report
 from valideval.release.v5 import build_deterministic_zip, plan_release, write_release_audit
+from valideval.release.validation_v7_2_1 import validate_cpu_maxout_release
 from valideval.repair.engine import (
     issue_certificate,
     render_checklist,
@@ -1013,6 +1016,18 @@ def command_accept_s1_v7_2(args: argparse.Namespace) -> int:
     )
 
 
+def command_replay_cpu_evidence(args: argparse.Namespace) -> int:
+    payload = replay_cpu_evidence(args.repository_root, output=args.output)
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["status"] == "CPU_REPLAY_PASS" else 2
+
+
+def command_validate_release_v7_2_1(args: argparse.Namespace) -> int:
+    payload = validate_cpu_maxout_release(args.repository_root)
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["status"] == "RELEASE_VALIDATION_PASS" else 2
+
+
 def command_recalibrate_runtime_v6(args: argparse.Namespace) -> int:
     payload = recalibrate_runtime_from_s1(args.input_root, args.output)
     _print(json.dumps(payload, indent=2, sort_keys=True))
@@ -1303,6 +1318,18 @@ def command_advisor(args: argparse.Namespace) -> int:
 
 
 def command_doctor(args: argparse.Namespace) -> int:
+    if args.cpu_maxout:
+        output = run_cpu_maxout_doctor(
+            args.repository_root,
+            output_root=args.output_root,
+            require_gpu=args.require_gpu,
+        )
+        _print(json.dumps(output, indent=2, sort_keys=True))
+        return (
+            0
+            if output["status"] in {"PASS", "WARN"} and not args.strict
+            else int(output["status"] != "PASS")
+        )
     output = run_doctor(
         benchmark_id=args.benchmark,
         panel_id=args.panel,
@@ -2419,6 +2446,34 @@ def build_parser() -> argparse.ArgumentParser:
     )
     accept_s1_v7_2.set_defaults(func=command_accept_s1_v7_2)
 
+    accept_s1_v7_2_1 = subparsers.add_parser(
+        "accept-s1-v7-2-1",
+        help="Fail-closed acceptance of the exact V7.2.1-tagged native S1 ZIPs.",
+    )
+    accept_s1_v7_2_1.add_argument("--input-dir", default="kaggle_icml2027_outputs/packages")
+    accept_s1_v7_2_1.add_argument("--output-root", default="imported/v7_2_1/s1")
+    accept_s1_v7_2_1.add_argument(
+        "--minimum-extraction-reliability",
+        type=float,
+        default=0.95,
+    )
+    accept_s1_v7_2_1.set_defaults(func=command_accept_s1_v7_2)
+
+    replay_cpu = subparsers.add_parser(
+        "replay-cpu-evidence",
+        help="Recompute and verify the registered CPU evidence summaries.",
+    )
+    replay_cpu.add_argument("--repository-root", default=".")
+    replay_cpu.add_argument("--output", default="results/final_cpu_maxout/replay/cpu_replay.json")
+    replay_cpu.set_defaults(func=command_replay_cpu_evidence)
+
+    validate_release = subparsers.add_parser(
+        "validate-release",
+        help="Validate V7.2.1 source coherence and final CPU maxout release artifacts.",
+    )
+    validate_release.add_argument("--repository-root", default=".")
+    validate_release.set_defaults(func=command_validate_release_v7_2_1)
+
     recalibrate_v6 = subparsers.add_parser(
         "recalibrate-runtime",
         help="Recalibrate S2-S4 planning ranges from accepted V6 S1 runtime fields.",
@@ -2432,12 +2487,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     recalibrate_v7_2 = subparsers.add_parser(
         "recalibrate-study-c-after-s1",
-        help="Recalibrate S2-S4 distributions from accepted real V7.2 S1 outputs.",
+        help="Recalibrate S2-S4 distributions from accepted real V7.2.1 S1 outputs.",
     )
-    recalibrate_v7_2.add_argument("--input-root", default="imported/v7_2/s1")
+    recalibrate_v7_2.add_argument("--input-root", default="imported/v7_2_1/s1")
     recalibrate_v7_2.add_argument(
         "--output",
-        default="results/v7_2/planning/study_c_recalibration_after_s1.json",
+        default="results/final_cpu_maxout/planning/study_c_recalibration_after_s1.json",
     )
     recalibrate_v7_2.set_defaults(func=command_recalibrate_study_c_after_s1)
 
@@ -2797,6 +2852,10 @@ def build_parser() -> argparse.ArgumentParser:
     doctor.add_argument("--config", default="configs/default.yaml")
     doctor.add_argument("--required-variants", nargs="*", default=None)
     doctor.add_argument("--required-diagnostics", nargs="*", default=None)
+    doctor.add_argument("--cpu-maxout", action="store_true")
+    doctor.add_argument("--require-gpu", action="store_true")
+    doctor.add_argument("--repository-root", default=".")
+    doctor.add_argument("--output-root", default="kaggle_icml2027_outputs")
     doctor.add_argument(
         "--strict",
         action="store_true",

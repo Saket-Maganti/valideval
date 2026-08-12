@@ -1,0 +1,15 @@
+case,benchmark,raw,expected,production_value,production_status,production_failure_type,reference_value,production_matches_expected,reference_matches_expected,differential_agreement,incorrect_scoring_risk,task,kind
+mmlu_exact,mmlu, A ,A,A,success,SUCCESS,A,True,True,True,False,,
+mmlu_prose,mmlu,Reasoning. Final answer: (C),C,C,success,SUCCESS,C,True,True,True,False,,
+mmlu_embedded_word,mmlu,The answer is complicated,,,failed,EXTRACTION_FAILURE,,True,True,True,False,,
+mmlu_multiple,mmlu,Answer: A. Final answer: B,,,failed,INVALID_FORMAT,,True,True,True,False,,
+gsm_comma,gsm8k,"Final answer: 1,234",1234,1234,success,SUCCESS,1234,True,True,True,False,,
+gsm_decimal,gsm8k,#### 10.500,10.5,10.5,success,SUCCESS,10.5,True,True,True,False,,
+gsm_fraction,gsm8k,Final answer: 2 / 4,1/2,1/2,success,SUCCESS,1/2,True,True,True,False,,
+gsm_unicode_space,gsm8k,Final answer: ₹ 42,42,42,success,SUCCESS,42,True,True,True,False,,
+gsm_multiple,gsm8k,Final answer: 2 and 3,,,failed,INVALID_FORMAT,,True,True,True,False,,
+bbh_choice,bbh,Final answer: (B),(B),(B),success,SUCCESS,(B),True,True,True,False,causal_judgement,MULTIPLE_CHOICE
+bbh_boolean,bbh,Final answer: yes,True,True,success,SUCCESS,True,True,True,True,False,boolean_expressions,BOOLEAN
+bbh_numeric,bbh,Final answer: 007,7,7,success,SUCCESS,7,True,True,True,False,object_counting,NUMERIC
+bbh_malformed,bbh,Final answer:,,,failed,EXTRACTION_FAILURE,,True,True,True,False,causal_judgement,MULTIPLE_CHOICE
+missing,gsm8k,,,,failed,EMPTY_OUTPUT,,True,True,True,False,,

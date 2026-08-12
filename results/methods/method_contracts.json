@@ -1,0 +1,53 @@
+{
+  "schema_version": "valideval.methods-ledger.v7.2.1",
+  "methods": [
+    {
+      "method": "NATIVE_SELECTIVE_CLAIM_POLICY",
+      "estimand": "Claim-family-specific probability of a false decision license under registered known-truth generators",
+      "assumptions": ["registered simulator scope", "family-specific evidence contract", "materiality and multiplicity gates"],
+      "implementation": "valideval.statistics.claim_policy_v7_2_1",
+      "status": "SUPPORTING_ONLY",
+      "evidence_scope": "Synthetic known-truth confirmation; not real benchmark validation"
+    },
+    {
+      "method": "WILSON_RARE_EVENT_INTERVAL",
+      "estimand": "Binomial event probability",
+      "assumptions": ["Bernoulli trial interpretation", "declared confidence level"],
+      "implementation": "valideval.statistics.rare_events.wilson_interval",
+      "status": "ACTIVE",
+      "evidence_scope": "Rare-event summaries and simultaneous Bonferroni safety bounds"
+    },
+    {
+      "method": "BOOTSTRAP_MAX_DEVIATION_SIMULTANEOUS_RANK",
+      "estimand": "Simultaneous uncertainty set for ranks under the declared resampling distribution",
+      "assumptions": ["resampling unit represents the intended generalization unit", "finite bootstrap approximation"],
+      "implementation": "valideval.statistics.rank_inference_v7_1",
+      "status": "SCOPE_RESTRICTED",
+      "evidence_scope": "Known-truth scenarios; minimum observed joint coverage 0.92 in the CPU stress grid"
+    },
+    {
+      "method": "PAIRWISE_MULTIPLICITY",
+      "estimand": "Pairwise model-performance differences",
+      "assumptions": ["paired draw semantics", "prespecified family of comparisons"],
+      "implementation": "valideval.statistics.rank_inference_v7_1.pairwise_multiplicity_analysis",
+      "status": "ACTIVE_WITH_SCOPE_LABELS",
+      "evidence_scope": "Single prespecified pair, primary pair family, and exploratory all-pairs must remain distinct"
+    },
+    {
+      "method": "BENCHMARK_EFFECTIVE_COUNT",
+      "estimand": "Participation-ratio approximation to independent benchmark information",
+      "assumptions": ["valid benchmark correlation matrix", "eigenvalue-based approximation"],
+      "implementation": "valideval.statistics.cpu_maxout_stress.benchmark_effective_count",
+      "status": "EFFECTIVE_N_APPROXIMATION",
+      "evidence_scope": "Planning and sensitivity analysis only"
+    },
+    {
+      "method": "HISTORICAL_MMLU_WEIGHTING_SENSITIVITY",
+      "estimand": "Model ranking under canonical, balanced-subject, and trimmed-subject weighting",
+      "assumptions": ["historical response matrix identity", "no causal interpretation"],
+      "implementation": "valideval.statistics.historical_mmlu_maxout",
+      "status": "SENSITIVITY_ONLY",
+      "evidence_scope": "Historical MMLU response matrix; not new GPU evidence"
+    }
+  ]
+}

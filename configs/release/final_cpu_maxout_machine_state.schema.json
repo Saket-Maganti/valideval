@@ -1,0 +1,283 @@
+{
+  "$defs": {
+    "CpuRunSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "additionalProperties": true,
+          "title": "Components",
+          "type": "object"
+        },
+        "monte_carlo_replicates": {
+          "minimum": 0,
+          "title": "Monte Carlo Replicates",
+          "type": "integer"
+        },
+        "registered_runs": {
+          "minimum": 0,
+          "title": "Registered Runs",
+          "type": "integer"
+        },
+        "runtime_seconds": {
+          "minimum": 0,
+          "title": "Runtime Seconds",
+          "type": "number"
+        },
+        "runtime_semantics": {
+          "title": "Runtime Semantics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "registered_runs",
+        "runtime_seconds",
+        "runtime_semantics",
+        "monte_carlo_replicates",
+        "components"
+      ],
+      "title": "CpuRunSummary",
+      "type": "object"
+    },
+    "ValidationSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "build": {
+          "title": "Build",
+          "type": "string"
+        },
+        "coverage": {
+          "title": "Coverage",
+          "type": "string"
+        },
+        "format": {
+          "title": "Format",
+          "type": "string"
+        },
+        "fuzz": {
+          "title": "Fuzz",
+          "type": "string"
+        },
+        "lint": {
+          "title": "Lint",
+          "type": "string"
+        },
+        "mutation_testing": {
+          "title": "Mutation Testing",
+          "type": "string"
+        },
+        "mypy": {
+          "title": "Mypy",
+          "type": "string"
+        },
+        "notebooks": {
+          "title": "Notebooks",
+          "type": "string"
+        },
+        "release": {
+          "title": "Release",
+          "type": "string"
+        },
+        "secret_scan": {
+          "title": "Secret Scan",
+          "type": "string"
+        },
+        "tests": {
+          "title": "Tests",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tests",
+        "coverage",
+        "fuzz",
+        "mutation_testing",
+        "lint",
+        "format",
+        "mypy",
+        "build",
+        "notebooks",
+        "secret_scan",
+        "release"
+      ],
+      "title": "ValidationSummary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "architecture_status": {
+      "title": "Architecture Status",
+      "type": "string"
+    },
+    "baseline_commit": {
+      "title": "Baseline Commit",
+      "type": "string"
+    },
+    "canonical_s1_source_ref": {
+      "title": "Canonical S1 Source Ref",
+      "type": "string"
+    },
+    "ci": {
+      "additionalProperties": true,
+      "title": "Ci",
+      "type": "object"
+    },
+    "claim_family_scope": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Claim Family Scope",
+      "type": "array"
+    },
+    "claim_policy_status": {
+      "title": "Claim Policy Status",
+      "type": "string"
+    },
+    "cpu_runs": {
+      "$ref": "#/$defs/CpuRunSummary"
+    },
+    "critical_strata": {
+      "additionalProperties": true,
+      "title": "Critical Strata",
+      "type": "object"
+    },
+    "evidence_state_status": {
+      "title": "Evidence State Status",
+      "type": "string"
+    },
+    "exact_next_action": {
+      "title": "Exact Next Action",
+      "type": "string"
+    },
+    "final_source_commit": {
+      "title": "Final Source Commit",
+      "type": "string"
+    },
+    "final_source_tag": {
+      "title": "Final Source Tag",
+      "type": "string"
+    },
+    "git_clean": {
+      "title": "Git Clean",
+      "type": "string"
+    },
+    "importer_security": {
+      "title": "Importer Security",
+      "type": "string"
+    },
+    "metadata_commit": {
+      "title": "Metadata Commit",
+      "type": "string"
+    },
+    "numerical_reproducibility": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Numerical Reproducibility",
+      "type": "object"
+    },
+    "oom_status": {
+      "title": "Oom Status",
+      "type": "string"
+    },
+    "remaining_cpu_work": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Remaining Cpu Work",
+      "type": "array"
+    },
+    "remaining_gpu_work": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Remaining Gpu Work",
+      "type": "array"
+    },
+    "remaining_human_work": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Remaining Human Work",
+      "type": "array"
+    },
+    "resume_status": {
+      "title": "Resume Status",
+      "type": "string"
+    },
+    "runbook_provenance": {
+      "title": "Runbook Provenance",
+      "type": "string"
+    },
+    "s1_status": {
+      "title": "S1 Status",
+      "type": "string"
+    },
+    "s2_status": {
+      "title": "S2 Status",
+      "type": "string"
+    },
+    "s3_status": {
+      "title": "S3 Status",
+      "type": "string"
+    },
+    "s4_status": {
+      "title": "S4 Status",
+      "type": "string"
+    },
+    "schema_status": {
+      "title": "Schema Status",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "valideval.final-cpu-maxout-machine-state.v7.2.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "v7_2_1_closure_status": {
+      "title": "V7 2 1 Closure Status",
+      "type": "string"
+    },
+    "v8_status": {
+      "title": "V8 Status",
+      "type": "string"
+    },
+    "validation": {
+      "$ref": "#/$defs/ValidationSummary"
+    }
+  },
+  "required": [
+    "baseline_commit",
+    "final_source_commit",
+    "final_source_tag",
+    "canonical_s1_source_ref",
+    "metadata_commit",
+    "git_clean",
+    "ci",
+    "v7_2_1_closure_status",
+    "runbook_provenance",
+    "claim_policy_status",
+    "claim_family_scope",
+    "critical_strata",
+    "v8_status",
+    "cpu_runs",
+    "numerical_reproducibility",
+    "architecture_status",
+    "schema_status",
+    "evidence_state_status",
+    "importer_security",
+    "resume_status",
+    "oom_status",
+    "validation",
+    "s1_status",
+    "s2_status",
+    "s3_status",
+    "s4_status",
+    "remaining_cpu_work",
+    "remaining_gpu_work",
+    "remaining_human_work",
+    "exact_next_action"
+  ],
+  "title": "FinalCpuMaxoutMachineState",
+  "type": "object"
+}

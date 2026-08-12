@@ -1,0 +1,69 @@
+{
+  "schema_version": "valideval.claim-registry.v7.2.1",
+  "claims": [
+    {
+      "claim_id": "ENGINEERING-S1-ROUNDTRIP",
+      "family": "ENGINEERING",
+      "status": "LICENSED_FOR_ENGINEERING_SMOKE",
+      "evidence_class": "ENGINEERING_VALIDATED",
+      "prerequisites": ["canonical tag", "three S1 configs", "runner-to-ZIP-to-import acceptance fixture"],
+      "blockers": []
+    },
+    {
+      "claim_id": "NATIVE-POLICY-SAFETY",
+      "family": "MULTI_FAMILY_POLICY",
+      "status": "SUPPORTING_ONLY",
+      "evidence_class": "SYNTHETIC_CONFIRMATORY",
+      "prerequisites": ["frozen policy", "independent confirmation generators"],
+      "blockers": ["21 of 60 prespecified family-by-critical-stratum cells fail the multiplicity-aware safety bound"]
+    },
+    {
+      "claim_id": "RANK-SIMULTANEOUS-SCOPE",
+      "family": "TOP_K",
+      "status": "SCOPE_RESTRICTED",
+      "evidence_class": "SYNTHETIC_STRESS",
+      "prerequisites": ["declared resampling unit", "scenario within validated scope"],
+      "blockers": ["minimum joint coverage in the expanded grid is below the 0.95 target"]
+    },
+    {
+      "claim_id": "V8-DIFFICULTY-RESIDUALIZED",
+      "family": "ITEM_DIAGNOSTICS",
+      "status": "EXPLORATORY_ONLY",
+      "evidence_class": "EXPLORATORY_OBSERVED",
+      "prerequisites": ["independent freeze", "independent confirmation"],
+      "blockers": ["V8 confirmation is not run", "external label validation is unavailable"]
+    },
+    {
+      "claim_id": "REAL-SCIENTIFIC-COMMON-PANEL",
+      "family": "PRIMARY_PAIRWISE",
+      "status": "BLOCKED",
+      "evidence_class": "PLANNED",
+      "prerequisites": ["accepted S1", "accepted S2", "authorized and executed S3"],
+      "blockers": ["no real Kaggle package has been accepted"]
+    },
+    {
+      "claim_id": "TRANSPORT-VALIDATED",
+      "family": "TRANSPORT",
+      "status": "BLOCKED",
+      "evidence_class": "PLANNED",
+      "prerequisites": ["executed held-out benchmark and family folds"],
+      "blockers": ["no real held-out transport evidence"]
+    },
+    {
+      "claim_id": "HUMAN-VALIDATED-DIAGNOSTICS",
+      "family": "ITEM_DIAGNOSTICS",
+      "status": "BLOCKED",
+      "evidence_class": "PLANNED",
+      "prerequisites": ["completed annotation", "adjudication", "reliability acceptance"],
+      "blockers": ["no human labels"]
+    },
+    {
+      "claim_id": "REPAIR-BENEFIT",
+      "family": "REPAIR",
+      "status": "BLOCKED",
+      "evidence_class": "PLANNED",
+      "prerequisites": ["held-out repair evaluation", "harm and downstream decision checks"],
+      "blockers": ["no executed held-out repair evidence"]
+    }
+  ]
+}

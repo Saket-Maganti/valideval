@@ -1,0 +1,14 @@
+{
+  "schema_version": "valideval.seed-registry.v7.2.1",
+  "seeds": [
+    {"study_id": "CP-NATIVE-DEV", "purpose": "claim_policy_development", "seed": 7211001},
+    {"study_id": "CP-NATIVE-VALIDATION", "purpose": "claim_policy_validation", "seed": 7212001},
+    {"study_id": "CP-NATIVE-CONFIRMATION", "purpose": "claim_policy_confirmation", "seed": 7213001},
+    {"study_id": "RANK-STRESS", "purpose": "rank_simulation_base", "seed": 7215000},
+    {"study_id": "PAIRWISE-STRESS", "purpose": "pairwise_multiplicity_base", "seed": 7216000},
+    {"study_id": "ANNOTATOR-STRESS", "purpose": "annotator_noise_base", "seed": 7217000},
+    {"study_id": "HIST-MMLU", "purpose": "historical_mmlu_bootstrap", "seed": 7218001},
+    {"study_id": "V8-EXPLORATORY", "purpose": "difficulty_residualized_exploration", "seed": 7208001},
+    {"study_id": "POWER-PLANNING", "purpose": "study_c_power_planning", "seed": 7104001}
+  ]
+}

@@ -12,7 +12,9 @@ from typing import Any
 
 import yaml
 
-EXECUTION_SCHEMA_VERSION = "valideval.execution.v7.1"
+from valideval.execution.schema_v7_2_1 import CURRENT_EXECUTION_SCHEMA, CURRENT_PACKAGE_MEMBERS
+
+EXECUTION_SCHEMA_VERSION = CURRENT_EXECUTION_SCHEMA
 ACCEPTED_V5_SCHEMA_VERSIONS = frozenset(
     {
         EXECUTION_SCHEMA_VERSION,
@@ -28,18 +30,7 @@ ACCEPTED_V5_SCHEMA_VERSIONS = frozenset(
 )
 NON_EVIDENCE_FIXTURE = "NON_EVIDENCE_FIXTURE"
 
-RUN_REQUIRED_FILES = (
-    "run_manifest.json",
-    "environment.json",
-    "models.json",
-    "benchmark_contract.json",
-    "config_snapshot.yaml",
-    "file_checksums.json",
-    "shard_status.json",
-    "failure_summary.csv",
-    "predictions.jsonl",
-    "matrix.csv",
-)
+RUN_REQUIRED_FILES = CURRENT_PACKAGE_MEMBERS
 
 PREDICTION_REQUIRED_FIELDS = (
     "schema_version",
@@ -95,6 +86,9 @@ FAILURE_TYPES = frozenset(
         "INVALID_FORMAT",
         "SCORING_FAILURE",
         "DATASET_FAILURE",
+        "CHECKSUM_FAILURE",
+        "CONFIG_FAILURE",
+        "SOURCE_MISMATCH",
         "UNKNOWN_FAILURE",
     }
 )

@@ -1,0 +1,110 @@
+{
+  "claims": [
+    {
+      "assumptions": [
+        "canonical tag",
+        "three S1 configs",
+        "runner-to-ZIP-to-import acceptance fixture"
+      ],
+      "blockers": [],
+      "claim_id": "ENGINEERING-S1-ROUNDTRIP",
+      "evidence_class": "ENGINEERING_VALIDATED",
+      "family": "ENGINEERING",
+      "status": "LICENSED_FOR_ENGINEERING_SMOKE"
+    },
+    {
+      "assumptions": [
+        "frozen policy",
+        "independent confirmation generators"
+      ],
+      "blockers": [
+        "21 of 60 prespecified family-by-critical-stratum cells fail the multiplicity-aware safety bound"
+      ],
+      "claim_id": "NATIVE-POLICY-SAFETY",
+      "evidence_class": "SYNTHETIC_CONFIRMATORY",
+      "family": "MULTI_FAMILY_POLICY",
+      "status": "SUPPORTING_ONLY"
+    },
+    {
+      "assumptions": [
+        "declared resampling unit",
+        "scenario within validated scope"
+      ],
+      "blockers": [
+        "minimum joint coverage in the expanded grid is below the 0.95 target"
+      ],
+      "claim_id": "RANK-SIMULTANEOUS-SCOPE",
+      "evidence_class": "SYNTHETIC_STRESS",
+      "family": "TOP_K",
+      "status": "SCOPE_RESTRICTED"
+    },
+    {
+      "assumptions": [
+        "independent freeze",
+        "independent confirmation"
+      ],
+      "blockers": [
+        "V8 confirmation is not run",
+        "external label validation is unavailable"
+      ],
+      "claim_id": "V8-DIFFICULTY-RESIDUALIZED",
+      "evidence_class": "EXPLORATORY_OBSERVED",
+      "family": "ITEM_DIAGNOSTICS",
+      "status": "EXPLORATORY_ONLY"
+    },
+    {
+      "assumptions": [
+        "accepted S1",
+        "accepted S2",
+        "authorized and executed S3"
+      ],
+      "blockers": [
+        "no real Kaggle package has been accepted"
+      ],
+      "claim_id": "REAL-SCIENTIFIC-COMMON-PANEL",
+      "evidence_class": "PLANNED",
+      "family": "PRIMARY_PAIRWISE",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "executed held-out benchmark and family folds"
+      ],
+      "blockers": [
+        "no real held-out transport evidence"
+      ],
+      "claim_id": "TRANSPORT-VALIDATED",
+      "evidence_class": "PLANNED",
+      "family": "TRANSPORT",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "completed annotation",
+        "adjudication",
+        "reliability acceptance"
+      ],
+      "blockers": [
+        "no human labels"
+      ],
+      "claim_id": "HUMAN-VALIDATED-DIAGNOSTICS",
+      "evidence_class": "PLANNED",
+      "family": "ITEM_DIAGNOSTICS",
+      "status": "BLOCKED"
+    },
+    {
+      "assumptions": [
+        "held-out repair evaluation",
+        "harm and downstream decision checks"
+      ],
+      "blockers": [
+        "no executed held-out repair evidence"
+      ],
+      "claim_id": "REPAIR-BENEFIT",
+      "evidence_class": "PLANNED",
+      "family": "REPAIR",
+      "status": "BLOCKED"
+    }
+  ],
+  "schema_version": "valideval.claim-trace.v7.2.1"
+}

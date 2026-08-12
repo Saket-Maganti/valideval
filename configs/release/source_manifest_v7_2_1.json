@@ -15,6 +15,24 @@
     "kaggle_icml2027/03_v7_2_s1_bbh.ipynb",
     "kaggle_icml2027/04_v7_2_s1_validate_package.ipynb"
   ],
+  "replay_fixture": {
+    "path": "data/replay/v7_2_1/historical_mmlu_matrix.csv",
+    "sha256": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74"
+  },
+  "registered_replay_summaries": [
+    {
+      "path": "results/v7_1/study_h/summary.json",
+      "sha256": "dcb9e2736b0a9af1779f130beca2adda0d478001d93c3cd4de9cb717b246aab6"
+    },
+    {
+      "path": "results/v7_1/planning/power/summary.json",
+      "sha256": "bcb0030a8b0634f1cfb96f5730c6318cbf76a16991b9dd7d6835a4776d82b5fa"
+    },
+    {
+      "path": "results/v7_1/planning/power/primary_estimand_power_grid.csv",
+      "sha256": "1a642258396d8653b1515311d5a56b3bc5a68635233f486cc800125f46f72329"
+    }
+  ],
   "runbook": "VALID_EVAL_V7_2_KAGGLE_S1_RUNBOOK.md",
   "s1_configs": [
     "configs/runs_v7_2/mmlu_s1_v7_2.yaml",

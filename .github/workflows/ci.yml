@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  quick_ci:
+    name: QUICK_CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +17,55 @@ jobs:
       - run: python -m pip install -e ".[dev]"
       - run: python -m ruff check .
       - run: python -m ruff format --check src/valideval tests scripts
+      - run: >-
+          python -m mypy
+          src/valideval/execution/config_v7_2.py
+          src/valideval/execution/errors.py
+          src/valideval/execution/packaging.py
+          src/valideval/execution/schema_v7_2_1.py
+          src/valideval/execution/doctor_v7_2_1.py
+          src/valideval/execution/notebook_v7_2.py
+          src/valideval/evidence/state_v7_2.py
+          src/valideval/evidence/provenance_v7_2_1.py
+          src/valideval/evidence/cpu_replay_v7_2_1.py
+          src/valideval/statistics/rare_events.py
+          src/valideval/statistics/claim_policy_v7_2_1.py
+          src/valideval/statistics/cpu_maxout_stress.py
+          src/valideval/statistics/historical_mmlu_maxout.py
+          src/valideval/scoring/reference_v7_2_1.py
+          src/valideval/scoring/extraction_stress_v7_2_1.py
+          src/valideval/planning/s3_proposal_v7_2_1.py
+          src/valideval/release/machine_state_v7_2_1.py
+          src/valideval/release/final_cpu_maxout.py
+          src/valideval/release/validation_v7_2_1.py
+          src/valideval/release/pre_gpu_bundle_v7_2_1.py
       - run: python -m pytest -q
       - run: python scripts/validate_v7_artifacts.py
+      - run: python scripts/validate_frozen_history_v7_2_1.py
+      - run: python scripts/scan_repository_secrets.py
       - run: python -m build
       - run: python scripts/build_release_v5.py --profile source
       - run: python -m valideval --help
+
+  release_validation:
+    name: RELEASE_VALIDATION
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m valideval replay-cpu-evidence
+      - run: python scripts/build_final_cpu_maxout_release.py
+      - run: python -m valideval validate-release
+      - run: python scripts/build_kaggle_icml2027_v7_2.py
+      - run: >-
+          git diff --exit-code --
+          kaggle_icml2027
+          reports/final_cpu_maxout
+          VALID_EVAL_FINAL_CPU_MAXOUT_HANDOFF.md
+          VALID_EVAL_FINAL_CPU_MAXOUT_MACHINE_STATE.json
+          results/final_cpu_maxout/release

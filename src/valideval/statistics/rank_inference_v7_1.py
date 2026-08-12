@@ -180,7 +180,9 @@ def simulate_simultaneous_rank_coverage(
     rng = np.random.default_rng(seed)
     true_scores = np.linspace(0.75, 0.55, model_count)
     if tied_truth:
-        true_scores[::2] = true_scores[1::2]
+        # Pair adjacent models while leaving the final model unpaired when the
+        # panel size is odd. This keeps tie generation shape-safe for odd panels.
+        true_scores[0:-1:2] = true_scores[1::2]
     true_ranks = pd.Series(true_scores).rank(ascending=False, method="average").to_numpy()
     families = np.arange(model_count) % family_count
     joint_covered = 0

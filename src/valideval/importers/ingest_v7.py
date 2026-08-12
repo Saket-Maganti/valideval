@@ -8,8 +8,12 @@ import zipfile
 from pathlib import Path
 from typing import Any
 
-from valideval.execution.manifest import NON_EVIDENCE_FIXTURE, read_json
-from valideval.execution.packaging import PackageValidationError, validate_run_directory
+from valideval.execution.manifest import NON_EVIDENCE_FIXTURE, atomic_write_json, read_json
+from valideval.execution.packaging import (
+    PackageValidationError,
+    validate_run_directory,
+    validate_zip_archive,
+)
 
 
 class IngestV7Error(ValueError):
@@ -50,6 +54,7 @@ def ingest_and_analyze_v7(
             validation = validate_run_directory(
                 root,
                 expected_config_hash=expected_config_hash,
+                reject_unsafe_extras=True,
             )
         except (PackageValidationError, ValueError) as exc:
             raise IngestV7Error(str(exc)) from exc
@@ -118,15 +123,16 @@ def ingest_and_analyze_v7(
             "validation": validation,
         }
         receipt_path = destination / "ingest_receipt_v7_1.json"
-        receipt_path.write_text(
-            json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-        )
+        atomic_write_json(receipt_path, receipt)
         receipt["receipt_path"] = str(receipt_path)
         return receipt
 
 
 def _safe_extract(archive: Path, destination: Path) -> None:
-    total_size = 0
+    try:
+        validate_zip_archive(archive)
+    except PackageValidationError as exc:
+        raise IngestV7Error(str(exc)) from exc
     with zipfile.ZipFile(archive) as handle:
         for info in handle.infolist():
             path = Path(info.filename)
@@ -135,10 +141,15 @@ def _safe_extract(archive: Path, destination: Path) -> None:
             mode = info.external_attr >> 16
             if stat.S_ISLNK(mode):
                 raise IngestV7Error(f"symbolic links are not allowed: {info.filename}")
-            total_size += info.file_size
-            if total_size > 20 * 1024**3:
-                raise IngestV7Error("uncompressed package exceeds 20 GiB")
-        handle.extractall(destination)
+            target = (destination / path).resolve()
+            try:
+                target.relative_to(destination.resolve())
+            except ValueError as exc:
+                raise IngestV7Error(f"unsafe ZIP member: {info.filename}") from exc
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if not info.is_dir():
+                with handle.open(info) as source, target.open("wb") as output:
+                    shutil.copyfileobj(source, output, length=1024 * 1024)
 
 
 def _single_run_root(root: Path) -> Path:
@@ -295,5 +306,5 @@ def _update_evidence_ledger(
         "routes": routes,
     }
     path = destination / "claim_evidence_ledger_v7_1.json"
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    atomic_write_json(path, payload)
     return path

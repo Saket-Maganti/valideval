@@ -1,5 +1,8 @@
 # ValidEval ICML 2027 Execution Plan
 
+> **HISTORICAL — NOT CANONICAL FOR NEW EXECUTION.** Use
+> `VALID_EVAL_ICML2027_CANONICAL_EXECUTION_HANDBOOK.md` for current execution.
+
 Planning ranges are not measured GPU runtimes. Primary route totals exclude download time and span
 441–1804
 T4×2 hours; recommended free storage is 95 GB.

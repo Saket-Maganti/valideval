@@ -1,0 +1,139 @@
+{
+  "artifact_hashes": {
+    "data/replay/v7_2_1/historical_mmlu_matrix.csv": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74",
+    "results/final_cpu_maxout/claim_policy/confirmation_summary.json": "bf4be9a1384e135d78a9e8400983e37305699c2e7e138f11a83a165357c47e3c",
+    "results/final_cpu_maxout/claim_policy/policy_freeze.json": "252727f7641575318c6f1337c36db045c4b8fd9f3a55b7fd5692096352af74f7",
+    "results/final_cpu_maxout/historical_mmlu/summary.json": "08d22c9ba23069990efa212aac95e7a95fa38de2e26d57a2131404d9cac3a1c7",
+    "results/v7/synthetic/confirmatory/summary.json": "1510f2d0d4c77b4dad9c1018b0ff3b75e5bad8cbf890c0ac9f4c344ac4dcf60a",
+    "results/v7_1/planning/power/primary_estimand_power_grid.csv": "1a642258396d8653b1515311d5a56b3bc5a68635233f486cc800125f46f72329",
+    "results/v7_1/planning/power/summary.json": "bcb0030a8b0634f1cfb96f5730c6318cbf76a16991b9dd7d6835a4776d82b5fa",
+    "results/v7_1/study_h/summary.json": "dcb9e2736b0a9af1779f130beca2adda0d478001d93c3cd4de9cb717b246aab6",
+    "results/v7_2/claim_policy/confirmation_summary.json": "fad39a12eb9fdd40aaf903db0940e85f599eed82648b69d6984fe737d466cb12",
+    "results/v7_2/v8/development_summary.json": "095b3af33ec18a05f41b4129cdccf8ca3b04f2e007555042da21d222747bb267"
+  },
+  "checks": [
+    {
+      "name": "v7_frozen_negative",
+      "observed": "FROZEN_ACCEPTANCE_GATES_FAILED",
+      "status": "PASS"
+    },
+    {
+      "name": "v7_2_generic_result",
+      "observed": {
+        "false_license_rate": 0.025513819985825654,
+        "true_license_power": 0.45627644569816644
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "native_policy_confirmation",
+      "observed": {
+        "false_license_rate": 0.006344086021505376,
+        "status": "CLAIM_POLICY_CONFIRMATION_SUPPORTING_ONLY"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "v8_exploratory_boundary",
+      "observed": {
+        "absolute_tolerance": 1e-09,
+        "gate_flags_match": true,
+        "numeric_tolerance_pass": true,
+        "recorded_normalized_metrics_sha256": "5a2d4858f648a7c5e5d36047884d350a2c5ab351192d70bd00e17edfe7f92333",
+        "status": "V8_EXPLORATORY_DEVELOPMENT_GATE_PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "historical_mmlu_fixture_hash",
+      "observed": "f85a0a44f3203de2863d86bf13b2c81d8e934ae4c07b826193b5e93a3fc86e74",
+      "status": "PASS"
+    },
+    {
+      "name": "historical_mmlu_identity",
+      "observed": {
+        "items": 14042,
+        "models": 39
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "rank_coverage",
+      "observed": {
+        "minimum_joint_coverage": 0.92,
+        "scenarios": 36
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "null_sensitivity",
+      "observed": [
+        0.009950248756218905,
+        1.0
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "study_c_power_boundary",
+      "observed": {
+        "s3_minimum_scientific_label_permitted": false,
+        "status": "PRIMARY_ESTIMAND_POWER_PLANNING_READY"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "source_coherence",
+      "observed": {
+        "canonical_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
+        "checked": [
+          "VALID_EVAL_FINAL_CPU_MAXOUT_MACHINE_STATE.json",
+          "VALID_EVAL_V7_2_KAGGLE_S1_RUNBOOK.md",
+          "configs/release/source_manifest_v7_2_1.json",
+          "configs/runs_v7/bbh_s2_v7.yaml",
+          "configs/runs_v7/bbh_s3_v7.yaml",
+          "configs/runs_v7/bbh_s4_fallback_v7.yaml",
+          "configs/runs_v7/bbh_s4_v7.yaml",
+          "configs/runs_v7/bbh_s5_alternate_prompt_v7.yaml",
+          "configs/runs_v7/bbh_s5_quantization_fp16_v7.yaml",
+          "configs/runs_v7/bbh_s5_quantization_nf4_v7.yaml",
+          "configs/runs_v7/gsm8k_s2_v7.yaml",
+          "configs/runs_v7/gsm8k_s3_v7.yaml",
+          "configs/runs_v7/gsm8k_s4_fallback_v7.yaml",
+          "configs/runs_v7/gsm8k_s4_v7.yaml",
+          "configs/runs_v7/gsm8k_s5_alternate_prompt_parser_v7.yaml",
+          "configs/runs_v7/gsm8k_s5_quantization_fp16_v7.yaml",
+          "configs/runs_v7/gsm8k_s5_quantization_nf4_v7.yaml",
+          "configs/runs_v7/mmlu_s2_v7.yaml",
+          "configs/runs_v7/mmlu_s3_v7.yaml",
+          "configs/runs_v7/mmlu_s4_fallback_v7.yaml",
+          "configs/runs_v7/mmlu_s4_v7.yaml",
+          "configs/runs_v7/mmlu_s5_controlled_generation_v7.yaml",
+          "configs/runs_v7/mmlu_s5_option_loglikelihood_v7.yaml",
+          "configs/runs_v7/mmlu_s5_quantization_fp16_v7.yaml",
+          "configs/runs_v7/mmlu_s5_quantization_nf4_v7.yaml",
+          "configs/runs_v7_2/bbh_s1_v7_2.yaml",
+          "configs/runs_v7_2/gsm8k_s1_v7_2.yaml",
+          "configs/runs_v7_2/mmlu_s1_v7_2.yaml",
+          "kaggle_icml2027/00_v7_2_t4x2_preflight.ipynb",
+          "kaggle_icml2027/01_v7_2_s1_mmlu.ipynb",
+          "kaggle_icml2027/02_v7_2_s1_gsm8k.ipynb",
+          "kaggle_icml2027/03_v7_2_s1_bbh.ipynb",
+          "kaggle_icml2027/04_v7_2_s1_validate_package.ipynb"
+        ],
+        "problems": [],
+        "schema_version": "valideval.source-coherence.v7.2.1",
+        "status": "RUNBOOK_PROVENANCE_COHERENT"
+      },
+      "status": "PASS"
+    }
+  ],
+  "numerical_reproducibility": {
+    "GPU_inference": "ENVIRONMENT_SENSITIVE_NOT_RUN",
+    "frozen_json_hashes": "BITWISE_STABLE",
+    "gate_states": "CONCLUSION_STABLE",
+    "recomputed_native_aggregates": "NUMERICALLY_STABLE",
+    "v8_exploratory_recompute": "TOLERANCE_AND_CONCLUSION_STABLE"
+  },
+  "schema_version": "valideval.cpu-replay.v7.2.1",
+  "status": "CPU_REPLAY_PASS"
+}

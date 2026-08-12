@@ -1,0 +1,19 @@
+# ValidEval V7.2.1 Kaggle T4x2 environment. Do not use an unbounded upgrade.
+accelerate==1.8.1
+bitsandbytes==0.46.1
+datasets==3.6.0
+huggingface-hub==0.33.2
+nbclient==0.10.2
+nbformat==5.10.4
+numpy==2.0.2
+pandas==2.2.3
+pyarrow==19.0.1
+pydantic==2.11.7
+PyYAML==6.0.2
+safetensors==0.5.3
+scipy==1.15.3
+sentencepiece==0.2.0
+tokenizers==0.21.2
+torch==2.7.1
+tqdm==4.67.1
+transformers==4.53.2

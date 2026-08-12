@@ -41,7 +41,7 @@ ROOT = Path(os.environ.get("VALIDEVAL_REPOSITORY_ROOT", ".")).resolve()
 STAGE = {stage!r}
 MODE = os.environ.get("VALIDEVAL_EXECUTION_MODE", "fixture").strip().lower()
 OUTPUT_ROOT = Path(os.environ.get("VALIDEVAL_NOTEBOOK_OUTPUT_ROOT", "kaggle_icml2027_outputs")).resolve()
-REQUIREMENTS = ROOT / "requirements-kaggle-t4x2-v7.txt"
+REQUIREMENTS = ROOT / "requirements-kaggle-t4x2-v7-2-1.lock"
 EXPECTED_REQUIREMENTS_SHA256 = {requirements_hash!r}
 assert hashlib.sha256(REQUIREMENTS.read_bytes()).hexdigest() == EXPECTED_REQUIREMENTS_SHA256
 if MODE != "fixture" and importlib.util.find_spec("valideval") is None:
@@ -72,9 +72,9 @@ for path in EXPECTED_ZIPS:
     print(path)
 print("Resume: set VALIDEVAL_EXECUTION_MODE=resume and rerun the benchmark notebook.")
 print("Exact local import/acceptance command:")
-print("python -m valideval accept-s1-v7-2 --input-dir kaggle_icml2027_outputs/packages --output-root imported/v7_2/s1")
+print("python -m valideval accept-s1-v7-2-1 --input-dir kaggle_icml2027_outputs/packages --output-root imported/v7_2_1/s1")
 print("Post-acceptance recalibration command:")
-print("python -m valideval recalibrate-study-c-after-s1 --input-root imported/v7_2/s1")
+print("python -m valideval recalibrate-study-c-after-s1 --input-root imported/v7_2_1/s1 --output results/final_cpu_maxout/planning/study_c_recalibration_after_s1.json")
 """
     return {
         "cells": [
@@ -132,7 +132,7 @@ def main() -> int:
     output = root / "kaggle_icml2027"
     output.mkdir(parents=True, exist_ok=True)
     requirements_hash = hashlib.sha256(
-        (root / "requirements-kaggle-t4x2-v7.txt").read_bytes()
+        (root / "requirements-kaggle-t4x2-v7-2-1.lock").read_bytes()
     ).hexdigest()
     for filename, stage, title in NOTEBOOKS:
         path = output / filename

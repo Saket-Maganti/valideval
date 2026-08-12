@@ -1,0 +1,17 @@
+{
+  "annotator_noise_scenarios": 36,
+  "benchmark_dependence_scenarios": 24,
+  "claim_boundary": "All results are known-truth or planning simulations. Effective benchmark count and effective N are approximations, not observed independence counts.",
+  "cpu_runs": 8,
+  "evidence_class": "SYNTHETIC_STRESS",
+  "human_plans": 24,
+  "mode": "FULL_REGISTERED",
+  "monte_carlo_replicates": 37800,
+  "pairwise_scenarios": 72,
+  "rank_minimum_joint_coverage": 0.92,
+  "rank_scenarios": 36,
+  "rank_scope_status": "RANK_SCOPE_RESTRICTION_REQUIRED",
+  "runtime_seconds": 1.2771199580165558,
+  "schema_version": "valideval.cpu-maxout-stress.v7.2.1",
+  "status": "CPU_MAXOUT_STATISTICAL_STRESS_COMPLETE"
+}

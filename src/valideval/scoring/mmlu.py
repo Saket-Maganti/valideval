@@ -7,8 +7,11 @@ from valideval.scoring.contracts import ParsedPrediction
 
 _CHOICES = frozenset({"A", "B", "C", "D"})
 _FINAL_PATTERNS = (
-    re.compile(r"(?:final\s+answer|answer)\s*(?:is|:)\s*[\(\[]?([A-D])[\)\]]?", re.I),
-    re.compile(r"####\s*[\(\[]?([A-D])[\)\]]?", re.I),
+    re.compile(
+        r"(?:final\s+answer|answer)\s*(?:is|:)\s*[\(\[]?([A-D])[\)\]]?(?![A-Za-z])",
+        re.I,
+    ),
+    re.compile(r"####\s*[\(\[]?([A-D])[\)\]]?(?![A-Za-z])", re.I),
 )
 
 

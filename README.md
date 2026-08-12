@@ -8,6 +8,27 @@ evidence about sensitivity, false-positive behavior, specificity, uncertainty, m
 transfer. The authoritative historical-evidence boundary remains the V5 claim ledger at
 `results/evidence/claim_evidence_ledger_v5.csv`; older V4/no-run documents are historical snapshots.
 
+## V7.2.1 final pre-GPU CPU closure
+
+V7.2.1 is the canonical engineering source for the next Kaggle S1 smoke. It dynamically resolves
+`valideval-v7.2.1-icml2027-kaggle-s1-ready`, adds claim-family-native known-truth confirmation,
+rare-event safety intervals, statistical stress, secure package import, typed failure/retry and
+evidence-state contracts, CPU replay, and a structured pre-GPU handoff. The native claim-policy
+result is `CLAIM_POLICY_CONFIRMATION_SUPPORTING_ONLY`: aggregate family checks pass, but 21 of 60
+prespecified critical cells fail their simultaneous safety bound. This result was not retuned.
+Clean-checkout replay uses the versioned, hash-checked historical matrix at
+`data/replay/v7_2_1/historical_mmlu_matrix.csv`; mutable local caches are not required.
+
+No new real GPU, human, held-out transport, or held-out repair evidence is present. S1 remains an
+engineering smoke, S2 is a draft pending accepted S1, and S3/S4 remain blocked. Start with
+`VALID_EVAL_ICML2027_CANONICAL_EXECUTION_HANDBOOK.md` and
+`VALID_EVAL_FINAL_CPU_MAXOUT_HANDOFF.md`. Reproduce the registered CPU state with:
+
+```bash
+python3 -m valideval replay-cpu-evidence
+python3 -m valideval validate-release
+```
+
 ## V7.1 scientific-integrity closure
 
 V7.1 repairs the execution and inferential contracts without changing the frozen V7 empirical

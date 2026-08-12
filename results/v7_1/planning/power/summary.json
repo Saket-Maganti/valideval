@@ -1,0 +1,56 @@
+{
+  "claim_boundary": "Power is simulated under declared planning distributions. S2 measurements must replace throughput, heterogeneity, and measurement-error assumptions before S3 authorization.",
+  "empirical_power_claimed": false,
+  "estimands": [
+    "PAIRWISE_ACCURACY_DIFFERENCE",
+    "MODEL_RANK_CORRELATION",
+    "MODEL_BENCHMARK_INTERACTION",
+    "FAMILY_BENCHMARK_INTERACTION",
+    "DIAGNOSTIC_TRANSPORT_EFFECT",
+    "TOP_K_DECISION_STABILITY",
+    "CLAIM_LICENSE_RATE",
+    "REPAIR_EFFECT"
+  ],
+  "runtime_seconds": 0.007101750001311302,
+  "s3_minimum_scientific_label_permitted": false,
+  "simulations_per_cell": 500,
+  "stage_design_adequacy": {
+    "S2": {
+      "adequate_primary_estimands": [],
+      "all_primary_estimands_adequate": false,
+      "primary_estimands": [
+        "CLAIM_LICENSE_RATE",
+        "DIAGNOSTIC_TRANSPORT_EFFECT",
+        "MODEL_RANK_CORRELATION",
+        "PAIRWISE_ACCURACY_DIFFERENCE",
+        "REPAIR_EFFECT",
+        "TOP_K_DECISION_STABILITY"
+      ]
+    },
+    "S3": {
+      "adequate_primary_estimands": [],
+      "all_primary_estimands_adequate": false,
+      "primary_estimands": [
+        "CLAIM_LICENSE_RATE",
+        "DIAGNOSTIC_TRANSPORT_EFFECT",
+        "MODEL_RANK_CORRELATION",
+        "PAIRWISE_ACCURACY_DIFFERENCE",
+        "REPAIR_EFFECT",
+        "TOP_K_DECISION_STABILITY"
+      ]
+    },
+    "S4": {
+      "adequate_primary_estimands": [],
+      "all_primary_estimands_adequate": false,
+      "primary_estimands": [
+        "CLAIM_LICENSE_RATE",
+        "DIAGNOSTIC_TRANSPORT_EFFECT",
+        "MODEL_RANK_CORRELATION",
+        "PAIRWISE_ACCURACY_DIFFERENCE",
+        "REPAIR_EFFECT",
+        "TOP_K_DECISION_STABILITY"
+      ]
+    }
+  },
+  "status": "PRIMARY_ESTIMAND_POWER_PLANNING_READY"
+}

@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.2-v7.2.1-final-cpu-maxout — 2026-08-12
+
+- Resealed canonical S1 provenance at a dynamically resolved V7.2.1 source tag and added a
+  repository-wide source-coherence validator.
+- Froze and confirmed claim-family-native known-truth policy simulations with Wilson rare-event
+  bounds and multiplicity-aware critical strata; the truthful result is supporting-only because
+  21 of 60 critical cells fail the simultaneous safety bound.
+- Added historical MMLU weighting, jackknife, bootstrap, rank, pairwise-multiplicity, benchmark-
+  dependence, finite-sample, materiality, human-planning, and scorer-differential CPU stress.
+- Hardened current schemas, evidence transitions, invalidation propagation, failure/retry
+  taxonomy, deterministic package validation, and adversarial ZIP import rejection.
+- Added CPU replay, release validation, doctor support, structured claim/method/experiment
+  registries, dependency locks, generated reports, and typed final machine state.
+- No new real GPU evidence, human labels, held-out transport evidence, or held-out repair evidence
+  was created. S1 remains engineering-only; S2-S4 remain blocked behind their prerequisites.
+
 ## 0.4.1-v7.1-scientific-closure — 2026-08-12
 
 - Unified the V7.1 runner, deterministic package, and importer schema and added real
