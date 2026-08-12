@@ -3,7 +3,9 @@
   "baseline_commit": "49bdc529a482596bb4bcb308b3d96df34e8dcd80",
   "canonical_s1_source_ref": "valideval-v7.2.1-icml2027-kaggle-s1-ready",
   "ci": {
-    "status": "PENDING_PUSH"
+    "canonical_s1_tag_run": "https://github.com/Saket-Maganti/valideval/actions/runs/31618348544",
+    "pre_gpu_alias_tag_run": "https://github.com/Saket-Maganti/valideval/actions/runs/31618346064",
+    "status": "PASS"
   },
   "claim_family_scope": [
     "ITEM_DIAGNOSTICS",
@@ -37,11 +39,11 @@
   },
   "evidence_state_status": "TRANSITIONS_AND_INVALIDATION_PROPAGATION_ENFORCED",
   "exact_next_action": "Check out valideval-v7.2.1-icml2027-kaggle-s1-ready and run kaggle_icml2027/00_v7_2_t4x2_preflight.ipynb on Kaggle with two T4 GPUs.",
-  "final_source_commit": "PENDING_FINAL_SOURCE_TAG",
+  "final_source_commit": "fd92ad6e61ffe43a0198553326a3b375a43ee6dc",
   "final_source_tag": "valideval-icml2027-pre-gpu-cpu-maxout",
-  "git_clean": "PENDING_FINAL_VALIDATION",
+  "git_clean": "SOURCE_TAG_CLEAN_CHECKOUT_VERIFIED",
   "importer_security": "ADVERSARIAL_ARCHIVE_REJECTION_TESTED",
-  "metadata_commit": "PENDING_METADATA_COMMIT",
+  "metadata_commit": "THIS_COMMIT",
   "numerical_reproducibility": {
     "GPU_inference": "ENVIRONMENT_SENSITIVE_NOT_RUN",
     "frozen_json_hashes": "BITWISE_STABLE",
@@ -73,16 +75,16 @@
   "v7_2_1_closure_status": "V7_2_1_INTEGRITY_CLOSURE_COMPLETE",
   "v8_status": "V8_EXPLORATORY_IMPROVEMENT_FOUND_CONFIRMATION_NOT_RUN",
   "validation": {
-    "build": "PENDING_FINAL_VALIDATION",
-    "coverage": "PENDING_FINAL_VALIDATION",
-    "format": "PENDING_FINAL_VALIDATION",
-    "fuzz": "ARCHIVE_AND_IMPORTER_ADVERSARIAL_TESTS_REGISTERED",
-    "lint": "PENDING_FINAL_VALIDATION",
-    "mutation_testing": "MANUAL_CRITICAL_MUTATION_PROBES_REGISTERED",
-    "mypy": "PENDING_FINAL_VALIDATION",
-    "notebooks": "PENDING_FINAL_VALIDATION",
-    "release": "PENDING_FINAL_VALIDATION",
-    "secret_scan": "PENDING_FINAL_VALIDATION",
-    "tests": "PENDING_FINAL_VALIDATION"
+    "build": "PASS_WHEEL_SDIST_AND_INTERNAL_BUNDLE",
+    "coverage": "PASS_84_PERCENT_REPOSITORY_73_PERCENT_ACTIVE_V7_2_1_MODULES",
+    "format": "PASS_483_FILES",
+    "fuzz": "PASS_ARCHIVE_AND_IMPORTER_ADVERSARIAL_TESTS",
+    "lint": "PASS",
+    "mutation_testing": "PASS_MANUAL_CRITICAL_POLICY_PROMPT_SOURCE_AND_IMPORT_PROBES",
+    "mypy": "PASS_20_ACTIVE_SOURCE_FILES",
+    "notebooks": "PASS_5_DETERMINISTIC_NOTEBOOKS_AND_FIXTURE_EXECUTION",
+    "release": "PASS_CLEAN_CHECKOUT_REPLAY_DOCTOR_VALIDATION_AND_GENERATED_DRIFT",
+    "secret_scan": "PASS_1430_TRACKED_FILES",
+    "tests": "PASS_506_TESTS_2_BENIGN_WARNINGS"
   }
 }
