@@ -2,9 +2,9 @@
 
 ## 1. Executive verdict
 
-The V7.1 implementation is scientifically execution-ready once the canonical source tag and CI
-reseal recorded in the machine state pass. This means the software boundary is ready; it does not
-mean the empirical Study-C stages are authorized or complete.
+The V7.1 implementation is `VALID_EVAL_V7_1_SCIENTIFIC_EXECUTION_READY` at the canonical tagged
+source and passing CI. This means the software boundary is ready; it does not mean the empirical
+Study-C stages are authorized or complete.
 
 ## 2. Deep-audit issues received
 
@@ -131,8 +131,9 @@ and hashes are recorded in the machine state after the deterministic reseal.
 
 ## 26. Tests and CI
 
-Local tests, Ruff lint/format, critical-module mypy, notebook fixtures, artifact validation, and
-sdist/wheel builds are required to pass. The exact counts and CI run are recorded in machine state.
+Local validation passed 419 tests with two existing constant-input warnings, Ruff lint and format,
+55 critical mypy source files, 12 notebook fixture tests, V7 artifact checksums, secret scan, and
+sdist/wheel builds. GitHub Actions run 31592006612 passed on the tagged scientific commit.
 
 ## 27. Final execution authorization
 
