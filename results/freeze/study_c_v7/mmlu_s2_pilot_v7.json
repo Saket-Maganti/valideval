@@ -1,0 +1,1416 @@
+{
+  "benchmark_id": "mmlu",
+  "dataset_repository": "cais/mmlu",
+  "dataset_revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+  "few_shot_examples_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "few_shot_ids": [],
+  "few_shot_policy": "zero_shot_v7",
+  "item_count": 200,
+  "items": [
+    {
+      "item_hash": "ffb6573b4df81563fc132de5d8470fa2f10395ffc3d175ee083cd4cf89c0fb34",
+      "item_id": "mmlu-abstract_algebra-ffb6573b4df81563fc132de5",
+      "normalized_text_hash": "26148c04484a8258315939a36d2eb09457425d04706c812bf359fb6765010047",
+      "row_index": 13,
+      "subtask": "abstract_algebra"
+    },
+    {
+      "item_hash": "4babfb64050286781c33ea4991cb5a7d7d172fa0183634c1593feae676f353de",
+      "item_id": "mmlu-anatomy-4babfb64050286781c33ea49",
+      "normalized_text_hash": "fcd7db13ab54d6f28cc3d0111a329292639c81e40dc9368f1003497176fee924",
+      "row_index": 126,
+      "subtask": "anatomy"
+    },
+    {
+      "item_hash": "65db004ffe55e8779b31a17beabb32bebb0b0f78bcf0a0ccec3215a221381485",
+      "item_id": "mmlu-anatomy-65db004ffe55e8779b31a17b",
+      "normalized_text_hash": "a6ff1a12605c8a18b4f270882af60716306b81b28b02dfeac23c5df47aa3b192",
+      "row_index": 220,
+      "subtask": "anatomy"
+    },
+    {
+      "item_hash": "e562dc13f1704e7a334f7a8b722ae8495ae33c376c1430d20a05fc1068a85def",
+      "item_id": "mmlu-astronomy-e562dc13f1704e7a334f7a8b",
+      "normalized_text_hash": "9eb169d6b81a508da0a9054b1f283aad6ca62e6ad6a8836fbbb4b811dc9ff1f8",
+      "row_index": 267,
+      "subtask": "astronomy"
+    },
+    {
+      "item_hash": "850f3850fd4c46786378bca17475b3263b2f5f57aff6067097c1a164f5128cee",
+      "item_id": "mmlu-astronomy-850f3850fd4c46786378bca1",
+      "normalized_text_hash": "457d3ee2f3c9113ef70be600cf378952af8dc081026e697db21497f641434806",
+      "row_index": 301,
+      "subtask": "astronomy"
+    },
+    {
+      "item_hash": "a7d96ed0cf8f4098ea7bab9a871f6ac79c3cac7f989a307f97d8450caf5d0c41",
+      "item_id": "mmlu-astronomy-a7d96ed0cf8f4098ea7bab9a",
+      "normalized_text_hash": "c268ec6569f951cb79fef9fd730efb6ececaf54bafb508ba209de29dd3b7a021",
+      "row_index": 344,
+      "subtask": "astronomy"
+    },
+    {
+      "item_hash": "886000037a9a3e669cdf10367ea22238eb142c1f1c056396e1400a29024b93ac",
+      "item_id": "mmlu-business_ethics-886000037a9a3e669cdf1036",
+      "normalized_text_hash": "9d7618c46835d0f5507438e4ebd55a2db8a4666cb4f7dc9fed3d8b963204a07c",
+      "row_index": 412,
+      "subtask": "business_ethics"
+    },
+    {
+      "item_hash": "b886f0199e23a9d3c2b5867948380e96935e905584d633ced7ed806aecfa1d6e",
+      "item_id": "mmlu-clinical_knowledge-b886f0199e23a9d3c2b58679",
+      "normalized_text_hash": "3c63c68682f28eed20e6e61c65fe173573488d0ea9754c384763b3a52e661835",
+      "row_index": 498,
+      "subtask": "clinical_knowledge"
+    },
+    {
+      "item_hash": "f35896b9ccc347d02e3db6be27616e85f943f10352b200b1f4e7aa5c148e5260",
+      "item_id": "mmlu-clinical_knowledge-f35896b9ccc347d02e3db6be",
+      "normalized_text_hash": "afe5e36a67a2b99a8450eb200ba519d4047accc05a2fb1623cb830dadfc7e7bb",
+      "row_index": 578,
+      "subtask": "clinical_knowledge"
+    },
+    {
+      "item_hash": "37bbf0bca87c2677afc3f5d361118596467ef3b3a0d8c35feecf7375f3da09e9",
+      "item_id": "mmlu-clinical_knowledge-37bbf0bca87c2677afc3f5d3",
+      "normalized_text_hash": "88d7b729c3efef9beb49c395fe0040b12aeb228ceb542d067d41f57c50a5d0b8",
+      "row_index": 582,
+      "subtask": "clinical_knowledge"
+    },
+    {
+      "item_hash": "cbf552ea694baf9d68292127870b84dc112b27068c4339218a904eb4051f17af",
+      "item_id": "mmlu-college_biology-cbf552ea694baf9d68292127",
+      "normalized_text_hash": "d825c178a1bd38a4271c178ccb2c86473b92405d5670504f70c0926fd8dfba33",
+      "row_index": 870,
+      "subtask": "college_biology"
+    },
+    {
+      "item_hash": "85481f7ca773f9d793a32ec7b337aa5f6a474c6306ad36a5fbf965f4d6566e5e",
+      "item_id": "mmlu-college_chemistry-85481f7ca773f9d793a32ec7",
+      "normalized_text_hash": "b52efdfd8056b08e8f9540439edf27a03f283179f3dc90716b7aae4a9c2b518d",
+      "row_index": 918,
+      "subtask": "college_chemistry"
+    },
+    {
+      "item_hash": "e2383c98dba9e69c219f557787706eb1269f3433f1c15551096882aff1f9c2a8",
+      "item_id": "mmlu-college_chemistry-e2383c98dba9e69c219f5577",
+      "normalized_text_hash": "db1d8aa531ebc24641cc47730f0d653790a50c6656819cec1f89e6eee124d61f",
+      "row_index": 950,
+      "subtask": "college_chemistry"
+    },
+    {
+      "item_hash": "5c7bfc50f3105db967ea58664adb9cbc486087662c12b6783d5f6b740223df6d",
+      "item_id": "mmlu-college_computer_science-5c7bfc50f3105db967ea5866",
+      "normalized_text_hash": "efbfd5a53f1f8230bb7898dba5d5e66c69e2a64725d1718c3572fd6f4823d464",
+      "row_index": 1040,
+      "subtask": "college_computer_science"
+    },
+    {
+      "item_hash": "53d2cfa9fded9994a64ed9104174a83afd9820dc638957673cb01e14dfcc823d",
+      "item_id": "mmlu-college_mathematics-53d2cfa9fded9994a64ed910",
+      "normalized_text_hash": "ec03711d89b044d887856025a8e90b7fd064f90f75eecd7088bdc11b358be4aa",
+      "row_index": 1096,
+      "subtask": "college_mathematics"
+    },
+    {
+      "item_hash": "4ca8aa1666a5995ed2b0aab24856d3667ea7759f6d0ada4dd88af7f04ee1f075",
+      "item_id": "mmlu-college_medicine-4ca8aa1666a5995ed2b0aab2",
+      "normalized_text_hash": "6ded6ef111714ae35fa6f8570c3f998d52184337f991ba5c7de7ff41f818fb5c",
+      "row_index": 1239,
+      "subtask": "college_medicine"
+    },
+    {
+      "item_hash": "15fd122187bbf1ae099c653e926433291069f21d79d997a76f3b04657fbe2110",
+      "item_id": "mmlu-college_physics-15fd122187bbf1ae099c653e",
+      "normalized_text_hash": "f3e7f6e8769190ba4077bd267bb514c6da02f63235063ede1d2f9302cf7498fa",
+      "row_index": 1425,
+      "subtask": "college_physics"
+    },
+    {
+      "item_hash": "0b2f678b3b596651df8f4bc51763d4788e93cc84ea300a8252ebded01f50b805",
+      "item_id": "mmlu-college_physics-0b2f678b3b596651df8f4bc5",
+      "normalized_text_hash": "c4881874b853cac45324e7c42caf0a5400164c9f61d2feeb70979a2b9086a677",
+      "row_index": 1450,
+      "subtask": "college_physics"
+    },
+    {
+      "item_hash": "db34152b0565565d110e48870a3126e970fe31a505517ccc4520a4650b9ad2dc",
+      "item_id": "mmlu-computer_security-db34152b0565565d110e4887",
+      "normalized_text_hash": "13e0478fefc8c6c26c22c7dcb16c127a07712758a0a552a2d230b20fa8774d41",
+      "row_index": 1559,
+      "subtask": "computer_security"
+    },
+    {
+      "item_hash": "522f5fed6b5357e0f04f7c032cf886cf8152c946a51d88191c3e5b47d05a33f8",
+      "item_id": "mmlu-conceptual_physics-522f5fed6b5357e0f04f7c03",
+      "normalized_text_hash": "812012b7829694d6ef5fbdc1a8ba6f57193c4ce1636c23b869d4d7bf5ca0dcc9",
+      "row_index": 1590,
+      "subtask": "conceptual_physics"
+    },
+    {
+      "item_hash": "bc705685007e8800b6c4ff7bdcf14ac53cd1bfc07a8c650c6804e3bacf0784a7",
+      "item_id": "mmlu-conceptual_physics-bc705685007e8800b6c4ff7b",
+      "normalized_text_hash": "5941487d124ebbc1a45623cff9425b87e7be2c1670694ac9d60d511997149d04",
+      "row_index": 1661,
+      "subtask": "conceptual_physics"
+    },
+    {
+      "item_hash": "9fe7d779054d4a11414aa2de2b25f73b8158b03d4706418aab9eacda15674c47",
+      "item_id": "mmlu-conceptual_physics-9fe7d779054d4a11414aa2de",
+      "normalized_text_hash": "654b712b13d4ab950151700b2810dc52e4ab14ccccda2063e7d90a293a5bd137",
+      "row_index": 1756,
+      "subtask": "conceptual_physics"
+    },
+    {
+      "item_hash": "a6899b3f2942661a024421a9ce7e39bf288142ee707465dd60748a18a4aaef3a",
+      "item_id": "mmlu-econometrics-a6899b3f2942661a024421a9",
+      "normalized_text_hash": "80db87fcb5711c5273ca9dfd3c8d2e714e0467020a480bcfa5947eb7c8106875",
+      "row_index": 1823,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "e6e06e8b5266b8d4b5abf7fb2c40a0ae3658dfd43524cf338290ab0d0d4911bc",
+      "item_id": "mmlu-econometrics-e6e06e8b5266b8d4b5abf7fb",
+      "normalized_text_hash": "f92e91ac663c4f61d17c1318fc02d2ea7510951e8949aec6f116641cf756c18b",
+      "row_index": 1830,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "2d2b045c3f034e3ecbe136db3d455e287eaf44e40ec3d14690b27ede8c214ada",
+      "item_id": "mmlu-econometrics-2d2b045c3f034e3ecbe136db",
+      "normalized_text_hash": "da4af972cf38a8d577a9063464b63451b81337007676e76699e5fb8dce0edbb4",
+      "row_index": 1843,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "bfdc15b0a3fe63ac6ca22f63b83816d93dd1bdd2ae30b198bb6ae5d0d545593e",
+      "item_id": "mmlu-econometrics-bfdc15b0a3fe63ac6ca22f63",
+      "normalized_text_hash": "326240de509bd26bc4e70c75094e1ca0be18ad61f1e26e32ae622b8007831ac6",
+      "row_index": 1847,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "c060dae8f355bf8d45359e1f400f213cd0c254d743a544a8796560b68ee9e837",
+      "item_id": "mmlu-econometrics-c060dae8f355bf8d45359e1f",
+      "normalized_text_hash": "bd6b1590bc8b1d7681ef2649bb2030bf202b8a49bb28a4f53cb3a8be5eaa0209",
+      "row_index": 1872,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "346e6bbfc750b8face21094468176df92001a9b329028713b831946b99f555ba",
+      "item_id": "mmlu-econometrics-346e6bbfc750b8face210944",
+      "normalized_text_hash": "d356e0b9a7fb0d3504dc9212734f69cb06d34fa0eced55400ef7a7e4f8bcfaa3",
+      "row_index": 1873,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "c09646ed6a55b90345343b38216da28f8b3a5e8a4fe527a92e9eaf226deabda6",
+      "item_id": "mmlu-econometrics-c09646ed6a55b90345343b38",
+      "normalized_text_hash": "0843b5599d86ad487965d7ca0960d913f3b109fc1b6a5de1deeb538154e10632",
+      "row_index": 1899,
+      "subtask": "econometrics"
+    },
+    {
+      "item_hash": "c17b26d005fc35158a11aa9e26b7cfa7c65dd29b9390976e2addcf96949942c2",
+      "item_id": "mmlu-electrical_engineering-c17b26d005fc35158a11aa9e",
+      "normalized_text_hash": "862baf8d0807b6ce355548ac9228c89fb0ea22f0cc07f34516567046fea5b9a1",
+      "row_index": 2002,
+      "subtask": "electrical_engineering"
+    },
+    {
+      "item_hash": "326a6e4efbd22b76db223808ee127b6da24c63806813dbb21c61d386b11db5df",
+      "item_id": "mmlu-elementary_mathematics-326a6e4efbd22b76db223808",
+      "normalized_text_hash": "cc8995e06c86e2b9adf2dfdaa054794c9cdb11452b3ac7e417899907fdea9f44",
+      "row_index": 2083,
+      "subtask": "elementary_mathematics"
+    },
+    {
+      "item_hash": "d158297f7a51727881ed96591df82535a715ad3ff3e8b4914cf5d90db5a495a7",
+      "item_id": "mmlu-elementary_mathematics-d158297f7a51727881ed9659",
+      "normalized_text_hash": "289d41fb265133331f022b4606df0ac92892c98e609e41574644d1561cee6d31",
+      "row_index": 2173,
+      "subtask": "elementary_mathematics"
+    },
+    {
+      "item_hash": "efc4eabc1dc703fd00cdeaf3d4f8cbe3acd7be7b2ddb1e39cfca73964ecf1649",
+      "item_id": "mmlu-elementary_mathematics-efc4eabc1dc703fd00cdeaf3",
+      "normalized_text_hash": "fd778ba3c8dbcb2aa93415504bb4983c2b7b5f62a9c14fa63cd9dc380900353a",
+      "row_index": 2233,
+      "subtask": "elementary_mathematics"
+    },
+    {
+      "item_hash": "3732333b6cb1ed65f3f4dc3f7f99afcd0675d81dd4b7b136892bb456bf64222e",
+      "item_id": "mmlu-elementary_mathematics-3732333b6cb1ed65f3f4dc3f",
+      "normalized_text_hash": "fa37fdf18862e1f06809f27d84ffa441da56ac0fcff14613f9a0d13af5a9125e",
+      "row_index": 2406,
+      "subtask": "elementary_mathematics"
+    },
+    {
+      "item_hash": "84a770dccad315f23f36dfc736396cfde83d76ea6b2af6375b38c9f7469b4dbc",
+      "item_id": "mmlu-elementary_mathematics-84a770dccad315f23f36dfc7",
+      "normalized_text_hash": "030bf1b4025f0fb071de626c579f240f91491e4ad172ab00497411239c7112fb",
+      "row_index": 2425,
+      "subtask": "elementary_mathematics"
+    },
+    {
+      "item_hash": "9e1dcc321269050410826689508f9a2c7be6a019428e893f6f3e5df393289b62",
+      "item_id": "mmlu-formal_logic-9e1dcc321269050410826689",
+      "normalized_text_hash": "29535800f8ca168d50ca64081799c6c211ce389c575cc70220749ffe2ac24207",
+      "row_index": 2475,
+      "subtask": "formal_logic"
+    },
+    {
+      "item_hash": "10ab63cd4a21b0bb5a7d0b8718a2c82289f5c2bcc3f8e57c3721199e2af6f1af",
+      "item_id": "mmlu-formal_logic-10ab63cd4a21b0bb5a7d0b87",
+      "normalized_text_hash": "2fec69e8d720fb41461a1b67798e8521ba74b4d6ca2d9e9f8a7043ebc2cdddfd",
+      "row_index": 2520,
+      "subtask": "formal_logic"
+    },
+    {
+      "item_hash": "59eed5dd68e595ecaf9937f902e216b41635a0e8f0f2a7d830740803edf159b8",
+      "item_id": "mmlu-global_facts-59eed5dd68e595ecaf9937f9",
+      "normalized_text_hash": "024b1ffcc72f667897b0ef4ed9a164b35ffbe25f2b5512b918973210de19fc7c",
+      "row_index": 2584,
+      "subtask": "global_facts"
+    },
+    {
+      "item_hash": "6fbb018948756045c0009be13bb7e01548f811a58cfeafd1390fe0b8de836078",
+      "item_id": "mmlu-global_facts-6fbb018948756045c0009be1",
+      "normalized_text_hash": "c0ce80599e634ad344a08ce377e5903409bd3922077252cb39b6f5f02fcac1c6",
+      "row_index": 2617,
+      "subtask": "global_facts"
+    },
+    {
+      "item_hash": "13cc1ef3ed16338374e1b0a625c0f3fd0911db7387d99758073e7c6fca3b2ed2",
+      "item_id": "mmlu-high_school_biology-13cc1ef3ed16338374e1b0a6",
+      "normalized_text_hash": "5b6b95110a0b04fbf249f1af42a9d320ac9c0e55d4645ef7778d6a40036f80d9",
+      "row_index": 2794,
+      "subtask": "high_school_biology"
+    },
+    {
+      "item_hash": "ac06b124df31b4f96f8320cf6276e509078f9121a5b1f72dc1666159ce769411",
+      "item_id": "mmlu-high_school_biology-ac06b124df31b4f96f8320cf",
+      "normalized_text_hash": "c6c782f9dfb507778e384f08f58b60782f318d9fbece111bf3cfcff96da7dc81",
+      "row_index": 2818,
+      "subtask": "high_school_biology"
+    },
+    {
+      "item_hash": "e5695013c7e86961cb7d65b2a1737322f34eda93aa823828822bbbffb970da51",
+      "item_id": "mmlu-high_school_biology-e5695013c7e86961cb7d65b2",
+      "normalized_text_hash": "827a6f38d290d5e6d892ac0d67aadff6e34adb86f59aece9037a4f057b8618bc",
+      "row_index": 2819,
+      "subtask": "high_school_biology"
+    },
+    {
+      "item_hash": "f1f8303b5f93469a9d4cb000809c2958209efe1606246d6fc88fe2f9561c915c",
+      "item_id": "mmlu-high_school_biology-f1f8303b5f93469a9d4cb000",
+      "normalized_text_hash": "914350dc6c2d7f2c935dfdde10e00d3b935755fdb82c0bbe99a29a8fad0b2059",
+      "row_index": 2918,
+      "subtask": "high_school_biology"
+    },
+    {
+      "item_hash": "25f23d757978213867efe4636199b60a8ecd72044975297af0861941431cabf4",
+      "item_id": "mmlu-high_school_chemistry-25f23d757978213867efe463",
+      "normalized_text_hash": "c4a650185ab12ad96a95f2bd435d1912c6b80ec9288ab0f3e06bc5616c127988",
+      "row_index": 3041,
+      "subtask": "high_school_chemistry"
+    },
+    {
+      "item_hash": "bc893cb6a4163ef0591efc0442432adc9c306b6861194ddaa04457137ed916e8",
+      "item_id": "mmlu-high_school_chemistry-bc893cb6a4163ef0591efc04",
+      "normalized_text_hash": "e95b0d36e18992df8a5857015e789c4d8be02c4a43e52575d1b77ff010f5bd96",
+      "row_index": 3067,
+      "subtask": "high_school_chemistry"
+    },
+    {
+      "item_hash": "adeed37158f65cc82c057d194abbfb61a8fe7a8ce4ea3731b5acad9bb9e6378b",
+      "item_id": "mmlu-high_school_chemistry-adeed37158f65cc82c057d19",
+      "normalized_text_hash": "a3345956686ffbbc360c7be642f295b714e2ba56f739d1f49a4dff7edfed087c",
+      "row_index": 3087,
+      "subtask": "high_school_chemistry"
+    },
+    {
+      "item_hash": "71d374e1a95608f5831214f7826fc4e027bdbb2cbd3a38279a0d9c43485a333b",
+      "item_id": "mmlu-high_school_computer_science-71d374e1a95608f5831214f7",
+      "normalized_text_hash": "12f2d59157c23d833ba162e281ac53442f31f87eeffe036d63c30da00ea70f99",
+      "row_index": 3208,
+      "subtask": "high_school_computer_science"
+    },
+    {
+      "item_hash": "3e783ea5d1f78430f27f9d7a5b7608be5c38eea6df482047f448e08a9318ef5b",
+      "item_id": "mmlu-high_school_european_history-3e783ea5d1f78430f27f9d7a",
+      "normalized_text_hash": "a68ff9a2a874bd826ff064e638b7bfc4b1556e85153db51ced3adfbebd63353e",
+      "row_index": 3330,
+      "subtask": "high_school_european_history"
+    },
+    {
+      "item_hash": "3abeea8af96b55cd16da80e831c70e05139c2c1b481a9640b72227f0241590da",
+      "item_id": "mmlu-high_school_european_history-3abeea8af96b55cd16da80e8",
+      "normalized_text_hash": "ce4155b675aefaccda99d5b07324f5921a5f5acd3d0e9f164cff3d69f05f309a",
+      "row_index": 3398,
+      "subtask": "high_school_european_history"
+    },
+    {
+      "item_hash": "533c714fd428eaf5de248614b1156cc4d64d0938cc350718ca4282ddb57a2c82",
+      "item_id": "mmlu-high_school_geography-533c714fd428eaf5de248614",
+      "normalized_text_hash": "0f25e03438df944ac6568c8f92b9e911ddde2221109e911faf3c1fa460beee39",
+      "row_index": 3563,
+      "subtask": "high_school_geography"
+    },
+    {
+      "item_hash": "fac4b37bcad7bb575bbb48ef841abb552224e43b3c0bbfb7bb6e7fe7675566a4",
+      "item_id": "mmlu-high_school_geography-fac4b37bcad7bb575bbb48ef",
+      "normalized_text_hash": "7b1b570902fe78f84cdba91fd56137f21ae2ca1c53a898b1e0937526576c3be4",
+      "row_index": 3591,
+      "subtask": "high_school_geography"
+    },
+    {
+      "item_hash": "e5efbf21e3686b6aef2a0d727357339714bfa154400206ed62e4183c7b5dccc9",
+      "item_id": "mmlu-high_school_geography-e5efbf21e3686b6aef2a0d72",
+      "normalized_text_hash": "6d17a62c7335b1ae670f5d6bfda19712ca50aafb3689b7b6136f8888558e8d00",
+      "row_index": 3629,
+      "subtask": "high_school_geography"
+    },
+    {
+      "item_hash": "f07754a77bddf3a731ce9e9d79bb4a397774250cfc4f592e1ee24937c52b3fa2",
+      "item_id": "mmlu-high_school_government_and_politics-f07754a77bddf3a731ce9e9d",
+      "normalized_text_hash": "c6ba7ee64ee6adde73e2427d37a706c40907fc3817c32cae44b628fa9a640688",
+      "row_index": 3822,
+      "subtask": "high_school_government_and_politics"
+    },
+    {
+      "item_hash": "61b8f9fb33c0589c8792b2af5f591ff3550f30e3ab5cee12ab2eb06d7dcfa9a7",
+      "item_id": "mmlu-high_school_macroeconomics-61b8f9fb33c0589c8792b2af",
+      "normalized_text_hash": "66cd9d3a11df41ae13b3f0871ac31ade8e8650196ac3ee1b93779223ff8fbdcc",
+      "row_index": 3869,
+      "subtask": "high_school_macroeconomics"
+    },
+    {
+      "item_hash": "a2034eac9ed572cf55f3d16669c6f1232e3eac4312a3685bae2e59288f90ac11",
+      "item_id": "mmlu-high_school_macroeconomics-a2034eac9ed572cf55f3d166",
+      "normalized_text_hash": "517fc6f421b524c6d091609049fa3127c770d26abe83f1cda0cdb8fc734fc40c",
+      "row_index": 3916,
+      "subtask": "high_school_macroeconomics"
+    },
+    {
+      "item_hash": "8d53d474716b86aa35ae2f96e864489245969adaa8122263ab1a7a7f5dad0fe0",
+      "item_id": "mmlu-high_school_macroeconomics-8d53d474716b86aa35ae2f96",
+      "normalized_text_hash": "bc24dbf69e7de4794cb19d54dcd6a8fd7089058c1cd5ace6fe155e2c624c9468",
+      "row_index": 3944,
+      "subtask": "high_school_macroeconomics"
+    },
+    {
+      "item_hash": "ad9d5963535238e405b97832f977cd57802dec2cb6194da71bad26b58c6fbffb",
+      "item_id": "mmlu-high_school_macroeconomics-ad9d5963535238e405b97832",
+      "normalized_text_hash": "c310ffcba0a63a9eb5b4c95570b6f9418cf0604986fbd18d283d8ebacccca7f4",
+      "row_index": 4120,
+      "subtask": "high_school_macroeconomics"
+    },
+    {
+      "item_hash": "503888e63b41aceb5116de5cb89d6f8d9b1bf762b8694708b8e04ec3e464fc6c",
+      "item_id": "mmlu-high_school_macroeconomics-503888e63b41aceb5116de5c",
+      "normalized_text_hash": "62102c0b524a2b8a9211f502140b94e262f57f66743a182245191f7784dd8a02",
+      "row_index": 4196,
+      "subtask": "high_school_macroeconomics"
+    },
+    {
+      "item_hash": "fb2322d2853d6e987f58a0a2b641b4bf510a27659e1ec0de827249583a1cb171",
+      "item_id": "mmlu-high_school_mathematics-fb2322d2853d6e987f58a0a2",
+      "normalized_text_hash": "28f8fa8182002b7e2e170fbd62f331db5e6fdf8f41aa41a1b8648c2a8448aa3e",
+      "row_index": 4232,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "ea1ab8affdc793488758340baf11ff27d6c22417dbae89615746acb2f14cd0a2",
+      "item_id": "mmlu-high_school_mathematics-ea1ab8affdc793488758340b",
+      "normalized_text_hash": "8ed0171a97734fadf69737c4e2d8bcc41e8ea56ea27666df112d368c4c4b6b08",
+      "row_index": 4256,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "75c71fadd0640e2181717bd657cd33265837275437811b5bcfa08e54a91946f3",
+      "item_id": "mmlu-high_school_mathematics-75c71fadd0640e2181717bd6",
+      "normalized_text_hash": "ff98b994432eb80ab93a1cec2315eda36d6096864ded044a19f19c5a31a4b06f",
+      "row_index": 4261,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "db7a9def968eda0f8ec7419756265b1038dc182cc525fcd0debe6cea27a25933",
+      "item_id": "mmlu-high_school_mathematics-db7a9def968eda0f8ec74197",
+      "normalized_text_hash": "279374409b5e026a969f2588c721d812ef5bde7fef23f18f3d0aed9afd5c8519",
+      "row_index": 4315,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "fce1199ca33c9e078d674f760da4200679fb0180c8be24622be593a21cd2ff32",
+      "item_id": "mmlu-high_school_mathematics-fce1199ca33c9e078d674f76",
+      "normalized_text_hash": "29ff6a5f676d78d236aa69b0b1467d02d6781e0cda743ae663be463af1f5c389",
+      "row_index": 4328,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "0d607c52e7b204f08ec8abce95304bb4d22b5dbef0aebdadc5c6d7209873d340",
+      "item_id": "mmlu-high_school_mathematics-0d607c52e7b204f08ec8abce",
+      "normalized_text_hash": "052ed21cd040f4251e84da9fe78c694b70843d0059a8a9ee136b05e57f1ee5fb",
+      "row_index": 4345,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "57f70ef7df8e70d81fdc0f3db8bd0afc0009c2babebd8eb6a131a01dbc17ccf9",
+      "item_id": "mmlu-high_school_mathematics-57f70ef7df8e70d81fdc0f3d",
+      "normalized_text_hash": "6c78e512398045d7eefedc15aadb04ea6214225eccf41692b003c8bce05330ea",
+      "row_index": 4396,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "2a1a1df1500648511209ed47bd853fbd9627f17587a46cd9e31c66bdbcee811c",
+      "item_id": "mmlu-high_school_mathematics-2a1a1df1500648511209ed47",
+      "normalized_text_hash": "683d48075b78a6384efe05a529e3e108057900aea5ef58b414404f83775cc4d0",
+      "row_index": 4432,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "2fb911489ffc7f45fb7d9abb391d525bb55e4ed9c26eca0fc1f03dbed14c0508",
+      "item_id": "mmlu-high_school_mathematics-2fb911489ffc7f45fb7d9abb",
+      "normalized_text_hash": "6cda87a6211c7a6a613fc7a1ed8d1f7a5ebadd9dddb577af4fb7a4960268c261",
+      "row_index": 4447,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "319f4e9cd06b4c16ff23d1eb29ca5e7026cc0e7d7ba0cd84bbfc7dee6366db30",
+      "item_id": "mmlu-high_school_mathematics-319f4e9cd06b4c16ff23d1eb",
+      "normalized_text_hash": "b01bd155d9bae4da6e1d88fe5b3061c0572e5b520762b3ac7d2250a6af12031c",
+      "row_index": 4448,
+      "subtask": "high_school_mathematics"
+    },
+    {
+      "item_hash": "5e1ecf165c0b6056ba63a13787e94a81e81476adec2f0b6723d36620386e483a",
+      "item_id": "mmlu-high_school_microeconomics-5e1ecf165c0b6056ba63a137",
+      "normalized_text_hash": "39e1c8ab911092460eab82f23511836eadc56200f7099ee8057075881d1b1381",
+      "row_index": 4559,
+      "subtask": "high_school_microeconomics"
+    },
+    {
+      "item_hash": "2b05308c5dd01c92c24b3de7b7349ffed3089fa0234f15ef402a2a25ab0f9ecd",
+      "item_id": "mmlu-high_school_physics-2b05308c5dd01c92c24b3de7",
+      "normalized_text_hash": "05ab9d76e334f096247809a5af7f44928c61856db917efa8b471add29846772a",
+      "row_index": 4760,
+      "subtask": "high_school_physics"
+    },
+    {
+      "item_hash": "ea06060045c1132889e9c4098071ede2914546a764664768b4b5e6383438cc0d",
+      "item_id": "mmlu-high_school_physics-ea06060045c1132889e9c409",
+      "normalized_text_hash": "c6d115fb85184f1434dd4524de965bb5a814574a368d651a378d75610ecee4a6",
+      "row_index": 4762,
+      "subtask": "high_school_physics"
+    },
+    {
+      "item_hash": "350aab15132a5ddd500072d0f6fc4d775ed971153b5a8b2c476edcc7d5a8dd87",
+      "item_id": "mmlu-high_school_physics-350aab15132a5ddd500072d0",
+      "normalized_text_hash": "9a5fd68d39d1e5274dc5c65b63c62e09339c99c63250a1dd4fbdfdedb1fbdb11",
+      "row_index": 4778,
+      "subtask": "high_school_physics"
+    },
+    {
+      "item_hash": "428f661951af1de8a4e6d3bf9b1451c3dae0a8c99257cbabba8b0ef7411ca3f2",
+      "item_id": "mmlu-high_school_physics-428f661951af1de8a4e6d3bf",
+      "normalized_text_hash": "636a41e013388a138deb56bf1812bc8389c448985984af867605296943b0b506",
+      "row_index": 4883,
+      "subtask": "high_school_physics"
+    },
+    {
+      "item_hash": "087c1e2996c5102fe4033799561435fb2743dde74830b4a980f6de1efe8acff8",
+      "item_id": "mmlu-high_school_psychology-087c1e2996c5102fe4033799",
+      "normalized_text_hash": "00e8cf7b63dd87d3bdc3315b2205b9a2f7e480e82fbb34123f7d1f1b6a52e944",
+      "row_index": 4950,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "156db7907eb509ee15151ebbd774c5ae857a482dfb9f24afa6ee3d4c27cdb5dc",
+      "item_id": "mmlu-high_school_psychology-156db7907eb509ee15151ebb",
+      "normalized_text_hash": "cccc499e521856939885f7a10eb72e0a55083092c20770b46d65e6599c94e81f",
+      "row_index": 5028,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "bb7d86f0df0455c7aac6932fc5f65840b21b71ce4cd035b57a532b6654ffdae3",
+      "item_id": "mmlu-high_school_psychology-bb7d86f0df0455c7aac6932f",
+      "normalized_text_hash": "b20a52ac2dd2cb0f8818ae52a970807c4e5fb9c831f511327b95b5bd48b708d7",
+      "row_index": 5111,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "083f6e4c21d669c66fbcb36e93c6e75d93e6c44319fed5004b323a0c3d16b33a",
+      "item_id": "mmlu-high_school_psychology-083f6e4c21d669c66fbcb36e",
+      "normalized_text_hash": "3a6293b175c54ad8cc8b2acbd5f26967651e24e7b343f42f6ea304828f4d822a",
+      "row_index": 5114,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "42154b1f4572492afe6b2444e149a13fdedeeb9b5a11bac7d12a0de9faedbec8",
+      "item_id": "mmlu-high_school_psychology-42154b1f4572492afe6b2444",
+      "normalized_text_hash": "143fa646169d9ae907ff27883ebae694e8269d8795d2d89d705825e41f708a77",
+      "row_index": 5307,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "6afe7c540422f5e523979ae9e96ea22cf7d965dc22100095bab1078a0c809a24",
+      "item_id": "mmlu-high_school_psychology-6afe7c540422f5e523979ae9",
+      "normalized_text_hash": "4345ca839f84d2ae04f02b8e5603e549f656ef75ff7facd9cef28a176e1e35dc",
+      "row_index": 5317,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "2641ad45371ebbe4205752a77005c0d7184b7ecc064a6d93e1840d22d6f81539",
+      "item_id": "mmlu-high_school_psychology-2641ad45371ebbe4205752a7",
+      "normalized_text_hash": "8c36b1bfe2b9c1728354ba2b2408082c668b9f0ee8ada8e8b8c4a7cc17f1b266",
+      "row_index": 5341,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "2b3c7f4afae012a416a11cb0b86cbd2fe893b9632d4f8bd159385afb0bdf81e3",
+      "item_id": "mmlu-high_school_psychology-2b3c7f4afae012a416a11cb0",
+      "normalized_text_hash": "c9ac20906e145146a734972d53e002cde2fa6d0880b7440a859bb666608c7edc",
+      "row_index": 5414,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "cdef50fa19b60f4ebec7e4895d254123b7e0bb359ad1666dff7841e14456f6a1",
+      "item_id": "mmlu-high_school_psychology-cdef50fa19b60f4ebec7e489",
+      "normalized_text_hash": "6520ac1d37d6d20989ac88e76fd9373e3e7fafd977b4bfe418273579903968a0",
+      "row_index": 5422,
+      "subtask": "high_school_psychology"
+    },
+    {
+      "item_hash": "0baa2d8b92d124f42febb9c31dcc23aac29a6030e902d791f080c3ff25e68d5b",
+      "item_id": "mmlu-high_school_statistics-0baa2d8b92d124f42febb9c3",
+      "normalized_text_hash": "2831852f548ff2d161acb769c99c024d5425bb02a2a178f662c251b16d317885",
+      "row_index": 5444,
+      "subtask": "high_school_statistics"
+    },
+    {
+      "item_hash": "30dd332c3b619574e82c9cdca92abcf0e13a8f125a77eb328b34c3452ba664ba",
+      "item_id": "mmlu-high_school_statistics-30dd332c3b619574e82c9cdc",
+      "normalized_text_hash": "4b0a98a3ccea3405ee735897cad671a5c9534bcb21a8d0bdd850f49eae51ce15",
+      "row_index": 5449,
+      "subtask": "high_school_statistics"
+    },
+    {
+      "item_hash": "c3b79ef1530bd572e0b149965b790b74cec4d4c8a3077371436c5b8919fc3ab0",
+      "item_id": "mmlu-high_school_statistics-c3b79ef1530bd572e0b14996",
+      "normalized_text_hash": "231955d10f3deb3fe2e1e646b6b62bd2fe99db3266edd54b2fe3d167938fece4",
+      "row_index": 5517,
+      "subtask": "high_school_statistics"
+    },
+    {
+      "item_hash": "270449b4c979d76dce89811f778b8a2faf6daaf06da49daf4cadea9971b76dd9",
+      "item_id": "mmlu-high_school_statistics-270449b4c979d76dce89811f",
+      "normalized_text_hash": "1377b4ce19a65e4a777cc1de7bcae4e8057f9922f615063e50c6f39c6a9c1bf8",
+      "row_index": 5528,
+      "subtask": "high_school_statistics"
+    },
+    {
+      "item_hash": "bdd9dec0bf3330ef6fa9e11c7da239231e9688fb7a53f168823b3ec718241f94",
+      "item_id": "mmlu-high_school_us_history-bdd9dec0bf3330ef6fa9e11c",
+      "normalized_text_hash": "78e4f157a5ab16b5437f88c48634d62564e03249b7390667059031a7d8c0d0ee",
+      "row_index": 5722,
+      "subtask": "high_school_us_history"
+    },
+    {
+      "item_hash": "fb0f32194decf10c66713013ce19fcef37d1a1119f4fd009bb748fb1a1724397",
+      "item_id": "mmlu-high_school_us_history-fb0f32194decf10c66713013",
+      "normalized_text_hash": "1a2ae0ad0c9f5ab560aec0de05c683224dae502a5408d571ca1f65b50d7125aa",
+      "row_index": 5741,
+      "subtask": "high_school_us_history"
+    },
+    {
+      "item_hash": "93172c47876cecd3a93da5658c7ddb8fc6efd6de77516ae9cfef9f0dacdc4209",
+      "item_id": "mmlu-high_school_world_history-93172c47876cecd3a93da565",
+      "normalized_text_hash": "a9bd334ee556663dd5c794ccd8a907b48696ad22e2955fc8d01a234c86bac425",
+      "row_index": 5855,
+      "subtask": "high_school_world_history"
+    },
+    {
+      "item_hash": "5c7cc69a5793c5f2a447f828eb45b32b39b624db1d7b39abd916263944fdcbdf",
+      "item_id": "mmlu-high_school_world_history-5c7cc69a5793c5f2a447f828",
+      "normalized_text_hash": "8f4aceda6135e865febf14e1b84e2cbc1272720597a1558cde00d2713e3e04c8",
+      "row_index": 5905,
+      "subtask": "high_school_world_history"
+    },
+    {
+      "item_hash": "bb574fb91438bf4b3c8ade76334b859e7f713ba3bca252314f641dc82842b26f",
+      "item_id": "mmlu-high_school_world_history-bb574fb91438bf4b3c8ade76",
+      "normalized_text_hash": "2200d500ad94ab674b687411fe8d1e2b61d01bb695c93d96370103df9342e3cf",
+      "row_index": 6006,
+      "subtask": "high_school_world_history"
+    },
+    {
+      "item_hash": "f01ef38271adbaf1b35ed576add82a0dfcf548e3c66b7ab9ba18f721e240c227",
+      "item_id": "mmlu-high_school_world_history-f01ef38271adbaf1b35ed576",
+      "normalized_text_hash": "88c88511b3ca000655b76b600b61455cabc2724144bc8935b8f98624dd334342",
+      "row_index": 6046,
+      "subtask": "high_school_world_history"
+    },
+    {
+      "item_hash": "f06bba01ef62c48202730561bf54e0d968bf706d3c8f504f9b7c79ec40b3784f",
+      "item_id": "mmlu-high_school_world_history-f06bba01ef62c48202730561",
+      "normalized_text_hash": "24307df84cc3249f20d0163b95de21ba41e4cd4aa76253cbba50d83bdac30448",
+      "row_index": 6074,
+      "subtask": "high_school_world_history"
+    },
+    {
+      "item_hash": "9be1b440eb37854c7abfeb72ae46195defed813364c670fe37a9795018dd3f0e",
+      "item_id": "mmlu-human_aging-9be1b440eb37854c7abfeb72",
+      "normalized_text_hash": "f3d1ddc485b3525ae749ddb44d23fe29b7f356b424221f4d57ecbc3446309960",
+      "row_index": 6106,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "5b5628177c01cabdb1d2037596b29637c16bbfd6e09e381f99cae81d081875c0",
+      "item_id": "mmlu-human_aging-5b5628177c01cabdb1d20375",
+      "normalized_text_hash": "96316262816de16495904a7f6ca0d9966b520ae4630107087a2a9289a60c8c0b",
+      "row_index": 6107,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "662cdfb19ecf544465bf77499fb5077486d6743d531a7e0813490cdcb6b77842",
+      "item_id": "mmlu-human_aging-662cdfb19ecf544465bf7749",
+      "normalized_text_hash": "b63671875818e3ff432b89c326663ab199fec878ce931994b8ff646a43c651f1",
+      "row_index": 6244,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "13bf9b195af952a0e89615bfb7335e65ecbca46cd7a90f3bb0876d254706a7e1",
+      "item_id": "mmlu-human_aging-13bf9b195af952a0e89615bf",
+      "normalized_text_hash": "751678efa39075f8c4a53e75f82790856e33982bd560972176e5e2673ccfdeee",
+      "row_index": 6267,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "0f0e78c8c91c4f2099fa221906daf7b4e6fa3d2358098a9574ffa7112a1306d9",
+      "item_id": "mmlu-human_aging-0f0e78c8c91c4f2099fa2219",
+      "normalized_text_hash": "39062f2b37cab5728ae48a9d181dad955a6773b4b37c70626b61466d8bf44865",
+      "row_index": 6282,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "7e8aef7ee05665ea7871daac686a6a42491344c98ba52b63c7a695032101557d",
+      "item_id": "mmlu-human_aging-7e8aef7ee05665ea7871daac",
+      "normalized_text_hash": "97b0e61eef02641440ed236677a43c2f9ef8f381dfd19be0c460c9a8cf024f54",
+      "row_index": 6304,
+      "subtask": "human_aging"
+    },
+    {
+      "item_hash": "e09203116d97883cfc9c1d696f9f8d4dae45699a72a921fd97161aff3f733960",
+      "item_id": "mmlu-human_sexuality-e09203116d97883cfc9c1d69",
+      "normalized_text_hash": "3e9d16650c5e85d320db49d55697ee0014334be513db7299ceaa6c9c37938802",
+      "row_index": 6333,
+      "subtask": "human_sexuality"
+    },
+    {
+      "item_hash": "8e2a88a71303dfca1bd3b5bc0bcfd2282fa9613e27d87a683533f2c459c7612d",
+      "item_id": "mmlu-international_law-8e2a88a71303dfca1bd3b5bc",
+      "normalized_text_hash": "2a1665dc69a6ba6b5d4b2a9154ae48fa393e06ef16b3ef123fc9be47a79fab35",
+      "row_index": 6458,
+      "subtask": "international_law"
+    },
+    {
+      "item_hash": "5bb4fe803bb0df7d55e5d626e93d8f63dbfb6f8db88f984b57f5058b53619610",
+      "item_id": "mmlu-international_law-5bb4fe803bb0df7d55e5d626",
+      "normalized_text_hash": "45a5b919ee7251dba1247de90fc17c9acffe63b3e5953d370fe52176f454b3c6",
+      "row_index": 6469,
+      "subtask": "international_law"
+    },
+    {
+      "item_hash": "378bbc6c484cd18882ccfcbd456a9542f1b281e0fc95cec6358dfa5aa799d212",
+      "item_id": "mmlu-international_law-378bbc6c484cd18882ccfcbd",
+      "normalized_text_hash": "eee0c13a67818a8b2f87cfc3b540ee4e5221a934b990c7b2076378e37b5d3545",
+      "row_index": 6486,
+      "subtask": "international_law"
+    },
+    {
+      "item_hash": "21a4f5c274ed8b823835dbfd5adc3771dc5aa4885a091c921a7caf105abc356b",
+      "item_id": "mmlu-jurisprudence-21a4f5c274ed8b823835dbfd",
+      "normalized_text_hash": "a8643451dad0c4d12e2cdcf42cb29b7384a479071c71f6b2f72c3465ff617c29",
+      "row_index": 6574,
+      "subtask": "jurisprudence"
+    },
+    {
+      "item_hash": "a8533406c7456119a7213bd939ef4403c6e6ad3f2c4dc1f8ad84c427cb0ffa11",
+      "item_id": "mmlu-logical_fallacies-a8533406c7456119a7213bd9",
+      "normalized_text_hash": "1160b0ddfc4709af7c7ff9eaf47e1036626cd97fea482cbaa48a01501ceb382b",
+      "row_index": 6705,
+      "subtask": "logical_fallacies"
+    },
+    {
+      "item_hash": "10307542dc62374b75894ed8dfc68f9713637c728e3e78c727ab1dce515ed85c",
+      "item_id": "mmlu-logical_fallacies-10307542dc62374b75894ed8",
+      "normalized_text_hash": "462db105be0e51b2a6e07dddd9b4788e3bfb323e2e61fc119449c86193f8cd2d",
+      "row_index": 6718,
+      "subtask": "logical_fallacies"
+    },
+    {
+      "item_hash": "6b3a11eea3c7b92e96eb908080948b42966be949d52c4260daca8cac3a6fbde8",
+      "item_id": "mmlu-logical_fallacies-6b3a11eea3c7b92e96eb9080",
+      "normalized_text_hash": "052466f0ade159196819749d17fe53732e56c36af37cc63333e962e439d2cb73",
+      "row_index": 6735,
+      "subtask": "logical_fallacies"
+    },
+    {
+      "item_hash": "99997c002c4a21ee55d29995e84da4c6f401658486717642917012516f94c662",
+      "item_id": "mmlu-machine_learning-99997c002c4a21ee55d29995",
+      "normalized_text_hash": "6e72e9d0042a844054af36086cebe5e48cae858f3bf8bcfc111c66b5169a27cd",
+      "row_index": 6917,
+      "subtask": "machine_learning"
+    },
+    {
+      "item_hash": "7269420e32550f06fe9d5e981729af29a2c13bace8c8c77f88954c75cea1e8cc",
+      "item_id": "mmlu-management-7269420e32550f06fe9d5e98",
+      "normalized_text_hash": "13edde05af36518d686a093cf8337112d17be5fb2d6529a737b88db24d127400",
+      "row_index": 7027,
+      "subtask": "management"
+    },
+    {
+      "item_hash": "56dbaed707542050edec788ff8d4e49e912a2e67a109125b9651f6d6d1d58643",
+      "item_id": "mmlu-marketing-56dbaed707542050edec788f",
+      "normalized_text_hash": "7ee1af6e152d35a91e22218f243c1580e4809a54b8f29be6b9a93017938402e7",
+      "row_index": 7115,
+      "subtask": "marketing"
+    },
+    {
+      "item_hash": "b3441d94a9bd738f77978ac12d1af3a92c44f094a5b55abd125cd42d486e6a61",
+      "item_id": "mmlu-medical_genetics-b3441d94a9bd738f77978ac1",
+      "normalized_text_hash": "7951623ef75aa5a7a295eded043d7fe033fe6dd3cde96069aeb1fcf4adb46b58",
+      "row_index": 7367,
+      "subtask": "medical_genetics"
+    },
+    {
+      "item_hash": "c7f392ef5b3a776a1017d0a69ca2ca53fa89f8bc08909f02896fa89775077c3c",
+      "item_id": "mmlu-miscellaneous-c7f392ef5b3a776a1017d0a6",
+      "normalized_text_hash": "bf5107ff4ebeb1dbd3fbee58ef16742f40aa00acf1d22aaba2037fee099eccb2",
+      "row_index": 7420,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "9e23ce7d7b78282655edacc4fd2c372f4fd7396016cacbbbd46dca3eef94dedb",
+      "item_id": "mmlu-miscellaneous-9e23ce7d7b78282655edacc4",
+      "normalized_text_hash": "fc64e46b0643e4ef62bc649b4e081144c6902150c9fe2b74060ccd7888b39f22",
+      "row_index": 7486,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "b3581199c8145a4042e54b357d3003ef2275a5647b198d1f9bab4a122ba13b27",
+      "item_id": "mmlu-miscellaneous-b3581199c8145a4042e54b35",
+      "normalized_text_hash": "52330c0255316138214b3fe1cd0a78a0047e9b05ac5b6de900b65b940a3eedf8",
+      "row_index": 7642,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "64555547fe5a32fc7303cc0d40c152236e879437b93a58c79de9831eb40fcb31",
+      "item_id": "mmlu-miscellaneous-64555547fe5a32fc7303cc0d",
+      "normalized_text_hash": "fd0120f817f9b945a51edabe07cc16ed7d84d41238bf416bb8a4ecc082239f63",
+      "row_index": 7855,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "77d7daafcabd0d9bb8028da8eabfa847f70c42f54ca43722acc511f77918a513",
+      "item_id": "mmlu-miscellaneous-77d7daafcabd0d9bb8028da8",
+      "normalized_text_hash": "0b79c655e9cb6bc7bad29e3bd6e189ff79cdc4b2802af3c736479ea6c18e7a19",
+      "row_index": 7964,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "fb31023325e571d0b5f36077685aaff07fe471233c9092468609714fe048dc5f",
+      "item_id": "mmlu-miscellaneous-fb31023325e571d0b5f36077",
+      "normalized_text_hash": "007dbfca4033353433bc2eb691080e521c0084e391ada81a3c74c14399d1dd72",
+      "row_index": 8067,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "54e29226fccfb5dd17c833016f88857c5994bf27acf458d0186d14ea0ea1cef8",
+      "item_id": "mmlu-miscellaneous-54e29226fccfb5dd17c83301",
+      "normalized_text_hash": "2d582f07830b66de9ae915a8a93616976a6961a5c792071ba53fe8c572e34aa3",
+      "row_index": 8092,
+      "subtask": "miscellaneous"
+    },
+    {
+      "item_hash": "171ccdb72b5ce5b94d96e0af7e92713660a487d42a5bd2d8f897a68665bb1754",
+      "item_id": "mmlu-moral_disputes-171ccdb72b5ce5b94d96e0af",
+      "normalized_text_hash": "5c99b9c722d7da71dd2f177d8704a739edfbc196ea1fdaaf34ae6350cef70968",
+      "row_index": 8302,
+      "subtask": "moral_disputes"
+    },
+    {
+      "item_hash": "56fa974e9f08b9eedabcfe6166b389af400c8809eb20a068a72a64f67223290c",
+      "item_id": "mmlu-moral_disputes-56fa974e9f08b9eedabcfe61",
+      "normalized_text_hash": "3a68194cad1341bb9c307cd693e5ce74b3df86e3bfe3cb7aed143801674af52c",
+      "row_index": 8315,
+      "subtask": "moral_disputes"
+    },
+    {
+      "item_hash": "180919d9a834061b8e45b9fad7dcdd711030e80aa1d1257e8471c0fb6edcb246",
+      "item_id": "mmlu-moral_disputes-180919d9a834061b8e45b9fa",
+      "normalized_text_hash": "67642f50ac29a4a3837aa000303b339902a3c74b28f86185945af52cc63c89d3",
+      "row_index": 8377,
+      "subtask": "moral_disputes"
+    },
+    {
+      "item_hash": "5005745db0f37dd8987c6deec0aa73086fc1509b7c95d39ba6ce96dd0fe9c0c7",
+      "item_id": "mmlu-moral_disputes-5005745db0f37dd8987c6dee",
+      "normalized_text_hash": "2ac306f3a06c7a7870354e97927fa0a8af3874d02f4db50452d1a55f93dae8c4",
+      "row_index": 8395,
+      "subtask": "moral_disputes"
+    },
+    {
+      "item_hash": "0f02725f322e839016261922940a00344124961771d49f7f1a1064779adad0a8",
+      "item_id": "mmlu-moral_disputes-0f02725f322e839016261922",
+      "normalized_text_hash": "bc017cfdd41c2538ba011d82e71a6834380917bb8710b6ed7ea55ef534e37e89",
+      "row_index": 8509,
+      "subtask": "moral_disputes"
+    },
+    {
+      "item_hash": "87ce94308a2a8ce745fe40906e91f161fd3c9a73028336a0fdd48745110c6968",
+      "item_id": "mmlu-moral_scenarios-87ce94308a2a8ce745fe4090",
+      "normalized_text_hash": "46078e302ad311111adfaadf9f3e4a39f36270e397896e41733f2dad209478ca",
+      "row_index": 8545,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "b28f3e1cd1643660858774b03d2598e599a08ad04ff6de6548b2ee656a7a4077",
+      "item_id": "mmlu-moral_scenarios-b28f3e1cd1643660858774b0",
+      "normalized_text_hash": "2cab47504a1b4728f35430db8be3f27dee8e5117fbe93248ca90ef92e46f1890",
+      "row_index": 8603,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "6f95a67f327d0234a379955132881a4c786a6ba2b4f4c4a4c898a85949115825",
+      "item_id": "mmlu-moral_scenarios-6f95a67f327d0234a3799551",
+      "normalized_text_hash": "1f9518d6c04cb42c305cee808c7c7cd8d549f7ed3c2deb93c547c5e728a17570",
+      "row_index": 8718,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "8ed58aded865adb6b3b98c31d56729a7cc7149178a5b92618aa8ef605f80e7fe",
+      "item_id": "mmlu-moral_scenarios-8ed58aded865adb6b3b98c31",
+      "normalized_text_hash": "d33b45e6d5226241201f659ed602ab9630e8b9736f2c398a591777819127f655",
+      "row_index": 8832,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "f5266f8ba0e90aa828eee3882111833497844ea113e2edb2b60a6fe9b7217101",
+      "item_id": "mmlu-moral_scenarios-f5266f8ba0e90aa828eee388",
+      "normalized_text_hash": "3ca9209612954b36659135dfb2a3d749e8dea539c5bbffffc28535eb3894bf8a",
+      "row_index": 9101,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "4403ba742a23e7045abd9a2c3007f43e60d4c44c293cd9efaa69cf7adeef13ab",
+      "item_id": "mmlu-moral_scenarios-4403ba742a23e7045abd9a2c",
+      "normalized_text_hash": "cfc463411f202d32d0110b5c2a132eab7d86a0926138c200a3b4e8572552a549",
+      "row_index": 9139,
+      "subtask": "moral_scenarios"
+    },
+    {
+      "item_hash": "1813c5a153ea4ac07f3f23851d68a2941e0843b9bd6d83aab944fe68a76407f6",
+      "item_id": "mmlu-nutrition-1813c5a153ea4ac07f3f2385",
+      "normalized_text_hash": "467a32405dec2cfc0048d2f9a791b933c5f10ad636b22a62301b997f6ba84f17",
+      "row_index": 9572,
+      "subtask": "nutrition"
+    },
+    {
+      "item_hash": "56f0082529443aa93f83ef3ee2e4a4400f31ce343fc7b44e042c338da9e15c1f",
+      "item_id": "mmlu-nutrition-56f0082529443aa93f83ef3e",
+      "normalized_text_hash": "1fbc4d1bdfb4aef510b92fe013178627a80a34e6016612b29be5bbf5279a7cf8",
+      "row_index": 9616,
+      "subtask": "nutrition"
+    },
+    {
+      "item_hash": "bb74a617d6a02eebe221faa17e8ddb6bd03953841f1671b659a2e80059a9ab07",
+      "item_id": "mmlu-philosophy-bb74a617d6a02eebe221faa1",
+      "normalized_text_hash": "fc7fc796e0e4cd8975dc37a3b1ec3d077690190e0dc51b4daaa3ea33d613bd06",
+      "row_index": 9744,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "86a42d7a05bf44e41dca2863fb150f922be3802368f3c3e19fb725438c89b992",
+      "item_id": "mmlu-philosophy-86a42d7a05bf44e41dca2863",
+      "normalized_text_hash": "fe5fde4c832279efa15e72b62f601a19b58f9a2a104a5389dc3d9731a76bb9d1",
+      "row_index": 9747,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "5b0db2c1cc37b85e55e3c468f732f5e1e707e661b47da395827014a8857b57bc",
+      "item_id": "mmlu-philosophy-5b0db2c1cc37b85e55e3c468",
+      "normalized_text_hash": "3f7acf5747cd010b4f57b8ce17baf3c1f7e3e6b399592567d0e9c5b044c7ae15",
+      "row_index": 9818,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "899aa2202330317a81117ba8cdf665504e32ffa2cf9147a71a30469dada5d210",
+      "item_id": "mmlu-philosophy-899aa2202330317a81117ba8",
+      "normalized_text_hash": "a2cfca693c026152226c016d130c0ee6503553d3ff2fb4e67209338f7cf4baf3",
+      "row_index": 9827,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "502bbc37f54e7eeef33a6c759ecf8da47615f20260b5338ca04a67c30d536b51",
+      "item_id": "mmlu-philosophy-502bbc37f54e7eeef33a6c75",
+      "normalized_text_hash": "72ece27ed4903225f9ab5d028c13d8e0d6533a526b85dffd8795a13c94fd6467",
+      "row_index": 9854,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "20b38129c74ec93ced8283720fc6c392ab500ff2c3672dc4e2a2329ffa3a3220",
+      "item_id": "mmlu-philosophy-20b38129c74ec93ced828372",
+      "normalized_text_hash": "a1c3de0fd1565df06f9f0cc46d149014ff12b5f3f3ef3b2b725c93fa9e57af35",
+      "row_index": 9869,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "e68bfba4c3a6230fe202bba5b70253da2f90dad0fd881f9fd908ad94d0c706fb",
+      "item_id": "mmlu-philosophy-e68bfba4c3a6230fe202bba5",
+      "normalized_text_hash": "67b124a3d5b438305b7eb5146ecdb6f10c7c78ce42ff169c8f46bdf107366af5",
+      "row_index": 10003,
+      "subtask": "philosophy"
+    },
+    {
+      "item_hash": "9bf38f7c61785480f173f0242f439a6e50c6168078bcdb894ff9ab6291df20e8",
+      "item_id": "mmlu-prehistory-9bf38f7c61785480f173f024",
+      "normalized_text_hash": "fc5697e8fc19151f7d560575eeef86e0e0562a57b8e357ed96e4ad22a3baa166",
+      "row_index": 10025,
+      "subtask": "prehistory"
+    },
+    {
+      "item_hash": "d2b2e77ffe0d3fc1380e35ffb6aaa1dcee4d10e1c171a94ceea29831dee6fcd1",
+      "item_id": "mmlu-prehistory-d2b2e77ffe0d3fc1380e35ff",
+      "normalized_text_hash": "6f0cb5d9ce97efdb36ce9c4e093aabc39d5a635be73919c9e5b2f2bcbbf1916e",
+      "row_index": 10042,
+      "subtask": "prehistory"
+    },
+    {
+      "item_hash": "3688b9e5c102b1918dcfe06eeb76837bc68dad29204c706207e49084df4c5198",
+      "item_id": "mmlu-prehistory-3688b9e5c102b1918dcfe06e",
+      "normalized_text_hash": "4e602f0777842592f707cb54ed3c184b92ee9891671b843ad7bb873bd261c919",
+      "row_index": 10064,
+      "subtask": "prehistory"
+    },
+    {
+      "item_hash": "d6e2688f85854b6ad5feb1d0ea3f798815f078076d6b86f3701ada902593f7c2",
+      "item_id": "mmlu-prehistory-d6e2688f85854b6ad5feb1d0",
+      "normalized_text_hash": "af76910681cccf5ae24cadf63d524e8b145c89a4367a1de80ef87116e1fb86bc",
+      "row_index": 10070,
+      "subtask": "prehistory"
+    },
+    {
+      "item_hash": "195f7fd7cd3c90c2490b1db8cdd725eb8c0f70dccffc212836d02811accbca76",
+      "item_id": "mmlu-prehistory-195f7fd7cd3c90c2490b1db8",
+      "normalized_text_hash": "b2de7fce0ca4fd54d74c8665849048dd0f2b425e8168563ca67050e79680bcc2",
+      "row_index": 10329,
+      "subtask": "prehistory"
+    },
+    {
+      "item_hash": "564b9b9cedd34ce086c38c471366b5bb24aa552eb778c26a426b56210c87aff6",
+      "item_id": "mmlu-professional_accounting-564b9b9cedd34ce086c38c47",
+      "normalized_text_hash": "a370cb7f921520050c7bb0f0f8540ef961c3c85539c7653cf887a94cd1254970",
+      "row_index": 10420,
+      "subtask": "professional_accounting"
+    },
+    {
+      "item_hash": "9e3c28ef9fd279e259e75a7dd1041e4c09f01afb594807f3c9244629644a4feb",
+      "item_id": "mmlu-professional_accounting-9e3c28ef9fd279e259e75a7d",
+      "normalized_text_hash": "6a24d179c5258383a025259ad261b0305285fe8ff9b320b7e7ed08ddf3273aaf",
+      "row_index": 10479,
+      "subtask": "professional_accounting"
+    },
+    {
+      "item_hash": "7a448bd81ff52b3befabb64e4c13dbe89b6280d1e6b876bdbb5542087fb72b76",
+      "item_id": "mmlu-professional_accounting-7a448bd81ff52b3befabb64e",
+      "normalized_text_hash": "264be9b7092ef525b3ad105fb36bc4fe818644d2dc17384476e2fa0d8ed6fb8d",
+      "row_index": 10529,
+      "subtask": "professional_accounting"
+    },
+    {
+      "item_hash": "4251756bc2d10a66747c287b74282fdc277fc5412d9fb0d6cf5a21c3d4038b3b",
+      "item_id": "mmlu-professional_accounting-4251756bc2d10a66747c287b",
+      "normalized_text_hash": "dfacd345167315066f1775dba52faad6db6919437b4cbd2afcbf4110b9d1aeb6",
+      "row_index": 10537,
+      "subtask": "professional_accounting"
+    },
+    {
+      "item_hash": "6b797fde9e5939ab476c35b058ecf9943b77909f0cb62e592dd7e1c82be89b36",
+      "item_id": "mmlu-professional_accounting-6b797fde9e5939ab476c35b0",
+      "normalized_text_hash": "ea13e8bc573de7cd1d0a1b5316eb32ad509949a076b872532e3f67a988b984f4",
+      "row_index": 10630,
+      "subtask": "professional_accounting"
+    },
+    {
+      "item_hash": "cfeda8f266a09def7fbb23a2a6e7986793e705f454c2a4a7e40a42e85ba44708",
+      "item_id": "mmlu-professional_law-cfeda8f266a09def7fbb23a2",
+      "normalized_text_hash": "44a582706db361ba4dfa2ee3ee2f59eb3c5bb276d332bb3e3dfe8bdf80fc7871",
+      "row_index": 10651,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "677dab05431a8330d21cfb2225e3eb68683f9e127978d69c7ec99f075660d08a",
+      "item_id": "mmlu-professional_law-677dab05431a8330d21cfb22",
+      "normalized_text_hash": "02f15b44b261e189b81705599520b852d50b4b4450250ea082c157f12a834774",
+      "row_index": 10652,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "5f9501c212ae27e0ae033ebc14014146560bc21e439e6ae271c04e271f4795b5",
+      "item_id": "mmlu-professional_law-5f9501c212ae27e0ae033ebc",
+      "normalized_text_hash": "256b6ffabd50ffaf0c78096607207e7236ca317b944cc55469a12edfb31c2411",
+      "row_index": 10896,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "f8678689d03d446342f0d4305f585b2439155276624be4ce5aa7739993414b01",
+      "item_id": "mmlu-professional_law-f8678689d03d446342f0d430",
+      "normalized_text_hash": "3b5bda032a0568f073070f228aca92c3f1b5fcd23904fbadc61ef2e0788e2da0",
+      "row_index": 10902,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "d199e67c78f0bacd0c91c55b1be304266add34f29e2f8f2acecd44574c43f03a",
+      "item_id": "mmlu-professional_law-d199e67c78f0bacd0c91c55b",
+      "normalized_text_hash": "47218ad040ce70fb3392137aaaebb2b46d7bf6d18c2239a82ed85324f01fee83",
+      "row_index": 11103,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "94deacaddd226096318f53c670fc6241580a4913f3974b400a23eded34b34bca",
+      "item_id": "mmlu-professional_law-94deacaddd226096318f53c6",
+      "normalized_text_hash": "7df073cd52a53d77d4cf3856c52a40f0a30eae5f23b23cf7b98a947c659354ef",
+      "row_index": 11225,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "134e93b96caafc1994485199d3aacf87913af1e9374f2796da9a64ee524bb911",
+      "item_id": "mmlu-professional_law-134e93b96caafc1994485199",
+      "normalized_text_hash": "9da8b4ad21942fa1fffe6da537984ec649c1e65951c6f092c78ff63ff8459b1b",
+      "row_index": 11278,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "29aa7ce811d7c2dd2e157e9eaed7cd62c5231a76417779e0c581247705b83b07",
+      "item_id": "mmlu-professional_law-29aa7ce811d7c2dd2e157e9e",
+      "normalized_text_hash": "f85cf5be9cda95031c563704cad5617aaf1d08b188c9a3a85fb7c391e3123451",
+      "row_index": 11306,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "e2f68ce431c1b3fc363ef1ac9c048439b04f964d0fc5d5c06b7a725237dccaa2",
+      "item_id": "mmlu-professional_law-e2f68ce431c1b3fc363ef1ac",
+      "normalized_text_hash": "e85f8dbf93eeaab921694f5dcf9de494acdd64b45c84fc4fde64604ed0086518",
+      "row_index": 11307,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "27c5948964a79194c54a0ff75b2fd5951b63fbed97ea6c0c85f178cdf6069523",
+      "item_id": "mmlu-professional_law-27c5948964a79194c54a0ff7",
+      "normalized_text_hash": "a091931d2fd1610b46d5a61f49a8ce3c8e0d38d58c01879176a965ed4961d567",
+      "row_index": 11421,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "257e6f06a1705e5beed95c6ff27dbecd4a2d6a8ed4813fe266d5e8e850baccab",
+      "item_id": "mmlu-professional_law-257e6f06a1705e5beed95c6f",
+      "normalized_text_hash": "47e9929f361af18a36a023075c89583d1c6938248ddf1f50c89dbf94af3c4755",
+      "row_index": 11440,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "16f49f76b9565f129021a545d2d2e91d4240fc7146dad7d7373669446055923e",
+      "item_id": "mmlu-professional_law-16f49f76b9565f129021a545",
+      "normalized_text_hash": "8b176ca8d7851541c62f00fc480a0825172d36e72289624f31a50303f37b7eb7",
+      "row_index": 11522,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "396d701667971b412234e758992ae3eb813bb4cd24f328071d7eab1baae3d02d",
+      "item_id": "mmlu-professional_law-396d701667971b412234e758",
+      "normalized_text_hash": "c76f81dba1287996413951185a1efecfad95c69a8c102c3f0db2aa143b444a4f",
+      "row_index": 11544,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "06350c59cf25477f32973c59ebaf0ec64d35004e3ab4d12241572e351b4f3a8e",
+      "item_id": "mmlu-professional_law-06350c59cf25477f32973c59",
+      "normalized_text_hash": "f9a470dbd1126892a393530992a35e185967adf1c41988d7a375cc70c3798356",
+      "row_index": 11559,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "917bd8e03860049e824584fb3daca3e68fc3d02e08632da918da6211501c24d1",
+      "item_id": "mmlu-professional_law-917bd8e03860049e824584fb",
+      "normalized_text_hash": "3a1fedd7f7ba19d768aa2eadb42028a14d9bb66c3ef45be5f675b66782e488f2",
+      "row_index": 11583,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "97c73a16e8780f51473ffc7e559bdb86d94bf55cc9f31e6751266efa5387310d",
+      "item_id": "mmlu-professional_law-97c73a16e8780f51473ffc7e",
+      "normalized_text_hash": "4b6af15bb9b2f54d39dcadd1bbfd56594887fcb14679533a7593f011ddcdf28f",
+      "row_index": 11617,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "78126e3fa159b7748dd1b2271890de9308ce179b38b9c3466f157c289166e19b",
+      "item_id": "mmlu-professional_law-78126e3fa159b7748dd1b227",
+      "normalized_text_hash": "219796edc8c1147741bc5cd2edd8946a5812f7b81678a158cf7840ae119db225",
+      "row_index": 11637,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "7d20fdbd13dd4a6ca703eb38444c0b87e16b46d083d0404344074d0d646d2326",
+      "item_id": "mmlu-professional_law-7d20fdbd13dd4a6ca703eb38",
+      "normalized_text_hash": "1efc2736e74f700a31c297f3662acac088621ab91d33b8d63fbc345cf0e4c599",
+      "row_index": 11740,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "06f5b362788a1dd4f100673a3971497293b4d7420503d0667653693c717b14a9",
+      "item_id": "mmlu-professional_law-06f5b362788a1dd4f100673a",
+      "normalized_text_hash": "5677a92eef8ac4cd1b41bf8bd424acd20006674bc474120f1917721b6cf2294a",
+      "row_index": 11820,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "b5a4e91dfc7566142dc642fc92ee9c448eb01414c643c56290c243c83163cf1d",
+      "item_id": "mmlu-professional_law-b5a4e91dfc7566142dc642fc",
+      "normalized_text_hash": "500d5c4c45d27d1c8047c701891ab57308e962d4b17bbfe4a688c3a18ef7d346",
+      "row_index": 11826,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "60e3c6450a00a73b798712b83959265b9a3985cc9adffe284dcd333884e83d8e",
+      "item_id": "mmlu-professional_law-60e3c6450a00a73b798712b8",
+      "normalized_text_hash": "dfcd32de7de26f7ab9210d13c11283084b52ec839c532056fe6395d7819143e1",
+      "row_index": 11901,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "fa5e48e5fd88c269ed678ba0f5ce3efaa65f362f2ddc59c38e4a67434899355f",
+      "item_id": "mmlu-professional_law-fa5e48e5fd88c269ed678ba0",
+      "normalized_text_hash": "6b61a7fa2d59bc7acf301daf636725ce2d2e773edbb6485aa5adddef3d7e2697",
+      "row_index": 11924,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "8f73a82d565f41c0551320e4b9873c1c391a959ceab7780579ff6adaa866f5b7",
+      "item_id": "mmlu-professional_law-8f73a82d565f41c0551320e4",
+      "normalized_text_hash": "5e28819bec25a0c98cae923db1dd2e0c2fbe94ee72787aeb22e740279a705543",
+      "row_index": 11961,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "d48e85f7bde4703d049f18dcec2f83a394f3fcc2a0e0eeff98f2c259c871cff1",
+      "item_id": "mmlu-professional_law-d48e85f7bde4703d049f18dc",
+      "normalized_text_hash": "f2db7563075cf5196e285037bf8cbdc13283c3c4929d25724a554c64d4011f0c",
+      "row_index": 12053,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "3db1ef260b5a42721e9361441b42a456648d9fda8ff0c0b59652d91b09b9c5a4",
+      "item_id": "mmlu-professional_law-3db1ef260b5a42721e936144",
+      "normalized_text_hash": "90797cc75d6c990354ad24bfc20fc19af6d34be057b6fd8b52385e46d8f0ae41",
+      "row_index": 12087,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "b3f136bc783dcf25dbca8516951b6f64a4c930ca395e7e65b6300cfeac065e88",
+      "item_id": "mmlu-professional_law-b3f136bc783dcf25dbca8516",
+      "normalized_text_hash": "81302b0f1dfd8af1a4b48c87148e57cf0408468d4ee66a9f80060b1c5ac0fa72",
+      "row_index": 12128,
+      "subtask": "professional_law"
+    },
+    {
+      "item_hash": "5e2dc43974befefdbadca3c23e2b46d1a9c89df8b1357faeb044db115a78cbc7",
+      "item_id": "mmlu-professional_medicine-5e2dc43974befefdbadca3c2",
+      "normalized_text_hash": "fe87a05a6a5f51b71a73e17da2ce65547c9b2b24b98c5c5e0f2aa38f3c7f274c",
+      "row_index": 12382,
+      "subtask": "professional_medicine"
+    },
+    {
+      "item_hash": "2e216486397832a387085c41ce0410e955674ddfb0e7ef2331070b15593a0237",
+      "item_id": "mmlu-professional_psychology-2e216486397832a387085c41",
+      "normalized_text_hash": "0cdf8637249593a41357c5efc69034145067069383178df8149039ed8eb67ed9",
+      "row_index": 12447,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "54bc41e360c99d9ef69f9dda6d61a0c49d4f603e3ccb185087120a12fa0f79af",
+      "item_id": "mmlu-professional_psychology-54bc41e360c99d9ef69f9dda",
+      "normalized_text_hash": "76b8fbc11087b5dadd12e1950d4468fde5a8ea0b438b188eb7186475b3bd4ec8",
+      "row_index": 12489,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "d0d1885818533897e3fc29d45530a58d1c544903094f74513fe0ed95877acdc1",
+      "item_id": "mmlu-professional_psychology-d0d1885818533897e3fc29d4",
+      "normalized_text_hash": "646c1c9c071dde1e47c56774b34484c006825458580cb53839fb776e9ea8f0ff",
+      "row_index": 12505,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "b4d22cdf8192fb9e85209c2ca22a0e5eccce25cd1b4451e087d2769fd2c6743e",
+      "item_id": "mmlu-professional_psychology-b4d22cdf8192fb9e85209c2c",
+      "normalized_text_hash": "71596d991c47cf3b0bade02b5e80aed0f15c015bf453f5dd9a86021974f258ca",
+      "row_index": 12586,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "2096ae08d67e4446923164e8d3fe656bf0961f60dd9d9807e650d4bdad344351",
+      "item_id": "mmlu-professional_psychology-2096ae08d67e4446923164e8",
+      "normalized_text_hash": "f03323f5004ba9171e8dffe1c7de2237cffcbcfacc0293eb0c04e95e3a6a88e0",
+      "row_index": 12589,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "332d643d1201c2362d9a2836eac9743c7bbaa7c6bafde76857c62800634958f6",
+      "item_id": "mmlu-professional_psychology-332d643d1201c2362d9a2836",
+      "normalized_text_hash": "7d80a4adc1ea6ba5744ab8fecfd32855525ce825833536cd051bab52a1d48c56",
+      "row_index": 12678,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "dcef03db87253706ebb7450214b2be1ac865ee394da354f980b13ad458a5f714",
+      "item_id": "mmlu-professional_psychology-dcef03db87253706ebb74502",
+      "normalized_text_hash": "9e238dda5fc2889847463c1cfae5ff9fb6a0eeb5c5692b10a3b3e56aed9d9355",
+      "row_index": 12858,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "a1ba74a02faf292490ed6d65d04fd3d1113f58853c19d46d10c35eff85d317ec",
+      "item_id": "mmlu-professional_psychology-a1ba74a02faf292490ed6d65",
+      "normalized_text_hash": "21adc62bffd16dc9bd3cb01b3d0f1f436c799af26234a59a8a8927857b089a86",
+      "row_index": 12974,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "d82451e52a0c137b5dee2b2ff692549933ece2c1f6ef530e5d97fe73fa739bd1",
+      "item_id": "mmlu-professional_psychology-d82451e52a0c137b5dee2b2f",
+      "normalized_text_hash": "f5eaa342f91e9e564818d12fb16df10b16fd2c684e804970e032f49c068ebb32",
+      "row_index": 13015,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "385d5d82f0a277383542e5d456cab40472aa40c2df9e4bae022c90673d267107",
+      "item_id": "mmlu-professional_psychology-385d5d82f0a277383542e5d4",
+      "normalized_text_hash": "1d8d9c2e2182dc151688ecaa22518d5d631aa11a775e72490d1763b5c97c433c",
+      "row_index": 13046,
+      "subtask": "professional_psychology"
+    },
+    {
+      "item_hash": "f2b46f883b644ed8d9a1520e36be6a0f71fa40a2831c4440c58cabd19cb6ada6",
+      "item_id": "mmlu-public_relations-f2b46f883b644ed8d9a1520e",
+      "normalized_text_hash": "2fe6bf499b8bad20b43e6be84eb927c300a829919800bdc81479e1bf11885c71",
+      "row_index": 13087,
+      "subtask": "public_relations"
+    },
+    {
+      "item_hash": "ec6b03f4837af375abad6c252c010998d874458ac86d39e899c9432ad47c8f28",
+      "item_id": "mmlu-security_studies-ec6b03f4837af375abad6c25",
+      "normalized_text_hash": "71990438193155e500d273b6b75968f81097f8eb18c53e7c0d5acc88b91f998f",
+      "row_index": 13167,
+      "subtask": "security_studies"
+    },
+    {
+      "item_hash": "3d2aace0bdd9289ccd4eb34bd87ce568796c078a87e9c6f69f55ac60be956f06",
+      "item_id": "mmlu-security_studies-3d2aace0bdd9289ccd4eb34b",
+      "normalized_text_hash": "fbd6d8cbb2b315b49b9d45171441aa59880270b2ee5bdf0ea3841fa4dff722af",
+      "row_index": 13271,
+      "subtask": "security_studies"
+    },
+    {
+      "item_hash": "93a74e30e3c39c480c751b594bafc2c2cb93e46ca4b9495b2df0ce11ec91c8e1",
+      "item_id": "mmlu-security_studies-93a74e30e3c39c480c751b59",
+      "normalized_text_hash": "f70634e7caa3580887c46c6f618fd1f1f11ed80e180554ffbd9eac9fe6737c52",
+      "row_index": 13318,
+      "subtask": "security_studies"
+    },
+    {
+      "item_hash": "cee3dd2e178801a67f7e9379eb370307f8f39a33068b270040e0fe848dc5c4a7",
+      "item_id": "mmlu-security_studies-cee3dd2e178801a67f7e9379",
+      "normalized_text_hash": "4805dcad150be6a4282937a5df5acf992a0608f4bc3123563fd491d367cab610",
+      "row_index": 13353,
+      "subtask": "security_studies"
+    },
+    {
+      "item_hash": "6c13184197a52335f5f6c743d9f22e5dca490ce50137e3faf6d8118ceb7c8b19",
+      "item_id": "mmlu-sociology-6c13184197a52335f5f6c743",
+      "normalized_text_hash": "9ed5f8aebec34881339ac708a6ff01894fe71912f8a5632863e5260eaf173c0d",
+      "row_index": 13436,
+      "subtask": "sociology"
+    },
+    {
+      "item_hash": "7ecc299cd026a92f50bb390ce15a6b2aad6a733b223a7670f0718c51e9d5468e",
+      "item_id": "mmlu-sociology-7ecc299cd026a92f50bb390c",
+      "normalized_text_hash": "5037a8504fd5dee36356ee8798245dae8cb7e8622cf263206a94c680f79f611a",
+      "row_index": 13446,
+      "subtask": "sociology"
+    },
+    {
+      "item_hash": "28982154d3c49e045995a6bd7dc21ddb8a730ad64c8d7ab7bc5c5d07307a330f",
+      "item_id": "mmlu-sociology-28982154d3c49e045995a6bd",
+      "normalized_text_hash": "28943f20762cf71b4b28f1d182d5bdd6ef2b7c98e5d886d9c2b49f867b0f22f4",
+      "row_index": 13454,
+      "subtask": "sociology"
+    },
+    {
+      "item_hash": "f2d5a5c9575486a1448f6058db3ab62bf4a751701a4e3671c947debe8c40af2f",
+      "item_id": "mmlu-sociology-f2d5a5c9575486a1448f6058",
+      "normalized_text_hash": "99fc95af9a82ecb6d9283c7b5281114986e07a78c0934aa1193e8e94e52df8b9",
+      "row_index": 13457,
+      "subtask": "sociology"
+    },
+    {
+      "item_hash": "231ee5b60f34ef7189e9761a5ac89ac6331266ea44b020c86edcaf6eebaf0a6f",
+      "item_id": "mmlu-us_foreign_policy-231ee5b60f34ef7189e9761a",
+      "normalized_text_hash": "dd4d4c00218aa2b6325bd703487eace1220179c2c15d14424e228bbfc7966000",
+      "row_index": 13607,
+      "subtask": "us_foreign_policy"
+    },
+    {
+      "item_hash": "3793f4bf46ede5e1e257ad18ae5ecc8773953a21bb7ca22c78340db8258ec98c",
+      "item_id": "mmlu-virology-3793f4bf46ede5e1e257ad18",
+      "normalized_text_hash": "2554f0eab7aec59a4080c62bf2882ffda3a06129e7188709c705ed4f7d77ecc0",
+      "row_index": 13782,
+      "subtask": "virology"
+    },
+    {
+      "item_hash": "fc939c104af4fe0ec20317d52ad20c7952a42b73850c3d6152a9ea17dc734513",
+      "item_id": "mmlu-virology-fc939c104af4fe0ec20317d5",
+      "normalized_text_hash": "8d6356c7077f53c540a51090a718c3a5fd408135af7807157b34f0e6f05f0127",
+      "row_index": 13789,
+      "subtask": "virology"
+    },
+    {
+      "item_hash": "7e00cd516b0d245322b1bad7f61639f4902e9ba1c50488fd488ba1abc2e4d7ab",
+      "item_id": "mmlu-world_religions-7e00cd516b0d245322b1bad7",
+      "normalized_text_hash": "b4371efd4b363e6fad90e71ca7f03f067c704bfb8f72241820dc02519304a3b1",
+      "row_index": 13894,
+      "subtask": "world_religions"
+    },
+    {
+      "item_hash": "69dc24999a514c482bd5f2a88ed05cb6f5c964ef6659862b9f5ee424ad65cac5",
+      "item_id": "mmlu-world_religions-69dc24999a514c482bd5f2a8",
+      "normalized_text_hash": "e699bcf83332aba7508dffbe754710245a79a84c452ce4588ba1e124404fb906",
+      "row_index": 13960,
+      "subtask": "world_religions"
+    },
+    {
+      "item_hash": "0de383ff00278a6c6539868457c486cb5bb827101df8f8b4d8a1c2fd5c3aeb10",
+      "item_id": "mmlu-world_religions-0de383ff00278a6c65398684",
+      "normalized_text_hash": "c82fcc1d7ce98adf8801a283163075c51578d9a51240a489afcda24f35baf305",
+      "row_index": 13988,
+      "subtask": "world_religions"
+    }
+  ],
+  "public_subset_sha256": "eae9e4cfb4aafa234e1ba565667519217eb6b46c3ff4377b059273c265ded025",
+  "schema_version": "7.0",
+  "split": "test",
+  "subset_policy": "seeded_stratified_pilot_v7",
+  "subset_seed": 20270809
+}

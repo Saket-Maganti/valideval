@@ -1,0 +1,4 @@
+rule,status,selected_model,expected_regret,regret_lower,regret_upper,probability_optimal
+naive_leaderboard,SELECT,deepseek-ai/deepseek-v3,0.0,0.0,0.0,1.0
+uncertainty_aware,SELECT,deepseek-ai/deepseek-v3,0.0,0.0,0.0,1.0
+claim_licensed,SELECT,deepseek-ai/deepseek-v3,0.0,0.0,0.0,1.0

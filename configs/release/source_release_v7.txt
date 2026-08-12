@@ -1,0 +1,25 @@
+# ValidEval V7 source and frozen execution inputs; no raw benchmark/model outputs.
+.gitignore
+AGENTS.md
+CHANGELOG.md
+CITATION.cff
+CONTRIBUTING.md
+LICENSE
+README.md
+RELEASE_NOTES.md
+VERSION
+Makefile
+pyproject.toml
+requirements-cpu-v7.txt
+requirements-kaggle-t4x2-v7.txt
+Dockerfile.cpu
+src/**/*.py
+tests/**/*.py
+scripts/*.py
+scripts/*.sh
+configs/**/*.yaml
+configs/**/*.yml
+configs/**/*.txt
+kaggle_v7/*.ipynb
+results/freeze/study_c_v7/*.json
+docs/**/*.md

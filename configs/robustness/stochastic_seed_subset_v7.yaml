@@ -1,0 +1,8 @@
+schema_version: "7.0"
+benchmarks: [mmlu, gsm8k, bbh]
+condition: stochastic_seed_subset
+temperature: 0.7
+top_p: 0.95
+seeds: [2027, 2028, 2029]
+subset_items_per_benchmark: 200
+evidence_class: ROBUSTNESS

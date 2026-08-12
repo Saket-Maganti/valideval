@@ -1,0 +1,49 @@
+schema_version: "7.1"
+status: PLANNING_SIMULATION_NOT_EMPIRICAL_POWER
+seed: 7101
+simulations: 500
+alpha: 0.05
+target_power: 0.80
+effect_sizes: [0.01, 0.02, 0.03]
+material_effect: 0.01
+primary_estimands:
+  - PAIRWISE_ACCURACY_DIFFERENCE
+  - MODEL_RANK_CORRELATION
+  - DIAGNOSTIC_TRANSPORT_EFFECT
+  - TOP_K_DECISION_STABILITY
+  - CLAIM_LICENSE_RATE
+  - REPAIR_EFFECT
+designs:
+  S2:
+    model_count: 8
+    family_count: 7
+    benchmark_count: 3
+    item_count: 200
+    family_correlation: 0.50
+    paired_response_correlation: 0.25
+    measurement_error: 0.15
+    transport_heterogeneity: 0.20
+    held_out_benchmark: ROTATING_LOBO
+    held_out_family: ROTATING_LOFO
+  S3:
+    model_count: 11
+    family_count: 9
+    benchmark_count: 3
+    item_count: 1319
+    family_correlation: 0.50
+    paired_response_correlation: 0.25
+    measurement_error: 0.10
+    transport_heterogeneity: 0.20
+    held_out_benchmark: ROTATING_LOBO
+    held_out_family: ROTATING_LOFO
+  S4:
+    model_count: 13
+    family_count: 11
+    benchmark_count: 3
+    item_count: 1319
+    family_correlation: 0.50
+    paired_response_correlation: 0.25
+    measurement_error: 0.10
+    transport_heterogeneity: 0.20
+    held_out_benchmark: ROTATING_LOBO
+    held_out_family: ROTATING_LOFO

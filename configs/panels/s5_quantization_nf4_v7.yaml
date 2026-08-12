@@ -1,0 +1,29 @@
+schema_version: '7.0'
+panel_id: s5_quantization_nf4_v7
+study_id: study-c-s5-v7
+evidence_class: ROBUSTNESS
+scientific_panel_adequacy: false
+model_count: 2
+family_count: 2
+models:
+- repository: Qwen/Qwen2.5-3B-Instruct
+  revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+  family: Qwen2.5
+  parameters: 3085938688
+  license: qwen-research
+  dtype: float16
+  quantization_fallback: null
+  expected_download_gb: 6.2
+  expected_vram_gb: 8.0
+  quantization: nf4
+- repository: mistralai/Mistral-7B-Instruct-v0.3
+  revision: c170c708c41dac9275d15a8fff4eca08d52bab71
+  family: Mistral
+  parameters: 7241732096
+  license: apache-2.0
+  dtype: float16
+  quantization_fallback: null
+  expected_download_gb: 14.5
+  expected_vram_gb: 15.0
+  quantization: nf4
+claim_boundary: Representative precision sensitivity only.

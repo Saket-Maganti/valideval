@@ -11,7 +11,9 @@ from typing import Any, Protocol
 from valideval.execution.config import V6ConfigurationError, load_yaml_mapping
 from valideval.execution.datasets import reject_gold_fields
 
-SUPPORTED_ARCHITECTURES = frozenset({"qwen2", "phi3", "llama"})
+SUPPORTED_ARCHITECTURES = frozenset(
+    {"qwen2", "phi3", "llama", "olmo2", "granite", "stablelm", "mistral", "gemma2"}
+)
 
 
 class ModelResolutionError(RuntimeError):
@@ -23,6 +25,10 @@ class TextGenerator(Protocol):
     cache_status: str
 
     def generate(self, prompt: str, generation: Mapping[str, Any]) -> dict[str, Any]: ...
+
+    def score_choices(
+        self, prompt: str, choices: tuple[str, ...], generation: Mapping[str, Any]
+    ) -> dict[str, Any]: ...
 
     def close(self) -> None: ...
 
@@ -51,6 +57,22 @@ class MockTextGenerator:
             "output_tokens": len(raw.split()),
             "generation_seconds": time.perf_counter() - started,
             "truncated": False,
+        }
+
+    def score_choices(
+        self, prompt: str, choices: tuple[str, ...], generation: Mapping[str, Any]
+    ) -> dict[str, Any]:
+        reject_gold_fields({"prompt": prompt, "choices": choices})
+        started = time.perf_counter()
+        selector = int(hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:8], 16)
+        raw = choices[selector % len(choices)]
+        return {
+            "raw_output": raw,
+            "input_tokens": len(prompt.split()),
+            "output_tokens": 1,
+            "generation_seconds": time.perf_counter() - started,
+            "truncated": False,
+            "choice_scores": {choice: float(choice == raw) for choice in choices},
         }
 
     def close(self) -> None:
@@ -117,16 +139,17 @@ class TransformersTextGenerator:
         self.cache_status = _cache_status(repository, revision, cache_dir)
         started = time.perf_counter()
         try:
-            self.tokenizer = AutoTokenizer.from_pretrained(
+            self.tokenizer: Any = AutoTokenizer.from_pretrained(
                 repository,
                 revision=tokenizer_revision,
                 trust_remote_code=trust_remote_code,
                 cache_dir=str(cache_dir) if cache_dir else None,
                 use_fast=True,
             )
-            self.model = AutoModelForCausalLM.from_pretrained(repository, **model_kwargs)
+            self.model: Any = AutoModelForCausalLM.from_pretrained(repository, **model_kwargs)
             if quantization in {"none", "unquantized"}:
-                self.model.to("cuda:0")
+                move_to_device: Any = self.model.to
+                move_to_device("cuda:0")
             self.model.eval()
         except Exception as exc:
             raise ModelResolutionError(
@@ -156,13 +179,22 @@ class TransformersTextGenerator:
         encoded = {key: value.to("cuda:0") for key, value in encoded.items()}
         max_new_tokens = int(generation["max_new_tokens"])
         started = time.perf_counter()
-        with torch.inference_mode():
-            outputs = self.model.generate(
-                **encoded,
-                do_sample=False,
-                max_new_tokens=max_new_tokens,
-                pad_token_id=self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
+        do_sample = bool(generation.get("do_sample", False))
+        generation_kwargs: dict[str, Any] = {
+            "do_sample": do_sample,
+            "max_new_tokens": max_new_tokens,
+            "pad_token_id": self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
+        }
+        if do_sample:
+            torch.manual_seed(int(generation.get("seed", 0)))
+            generation_kwargs.update(
+                {
+                    "temperature": float(generation.get("temperature", 1.0)),
+                    "top_p": float(generation.get("top_p", 1.0)),
+                }
             )
+        with torch.inference_mode():
+            outputs = self.model.generate(**encoded, **generation_kwargs)
         elapsed = time.perf_counter() - started
         input_count = int(encoded["input_ids"].shape[-1])
         generated = outputs[0, input_count:]
@@ -178,6 +210,52 @@ class TransformersTextGenerator:
             "output_tokens": output_count,
             "generation_seconds": elapsed,
             "truncated": output_count >= max_new_tokens and not ended_with_eos,
+        }
+
+    def score_choices(
+        self, prompt: str, choices: tuple[str, ...], generation: Mapping[str, Any]
+    ) -> dict[str, Any]:
+        """Score frozen answer labels by mean conditional token log likelihood."""
+
+        reject_gold_fields({"prompt": prompt, "choices": choices})
+        import torch
+
+        messages = [{"role": "user", "content": prompt}]
+        rendered = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        prompt_ids = self.tokenizer(
+            rendered,
+            add_special_tokens=False,
+            truncation=True,
+            max_length=int(generation.get("max_input_tokens", 4096)),
+        )["input_ids"]
+        scores: dict[str, float] = {}
+        started = time.perf_counter()
+        with torch.inference_mode():
+            for choice in choices:
+                choice_ids = self.tokenizer(f" {choice}", add_special_tokens=False)["input_ids"]
+                if not choice_ids:
+                    raise ModelResolutionError(f"empty choice tokenization for {choice!r}")
+                input_ids = torch.tensor([prompt_ids + choice_ids], device="cuda:0")
+                logits = self.model(input_ids=input_ids).logits[0]
+                log_probs = torch.log_softmax(logits, dim=-1)
+                start = len(prompt_ids) - 1
+                token_scores = [
+                    float(log_probs[start + offset, token_id].item())
+                    for offset, token_id in enumerate(choice_ids)
+                ]
+                scores[choice] = sum(token_scores) / len(token_scores)
+        best = max(sorted(scores), key=scores.__getitem__)
+        return {
+            "raw_output": best,
+            "input_tokens": len(prompt_ids),
+            "output_tokens": 1,
+            "generation_seconds": time.perf_counter() - started,
+            "truncated": False,
+            "choice_scores": scores,
         }
 
     def close(self) -> None:
@@ -197,6 +275,10 @@ class TransformersTextGenerator:
 
 def load_panel_config(path: str | Path) -> dict[str, Any]:
     panel = load_yaml_mapping(path)
+    if str(panel.get("schema_version")) == "7.0":
+        from valideval.execution.models_v7 import load_panel_config_v7
+
+        return load_panel_config_v7(path)
     required = {
         "panel_id",
         "study_id",

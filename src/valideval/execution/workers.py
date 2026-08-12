@@ -9,6 +9,11 @@ from pathlib import Path
 from typing import Any
 
 from valideval.execution.datasets import PublicInferenceItem, reject_gold_fields
+from valideval.execution.errors import (
+    RecoverableResourceFailure,
+    translate_generation_error,
+    translate_model_load_error,
+)
 from valideval.execution.manifest import EXECUTION_SCHEMA_VERSION, atomic_write_json
 from valideval.execution.models import build_text_generator
 from valideval.execution.prompts import render_prompt
@@ -36,13 +41,19 @@ def production_worker(task: Mapping[str, Any], gpu_id: str) -> dict[str, Any]:
     for item in public_items:
         reject_gold_fields(item.to_dict())
 
-    generator = build_text_generator(
-        model_record,
-        backend=backend,
-        benchmark_id=benchmark_id,
-        gpu_id=gpu_id,
-        cache_dir=task.get("model_cache_dir"),
-    )
+    try:
+        generator = build_text_generator(
+            model_record,
+            backend=backend,
+            benchmark_id=benchmark_id,
+            gpu_id=gpu_id,
+            cache_dir=task.get("model_cache_dir"),
+        )
+    except BaseException as exc:
+        translated = translate_model_load_error(exc)
+        if translated is exc:
+            raise
+        raise translated from exc
     rows: list[dict[str, Any]] = []
     failure_counts: Counter[str] = Counter()
     try:
@@ -101,7 +112,16 @@ def _run_one_item(
             int(generation_parameters.get("max_input_tokens", task["max_sequence_length"])),
             int(task["max_sequence_length"]),
         )
-        generated = generator.generate(prompt, generation_parameters)
+        if contract.get("generation_mode") == "option_log_likelihood":
+            if item.benchmark_id != "mmlu" or len(item.choices) != 4:
+                raise ValueError("option log-likelihood requires a four-choice MMLU item")
+            generated = generator.score_choices(
+                prompt,
+                ("A", "B", "C", "D"),
+                generation_parameters,
+            )
+        else:
+            generated = generator.generate(prompt, generation_parameters)
         raw_output = str(generated["raw_output"])
         input_tokens = int(generated["input_tokens"])
         output_tokens = int(generated["output_tokens"])
@@ -110,10 +130,15 @@ def _run_one_item(
         if bool(generated.get("truncated")):
             failure_type = "TRUNCATED_OUTPUT"
             extraction_status = "not_run"
+    except RecoverableResourceFailure:
+        raise
     except TimeoutError:
         generation_status = "failed"
         failure_type = "TIMEOUT"
-    except Exception:
+    except Exception as exc:
+        translated = translate_generation_error(exc)
+        if translated is not exc:
+            raise translated from exc
         generation_status = "failed"
         failure_type = "GENERATION_FAILURE"
     if generation_status == "success" and failure_type != "TRUNCATED_OUTPUT":
@@ -194,6 +219,10 @@ def _parse_without_gold(raw_output: str, item: PublicInferenceItem, contract: Ma
     if item.benchmark_id == "mmlu":
         return parse_mmlu_answer(raw_output)
     if item.benchmark_id == "gsm8k":
+        if contract.get("extraction_version") == "final_answer_marker_strict_v7":
+            from valideval.scoring.gsm8k import parse_gsm8k_answer_strict
+
+            return parse_gsm8k_answer_strict(raw_output)
         return parse_gsm8k_answer(raw_output)
     policies = contract.get("task_prompt_policies", {})
     policy = policies.get(item.subtask_id, {}) if isinstance(policies, Mapping) else {}

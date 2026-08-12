@@ -36,6 +36,14 @@ cache/*
 !cache/.gitkeep
 results/*
 !results/.gitkeep
+!results/freeze/
+results/freeze/*
+!results/freeze/study_c_v7/
+!results/freeze/study_c_v7/*.json
+!results/v7/
+!results/v7/**
+# Keep macOS metadata excluded after the V7 evidence-tree exception.
+.DS_Store
 reportcards/*
 !reportcards/.gitkeep
 
@@ -51,7 +59,7 @@ bundles/
 dashboard_data/
 external_review_packet/
 external_review_packets/
-leaderboard/
+/leaderboard/
 site/
 validation_reports/
 kaggle_outputs/

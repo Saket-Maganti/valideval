@@ -14,6 +14,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, cast
 
+from valideval.execution.errors import (
+    CudaResourceFailure,
+    ModelLoadOOM,
+)
 from valideval.execution.manifest import (
     EXECUTION_SCHEMA_VERSION,
     ConfigurationMismatchError,
@@ -39,11 +43,15 @@ class IncompleteShardError(ShardError):
 
 def classify_worker_failure(error: BaseException) -> str:
     message = str(error).lower()
+    if isinstance(error, ModelLoadOOM):
+        return "OOM"
     if type(error).__name__ in {"ModelResolutionError", "ModelLoadError"}:
         return "MODEL_LOAD_FAILURE"
     if type(error).__name__ in {"DatasetResolutionError"}:
         return "DATASET_FAILURE"
-    if isinstance(error, MemoryError) or "out of memory" in message or "cuda oom" in message:
+    if isinstance(error, (CudaResourceFailure, MemoryError)) or (
+        "out of memory" in message or "cuda oom" in message
+    ):
         return "OOM"
     if isinstance(error, TimeoutError) or "timed out" in message or "timeout" in message:
         return "TIMEOUT"
@@ -64,7 +72,7 @@ def apply_resource_fallback(
     """
 
     updated = dict(task)
-    if failure_type != "OOM":
+    if failure_type != "OOM" or not isinstance(task, Mapping):
         return updated, None
     batch_size = int(updated.get("batch_size", 1))
     sequence_length = int(updated.get("max_sequence_length", 0) or 0)
@@ -74,7 +82,12 @@ def apply_resource_fallback(
         "dtype": updated.get("dtype"),
         "quantization": updated.get("quantization"),
     }
-    if batch_size > 1:
+    prior_actions = {
+        str(row.get("action"))
+        for row in updated.get("resource_fallbacks", [])
+        if isinstance(row, Mapping)
+    }
+    if batch_size > 1 and bool(updated.get("allow_batch_size_fallback", True)):
         reduced = max(1, batch_size // 2)
         updated["batch_size"] = reduced
         fallback.update(
@@ -85,8 +98,14 @@ def apply_resource_fallback(
             }
         )
         return updated, fallback
-    if sequence_length > 1:
-        reduced = max(1, sequence_length // 2)
+    minimum_sequence = int(updated.get("minimum_sequence_length", 1))
+    sequence_allowed = bool(updated.get("allow_sequence_length_fallback", False))
+    if (
+        sequence_allowed
+        and sequence_length > minimum_sequence
+        and "reduce_sequence_length" not in prior_actions
+    ):
+        reduced = max(minimum_sequence, sequence_length // 2)
         updated["max_sequence_length"] = reduced
         fallback.update(
             {

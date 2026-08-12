@@ -1,0 +1,5 @@
+{
+  "build_status": "TRANSPORTABILITY_BUILD_READY",
+  "overall_status": "BLOCKED",
+  "reason": "No exact-model controlled cross-benchmark effects exist before GPU Study C."
+}

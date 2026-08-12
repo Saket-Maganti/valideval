@@ -1,0 +1,32 @@
+schema_version: "7.0"
+status: HUMAN_CONFIRMATORY_PROTOCOL_READY
+sampling:
+  strata: [high_diagnostic, medium_diagnostic, low_diagnostic, random_control]
+  balance_by: [subject, benchmark]
+  sample_sizes_to_plan: [50, 100, 150, 200, 300, 500]
+  sampling_unit: item
+blinding:
+  hide_diagnostic_score: true
+  hide_issue_probability: true
+  hide_model_identity: true
+  hide_response_pattern_where_avoidable: true
+  hide_external_labels: true
+taxonomy:
+  - INCORRECT_GOLD
+  - AMBIGUOUS_STEM
+  - AMBIGUOUS_OPTIONS
+  - MULTIPLE_VALID_ANSWERS
+  - INSUFFICIENT_CONTEXT
+  - OUTDATED_FACT
+  - SCORING_ERROR
+  - EXTRACTION_ERROR
+  - DOMAIN_DISPUTE
+  - NO_ISSUE
+  - UNSURE
+annotation_design:
+  supported_annotator_counts: [2, 3]
+  specialist_adjudication: true
+  primary_endpoint: precision_of_preregistered_flagged_stratum
+  recall_claim_permitted: false
+  agreement_metrics: [percent_agreement, cohens_kappa, fleiss_kappa, krippendorff_alpha]
+  uncertainty: [wilson_precision_ci, bootstrap_enrichment_ci, prevalence_ci]

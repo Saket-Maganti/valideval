@@ -12,6 +12,11 @@ def select_subset(
     target_size: int | None = None,
 ) -> dict[str, Any]:
     policy = get_policy(policy_name)
+    if policy.get("v7_validation_required"):
+        raise ValueError(
+            f"{policy_name} is a V7 confirmatory policy and must be applied through the "
+            "cross-fitted held-out validation workflow"
+        )
     removed: dict[str, list[str]] = {}
     selected = []
 

@@ -1,0 +1,1416 @@
+{
+  "benchmark_id": "gsm8k",
+  "dataset_repository": "openai/gsm8k",
+  "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+  "few_shot_examples_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "few_shot_ids": [],
+  "few_shot_policy": "zero_shot_v7",
+  "item_count": 200,
+  "items": [
+    {
+      "item_hash": "acbd370a6953b4e6248178d9accfc10c4e62d87609c3c96c30e9b11cf0848797",
+      "item_id": "gsm8k-main-acbd370a6953b4e6248178d9",
+      "normalized_text_hash": "6e9d9c1d48eaa2d8bf8146d69832151bf2840b741813d8e5a8a34c3b68844533",
+      "row_index": 6,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4ff33df90dda9c91457b9d51c41f3a0f34591473bed658edf630edede8eba674",
+      "item_id": "gsm8k-main-4ff33df90dda9c91457b9d51",
+      "normalized_text_hash": "6710fc83e60aca754f988ee29df093f21bef44b7019c137c6320573c88e04fa3",
+      "row_index": 7,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "97c0d157a6eaeb7d820efe05cf7326e82077900f23e784a95c44c1cdb0656bcf",
+      "item_id": "gsm8k-main-97c0d157a6eaeb7d820efe05",
+      "normalized_text_hash": "8aba72e5533aaf2c7e62b0a22bcef10ca8b597ce2b045683dd4489528d1d0d3d",
+      "row_index": 14,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7db9470d1b2a7fd6419a47e0f324f281787c5a6e7a6e1cdd7f78ccabf265f356",
+      "item_id": "gsm8k-main-7db9470d1b2a7fd6419a47e0",
+      "normalized_text_hash": "154c8df41aba1614e0af88f0bdbc3d2dc10e0e76789989a6c3c7c011bdb9309b",
+      "row_index": 19,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "451b493e4b1dc4e3e0fa29b070434e2d510f2b88223e5540f20aca70a9745d8e",
+      "item_id": "gsm8k-main-451b493e4b1dc4e3e0fa29b0",
+      "normalized_text_hash": "acec1453fae552944a0e2a21eb7a0f17085cf440c0ca3359183a522898e1155a",
+      "row_index": 22,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "629965c572741e6c68da4712a9090caef27ea4f5289d7b55784b13d7b62aaa63",
+      "item_id": "gsm8k-main-629965c572741e6c68da4712",
+      "normalized_text_hash": "22cafa0b53b364100303eed8e14121d98c5e05a2687d063f5f650b1672e6572b",
+      "row_index": 24,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "079776f1c948d0b94c1aadf2f3c217dbde8d0112626780d4540cb00ccac5a12e",
+      "item_id": "gsm8k-main-079776f1c948d0b94c1aadf2",
+      "normalized_text_hash": "43b2c24727802a1c39e04506803752ec2e9f26cf3e894cb21b1c78188365d240",
+      "row_index": 26,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "0a703518cefed0925e3a84161e3ff971d346ab8b85a48d3e4198cc4241e34091",
+      "item_id": "gsm8k-main-0a703518cefed0925e3a8416",
+      "normalized_text_hash": "d24440763988694e30a619e1d7b2374adaa0d5edad6d3b3c24753f6aa9d44c64",
+      "row_index": 28,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2e5e408a57d977b993b2f0de5e94a32ca90821befb6de5c7315bfc6a20b7182c",
+      "item_id": "gsm8k-main-2e5e408a57d977b993b2f0de",
+      "normalized_text_hash": "179c56c92d0315a49eeb3ce8dfebef10bb4d6ac6b2135c9fb6117c757de74ca3",
+      "row_index": 43,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "53631314dbfc55017b4e0d0403713472c82db13df0de0e9eb8b6003fdcfe54d6",
+      "item_id": "gsm8k-main-53631314dbfc55017b4e0d04",
+      "normalized_text_hash": "23fdf08ce87602ede28ef4240e103f5089e507cb20da5a873e82fb1588dda333",
+      "row_index": 50,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7f83f1fd8f770a75fbc37e86327e879344aa53248826dc1c6e1766873c9529ff",
+      "item_id": "gsm8k-main-7f83f1fd8f770a75fbc37e86",
+      "normalized_text_hash": "08b78a955d65a516d71029ff129278b6417030e46ee9ee427c64050e4588e306",
+      "row_index": 57,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "095063ef7fc2cbbbb3b9a6b3f2ab37ab26c4cdcc7c6c0555457e924e96e82023",
+      "item_id": "gsm8k-main-095063ef7fc2cbbbb3b9a6b3",
+      "normalized_text_hash": "60b3bdde0ef3178112ad091b3d5ce77be3cb7df9256a3027ce12479e80b43d80",
+      "row_index": 66,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "07ff317579722efd75bc802e1cba869db25530d985361e1c7922c1c95286a4cb",
+      "item_id": "gsm8k-main-07ff317579722efd75bc802e",
+      "normalized_text_hash": "bfd3566a5a978c0c7b052db32e6d037d44175c41da0f38f5cfec0ccc5e77b179",
+      "row_index": 72,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d34d87b4ac8dab33df605529c248981e8c57d31a76903c8cc0c5b859544ff618",
+      "item_id": "gsm8k-main-d34d87b4ac8dab33df605529",
+      "normalized_text_hash": "100d7f43fdf5ead90d91c008ff476d016d2159d3877d4a98e664df4bb92ca70f",
+      "row_index": 77,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "6183372faa91d9eed5fea1be3c3979ba7982cbf42342b6d0d83d7520de22edd1",
+      "item_id": "gsm8k-main-6183372faa91d9eed5fea1be",
+      "normalized_text_hash": "7d0805096549d33a103907c32627162d154f3f5feafc9086fb9c6fffeb525fa4",
+      "row_index": 80,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "0e3249ba3803617f449ce07d219bed8fc4cd3d0edbb976289a41decbda408d6d",
+      "item_id": "gsm8k-main-0e3249ba3803617f449ce07d",
+      "normalized_text_hash": "ad6ac817d85d7f018d9bcd3a8d998254ad1de3c1b45182d58c41fd9c50dbc05d",
+      "row_index": 82,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "dff913b2fb5d917351bdc4e2f11305075d187d06ec3562817d2e96434ba2a1ad",
+      "item_id": "gsm8k-main-dff913b2fb5d917351bdc4e2",
+      "normalized_text_hash": "ab4a06b6df0789c8a6719edc5e477e6b623f899bc29b4da6b0206fbed668bcd1",
+      "row_index": 83,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7c162ae78724137b6a5f4461487e58cb89a20f8f7c0290cc2fae3dbff94a604a",
+      "item_id": "gsm8k-main-7c162ae78724137b6a5f4461",
+      "normalized_text_hash": "9182c14dafa65894aa089392073cfd04a8c8438e0355bc86d48075642376b9e2",
+      "row_index": 90,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ae1f644b1e9479ef15fb8f07180131b1ae44aadff8a94d543ffcf729e9c1a17c",
+      "item_id": "gsm8k-main-ae1f644b1e9479ef15fb8f07",
+      "normalized_text_hash": "e622abbc7c795ad663b1f96d0b45cba829d6f767820300814ee6535269344e6c",
+      "row_index": 96,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b3b1cf54c8610cc4fc09b0f0c6ed1382258e9f6dcdbbcfce68f804b7bbaa2525",
+      "item_id": "gsm8k-main-b3b1cf54c8610cc4fc09b0f0",
+      "normalized_text_hash": "20392eb4e714442f48f9afb981a1705324e9d15ccf8a84043ae73cac4d439d43",
+      "row_index": 98,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "eb2e14ab7de5382e04ad58c7e2ae68bf1960e06d2e8bc3856b61d009bb5d4a5e",
+      "item_id": "gsm8k-main-eb2e14ab7de5382e04ad58c7",
+      "normalized_text_hash": "6605296c26d8283dec75eae742cc4286669ee7e1ede8677e63f06f557ef5d111",
+      "row_index": 109,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b9660a8f249d6c66f772693d5703f7affde9274676867e108d4fa57caf02eb80",
+      "item_id": "gsm8k-main-b9660a8f249d6c66f772693d",
+      "normalized_text_hash": "01bfcc0e852a1d29fd4744b97b83fbd3cae6720ba66dde58a9282f0b6a096abf",
+      "row_index": 110,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2ee4be9fe98eb33ae64d1ffdda335db02e4a2c864cdb7491a89810cfc91dbd44",
+      "item_id": "gsm8k-main-2ee4be9fe98eb33ae64d1ffd",
+      "normalized_text_hash": "8eab15179c07e4292ebb8e9af0cb9caf6d6a2f6a173a1200156de2310e330457",
+      "row_index": 112,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "bac4eb53cf5c6bcedf05ec6e799df70b6cd7f465a3a10f1034aabacde54376fe",
+      "item_id": "gsm8k-main-bac4eb53cf5c6bcedf05ec6e",
+      "normalized_text_hash": "d67f6fdc45e2b213b74b23b6377e53cb369485d15551b5e497c148a1cd8b738d",
+      "row_index": 117,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b7d89a6b49056519c10f9551ecdc8619f07a966419414a575d52c6b31349d5a1",
+      "item_id": "gsm8k-main-b7d89a6b49056519c10f9551",
+      "normalized_text_hash": "66ea530a01475c04b52a5ad759ef39be291984788dc2d876ea45576d452babcf",
+      "row_index": 132,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "faf44838ed259cb4214a4ff6af72dccb0797b7cb5dacb331c32351479b2e1a6e",
+      "item_id": "gsm8k-main-faf44838ed259cb4214a4ff6",
+      "normalized_text_hash": "6b344c23ea62928f4ca44af958ba16e9c6a3e4928795e22f03c44d3263840b27",
+      "row_index": 134,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "35b17460123d8084b4db033223c796f343790bf6823df83eb8df7a95812aad0f",
+      "item_id": "gsm8k-main-35b17460123d8084b4db0332",
+      "normalized_text_hash": "d94d704b16e25e154d1b53106bb20d6f24a96601967e28a155b16dd41464e142",
+      "row_index": 136,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "628859c2ba2e8ff0b44b828c5ef49710fb73c567a71d87d1ebfecbd32f917e84",
+      "item_id": "gsm8k-main-628859c2ba2e8ff0b44b828c",
+      "normalized_text_hash": "8f6e99056a81d4faf8ad1ca1df2f4cd9406d423628851e6021112b75fc0e018d",
+      "row_index": 160,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f77d81ecc80a62c147c14769c02b2be927dbb2eaa198b22f1129e822920de117",
+      "item_id": "gsm8k-main-f77d81ecc80a62c147c14769",
+      "normalized_text_hash": "9ba6bc62521e272d574838f595df6635350aafeec948b49073aaed160856a24b",
+      "row_index": 171,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d8138aff4bd706d31a4d8f06e94d4da241ca566d85740c44ab519404715f8844",
+      "item_id": "gsm8k-main-d8138aff4bd706d31a4d8f06",
+      "normalized_text_hash": "26f01bccae24bab18f42201b6c02ebaed7f5a2cfc7c3299b77c0512354209fcf",
+      "row_index": 173,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d18739655a1e5d489cc7d438b4fb19dd9c176517a7740bb79a8a1df749fbf002",
+      "item_id": "gsm8k-main-d18739655a1e5d489cc7d438",
+      "normalized_text_hash": "e8aa751873f681ba49d9116ae9a8bf525ac1a162b75bf041e891e6c841774c26",
+      "row_index": 176,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8a8110b0b6bfc99cee6176de8f24b4f285ce8030f324757cbea1bbe2a0b6ab48",
+      "item_id": "gsm8k-main-8a8110b0b6bfc99cee6176de",
+      "normalized_text_hash": "56680f207e277d0832470931f3c467cb4a1021b3bbf3bb88e7e86e3c8eeeb2a1",
+      "row_index": 188,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "6085bebd57e148819080e42421df9ef50ce9ca578d38e9608a716e5357eac658",
+      "item_id": "gsm8k-main-6085bebd57e148819080e424",
+      "normalized_text_hash": "f63234bab7641eca3157f7f439feee626542fd2bf3c83731cb5e1425d30955b9",
+      "row_index": 195,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b6620223760beb1c630a658dc87d26177d383e682241d766f3d40d0691a8e247",
+      "item_id": "gsm8k-main-b6620223760beb1c630a658d",
+      "normalized_text_hash": "533a1de2251946281ae679d11b79aa11ec139bcaf9f50827dde6afc325e24b11",
+      "row_index": 206,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "cd6fd9057165356a7cbd2c40b1abeaff1487c36091557783c0681b09f395a961",
+      "item_id": "gsm8k-main-cd6fd9057165356a7cbd2c40",
+      "normalized_text_hash": "4b9a0faa97d1c54f0f65fc46cf605260d05878562c9bb3f5b9d3edc618843298",
+      "row_index": 215,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "28136bc7ec715a9f6d3175b61de434d45fdfd0e60e360c4a44e15a33a3c90458",
+      "item_id": "gsm8k-main-28136bc7ec715a9f6d3175b6",
+      "normalized_text_hash": "730e550da78efb80ad90d144025f0c4291accbadd8a252d231683f98f61cff48",
+      "row_index": 223,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ea4febf64d49eae958edc9d0dcc0ac9fd82671c310a66c84c2d79a1f1fd09bbf",
+      "item_id": "gsm8k-main-ea4febf64d49eae958edc9d0",
+      "normalized_text_hash": "696619ca10a30a03d2ee0f2a07e1b3c14ed1ae7e1f59e42ce84c71ec953819d1",
+      "row_index": 225,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7d716804bc5b0c8dbcf4cc8688a2b642eeb6d524a6565c0b395eee9700f65830",
+      "item_id": "gsm8k-main-7d716804bc5b0c8dbcf4cc86",
+      "normalized_text_hash": "029ef1d7713b4f7c2f68f29e8647a5c114d0e1d155a155deadd809e17dece717",
+      "row_index": 236,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a0e7f390beb540fc1b64be148b4a8faa1e12c0af2c611b5cc365d4f758d61a66",
+      "item_id": "gsm8k-main-a0e7f390beb540fc1b64be14",
+      "normalized_text_hash": "8e2693d6c9f71919efc5b114804e03d91e220571db0109a9ce79f7627b0e1fdd",
+      "row_index": 241,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9c560ce766c73c29391e6eb494ccd3302d9ffa48db73de53a132636eceba604b",
+      "item_id": "gsm8k-main-9c560ce766c73c29391e6eb4",
+      "normalized_text_hash": "30861a3b0fea0754c224e45f3c24c88176a2c4e45ae707a2da0f68bb39f55df1",
+      "row_index": 243,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2dc67df036966b7f44f7add8b16b6b023c85d57717ada56d61d5016fffe3133a",
+      "item_id": "gsm8k-main-2dc67df036966b7f44f7add8",
+      "normalized_text_hash": "376e72006cfcb39505f7834e5b7cdf0c4c3c57093612787dc6294b8cfb322997",
+      "row_index": 252,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "56e4c2ad92579e8731a94702c62346e5230f372912c0b1dbacc34534f5e58bab",
+      "item_id": "gsm8k-main-56e4c2ad92579e8731a94702",
+      "normalized_text_hash": "135430c89fe3361e0ba10a378cac8e8330a7ee51a2bee358d3c90d6c771fb20c",
+      "row_index": 256,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "092a84d0999061010c998fac091a44473190ce4467d5b7788fca245bf7a400e4",
+      "item_id": "gsm8k-main-092a84d0999061010c998fac",
+      "normalized_text_hash": "1996a72dbf80558f4505f413993dfbd8b5daa193428dd1cc03e638cbe84e060a",
+      "row_index": 259,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "dfb9d9b10dc49ef62e233e052d35dd67853250e4127f79d70e0bc79b2405266f",
+      "item_id": "gsm8k-main-dfb9d9b10dc49ef62e233e05",
+      "normalized_text_hash": "e147817fc19c33bb20e2bbce9583f6509aca36be172d4d6f2a0b198952436cf2",
+      "row_index": 261,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7829e77c32288ef33b0c902b5efdc8db2b0e1a586b8962f8879a0b58075549e9",
+      "item_id": "gsm8k-main-7829e77c32288ef33b0c902b",
+      "normalized_text_hash": "f0f8e9d4233b0b4b3312d7c0677dc18befb8ebdf47abff2db48aad35171ba0df",
+      "row_index": 281,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8e0552e47dde590251dcaa3160a7754b1570e2937be156bb6827c7126627af96",
+      "item_id": "gsm8k-main-8e0552e47dde590251dcaa31",
+      "normalized_text_hash": "90afcc9e43d5b91738e11d9c95ac7fee09248453d4b642fa384ff9f86a8a5751",
+      "row_index": 282,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "65bbc25c2b88a9cfd42a4eba0b0f49f8f62c27cf998829ac8a2dee4d6918486b",
+      "item_id": "gsm8k-main-65bbc25c2b88a9cfd42a4eba",
+      "normalized_text_hash": "1d32c9185c543a7a6602d475a64e99c379bfacce1e3aa362bfe1fe2a2c2c8adb",
+      "row_index": 284,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ba858f0081bdceef4d0c2e7d14398e7abcda556a67e4061ba158d0a91ecc8f71",
+      "item_id": "gsm8k-main-ba858f0081bdceef4d0c2e7d",
+      "normalized_text_hash": "c4f6c8fbe8abdfa9d05c9ef5e56215e9a0a96723a2588659e486dcf2f194b18f",
+      "row_index": 309,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f1d26600cf43aa4f7fa20d4b7e41e5a240a9cfb1a1a106a879dc17d6ce331c8e",
+      "item_id": "gsm8k-main-f1d26600cf43aa4f7fa20d4b",
+      "normalized_text_hash": "3ac744097e62ad63a9bfde56771cce58a54d46099856e2a4858b2b4053c0077c",
+      "row_index": 314,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3b41a45b1467470c8ad3f9f93d8198485d544c9dec6dcd11c2aa99feebc5c3ab",
+      "item_id": "gsm8k-main-3b41a45b1467470c8ad3f9f9",
+      "normalized_text_hash": "bbfd677d75bff00eeaf81714976d32eebc4cf2f48806ef1c42cce8eb5c470310",
+      "row_index": 315,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fa41278bbb364783ed7fbc6d55e8d42af8f222cb63732b23dd12bb62221c9229",
+      "item_id": "gsm8k-main-fa41278bbb364783ed7fbc6d",
+      "normalized_text_hash": "3b4f71a76a495da8ebf423e701ea1eb47ae4783b13d37957425688fd32b141b2",
+      "row_index": 319,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9688547641b753dd79037fcd0cd00cea91b8b3146c9323fc931fcc4ba1ddd150",
+      "item_id": "gsm8k-main-9688547641b753dd79037fcd",
+      "normalized_text_hash": "015e90d26492872ae4a296922309fb99c0d35793d44a2080e87a1b85fe591217",
+      "row_index": 323,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ef144b279138ddcd9c977d25ff2a2b91c6ad76ff6c71b13b3e8cab8206826568",
+      "item_id": "gsm8k-main-ef144b279138ddcd9c977d25",
+      "normalized_text_hash": "622e753db5cdef054a780370a1d57c142fad315df2e9985ebc16f7f900a9d51f",
+      "row_index": 335,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a675030477b56c0a4b8c06dfaebfc230f4a82883a6a61955faeb5059b56250ef",
+      "item_id": "gsm8k-main-a675030477b56c0a4b8c06df",
+      "normalized_text_hash": "41c9120263c3666fed489e30535c62a92b694155fcf5f405f658d93d00b97f98",
+      "row_index": 346,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d4d516af55ea179b4795a2bcce534c1ee73982393e5269898dae3ce287ed4497",
+      "item_id": "gsm8k-main-d4d516af55ea179b4795a2bc",
+      "normalized_text_hash": "63232b7fe1307fed9e3be8bf1bff4694b48b8a9607653f92441d97a1d7629bce",
+      "row_index": 355,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b9886784a9b49280dbe90dc2227b13fd3fa5353ba8e07dbd83dce288fe8b56d6",
+      "item_id": "gsm8k-main-b9886784a9b49280dbe90dc2",
+      "normalized_text_hash": "e37dee3e19cfe2468aded39f5b4faae20958ee6dc8a9e6c67b65f253bc9bd40d",
+      "row_index": 360,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f8ed22b5bb02a6c6ae2c960f383042d9e88a8c02bb59f1816cd4636676727df4",
+      "item_id": "gsm8k-main-f8ed22b5bb02a6c6ae2c960f",
+      "normalized_text_hash": "ded4357c48abc742133403b3d11ce53fc72e7f348b6f9e2e2dbbfa8515e80e1d",
+      "row_index": 363,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c77fe15236641497cb603f04da74618669abaa095850770500d01f7ec4313cd4",
+      "item_id": "gsm8k-main-c77fe15236641497cb603f04",
+      "normalized_text_hash": "22b59e857e5d3d9bf106a88904a84b94a1e3989077dbd963b205afa086ea1a70",
+      "row_index": 377,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "37c0f41907aca6e63fc7395cdd644168461fa18de72470e2d5ccbdb2bb9c4b9b",
+      "item_id": "gsm8k-main-37c0f41907aca6e63fc7395c",
+      "normalized_text_hash": "8a439a3a19b78375997f85051bf801de9719b17463e0d027d295ad86c9c798df",
+      "row_index": 387,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "eedcc855cd6524daa996d22b8bcaef70a31d5b95ccf3d5a31a47f0449efb35d0",
+      "item_id": "gsm8k-main-eedcc855cd6524daa996d22b",
+      "normalized_text_hash": "f140c423f12e7003b5cfcb01480affd9198079a4dcc32dd0d167bf16300cbd0c",
+      "row_index": 389,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a186171352e06c2a3502b379f8507e65feb19c731b15ec5db0bd0008cf929078",
+      "item_id": "gsm8k-main-a186171352e06c2a3502b379",
+      "normalized_text_hash": "821ba4d3cdae58d0b884efdb4ca167a3c5b24251c56454a100fc9ac986206381",
+      "row_index": 393,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f396db2afecc224044f5fecf75930eba308e6473a623e10306fb398ff9c164a6",
+      "item_id": "gsm8k-main-f396db2afecc224044f5fecf",
+      "normalized_text_hash": "da7d19f1af80cda02b560f6f51cdc6a8df5ceafff56be61c75f419b34381faa8",
+      "row_index": 395,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "6b7c833f8a675600367e380b63b27ebf5b9651ce39bcf20f31ec27c6068f691a",
+      "item_id": "gsm8k-main-6b7c833f8a675600367e380b",
+      "normalized_text_hash": "bfa0079a8897430238b73ceca009014d55719a9fa8e21000051ab05a8f3eee88",
+      "row_index": 399,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "358bfaa3816a57c185e659e0a1e03cb1af1c6647463b9b9c45bec8899f3f8dc8",
+      "item_id": "gsm8k-main-358bfaa3816a57c185e659e0",
+      "normalized_text_hash": "d42965b5d47cf4353e1585b2ede2d949656b14c6863c6b470f386f2fd76bf425",
+      "row_index": 400,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "591519c325532d02e9f9e9ceaba85c0ee1040c60ecc9244ed334a161351aeb88",
+      "item_id": "gsm8k-main-591519c325532d02e9f9e9ce",
+      "normalized_text_hash": "cb156ee5ff53fdb2688d023a7959e5142d8c169c82fe8bc759a2076c8823c933",
+      "row_index": 404,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "0987bf79803eaea6f75a2a7ee9a6d2a41a1852d2df5bdf6681a71b55b03c46b0",
+      "item_id": "gsm8k-main-0987bf79803eaea6f75a2a7e",
+      "normalized_text_hash": "1257eb522d65ea6947d9b4513c9449ffa699c9f847b139fffa924bbed776b4be",
+      "row_index": 412,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e84d5206c392dca54ac527188b5f60eee4d470fc0b1483dc7069d468e5262170",
+      "item_id": "gsm8k-main-e84d5206c392dca54ac52718",
+      "normalized_text_hash": "245cec2cc9f80779aeb56cb55a31678295eafa936b4d85ef46419fc12918382e",
+      "row_index": 425,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "49cb8de1585e1c64b213ac1f9fee8aa9409b242ecd0eb3b7da64b3b1a6993177",
+      "item_id": "gsm8k-main-49cb8de1585e1c64b213ac1f",
+      "normalized_text_hash": "798a745298c85d2fb4d4d6e47fc0ed35f55a55b5fb1d4a2b01ccabb0247c6f6d",
+      "row_index": 428,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9acafe8b0293ffd0ba3daede94271f0f0809a74e2698b3c6492365b18457f0f7",
+      "item_id": "gsm8k-main-9acafe8b0293ffd0ba3daede",
+      "normalized_text_hash": "ff998bb1e3fe4cfff75f2b9da33ecac95e6950a8bf257516d2d527643dd23f81",
+      "row_index": 454,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b00517e76e9b3e7d97527e550f736d4dddd8c4b5b28132ed42ffdeea27d4265b",
+      "item_id": "gsm8k-main-b00517e76e9b3e7d97527e55",
+      "normalized_text_hash": "1978c44a04ec0c2bd9c2c83b6f7bffff92c71bdf93ba13597a75bc035f6af8c3",
+      "row_index": 458,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "6acbcb1b1ec26bfb93c50c457896cbfaac45bed486cffad86d27b6ba1c9a11c5",
+      "item_id": "gsm8k-main-6acbcb1b1ec26bfb93c50c45",
+      "normalized_text_hash": "653dfada1f2d82152f2dbdbcbcd8119e3d26511fa3be6f68b5928c3040eb8944",
+      "row_index": 462,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9e509c9f4469b30922ce682ee25e31e30808533a999d25149d6e107e6fcdcbc7",
+      "item_id": "gsm8k-main-9e509c9f4469b30922ce682e",
+      "normalized_text_hash": "5ee6b042514f5d82347168899cf1ca00bd69a34af5693d8bf98c39393b869f44",
+      "row_index": 463,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "33266e08e0adf7a299ca78757da104154fae07c8852f29062106de9961e45fb7",
+      "item_id": "gsm8k-main-33266e08e0adf7a299ca7875",
+      "normalized_text_hash": "7498eae62e7a5257ec1a9a6744a5eb884d9720903b02ae666720a3f2fb88ecdf",
+      "row_index": 477,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d1dbac8d0243d4d18aca5ff8877115616256c6b55e3aaf677ac555d2441dd15f",
+      "item_id": "gsm8k-main-d1dbac8d0243d4d18aca5ff8",
+      "normalized_text_hash": "a902409605fd9558dc1824cfa1f8e2957adeb72c7e6391dba260e98b19e9dde7",
+      "row_index": 479,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "25925796a68125756c4671b4ebbcbdbba6a7f4c048c970cfcac10790d67bb408",
+      "item_id": "gsm8k-main-25925796a68125756c4671b4",
+      "normalized_text_hash": "806079fe17bfbbcea7188a650cd6a818e0e5437fd1864d0560cba0883bbe79bc",
+      "row_index": 480,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8145a5a629e35b209130111c697c4501ead35f048a71d7a0591d6189336381aa",
+      "item_id": "gsm8k-main-8145a5a629e35b209130111c",
+      "normalized_text_hash": "d4a294cfe7c8fe40cb6058651bfc01d33be9d537376aaca16aaa3e4e7706f200",
+      "row_index": 481,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "111bb1951fd93333ee054de6d8e3de2119500f2a29413994e0acc34d2fbdbbdb",
+      "item_id": "gsm8k-main-111bb1951fd93333ee054de6",
+      "normalized_text_hash": "874db77111386be3c049ca424df6d78565403fd11e222fec3c6e1fed0994c38f",
+      "row_index": 487,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "5334ea6c2157421b36e967031908a2062b243a6a808061cec45359d27f511ad0",
+      "item_id": "gsm8k-main-5334ea6c2157421b36e96703",
+      "normalized_text_hash": "e7efa80eac2e3b5dd11a09d2006254dda5bbe5aad729a6ed6b618acc4481a37f",
+      "row_index": 493,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f8a734b1965dfddfeb3352d13c7bcb698924363e2c6e193a0f713b038bf29fe3",
+      "item_id": "gsm8k-main-f8a734b1965dfddfeb3352d1",
+      "normalized_text_hash": "05ba6df8531edead1ae0b99d2972275c9551fca446c10b11dc822efce75094c2",
+      "row_index": 508,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "490745f4919085947ed12084cf5204ca4f68c0290c40ff501f7d2fe032148f0f",
+      "item_id": "gsm8k-main-490745f4919085947ed12084",
+      "normalized_text_hash": "497682f2192aeacdb74ca1580b33eb41534d97c528103d1fb573ec070e019af8",
+      "row_index": 517,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d848bfe5358cbe3844d68d061e8d91efad98518da22d6f3f5e9792a70717c8ab",
+      "item_id": "gsm8k-main-d848bfe5358cbe3844d68d06",
+      "normalized_text_hash": "4a3ad2644a61b2cd740307289201ed22cc275c155916ab56c3f1c8e3984f3f30",
+      "row_index": 559,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ea010a1c2e06a87334518fac24e67e8e92c3336c3a4a8995394bcd43811afec0",
+      "item_id": "gsm8k-main-ea010a1c2e06a87334518fac",
+      "normalized_text_hash": "500ad1d2aea493d6195f5c8e8cbafa5131af2159795cab00d732c5ccdd81e89a",
+      "row_index": 560,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3f9df1378d1f5ea8719709e70fbd5622865a8fdf50a6a9cde7df5d1b48760cac",
+      "item_id": "gsm8k-main-3f9df1378d1f5ea8719709e7",
+      "normalized_text_hash": "bc5218056be097cb98529aad17aa7f465b2df49cd1a42fbf518807058646c9e9",
+      "row_index": 566,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e0c4683c5164b0f7d12a59bcf866083418af32592da6f3403868f39977f26453",
+      "item_id": "gsm8k-main-e0c4683c5164b0f7d12a59bc",
+      "normalized_text_hash": "bd78679a4c491b79b5957d176802030bed3fd8ac8e23252b8ccd72fad7bb573a",
+      "row_index": 581,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "46520e3f9b90c9d8bd11dfc3819c5cd9b8b7e5b45c6305c7345b9218d0c5d981",
+      "item_id": "gsm8k-main-46520e3f9b90c9d8bd11dfc3",
+      "normalized_text_hash": "4ec5e5a37705b3e0477e8c8c1c2840a263952f7132e88a4dd6176b8afb0b452d",
+      "row_index": 588,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4352a05fcf23e2a656d0507bec317250f918cc0e3adc6409dbeb9d439f7e546f",
+      "item_id": "gsm8k-main-4352a05fcf23e2a656d0507b",
+      "normalized_text_hash": "325b453f8fba8cc3c2bad7c0010eb2bd092363b909c88e68a619cad3e055e115",
+      "row_index": 599,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "281959243f572056381a40586cfd6c21fc16ea4b0998b3b1e6bd4a4bcd35c605",
+      "item_id": "gsm8k-main-281959243f572056381a4058",
+      "normalized_text_hash": "353010b224ab5f3dad40f4f2004ee62a822e11e29cde09acb79f59782b7ec9f5",
+      "row_index": 603,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "5dc0cd7fbb8f01e1647d5f1357c7834b5fa84b7b31bf69c58f7364af3cfe35af",
+      "item_id": "gsm8k-main-5dc0cd7fbb8f01e1647d5f13",
+      "normalized_text_hash": "c76345b74b20d746672b63966f72f7da115062263878548cae65f0df5550cd5e",
+      "row_index": 604,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7d1ce75b8af90431e02e3c7f3e4ba981847acb954800598e7d5769482912b40f",
+      "item_id": "gsm8k-main-7d1ce75b8af90431e02e3c7f",
+      "normalized_text_hash": "511f50164f5da8f568fcab7e70250725df20bcdfc6e100a4e68e52f7a991070c",
+      "row_index": 606,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9cb5a1302e0553c38ad58072e982d53e13e877a8cdf2d83a1286d61f3b77ed86",
+      "item_id": "gsm8k-main-9cb5a1302e0553c38ad58072",
+      "normalized_text_hash": "4efe4e1fc88e20e96eeac19cf59b667fb9dd673cdee5f8031857ee8e7e4f0a34",
+      "row_index": 626,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8f4deaae885c265e4498447f6ab996109f301412d34e64f542361fe3e6138838",
+      "item_id": "gsm8k-main-8f4deaae885c265e4498447f",
+      "normalized_text_hash": "8029f8a8c7e12e84cf20f2faababf95dddfe8be1e12aca403bde85d167d91461",
+      "row_index": 635,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "be92eff15a9f9ac05ca601a93e8056ec1d09459fab4e36a9b8adcd84d3bba72c",
+      "item_id": "gsm8k-main-be92eff15a9f9ac05ca601a9",
+      "normalized_text_hash": "fbdcb795288067d6153469789a6f3f4c0a3465fc72e9e0229ec0d18065a88d78",
+      "row_index": 638,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c62840f73aa2b3db0b21e3520af9b0d12f72b1c5d4d5b4c6691a50c0a3f1df50",
+      "item_id": "gsm8k-main-c62840f73aa2b3db0b21e352",
+      "normalized_text_hash": "718af669641ac45f9998c5e5e05a26864bba7b2bfe65a9f81ff22d52bfc91c66",
+      "row_index": 659,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7d2a9442e7a95ecb6281644916a9a5938fc1b2d74c72b6af028345faecf6a8e5",
+      "item_id": "gsm8k-main-7d2a9442e7a95ecb62816449",
+      "normalized_text_hash": "8a979bc837e6e49762ca03d71a4dd891c67fee2988356ee5ca60fdd59414892a",
+      "row_index": 664,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d5b183bb5e787ad62fec9546dceb4eb829a56bf24e193604190f4a4bf16c7ad9",
+      "item_id": "gsm8k-main-d5b183bb5e787ad62fec9546",
+      "normalized_text_hash": "4260fb67c1fa89b73584cac9dad0ffc6ba6366e48c635b250c8152f212d8c3d8",
+      "row_index": 667,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3d76fd5927bde5f0fd835594f1e37c3da4e5f8dba4075779fc75fa4989a52c17",
+      "item_id": "gsm8k-main-3d76fd5927bde5f0fd835594",
+      "normalized_text_hash": "d6127e25bd379fb9337df13b6d1e318b9705988287fe100a8b4c3d7a90019b1e",
+      "row_index": 678,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4c910563aafe2afddc878ae0f0b6e590c28ff0419471b758ae21e561b38227e4",
+      "item_id": "gsm8k-main-4c910563aafe2afddc878ae0",
+      "normalized_text_hash": "6727c54e8779a8dad0d88eb40da9f62f0965fdbb6f72cfc085d06ac555968d87",
+      "row_index": 688,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d0dcdc14133845652e0b142872cee6d53d78727f4d6aaf6262fdf9eab81e7e2e",
+      "item_id": "gsm8k-main-d0dcdc14133845652e0b1428",
+      "normalized_text_hash": "270649c36e2edec1ceb7deb2a07a6ea1964f52708feec3b1853f110cff0839db",
+      "row_index": 689,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "20475e75047da1789e6e41df1f70158ce28e40112106943d8bf414851b16375c",
+      "item_id": "gsm8k-main-20475e75047da1789e6e41df",
+      "normalized_text_hash": "3a31132f5fea2b42e7add63d98fa5445ee7b5cc65de28ff6c5968a669c6c17c8",
+      "row_index": 691,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ec8d49f4d793c36a96349c8671fcfca6e8ba980b6c611a7c42384e831cefa650",
+      "item_id": "gsm8k-main-ec8d49f4d793c36a96349c86",
+      "normalized_text_hash": "34f6c6b00d301ae5472546c4150b3dabdf2a1771300a2bab649ae2fe45417ab3",
+      "row_index": 692,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a327979f3529662523108fa86b07d3c0bd0bd8f82b1dd6a8ab6b8c7717cd6e48",
+      "item_id": "gsm8k-main-a327979f3529662523108fa8",
+      "normalized_text_hash": "32b8a253ab1e5371f0292f9b65aba6e2b2d4bbe52078daa24b5f016ad68152d7",
+      "row_index": 705,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ec1cd416a419f5aad337ee695fe213b06eedf7ef40d8ca83dd2a5b84d253ab28",
+      "item_id": "gsm8k-main-ec1cd416a419f5aad337ee69",
+      "normalized_text_hash": "9db7165d3827e84d0c5caa195cce87b0ca44aab04b3ab490afb781ccfef13d51",
+      "row_index": 707,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "977a84b91b62c2edccb2f35b3033f3615d13d651529bf622b34c6759f282d238",
+      "item_id": "gsm8k-main-977a84b91b62c2edccb2f35b",
+      "normalized_text_hash": "f76b37a372e69642d7b3880b1a565d8cf9b8e53b11619329b8149ca4bcbb811b",
+      "row_index": 710,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9ce1dd74bdc42abe33d605296007cb30454044fbe19d0d558ec7b937429d2982",
+      "item_id": "gsm8k-main-9ce1dd74bdc42abe33d60529",
+      "normalized_text_hash": "c257fee5d2120a35a99729ded40e39820b02a60121be818e8f2639ceaf6a8917",
+      "row_index": 717,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "771e7e30e42e67feaa2eff497a86cc5cc21e91853dd9c054a4780e9222dce837",
+      "item_id": "gsm8k-main-771e7e30e42e67feaa2eff49",
+      "normalized_text_hash": "b13dce67ede5758f2b4ae90e1d3e65afd8053fbefbba6edf284af0245eb8c883",
+      "row_index": 724,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8550feb598d23eb282c55981e734ee99bf9faebfe8d2556b6e3533b87da9526b",
+      "item_id": "gsm8k-main-8550feb598d23eb282c55981",
+      "normalized_text_hash": "219de13bb67850bc46e6039bae22e16a56af8428cc404c6c992f8338f8405e2b",
+      "row_index": 729,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4cf7f89cb9db22e4d968602e3d95cd501a61599aaf6d3fbcc151a7ce3d547f81",
+      "item_id": "gsm8k-main-4cf7f89cb9db22e4d968602e",
+      "normalized_text_hash": "b5662de2f5f171815ea01656282831b5979fee00c2191641b0ec28f7104dfcea",
+      "row_index": 735,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "79d39cd088ab54df3c4bff682093a84bb9a3cfc982f9eee330b54c407160dee1",
+      "item_id": "gsm8k-main-79d39cd088ab54df3c4bff68",
+      "normalized_text_hash": "68a79fb42cb74b46fb886f05b9f74f0cbf01148f942d9eb5a137ceda4bcbd377",
+      "row_index": 736,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c2b49e898028b629f5db095b0c48bf4a22bd4126b93ddd61209c3dbf1b6e8edd",
+      "item_id": "gsm8k-main-c2b49e898028b629f5db095b",
+      "normalized_text_hash": "fd00105695254e90d5e4a649bfd85a920019cc6aecac9408ed3e33e45d63f67b",
+      "row_index": 749,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "35dba6a4da052bac5a341597f4639f86b26b84cec2465a9e4aec92055ea5b32b",
+      "item_id": "gsm8k-main-35dba6a4da052bac5a341597",
+      "normalized_text_hash": "5c9e88e4f8a93671be8fda9a3d4b20cab27d5b6f5456a7d9e3b27236a0d42e0b",
+      "row_index": 757,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "bbc2c39bed21d151c40fb939a03a8a768b97656e121925012a82f57d49e5ea07",
+      "item_id": "gsm8k-main-bbc2c39bed21d151c40fb939",
+      "normalized_text_hash": "5af878f1fa177c1d835a2a652f8f16436472f20fafcbd51d42018bca200facc2",
+      "row_index": 763,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d82e290062d4b6803d2450bd5c9f1bdc1e5034877f4e65e1c85aa70cee7d661d",
+      "item_id": "gsm8k-main-d82e290062d4b6803d2450bd",
+      "normalized_text_hash": "9f478744199bdfdb6a596ba7f11f0df39450b5c3332b5add6125024e85fc6e8f",
+      "row_index": 767,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4a049955684e7b2f1e833914277ec14b87efd228bd1dbad84529bfee0e29959d",
+      "item_id": "gsm8k-main-4a049955684e7b2f1e833914",
+      "normalized_text_hash": "e18f9c4ff4c9dc1745da0055be3daa91584c42bdff261eebd2ee4261db665a22",
+      "row_index": 778,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "21b732ab143cb3560251a98381b41cd182225a8dc281417b50ada56d2b61e4ad",
+      "item_id": "gsm8k-main-21b732ab143cb3560251a983",
+      "normalized_text_hash": "611e204d0b80fae8ca1a0aabf7ca6525fdebc0ef97501061f41e675bb78023de",
+      "row_index": 781,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "923b6145fb02297584bb6c1a36f456d47c2b6c168043c809481c9bcdf5c57664",
+      "item_id": "gsm8k-main-923b6145fb02297584bb6c1a",
+      "normalized_text_hash": "7080a92ddb8dce6b9c52d697817b708d670166bb8e72e801e02232f708ffb44a",
+      "row_index": 783,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fba0f2c255127fb897612f04626741a723efee3fcdb61de69790822da407d9c0",
+      "item_id": "gsm8k-main-fba0f2c255127fb897612f04",
+      "normalized_text_hash": "92db5dc5d5e2270dfb61df36dc075c56e29f569374aff4ea97b0128a6767b7bd",
+      "row_index": 785,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c2b9e6a16d5e0224ef4b4d2c8ca6ab6e8dc3d3c2e56326e27e5496c60ab35077",
+      "item_id": "gsm8k-main-c2b9e6a16d5e0224ef4b4d2c",
+      "normalized_text_hash": "53afc302e4f6969b4cf8fd05ac74046c35a1a170a25bd8d44051ad4d8af1060e",
+      "row_index": 791,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "11d14bc2beda759cbd6f710f8c7d0b0b03b79e92a3d4c582224b9e737190f5d9",
+      "item_id": "gsm8k-main-11d14bc2beda759cbd6f710f",
+      "normalized_text_hash": "671b13da1e704fd7b06e776886e6003c3d1a24e1c9696e495f3a4e764695c087",
+      "row_index": 793,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8f4b3f1dd1c5fb0715f391a18c71505ca6dc332c856b42860bf8144312486452",
+      "item_id": "gsm8k-main-8f4b3f1dd1c5fb0715f391a1",
+      "normalized_text_hash": "d18b9076e6d7a4d2c662fc19f66bf4dcb847217b46b075bbe549b7aa72416bff",
+      "row_index": 799,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8f8dfb729c9bb12e4918eefbf8c84bb904b4e4a6367d18836f318050da7fb0e8",
+      "item_id": "gsm8k-main-8f8dfb729c9bb12e4918eefb",
+      "normalized_text_hash": "8677ae8d472fb90df4aa0af2d753aa061c22211f316884d1a437ce6455678c16",
+      "row_index": 801,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "b69148a0b624be69961575443b801f37d02efcc2df8f403f56aed77ed2fa9a89",
+      "item_id": "gsm8k-main-b69148a0b624be6996157544",
+      "normalized_text_hash": "8b47e7bec0853166a910a158c4518b276f335815a9a426bb308126331ce5e1e0",
+      "row_index": 802,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "6e6fbefc19d49f57840b3d4279e0197f5ad5bcc4bfd437a0796fbccbad6ce732",
+      "item_id": "gsm8k-main-6e6fbefc19d49f57840b3d42",
+      "normalized_text_hash": "9572ca84d4afcb2b7a00e335d1c73a40f9cbae18383d4630db1561dcd2da7e91",
+      "row_index": 806,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "4f0ae299b748f37f5f9a7f61660d5238b5569bb24f1fe85c9d041296ce7a12f5",
+      "item_id": "gsm8k-main-4f0ae299b748f37f5f9a7f61",
+      "normalized_text_hash": "a2520553f46e4ae7779fc9ba3041122e14a6ad3c7b32428b809a34746e1b040e",
+      "row_index": 808,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "97fb6e644633037c400c3cc21d2002a36d8003f1f29119a2b0a2ad65b6e5e539",
+      "item_id": "gsm8k-main-97fb6e644633037c400c3cc2",
+      "normalized_text_hash": "e81abeb946244925b88dc2472246eee2ed2eec284131b4f67fdd0d3f0fe1e636",
+      "row_index": 828,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9ae5fd5afd47551cf3bd21a7d747bdd35d076e986e4c9ebb6f85811cf9d480d6",
+      "item_id": "gsm8k-main-9ae5fd5afd47551cf3bd21a7",
+      "normalized_text_hash": "0d3dc91f7dd0f0f28de95126e4bfb4f9f609d7ef3849078ef65658e73597f8af",
+      "row_index": 830,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "5aad3dbe5dcd76a30e0abc5dfe484b0a408ee6a2732cbce52584c9aff336a248",
+      "item_id": "gsm8k-main-5aad3dbe5dcd76a30e0abc5d",
+      "normalized_text_hash": "896be4aef21b31b20bea4e804356f229eb7ce13a1c19510afa4e39b3fd9e1ecf",
+      "row_index": 833,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f894ce6b2e9ac88e57473ddce0c3db0aa3abefc306c40c01c9f68790bae197bb",
+      "item_id": "gsm8k-main-f894ce6b2e9ac88e57473ddc",
+      "normalized_text_hash": "c4de7ed44de7a40cfffbf89ae426303a03b55a927f0444af45774c9e65f098c7",
+      "row_index": 835,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e7fd10ddeb0c3f0af51d320c23cca6a7e361b4a5ca4cd367a192ca1682315a2a",
+      "item_id": "gsm8k-main-e7fd10ddeb0c3f0af51d320c",
+      "normalized_text_hash": "3aa8d4c8f02f9dcd55d42e831bf0512b6c491733af0ba40657604376ae6239a7",
+      "row_index": 846,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2809ab11ded35588f53cfb748b128293b24c9206915e9872ba8ee02d62c9a086",
+      "item_id": "gsm8k-main-2809ab11ded35588f53cfb74",
+      "normalized_text_hash": "ebbfda57ab251b5bf006f19fab247b6746b41e90020b1742963fe8f95b8b938a",
+      "row_index": 853,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2129631f9a2c8782d317b8cf23c9ab888d68f3b3f2969ef05b61964be51cadc0",
+      "item_id": "gsm8k-main-2129631f9a2c8782d317b8cf",
+      "normalized_text_hash": "7c83b6301b1e5a905563731ac07932b3810cc6436b7217dc85741a690d6619b9",
+      "row_index": 856,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f0535a217de4a5d2387fec461632d4e7b4076a347b06aaf702e1d7e300d6edbb",
+      "item_id": "gsm8k-main-f0535a217de4a5d2387fec46",
+      "normalized_text_hash": "f8c95a63f4f96613ec709f0a8fd7cea554abb9a064a819c92784b5da3d9c9c94",
+      "row_index": 866,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2d3cce7ada44a3ef449e5b27ec2a78052a70c75b5eddd3be96a4db4c95fc2862",
+      "item_id": "gsm8k-main-2d3cce7ada44a3ef449e5b27",
+      "normalized_text_hash": "99ee5c3fa91539e59627afd3887d7ddb3eb212bcfc618db14a41297cb1c6950b",
+      "row_index": 871,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d0b38192165e85e3a908bd6f1e690ba3e8f6846d5a1eb109837c77f819a21f0a",
+      "item_id": "gsm8k-main-d0b38192165e85e3a908bd6f",
+      "normalized_text_hash": "a6271cebc1e2955a227c096707e4846d642eeb9a73a57c0d6da095b1d0ad5a07",
+      "row_index": 876,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "01c764a372d6ecc813cb926d4dc398ff13aced184b3ec49a838140cc993404f3",
+      "item_id": "gsm8k-main-01c764a372d6ecc813cb926d",
+      "normalized_text_hash": "2dfc5e5504a3877bacc5479599280ad41b9845edaef7cc77bc41709c4a4e6b23",
+      "row_index": 895,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "adc880a7b07825f26c424842d5d624c06c4cef5e42cd62f811acda61fc1fa2de",
+      "item_id": "gsm8k-main-adc880a7b07825f26c424842",
+      "normalized_text_hash": "963f8e51306b3fe604a0354308324ab6f2148905745f717c306be0e504f4c23a",
+      "row_index": 899,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d64d02422951668eb1c56a292c5b76f0c5db9d05b8a06d0dcb1d7977ad5042f0",
+      "item_id": "gsm8k-main-d64d02422951668eb1c56a29",
+      "normalized_text_hash": "c423e612c1d97c156ddd83155043abedc1464dbcac5a949a83fb17d37f792f1b",
+      "row_index": 903,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "afed9ba8631100c5db6ad538f81ef11f0e04696ad7ae593029ee4321db9e691e",
+      "item_id": "gsm8k-main-afed9ba8631100c5db6ad538",
+      "normalized_text_hash": "c75194948fa3c4b64012e3993fd20903de74e8474d8da36ce8d37ce193f725d5",
+      "row_index": 907,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fb77f8f4e0539f50b1f60f9c7931e1ad5c69568589d8fdfaa1e625be40683cfe",
+      "item_id": "gsm8k-main-fb77f8f4e0539f50b1f60f9c",
+      "normalized_text_hash": "343e1fd2cb3381ce194afc9f25a712c039391f9b961b23b3e86b4782841463a8",
+      "row_index": 914,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "864d8a73ac2f08d0c6d96eccb3205d95b035d8651828fd5da4d3763db202ed83",
+      "item_id": "gsm8k-main-864d8a73ac2f08d0c6d96ecc",
+      "normalized_text_hash": "7538398121de0c8b64583a6662ba1682fe0e5d84d067a3691588a3eec3f426fa",
+      "row_index": 919,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8c5e703046f54030e9cce5da15c6d3865ed4af13cfc1f86a6c72f32a5a412baa",
+      "item_id": "gsm8k-main-8c5e703046f54030e9cce5da",
+      "normalized_text_hash": "f1e2438e022f77a7e40e2beffcb59a2ab9585a3c75e5278a2475981e45ef22a9",
+      "row_index": 925,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "df3cf55f9780d99c405911b71eb96bf80f3fe5f447cdd5098dc7e167eab7dc82",
+      "item_id": "gsm8k-main-df3cf55f9780d99c405911b7",
+      "normalized_text_hash": "35ca9ab30c488b97b740f779e422691b52bd4a91309a5bc360d59f7f99333372",
+      "row_index": 930,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "37f87fae0d957c8e4bfd02da434c419c07adc77c497a8951c684995387e87e00",
+      "item_id": "gsm8k-main-37f87fae0d957c8e4bfd02da",
+      "normalized_text_hash": "319d3f6a0818711d3459cabfedb9f19ca0adc517ffabdcc0ee3f20ee248d3fee",
+      "row_index": 947,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "af14def9b9ada7b9d69c2a4e82732f1d7956b6ec10b316a4cd3d3864aec4a9d4",
+      "item_id": "gsm8k-main-af14def9b9ada7b9d69c2a4e",
+      "normalized_text_hash": "91182e3ecf3762b0e8e9dd80ec3d2d2d320aa653b32023001528ed86a1330510",
+      "row_index": 952,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "eab8e7c90289b431319f1c11b2cc0a120dfff2034c0876d6360d432299f62384",
+      "item_id": "gsm8k-main-eab8e7c90289b431319f1c11",
+      "normalized_text_hash": "e5dbfc5b4e41fb868cc102dcdef941ae865bb02687210fd701b7c23ba410ba28",
+      "row_index": 954,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c295934e46e875d754846078ad63baee78b9c81280cca8f19c359e935a93ace1",
+      "item_id": "gsm8k-main-c295934e46e875d754846078",
+      "normalized_text_hash": "87e2b81e2fe92c7887c575ac9630a5992a619f344f5531ba4677d2dd677b0349",
+      "row_index": 968,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "1406fe58eb9e883421d0f2b59ad7bca9b9f9b13e0945cdf007c5fbf18f2887b4",
+      "item_id": "gsm8k-main-1406fe58eb9e883421d0f2b5",
+      "normalized_text_hash": "2c08ed204da7349b4fd77057fbf6045f105c842f381a9ca196b6607853ebb191",
+      "row_index": 978,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3d892c7367dd0fd5da0268de0a4b4f5469c3e65823ed6d38b03e538ffc56e0b8",
+      "item_id": "gsm8k-main-3d892c7367dd0fd5da0268de",
+      "normalized_text_hash": "df61877cbf2c479597ec89257a5df9cc6199536213a2cf6ba962448d19088c72",
+      "row_index": 985,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "aae740acb57a9f5f0c84520d1edb0eb8207b204148aedefc8170c56b197d6c94",
+      "item_id": "gsm8k-main-aae740acb57a9f5f0c84520d",
+      "normalized_text_hash": "06b33809927a54ffa7a362154ac4d3acd1205c509b0defcb10c3887b78a9aaac",
+      "row_index": 988,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "45f312f6525604b746a3741a2d675728da6f67c1a1082bf3af3dfbb651af61cd",
+      "item_id": "gsm8k-main-45f312f6525604b746a3741a",
+      "normalized_text_hash": "14e162fcd6496bfd99317c9b585d34e257134169ef918214cd1a8f33eea7e0cc",
+      "row_index": 1000,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "1cd2d9e9b33b09456d06cebbc8296b970d438b557ebcc33a5860c9ccd3794ce3",
+      "item_id": "gsm8k-main-1cd2d9e9b33b09456d06cebb",
+      "normalized_text_hash": "053f59b0619cf6f928214a946f513b6d7f51516c53fb4c533578d2ec40c9a18d",
+      "row_index": 1005,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "5ce1fdbe929e68419789bfb8786f77714005a8990ca0b2ecb0575376aab47701",
+      "item_id": "gsm8k-main-5ce1fdbe929e68419789bfb8",
+      "normalized_text_hash": "21d874ff176855d77452743493065606d8c67f00554156963edfbaccfa19da0d",
+      "row_index": 1010,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e0b3aa3b64e53bf6871c18ba221156bca8d1d3f75ac7f70c64619860647c9b06",
+      "item_id": "gsm8k-main-e0b3aa3b64e53bf6871c18ba",
+      "normalized_text_hash": "0ec558f29108a86446ce1882107e016cb9af0be03bfeec5e7696275c18c6e4aa",
+      "row_index": 1011,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "0623101badcdb32525808bd83191f1605b8e2b3d2b36e0f04de9ef47806c6637",
+      "item_id": "gsm8k-main-0623101badcdb32525808bd8",
+      "normalized_text_hash": "32227960e9cfefbf3943564aa7f6a76a9590c6d5f4f3cd4183b5a0acea3811a7",
+      "row_index": 1013,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2e03283d4e159285386121d3f21a7dbcd7086590be7f6dda80d8f9e221684b8e",
+      "item_id": "gsm8k-main-2e03283d4e159285386121d3",
+      "normalized_text_hash": "39c345ce18ad6003380d61638c0c9c25b0e47f26fcaf761799fc124b71b49aed",
+      "row_index": 1025,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "943c41ec3295ad112931aa182a4ffebc4552e183a064c79c6bd55d36ac59adc3",
+      "item_id": "gsm8k-main-943c41ec3295ad112931aa18",
+      "normalized_text_hash": "19e905ba9674592c7e35f39865f4b174c9f22f9674814139ac736397117b5d18",
+      "row_index": 1027,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a0de429b85c8adeda8ddb032968d9ec0c02594a9d342a3667348d4c0bb00cfc3",
+      "item_id": "gsm8k-main-a0de429b85c8adeda8ddb032",
+      "normalized_text_hash": "b2aed787f8a67ba80f7f7fb728f9d4baa6f3b01c5419adc914a2ab015f3f8b14",
+      "row_index": 1028,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "821900e63e02ba499c8b90337ae35c23df1b26326b9445fd15d61e6f0ab86eeb",
+      "item_id": "gsm8k-main-821900e63e02ba499c8b9033",
+      "normalized_text_hash": "5eef63aee8639040452671b119306ca5bf70524481c3a34e4c54b1c3e327fca1",
+      "row_index": 1030,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2224cb41aed6dca9542997229c670313156fce1efd2acdb502e4288ff933e26e",
+      "item_id": "gsm8k-main-2224cb41aed6dca954299722",
+      "normalized_text_hash": "45adc4dac7d7e421e946987df3814deb503e2f321058f765db527be2655fbed1",
+      "row_index": 1031,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "de368f5723f55697e609433afbf305cd3ec9705aabb9fd6a10c0ebcfbdad16d9",
+      "item_id": "gsm8k-main-de368f5723f55697e609433a",
+      "normalized_text_hash": "9f7b504fd7afe7bce786d57914c76ecc71baab3fe9d4249ae3329242f98b7993",
+      "row_index": 1038,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e433dfa89ebd5360e26fe3bb6aa07162b35bddd3185ada483d4efe1e994a2be1",
+      "item_id": "gsm8k-main-e433dfa89ebd5360e26fe3bb",
+      "normalized_text_hash": "ba865f7c812c132a254921ae640d86c5d091ab15454ed2e744c67132674f89d8",
+      "row_index": 1044,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "a0fe1135a7ece73d525696e76cf4f0a8bf9677f8ad1115792067ad5122e2a894",
+      "item_id": "gsm8k-main-a0fe1135a7ece73d525696e7",
+      "normalized_text_hash": "3d3024d62dd3b030efdb8efd2a4aaebde133c9e20e36f72847e5f44be458784a",
+      "row_index": 1053,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fd2cb98788fa63014e726190b590d726a487921494a022645d91f6df975736b4",
+      "item_id": "gsm8k-main-fd2cb98788fa63014e726190",
+      "normalized_text_hash": "e9e2335d2c234b698958171696099d15f1c4ee24136efb86b95713e06a9930ed",
+      "row_index": 1060,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "40ce4f81bbf00bb1611eb7e7764381f46c865c7dd28bdc97e50d198cefd3f047",
+      "item_id": "gsm8k-main-40ce4f81bbf00bb1611eb7e7",
+      "normalized_text_hash": "3f46ac8d938046b1696562539d8ab7c15badaeac69f11ce371e9df7f6d5e05d5",
+      "row_index": 1067,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e9f4b7cb53ecf2a2d582025482f4486c05c207b6e9f743dea6df7f01143b4998",
+      "item_id": "gsm8k-main-e9f4b7cb53ecf2a2d5820254",
+      "normalized_text_hash": "c952bd3a409e10505fc8f9877ef64f662a2a86cd6e4fbb8317b4b79621bf7d70",
+      "row_index": 1070,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "d078b77a0f5b4830746f20c838e3f86de687bdfb2986edb2e7c1d05928d13421",
+      "item_id": "gsm8k-main-d078b77a0f5b4830746f20c8",
+      "normalized_text_hash": "b2cbe647327d541b9f0baeeafc0a3aeaa3abbdb8ffcad7c9a9ad1cb17a63a12c",
+      "row_index": 1074,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e39bc63af6716000e724d47cc76dc63bf856eb62c665e42ef395949f2451d39e",
+      "item_id": "gsm8k-main-e39bc63af6716000e724d47c",
+      "normalized_text_hash": "579338962aefe167cd9157ec2ee8eddcf43e171233a525012531c91b88b901fe",
+      "row_index": 1076,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f443a84f3ba6f9e42fd05e386e2f96039e2a1351df9b3cac7971a67ade94eb30",
+      "item_id": "gsm8k-main-f443a84f3ba6f9e42fd05e38",
+      "normalized_text_hash": "75188122e96b5843116515a2b8168fd7c2b947640a96b3df377194f2527ec528",
+      "row_index": 1089,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2cd768e4570ddb406017ec1f68e89f05369cf52cd8f9d1a3982c9d18eb47d313",
+      "item_id": "gsm8k-main-2cd768e4570ddb406017ec1f",
+      "normalized_text_hash": "68082d4d90621fcc51e78dcd8a8f0f227ad29d1443aba45efa24adb307d485e3",
+      "row_index": 1092,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2ed12b4e0e140c038e4e25306c6145d94a985fc149def74f7ca331b4d9e54408",
+      "item_id": "gsm8k-main-2ed12b4e0e140c038e4e2530",
+      "normalized_text_hash": "c6e210d630f47824cc4e7ef115892553aa706ba838218c07714b2d066bb2260b",
+      "row_index": 1095,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "bdeb09b11f93ca29e07ad29d3e496df4c7f3227bfed647cec709e252329a8aa0",
+      "item_id": "gsm8k-main-bdeb09b11f93ca29e07ad29d",
+      "normalized_text_hash": "74dee587ffb39d196bb68b3b27965b4d765b88ff3a2381a5b9e77ec6953b4121",
+      "row_index": 1097,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ff6012b653bb02a61bc297ad7b58790f0db3825c1a8aaad0abb469fb697b801e",
+      "item_id": "gsm8k-main-ff6012b653bb02a61bc297ad",
+      "normalized_text_hash": "a9e516a6f16137b1875125c31f27fc4a0954dedb6f4e749bfa9544c4f01ae100",
+      "row_index": 1109,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c90d01139d76079ace9adaf89019c68575f497734a447348d5306b5a6c7038c9",
+      "item_id": "gsm8k-main-c90d01139d76079ace9adaf8",
+      "normalized_text_hash": "cc2a173fae47bb72d54f9222630bfeeb352e00bb718103a5749dc9ae35184c19",
+      "row_index": 1119,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "891ca08cba29bbdde6f1a67223ac668709ada58257fa9d17056b548db74be5c3",
+      "item_id": "gsm8k-main-891ca08cba29bbdde6f1a672",
+      "normalized_text_hash": "d3b98ab2c26195192658ad0e0a6350bf34dfc3cf44797269c583892c4779201b",
+      "row_index": 1120,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9df4acce62d85252d455c7baa03639518ac803611347082e40929079a6a20ed8",
+      "item_id": "gsm8k-main-9df4acce62d85252d455c7ba",
+      "normalized_text_hash": "12821427113a1ec1b2330e78b20017b52c0f43c806056cd736b05026b452612b",
+      "row_index": 1130,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "008d74c0fd82e0fd5f5f3a40bf02b1937990f3bcf52864ce0fa17a64f6a71045",
+      "item_id": "gsm8k-main-008d74c0fd82e0fd5f5f3a40",
+      "normalized_text_hash": "b4f65a52e6d6c9de9b532e4f5335064073effb1911d3932bbab2ed94ac050fb0",
+      "row_index": 1137,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "ea5c33cbef09a9200f209245d6601c0856bf8df36ad8ef7429083dd9d51af5b9",
+      "item_id": "gsm8k-main-ea5c33cbef09a9200f209245",
+      "normalized_text_hash": "1ed49328b7b1b7aa2fb84ac3248f098748e2af35c912ce9d766326b052cee788",
+      "row_index": 1146,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "63e7c3df1f4fbbc45ec6f3eafe553ce3387e254342fd12a9906f73dc8d8275b1",
+      "item_id": "gsm8k-main-63e7c3df1f4fbbc45ec6f3ea",
+      "normalized_text_hash": "8db337a49418fd6f1f89fda8fbe414d0adf9349a89321a1d4a076af32e5ac075",
+      "row_index": 1150,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9abfb70eb4c981d8d30328b02b13eb3476026508202acf728783b9a240a82035",
+      "item_id": "gsm8k-main-9abfb70eb4c981d8d30328b0",
+      "normalized_text_hash": "ef1ad0026d6756d79663fd48bfbf7cbc995e076df39e08da35552637525d96c9",
+      "row_index": 1162,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "36fb79c61d0c3992a16673b59fc6645d56a324536bd702b4a3db5e68db820d59",
+      "item_id": "gsm8k-main-36fb79c61d0c3992a16673b5",
+      "normalized_text_hash": "4459d95c1ca8a6eb82ab683c929ad13f3e2695381923726001c1f6dfb7eb90a1",
+      "row_index": 1169,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "7b518420a2cfbee46fa2f79a6e14fe85144ff77f977fd29b446156ecd3663b0b",
+      "item_id": "gsm8k-main-7b518420a2cfbee46fa2f79a",
+      "normalized_text_hash": "e2efd4ff76ac641f2575c3e4510aa67159aefb66516dadc6eaaea131cd20d54b",
+      "row_index": 1181,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "0e8c61b4a46e80d82d4d7a55cb6b62264a5f34f7a66b1ecae05b9d7d7f3b9257",
+      "item_id": "gsm8k-main-0e8c61b4a46e80d82d4d7a55",
+      "normalized_text_hash": "fa17d0c1c16f5db438001ab57c31f7da4fb4f364d167852cbfc18a275f764d62",
+      "row_index": 1185,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "877f12aba28cea04b99ad6374d60d8a68b255cb411584986650de2ef46532c3f",
+      "item_id": "gsm8k-main-877f12aba28cea04b99ad637",
+      "normalized_text_hash": "5e9cff6bef2a2a3139a11a0cf78256bc0fef816495c1fe17b82c67bcae4b3ca5",
+      "row_index": 1192,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "2839e1ea4f713b05a873b23aec743fbe5390f0a2aca83c05653568cedb7fa873",
+      "item_id": "gsm8k-main-2839e1ea4f713b05a873b23a",
+      "normalized_text_hash": "1b204b20ed9ceb1eab09c6bafe39bebadd4c8be944d511c4960dc8fb0502aac6",
+      "row_index": 1195,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f44be34d7d1ee806f0af5ec0aba13433baaca40b2be113a6ffe6ed7725381f42",
+      "item_id": "gsm8k-main-f44be34d7d1ee806f0af5ec0",
+      "normalized_text_hash": "eac75fc9494552971481cece3167c096219ab265d24460f895b768f1b8b8d14c",
+      "row_index": 1199,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e0f19343deb9b20a934a87d473d401b0bf3d4efaa5e3fe15acc7eac0a8a63e93",
+      "item_id": "gsm8k-main-e0f19343deb9b20a934a87d4",
+      "normalized_text_hash": "6b97458b600b5a1b0992dc4ec55ba41eb6cabce7bb53dcd3ab43817a6088c1cf",
+      "row_index": 1208,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fde8da123e251e75ccc3f8a97f1f26207633a0f85402a14485051f6d7b911c14",
+      "item_id": "gsm8k-main-fde8da123e251e75ccc3f8a9",
+      "normalized_text_hash": "28967ff65f80ead37a7516f7a11139dd6165446127e15eb19f7e254313c36d92",
+      "row_index": 1210,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3ee64371b457eb7f65908c92a2e8fe09b90f4770bc6b401a18e37c8047691f76",
+      "item_id": "gsm8k-main-3ee64371b457eb7f65908c92",
+      "normalized_text_hash": "8449de11d68a10fbf378f8b97378cd55f298ec0fa29d0a251ccff0a31e0dd5dd",
+      "row_index": 1217,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "598d4c643f149bc0a56526cf6ade6258a4e745ce9106d2aa0bacf49494e099f3",
+      "item_id": "gsm8k-main-598d4c643f149bc0a56526cf",
+      "normalized_text_hash": "9f0055b9a6209731d63db0cd9a085312f39667b3515e96f7a2d533977886ad70",
+      "row_index": 1218,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "f82bb274520a20d3f86c678467b361955ff19f43cf310adba48b587131785aa2",
+      "item_id": "gsm8k-main-f82bb274520a20d3f86c6784",
+      "normalized_text_hash": "23adfa57ee7e97fd304d85b137ee80a40610c665645c8816bea291e6fe358b12",
+      "row_index": 1220,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "e2ef8a7d6371168bb175e06cf03a8b0944a5abd944c367d4998b5fa45e207625",
+      "item_id": "gsm8k-main-e2ef8a7d6371168bb175e06c",
+      "normalized_text_hash": "f2cd1186949207c89eeab2662cd4342e75944cfbb1c637039ef88895c61d679d",
+      "row_index": 1223,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3da255d52b5dd5213aaae6850f32c296a5e0d691e74ae2aa4b0895ab37f50a6f",
+      "item_id": "gsm8k-main-3da255d52b5dd5213aaae685",
+      "normalized_text_hash": "c704b35d9e16b7ca4354ef59e12323188c52c2620385071a5d201cf61ddfcae3",
+      "row_index": 1227,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "98d6f4f3c6f798925440027a94686959bb45381db0182a473bb68ba1c6e823b9",
+      "item_id": "gsm8k-main-98d6f4f3c6f798925440027a",
+      "normalized_text_hash": "68263ad786e80fe3a4a7adfcacd7aef048a43f348f84f971de095c7707ad5366",
+      "row_index": 1237,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "41857c4620dbeb492b90276ab6c61e67bac46be39087862144055b617b81b33b",
+      "item_id": "gsm8k-main-41857c4620dbeb492b90276a",
+      "normalized_text_hash": "15131197d62a5e304d46bedcb0f2ca3e796b979033eb7419cfc915d5ef438967",
+      "row_index": 1238,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "8199afbeae1e11197ce7e1050cf151cf68f2a2ba949aaa4e4aa2611c870d020b",
+      "item_id": "gsm8k-main-8199afbeae1e11197ce7e105",
+      "normalized_text_hash": "0a8bb8d1b435e74c354f266bdb17fc42a894a6c3b9003a5d7f382b2b4cad3b29",
+      "row_index": 1275,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "3f9ad81271d1d52b381e1cfdb63a758fcf3b83dfa75ef945ee77c60334c010bc",
+      "item_id": "gsm8k-main-3f9ad81271d1d52b381e1cfd",
+      "normalized_text_hash": "665c8666dc5aab37dc6a6b23aab59cae3de4c191a1b7073fcc95a9e7c3bb52db",
+      "row_index": 1279,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "02d820053ef81a5149257161cc9f94bc0916fc253888643919704acb7425b76a",
+      "item_id": "gsm8k-main-02d820053ef81a5149257161",
+      "normalized_text_hash": "22d608d67e55ce6bb4930a78e2bb19e5c9232e28ad03170276e413b964975e58",
+      "row_index": 1281,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "c9fdbb2a09e09375193b57067f92d1ca2e13006e780cdf50ac41de37cd3e6647",
+      "item_id": "gsm8k-main-c9fdbb2a09e09375193b5706",
+      "normalized_text_hash": "0e6fc2fc1aae343625c23bd86b7cfafbe1b01bc13ecfbac0937eccad81fce478",
+      "row_index": 1288,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "21310e6dab1210c02edcfa0a65bc2e5c711ed6fd92f68f3e14bd6e65150dbf80",
+      "item_id": "gsm8k-main-21310e6dab1210c02edcfa0a",
+      "normalized_text_hash": "e53a57cf7d37b643695f013b12b20e46fa58721030a672c9106015e35bcbc887",
+      "row_index": 1294,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "fba5f1bc24d7772407af6d6bd074f98dd71dd33f1b4cfc92e57e07777fd1af66",
+      "item_id": "gsm8k-main-fba5f1bc24d7772407af6d6b",
+      "normalized_text_hash": "83dce85ac5275c165b3cb23cc6d703bbc793d0839b931b1a962288b140412be8",
+      "row_index": 1304,
+      "subtask": "main"
+    },
+    {
+      "item_hash": "9c9ca23e1563dc508b4e4cca35c5bcaf8886d480434746c25ed245bc2162f9f2",
+      "item_id": "gsm8k-main-9c9ca23e1563dc508b4e4cca",
+      "normalized_text_hash": "e4d81d5ad61492bdf4c1d82ade25441b1bed31cd6de30ecaac8eccb1d77c461f",
+      "row_index": 1313,
+      "subtask": "main"
+    }
+  ],
+  "public_subset_sha256": "ed6cf8472b13fdcfba3b2ab0cf83e4fb7036a72209ec3737fd02e29698152525",
+  "schema_version": "7.0",
+  "split": "test",
+  "subset_policy": "seeded_stratified_pilot_v7",
+  "subset_seed": 20270809
+}

@@ -17,10 +17,10 @@ import yaml
 
 from valideval import __version__
 from valideval.execution.config import (
-    RunConfigV6,
     V6ConfigurationError,
     discover_repository_root,
     load_run_config,
+    load_yaml_mapping,
     resolve_source_commit,
     semantic_config_hash,
 )
@@ -99,7 +99,7 @@ def run_from_config(
         config = load_run_config(config_source, repository_root=root)
         if mode_override is not None:
             config = config.model_copy(update={"mode": mode_override})
-            config = RunConfigV6.model_validate(config.model_dump(mode="json"))
+            config = type(config).model_validate(config.model_dump(mode="json"))
     except V6ConfigurationError as exc:
         return _terminal(CONFIG_MISMATCH, error=str(exc), config_path=str(config_source))
 
@@ -127,6 +127,15 @@ def run_from_config(
         subset_path = root / config.subset_manifest
         panel = load_panel_config(panel_path)
         contract = _load_contract(contract_path, config.benchmark_id)
+        robustness_path = getattr(config, "robustness_config", None)
+        if robustness_path:
+            robustness = load_yaml_mapping(root / robustness_path)
+            contract = _apply_robustness_contract(
+                contract,
+                robustness,
+                config.benchmark_id,
+            )
+            _validate_robustness_panel(panel, robustness)
     except (V6ConfigurationError, ModelResolutionError, ValueError) as exc:
         return _terminal(MODEL_RESOLUTION_FAILURE, error=str(exc))
 
@@ -222,7 +231,7 @@ def preflight_from_config(
     except (V6ConfigurationError, ModelResolutionError, ValueError) as exc:
         return _terminal(CONFIG_MISMATCH, error=str(exc), config_path=str(source))
     return {
-        "schema_version": "6.0",
+        "schema_version": config.schema_version,
         "status": "PREFLIGHT_COMPLETE",
         "config_path": str(source),
         "mode": config.mode,
@@ -241,7 +250,7 @@ class InsufficientGpuError(RuntimeError):
 
 
 def environment_preflight(
-    config: RunConfigV6,
+    config: Any,
     panel: Mapping[str, Any],
     repository_root: str | Path,
     output_root: str | Path,
@@ -272,6 +281,15 @@ def environment_preflight(
             raise InsufficientGpuError(
                 f"visible GPU count {visible_gpu_count} is below required count {required}"
             )
+    gated = [
+        model["repository"]
+        for model in panel["models"]
+        if str(model.get("access", "public")) != "public"
+    ]
+    if config.execution.backend == "transformers" and gated and not os.environ.get("HF_TOKEN"):
+        raise V6ConfigurationError(
+            f"gated checkpoints require HF_TOKEN before execution; unavailable={gated}"
+        )
     destination = Path(output_root)
     destination.mkdir(parents=True, exist_ok=True)
     free_bytes = shutil.disk_usage(destination).free
@@ -295,6 +313,10 @@ def environment_preflight(
         "package_version": __version__,
         "execution_schema_version": EXECUTION_SCHEMA_VERSION,
         "source_commit": source_commit,
+        "required_source_ref": config.required_source_ref,
+        "expected_source_commit": source_commit,
+        "actual_source_commit": source_commit,
+        "source_match": True,
         "config_hash": semantic_config_hash(config),
         "visible_gpu_count": visible_gpu_count,
         "configured_gpu_ids": list(config.execution.gpu_ids),
@@ -306,7 +328,7 @@ def environment_preflight(
 
 def _execute_jobs(
     *,
-    config: RunConfigV6,
+    config: Any,
     panel: Mapping[str, Any],
     contract: Mapping[str, Any],
     subset: Mapping[str, Any],
@@ -322,7 +344,7 @@ def _execute_jobs(
     shards = build_deterministic_shards(
         item_ids,
         shard_count=config.execution.shard_count,
-        prefix=f"{config.benchmark_id}-s1-v6",
+        prefix=f"{config.benchmark_id}-{str(getattr(config, 'stage', 'S1')).lower()}-v{config.schema_version[0]}",
     )
     item_to_shard = {item_id: shard.shard_id for shard in shards for item_id in shard.item_ids}
     private_gold = {item.public.item_id: item.private_gold for item in items}
@@ -350,6 +372,9 @@ def _execute_jobs(
                 "evidence_class": config.evidence_class,
                 "batch_size": config.execution.batch_size,
                 "max_sequence_length": config.execution.max_sequence_length,
+                "allow_batch_size_fallback": config.execution.allow_batch_size_fallback,
+                "allow_sequence_length_fallback": config.execution.allow_sequence_length_fallback,
+                "minimum_sequence_length": config.execution.minimum_sequence_length,
                 "dtype": model["dtype"],
                 "quantization": model["quantization"],
                 "estimated_duration": float(model["expected_download_size"]),
@@ -365,9 +390,7 @@ def _execute_jobs(
         use_processes=config.execution.use_processes,
         process_start_method=config.execution.process_start_method,
     )
-    scheduler_run_config = config.model_dump(mode="json")
-    if scheduler_run_config["mode"] in {"resume", "validate_only", "package_only"}:
-        scheduler_run_config["mode"] = "smoke"
+    scheduler_run_config = _frozen_config_payload(config)
     scheduler_config = {
         "run_config": scheduler_run_config,
         "config_hash": config_hash,
@@ -387,7 +410,7 @@ def _execute_jobs(
 
 def _materialize_run(
     *,
-    config: RunConfigV6,
+    config: Any,
     panel: Mapping[str, Any],
     contract: Mapping[str, Any],
     subset: Mapping[str, Any],
@@ -466,10 +489,10 @@ def _materialize_run(
     atomic_write_json(
         run_dir / "models.json",
         {
-            "schema_version": "6.0",
+            "schema_version": config.schema_version,
             "panel_id": panel["panel_id"],
             "evidence_class": panel["evidence_class"],
-            "scientific_panel_adequacy": panel["scientific_panel_adequacy"],
+            "scientific_panel_adequacy": panel.get("scientific_panel_adequacy", False),
             "models": manifest_models,
         },
     )
@@ -522,7 +545,11 @@ def _materialize_run(
         completion_state=completion_state,
         failure_state=failure_state,
         evidence_state=config.evidence_class,
-        config_class="s1_engineering_smoke_v6",
+        config_class=(
+            "s1_engineering_smoke_v6"
+            if config.schema_version == "6.0"
+            else f"study_c_{config.stage.lower()}_v7"
+        ),
         file_checksums=checksums,
         code_revision=source_commit,
         extra={
@@ -530,6 +557,10 @@ def _materialize_run(
             "execution_backend": config.execution.backend,
             "mocked_production_path": config.execution.backend == "mock",
             "source_commit": source_commit,
+            "required_source_ref": config.required_source_ref,
+            "expected_source_commit": source_commit,
+            "actual_source_commit": source_commit,
+            "source_match": True,
             "dataset_revision": contract["dataset_revision"],
             "prompt_hash": prompt_hash,
             "subset_manifest_sha256": config.subset_manifest_sha256,
@@ -543,7 +574,9 @@ def _materialize_run(
                 "successful_resource_fallbacks": successful_resource_fallbacks,
             },
             "merge_summary": merge,
-            "engineering_only": True,
+            # Every V6 S1 artifact belongs to the engineering-smoke protocol, including
+            # NON_EVIDENCE_FIXTURE exercises of that path. V7 uses stage-scoped claim gates.
+            "engineering_only": config.schema_version == "6.0",
         },
     )
     if manifest["config_hash"] != config_hash:
@@ -551,7 +584,7 @@ def _materialize_run(
     atomic_write_json(run_dir / "run_manifest.json", manifest)
     atomic_write_json(
         run_dir / "file_checksums.json",
-        {"schema_version": "6.0", "files": checksums},
+        {"schema_version": config.schema_version, "files": checksums},
     )
     validation = validate_run_directory(
         run_dir,
@@ -560,7 +593,8 @@ def _materialize_run(
     )
     package_dir = destination_root / "packages"
     package_dir.mkdir(parents=True, exist_ok=True)
-    zip_path = package_dir / f"valideval_v6_s1_{config.benchmark_id}_{config.run_id}.zip"
+    version_label = "v6_s1" if config.schema_version == "6.0" else f"v7_{config.stage.lower()}"
+    zip_path = package_dir / f"valideval_{version_label}_{config.benchmark_id}_{config.run_id}.zip"
     zip_sha256 = create_deterministic_run_zip(run_dir, zip_path)
     terminal = RUN_COMPLETE_WITH_RECORDED_FAILURES if failure_state != "none" else RUN_COMPLETE
     return _terminal(
@@ -580,7 +614,7 @@ def _materialize_run(
 
 
 def _package_existing_run(
-    config: RunConfigV6,
+    config: Any,
     run_dir: Path,
     destination_root: Path,
 ) -> dict[str, Any]:
@@ -588,12 +622,16 @@ def _package_existing_run(
         validation = validate_run_directory(
             run_dir,
             expected_benchmark=config.benchmark_id,
-            expected_config_hash=semantic_config_hash(config.model_copy(update={"mode": "smoke"})),
+            expected_config_hash=semantic_config_hash(config),
         )
         zip_path = (
             destination_root
             / "packages"
-            / f"valideval_v6_s1_{config.benchmark_id}_{config.run_id}.zip"
+            / (
+                f"valideval_v6_s1_{config.benchmark_id}_{config.run_id}.zip"
+                if config.schema_version == "6.0"
+                else f"valideval_v7_{config.stage.lower()}_{config.benchmark_id}_{config.run_id}.zip"
+            )
         )
         digest = create_deterministic_run_zip(run_dir, zip_path)
     except (PackageValidationError, ValueError) as exc:
@@ -619,7 +657,6 @@ def _load_contract(path: Path, expected_benchmark: str) -> dict[str, Any]:
         "dataset_repository",
         "dataset_revision",
         "split",
-        "expected_s1_item_count",
         "prompt_template_version",
         "few_shot_policy",
         "few_shot_examples_hash",
@@ -630,6 +667,8 @@ def _load_contract(path: Path, expected_benchmark: str) -> dict[str, Any]:
         "generation_view",
     }
     missing = sorted(required.difference(payload))
+    if "expected_item_count" not in payload and "expected_s1_item_count" not in payload:
+        missing.append("expected_item_count")
     if missing:
         raise V6ConfigurationError(f"benchmark contract missing fields: {missing}")
     if payload["benchmark_id"] != expected_benchmark:
@@ -638,16 +677,90 @@ def _load_contract(path: Path, expected_benchmark: str) -> dict[str, Any]:
     required_forbidden = {"answer", "gold", "gold_answer", "is_correct"}
     if not required_forbidden.issubset(forbidden):
         raise V6ConfigurationError("benchmark generation view does not seal the gold boundary")
-    if payload["few_shot_policy"] != "zero_shot_s1_v6":
-        raise V6ConfigurationError("S1 V6 requires the completely frozen zero-shot policy")
+    if payload["few_shot_policy"] not in {"zero_shot_s1_v6", "zero_shot_v7"}:
+        raise V6ConfigurationError("execution requires a frozen zero-shot policy")
     return payload
+
+
+def _apply_robustness_contract(
+    contract: Mapping[str, Any],
+    robustness: Mapping[str, Any],
+    benchmark_id: str,
+) -> dict[str, Any]:
+    declared = robustness.get("benchmark", robustness.get("benchmarks"))
+    matches = benchmark_id == declared or (
+        isinstance(declared, list) and benchmark_id in map(str, declared)
+    )
+    if not matches or robustness.get("evidence_class") != "ROBUSTNESS":
+        raise V6ConfigurationError("robustness config does not match the run benchmark/evidence")
+    result = dict(contract)
+    generation = dict(result["generation_parameters"])
+    condition = str(robustness["condition"])
+    if "prompt" in robustness:
+        result["prompt_instruction"] = str(robustness["prompt"])
+    if condition == "option_log_likelihood":
+        if benchmark_id != "mmlu":
+            raise V6ConfigurationError("option log-likelihood is implemented only for MMLU")
+        result["generation_mode"] = "option_log_likelihood"
+        result["generation_config_id"] = "mmlu_option_log_likelihood_v7"
+        result["extraction_version"] = "mmlu_option_log_likelihood_v7"
+        result["scoring_version"] = "mmlu_exact_choice_v7"
+    elif condition == "alternate_prompt_and_saved_output_parser":
+        result["extraction_version"] = "final_answer_marker_strict_v7"
+        result["prompt_template_version"] = "gsm8k_alternate_prompt_v7"
+    elif condition == "alternate_zero_shot_prompt":
+        result["prompt_template_version"] = "bbh_alternate_zero_shot_v7"
+    elif condition == "stochastic_seed_subset":
+        generation.update(
+            {
+                "do_sample": True,
+                "temperature": float(robustness["temperature"]),
+                "top_p": float(robustness["top_p"]),
+            }
+        )
+    elif condition == "controlled_generation":
+        generation.update(
+            {
+                "do_sample": bool(robustness["do_sample"]),
+                "temperature": float(robustness["temperature"]),
+                "max_new_tokens": int(robustness["max_new_tokens"]),
+            }
+        )
+    elif condition == "representative_quantization_sensitivity":
+        pass
+    else:
+        raise V6ConfigurationError(
+            f"robustness condition requires a dedicated frozen panel or is unsupported: {condition}"
+        )
+    result["generation_parameters"] = generation
+    result["robustness_condition"] = condition
+    return result
+
+
+def _validate_robustness_panel(panel: Mapping[str, Any], robustness: Mapping[str, Any]) -> None:
+    if robustness.get("condition") != "representative_quantization_sensitivity":
+        return
+    expected = set(map(str, robustness.get("representatives", [])))
+    observed = {str(model["repository"]) for model in panel["models"]}
+    if observed != expected:
+        raise V6ConfigurationError("quantization panel does not match frozen representatives")
+    observed_precisions = {str(model["quantization"]) for model in panel["models"]}
+    allowed = {
+        "none" if value == "float16" else "nf4" if value == "bitsandbytes_nf4" else str(value)
+        for value in robustness.get("precisions", [])
+    }
+    if len(observed_precisions) != 1 or not observed_precisions.issubset(allowed):
+        raise V6ConfigurationError("quantization panel must freeze exactly one allowed precision")
 
 
 def _validate_item_contract(
     items: Sequence[FrozenBenchmarkItem],
     contract: Mapping[str, Any],
 ) -> None:
-    expected = int(contract["expected_s1_item_count"])
+    expected_value = contract.get("expected_item_count")
+    if expected_value is None:
+        expected_value = contract["expected_s1_item_count"]
+    expected = int(expected_value)
     if len(items) != expected:
         raise DatasetResolutionError(f"expected {expected} frozen items, got {len(items)}")
     ids = [item.public.item_id for item in items]
@@ -660,7 +773,7 @@ def _validate_item_contract(
 def _initialize_run_directory(
     run_dir: Path,
     *,
-    config: RunConfigV6,
+    config: Any,
     config_hash: str,
     resume: bool,
 ) -> None:
@@ -686,11 +799,11 @@ def _initialize_run_directory(
 
 
 def _environment_payload(
-    config: RunConfigV6,
+    config: Any,
     preflight: Mapping[str, Any],
 ) -> dict[str, Any]:
     return {
-        "schema_version": "6.0",
+        "schema_version": config.schema_version,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "python": sys.version,
         "platform": platform.platform(),
@@ -814,10 +927,23 @@ def _safe_task_id(model_id: str) -> str:
     )
 
 
-def _frozen_config_payload(config: RunConfigV6) -> dict[str, Any]:
+def _frozen_config_payload(config: Any) -> dict[str, Any]:
     payload = config.model_dump(mode="json")
     if payload["mode"] in {"resume", "validate_only", "package_only"}:
-        payload["mode"] = "smoke"
+        if (
+            payload.get("schema_version") == "7.0"
+            and payload.get("execution", {}).get("backend") == "mock"
+        ):
+            payload["mode"] = "fixture"
+        elif payload.get("schema_version") == "7.0":
+            payload["mode"] = {
+                "S2": "pilot",
+                "S3": "minimum_scientific",
+                "S4": "full_common_panel",
+                "S5": "robustness",
+            }[payload["stage"]]
+        else:
+            payload["mode"] = "smoke"
     return payload
 
 

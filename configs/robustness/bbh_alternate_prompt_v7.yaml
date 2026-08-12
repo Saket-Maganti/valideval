@@ -1,0 +1,6 @@
+schema_version: "7.0"
+benchmark: bbh
+condition: alternate_zero_shot_prompt
+temperature: 0.0
+prompt: Solve the task carefully. Return only the final answer in the required format.
+evidence_class: ROBUSTNESS

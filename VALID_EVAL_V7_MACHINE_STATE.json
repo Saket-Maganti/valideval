@@ -1,0 +1,148 @@
+{
+  "blocked": [
+    "all controlled GPU evidence",
+    "human labels",
+    "cross-benchmark transport",
+    "held-out repair validation",
+    "synthetic diagnostic acceptance",
+    "MMLU-Redux exact identity"
+  ],
+  "branch": "icml2027-v7-max-upgrade",
+  "ci_patch_tag": "valideval-v7-icml2027-max-pre-execution-ci2",
+  "cpu_runtime_seconds_recorded": 31.55470020911889,
+  "environment": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]"
+  },
+  "final_commit": null,
+  "final_commit_resolution": "Resolve ci_patch_tag^{commit}; the required final tag was preserved under the no-force policy after a GitHub-only lint compatibility patch.",
+  "final_gate": "ICML2027_STRONG_PRE_EXECUTION_BUILD_PARTIAL",
+  "final_tag": "valideval-v7-icml2027-max-pre-execution",
+  "freeze_commit": "08336a3948db69de931e7582650abbd2f6ae0a70",
+  "freeze_tag": "valideval-v7-confirmatory-freeze",
+  "generated_at": "2026-08-09",
+  "gpu_runtime_planning": {
+    "all_run_hours_excluding_download": {
+      "conservative": 1803.8972800925926,
+      "expected": 785.2814261272139,
+      "optimistic": 441.09729308390024
+    },
+    "calibration_state": "UNMEASURED_ASSUMPTIONS",
+    "claim_boundary": "Ranges use frozen token/throughput/retry assumptions and are not measured T4x2 runtime. Recalibrate after accepted S1/S2 outputs. Downloads are excluded from sums.",
+    "configured_run_count_including_fallback_alternatives": 25,
+    "mandatory_pre_s4_hours_excluding_download": {
+      "conservative": 814.9733253761573,
+      "expected": 354.7601414678944,
+      "optimistic": 199.293467439059
+    },
+    "maximum_single_run_download_gb": 63.995012707,
+    "primary_route_run_count": 22,
+    "recommended_free_storage_gb": 95,
+    "status": "GPU_RUNTIME_PLANNING_COMPLETE_UNCALIBRATED"
+  },
+  "head_at_generation": "5dc945714bdbff73644a7aaea47768037376c0b9",
+  "schema_version": "7.0",
+  "statuses": {
+    "benchmark_influence": "BENCHMARK_INFLUENCE_READY",
+    "claim_licensing": "CLAIM_LICENSING_METHOD_READY",
+    "decision_materiality": "DECISION_MATERIALITY_READY",
+    "generalizability": "GENERALIZABILITY_ANALYSIS_READY",
+    "human_protocol": "HUMAN_CONFIRMATORY_PROTOCOL_READY",
+    "inferential_diagnostics": "INFERENTIAL_DIAGNOSTICS_READY",
+    "measurement_regime": "MEASUREMENT_REGIME_STUDY_COMPLETE",
+    "robustness": "ROBUSTNESS_RUNBOOKS_READY",
+    "s1": "S1_READY",
+    "s2": "S2_READY",
+    "s3": "S3_READY",
+    "s4": "S4_READY",
+    "study_h": "STUDY_H_REPRODUCED_WITH_LIMITATIONS",
+    "synthetic_acceptance": "FROZEN_ACCEPTANCE_GATES_FAILED",
+    "synthetic_execution": "SYNTHETIC_CONFIRMATORY_COMPLETE",
+    "transport_build": "TRANSPORTABILITY_BUILD_READY",
+    "transport_evidence": "BLOCKED"
+  },
+  "validation": {
+    "artifact_checksum_validation": {
+      "command": "python3 scripts/validate_v7_artifacts.py",
+      "status": "PASS"
+    },
+    "clean_install": {
+      "clean_checkout": true,
+      "command": "git worktree add --detach <temporary> HEAD && python3 -m venv <temporary-venv> && <temporary-venv>/bin/python -m pip install -e '.[dev]'",
+      "python": "3.11.9",
+      "status": "PASS"
+    },
+    "full_test_suite": {
+      "command": "python -m pytest -q",
+      "failed": 0,
+      "passed": 392,
+      "runtime_seconds": 33.95,
+      "skipped": 0,
+      "status": "PASS",
+      "warnings": 2,
+      "warnings_summary": "Two existing pandas/scipy constant-input correlation warnings in the V4 post-import router test.",
+      "xfailed": 0
+    },
+    "importer_adversarial_tests": {
+      "command": "python -m pytest -q tests/test_kaggle_importer_adversarial_v5.py tests/test_ingest_and_analyze_v7.py",
+      "passed": 7,
+      "runtime_seconds": 0.59,
+      "status": "PASS"
+    },
+    "lint_and_format": {
+      "commands": [
+        "python3 -m ruff check .",
+        "python3 -m ruff format --check src tests scripts"
+      ],
+      "formatted_files_checked": 405,
+      "status": "PASS"
+    },
+    "mocked_production_execution": {
+      "command": "python -m pytest -q tests/test_runner_mock_v6.py tests/test_execution_v7.py",
+      "passed": 7,
+      "runtime_seconds": 0.88,
+      "status": "PASS"
+    },
+    "mypy_v7": {
+      "command": "python -m mypy <35 V7 source targets>",
+      "source_files_checked": 35,
+      "status": "PASS"
+    },
+    "notebook_fixture_execution": {
+      "engine": "nbclient 0.11.0",
+      "failed": 0,
+      "notebooks": 10,
+      "passed": 10,
+      "status": "PASS"
+    },
+    "package_build": {
+      "artifacts": [
+        "valideval-0.4.0.tar.gz",
+        "valideval-0.4.0-py3-none-any.whl"
+      ],
+      "command": "python -m build --outdir <temporary>",
+      "status": "PASS"
+    },
+    "paper_asset_generator_smoke": {
+      "command": "python3 scripts/build_current_paper_assets.py",
+      "note": "Legacy V5 write-through outputs were restored after the smoke; V7 release artifacts are generated separately.",
+      "status": "PASS"
+    },
+    "release_profiles": {
+      "cpu": "RELEASE_BUILT",
+      "evidence": "RELEASE_BUILT",
+      "reviewer": "RELEASE_BUILT",
+      "source": "RELEASE_BUILT",
+      "status": "PASS"
+    },
+    "schema_version": "7.0",
+    "scientific_gate": "ICML2027_STRONG_PRE_EXECUTION_BUILD_PARTIAL",
+    "secret_scan": {
+      "finding_count": 0,
+      "note": "The explicit HF_TOKEN=NON_EVIDENCE_FIXTURE literal is an adversarial packaging test, not a credential.",
+      "status": "PASS"
+    },
+    "validated_at": "2026-08-09",
+    "validation_scope": "CPU, fixture, packaging, and static release validation only; no GPU generation or human annotation was performed."
+  }
+}

@@ -4,6 +4,26 @@ from copy import deepcopy
 from typing import Any
 
 POLICIES: dict[str, dict[str, Any]] = {
+    "REMOVE_CONFIRMED_ISSUES": {
+        "description": "Remove only independently confirmed item issues.",
+        "v7_validation_required": True,
+        "confirmed_only": True,
+    },
+    "DOWNWEIGHT_UNCERTAIN_ITEMS": {
+        "description": "Downweight uncertain items using cross-fitted risk estimates.",
+        "v7_validation_required": True,
+        "cross_fitted_weights": True,
+    },
+    "ABSTAIN_ON_DISPUTED_ITEMS": {
+        "description": "Exclude disputed items from claims while preserving them for audit.",
+        "v7_validation_required": True,
+        "adjudication_required": True,
+    },
+    "REWEIGHT_FOR_RELIABILITY": {
+        "description": "Use held-out reliability weights with a matched random baseline.",
+        "v7_validation_required": True,
+        "held_out_reliability": True,
+    },
     "conservative": {
         "description": (
             "Remove clear local item-quality threats while preserving coverage-critical items."

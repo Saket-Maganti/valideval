@@ -1,0 +1,117 @@
+{
+  "claim_boundary": "Components are descriptive method-of-moments quantities for an unbalanced, fixed historical panel and support design sensitivity, not population variance claims.",
+  "minimum_designs": [
+    {
+      "achieved": 0.8589720702243723,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 100,
+      "outcome": "aggregate_benchmark_score",
+      "subjects": 5,
+      "target": 0.8
+    },
+    {
+      "achieved": 0.9193838109009123,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 250,
+      "outcome": "aggregate_benchmark_score",
+      "subjects": 5,
+      "target": 0.9
+    },
+    {
+      "achieved": 0.9579989220283938,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 500,
+      "outcome": "aggregate_benchmark_score",
+      "subjects": 10,
+      "target": 0.95
+    },
+    {
+      "achieved": 0.8040075480250667,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 100,
+      "outcome": "pairwise_model_comparison",
+      "subjects": 10,
+      "target": 0.8
+    },
+    {
+      "achieved": 0.908616880492469,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 250,
+      "outcome": "pairwise_model_comparison",
+      "subjects": 20,
+      "target": 0.9
+    },
+    {
+      "achieved": 0.9521207632387952,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 500,
+      "outcome": "pairwise_model_comparison",
+      "subjects": 40,
+      "target": 0.95
+    },
+    {
+      "achieved": 0.8178136637845733,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 100,
+      "outcome": "top_k_selection",
+      "subjects": 40,
+      "target": 0.8
+    },
+    {
+      "achieved": 0.9088383020687609,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 250,
+      "outcome": "top_k_selection",
+      "subjects": 57,
+      "target": 0.9
+    },
+    {
+      "achieved": 0.9572990248539273,
+      "checkpoints_per_family": 1,
+      "families": 3,
+      "items": 1000,
+      "outcome": "top_k_selection",
+      "subjects": 57,
+      "target": 0.95
+    },
+    {
+      "outcome": "subject_conditioned_score",
+      "status": "NOT_REACHED_ON_GRID",
+      "target": 0.8
+    },
+    {
+      "outcome": "subject_conditioned_score",
+      "status": "NOT_REACHED_ON_GRID",
+      "target": 0.9
+    },
+    {
+      "outcome": "subject_conditioned_score",
+      "status": "NOT_REACHED_ON_GRID",
+      "target": 0.95
+    }
+  ],
+  "runtime_seconds": 0.3405888339621015,
+  "status": "GENERALIZABILITY_ANALYSIS_READY",
+  "variance_components": {
+    "family": 0.005620788431127427,
+    "family_count": 10,
+    "family_x_subject": 0.001503751224862928,
+    "item": 0.08138950892550906,
+    "item_count": 14042,
+    "method": "descriptive_unbalanced_method_of_moments_v7",
+    "model": 0.00837050212081074,
+    "model_count": 39,
+    "model_x_subject": 0.002065234836101957,
+    "residual": 0.17838239051406787,
+    "subject": 0.018199706131223674,
+    "subject_count": 57
+  }
+}

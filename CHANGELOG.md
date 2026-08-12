@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.4.1-v7.1-scientific-closure — 2026-08-12
+
+- Unified the V7.1 runner, deterministic package, and importer schema and added real
+  runner-to-ZIP-to-import fixture tests, resume coverage, and fail-closed provenance checks.
+- Propagated typed model-load and generation OOMs into bounded scheduler recovery.
+- Repaired threshold direction, dependence-aware effective-N, simultaneous rank, pairwise
+  multiplicity, claim-family, and executed transport-fold licensing semantics.
+- Added versioned synthetic controls with tie-invariant metrics while preserving the failed frozen
+  V7 primary result.
+- Added known-truth claim calibration, rank-coverage simulations, family-dependence stress,
+  primary-estimand power planning, grouped cross-fitting, null contracts, Study-H estimand
+  sensitivity, human resource accounting, benchmark forensics, and canonical-versus-deduplicated
+  analysis.
+- Kept unavailable evidence blocked: no executed transport folds, human labels, accepted S1/S2,
+  measured T4 throughput, or exact BBH response matrix were fabricated.
+
+## 0.4.0-v7-icml2027-pre-execution — 2026-08-09
+
+- Added explicit claim contracts with identity, leakage, sample-size, power, multiplicity,
+  stability, external-validation, transport, and regret gates.
+- Added family-aware inferential diagnostics, seven-null Study H analysis, outcome-specific
+  generalizability, selective ranking, exact influence analyses, and measurement-regime studies.
+- Froze and executed a decoupled confirmatory synthetic protocol; its failed acceptance criteria
+  remain visible and block confirmatory diagnostic claims.
+- Added six-estimand transport and balanced blinded human protocols without inventing missing
+  cross-benchmark effects or human labels.
+- Added frozen S2–S5 panels, public S4 fallback routes, ten T4×2 notebooks, option-log-likelihood
+  MCQ scoring, strict answer parsing, secure ingestion, and deterministic evidence routing.
+- Retired exact duplicate benchmark rows from scientific manifests and preserved the fail-closed
+  MMLU-Redux retirement after the available artifacts could not support exact identity linkage.
+- Added CPU/reviewer/source/evidence release profiles, artifact validation, checksums, reports,
+  runtime and power planning, and an explicit partial pre-execution gate.
+
 ## 0.3.0 — 2026-07-23
 
 - Added the frozen V6 S1 five-checkpoint panel and immutable MMLU, GSM8K, and BBH contracts.

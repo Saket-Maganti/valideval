@@ -1,0 +1,21 @@
+{
+  "bootstrap": 500,
+  "claim_boundary": "Study H is an imported historical panel. Results are conditional on observed checkpoints, inferred families, resampling, and null protocols.",
+  "families": 10,
+  "items": 14042,
+  "kendalls_w": 0.8780649053860935,
+  "kendalls_w_ci": [
+    0.8598891034035995,
+    0.8983328971271606
+  ],
+  "models": 39,
+  "null_median_rank_range_exceedance_range": [
+    0.009950248756218905,
+    1.0
+  ],
+  "null_model_sensitivity_flag": true,
+  "null_simulations_per_method": 200,
+  "runtime_seconds": 10.253106124990154,
+  "status": "STUDY_H_REPRODUCED_WITH_LIMITATIONS",
+  "subjects": 57
+}

@@ -1,0 +1,7 @@
+schema_version: "7.0"
+benchmark: mmlu
+condition: option_log_likelihood
+temperature: 0.0
+choice_normalization: mean_token_log_likelihood
+fallback: BLOCK_IF_TOKEN_LOGPROBS_UNAVAILABLE
+evidence_class: ROBUSTNESS

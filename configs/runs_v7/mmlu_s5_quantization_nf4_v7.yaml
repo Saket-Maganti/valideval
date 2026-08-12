@@ -1,0 +1,35 @@
+schema_version: '7.0'
+run_id: study-c-s5-mmlu-quantization_nf4-v7
+study_id: study-c-s5-v7
+stage: S5
+evidence_class: ROBUSTNESS
+mode: robustness
+benchmark_id: mmlu
+benchmark_contract: configs/benchmarks/mmlu_s2_v7.yaml
+benchmark_contract_sha256: d05279993236d2434c53495b3fb522e2f4036a220c77e03865f76fa8cab7a936
+panel_config: configs/panels/s5_quantization_nf4_v7.yaml
+panel_config_sha256: 47a1522c3b366f1650e5c60df5c177215f3a02cc6d09e2e7fb9b6c6ce6ccd97d
+subset_manifest: results/freeze/study_c_v7/mmlu_s2_pilot_v7.json
+subset_manifest_sha256: 9972fdc11e3501377ba65ef006443bc7c509b2f3c4da3b7b8a158f426ee437f0
+output_root: kaggle_v7_outputs
+required_source_ref: valideval-v7.1-icml2027-scientific-execution-ready
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids:
+  - '0'
+  - '1'
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 2
+  shard_count: 8
+  batch_size: 1
+  max_sequence_length: 2048
+  timeout_seconds: 1800
+  minimum_free_disk_gb: 10
+  model_download_margin_gb: 5
+robustness_config: configs/robustness/quantization_sensitivity_v7.yaml
+robustness_config_sha256: 9d94e23baa33e09bf929591e21a06015f44a56f16149f18cb5c28ec17eb2c521

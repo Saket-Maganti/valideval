@@ -1,0 +1,8 @@
+schema_version: "7.0"
+benchmark: mmlu
+condition: controlled_generation
+temperature: 0.0
+do_sample: false
+max_new_tokens: 8
+scoring: exact_choice_extraction_v6
+evidence_class: ROBUSTNESS

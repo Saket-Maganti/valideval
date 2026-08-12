@@ -4,12 +4,15 @@ import os
 import re
 import subprocess
 from pathlib import Path
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from valideval.execution.manifest import canonical_json_bytes, sha256_bytes, sha256_file
+
+if TYPE_CHECKING:
+    from valideval.execution.config_v7 import RunConfigV7
 
 V6_SCHEMA_VERSION = "6.0"
 RUN_MODES = (
@@ -55,6 +58,9 @@ class ExecutionOptions(BaseModel):
     shard_count: int = 2
     batch_size: int = 1
     max_sequence_length: int = 4096
+    allow_batch_size_fallback: bool = True
+    allow_sequence_length_fallback: bool = False
+    minimum_sequence_length: int = 512
     timeout_seconds: float = 900.0
     minimum_free_disk_gb: float = 2.0
     model_download_margin_gb: float = 2.0
@@ -75,6 +81,10 @@ class ExecutionOptions(BaseModel):
             raise ValueError("max_retries must be non-negative")
         if self.shard_count <= 0 or self.batch_size <= 0 or self.max_sequence_length <= 0:
             raise ValueError("shard_count, batch_size, and max_sequence_length must be positive")
+        if self.minimum_sequence_length <= 0:
+            raise ValueError("minimum_sequence_length must be positive")
+        if self.minimum_sequence_length > self.max_sequence_length:
+            raise ValueError("minimum_sequence_length cannot exceed max_sequence_length")
         if self.timeout_seconds <= 0:
             raise ValueError("timeout_seconds must be positive")
         if self.minimum_free_disk_gb < 0 or self.model_download_margin_gb < 0:
@@ -157,10 +167,17 @@ def load_yaml_mapping(path: str | Path) -> dict[str, Any]:
     return payload
 
 
-def load_run_config(path: str | Path, *, repository_root: str | Path | None = None) -> RunConfigV6:
+def load_run_config(
+    path: str | Path, *, repository_root: str | Path | None = None
+) -> RunConfigV6 | RunConfigV7:
     source = Path(path).resolve()
+    raw = load_yaml_mapping(source)
+    if str(raw.get("schema_version")) == "7.0":
+        from valideval.execution.config_v7 import load_run_config_v7
+
+        return load_run_config_v7(source, repository_root=repository_root)
     try:
-        config = RunConfigV6.model_validate(load_yaml_mapping(source))
+        config = RunConfigV6.model_validate(raw)
     except Exception as exc:
         if isinstance(exc, V6ConfigurationError):
             raise
@@ -204,10 +221,25 @@ def verify_referenced_file(path: Path, expected_sha256: str, *, label: str) -> N
         )
 
 
-def semantic_config_hash(config: RunConfigV6 | dict[str, Any]) -> str:
-    payload = config.model_dump(mode="json") if isinstance(config, RunConfigV6) else dict(config)
+def semantic_config_hash(config: BaseModel | dict[str, Any]) -> str:
+    payload = config.model_dump(mode="json") if isinstance(config, BaseModel) else dict(config)
     if payload.get("mode") in {"resume", "validate_only", "package_only"}:
-        payload["mode"] = "smoke"
+        execution = payload.get("execution", {})
+        if (
+            payload.get("schema_version") == "7.0"
+            and isinstance(execution, dict)
+            and execution.get("backend") == "mock"
+        ):
+            payload["mode"] = "fixture"
+        elif payload.get("schema_version") == "7.0":
+            payload["mode"] = {
+                "S2": "pilot",
+                "S3": "minimum_scientific",
+                "S4": "full_common_panel",
+                "S5": "robustness",
+            }[str(payload["stage"])]
+        else:
+            payload["mode"] = "smoke"
     return sha256_bytes(canonical_json_bytes(payload))
 
 

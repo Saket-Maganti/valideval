@@ -1,0 +1,13 @@
+{
+  "BH_flags": 0,
+  "BY_flags": 0,
+  "bootstrap": 500,
+  "claim_boundary": "Flags indicate evidence consistent with anti-discrimination under this imported panel and null; causes require independent validation.",
+  "families": 10,
+  "items": 14042,
+  "models": 39,
+  "permutations": 500,
+  "runtime_seconds": 7.797378875024151,
+  "stable_FDR_flags": 0,
+  "status": "INFERENTIAL_DIAGNOSTICS_READY"
+}

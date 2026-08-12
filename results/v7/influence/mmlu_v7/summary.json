@@ -1,0 +1,9 @@
+{
+  "claim_boundary": "Influence measures sensitivity to deletion, not evidence that an influential item is flawed or should be removed.",
+  "items": 14042,
+  "runtime_seconds": 8.56606300000567,
+  "status": "BENCHMARK_INFLUENCE_READY",
+  "top5_changing_items": 0,
+  "winner_changing_items": 0,
+  "winner_changing_subjects": 0
+}

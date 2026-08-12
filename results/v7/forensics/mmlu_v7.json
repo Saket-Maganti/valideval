@@ -1,0 +1,3046 @@
+{
+  "claim_boundary": "Position imbalance and response preference are forensic signals; neither alone identifies contamination or invalidity.",
+  "gold_identity_conflicts": 0,
+  "gold_position_distribution": {
+    "A": {
+      "count": 3223,
+      "fraction": 0.22952570858852014
+    },
+    "B": {
+      "count": 3462,
+      "fraction": 0.24654607605754167
+    },
+    "C": {
+      "count": 3582,
+      "fraction": 0.25509186725537675
+    },
+    "D": {
+      "count": 3775,
+      "fraction": 0.26883634809856144
+    }
+  },
+  "model_prediction_position_distribution": {
+    "01-ai/yi-34b": {
+      "A": {
+        "count": 3287,
+        "fraction": 0.2340834638940322
+      },
+      "B": {
+        "count": 3300,
+        "fraction": 0.23500925794046432
+      },
+      "C": {
+        "count": 4040,
+        "fraction": 0.28770830366044725
+      },
+      "D": {
+        "count": 3415,
+        "fraction": 0.24319897450505626
+      }
+    },
+    "01-ai/yi-6b": {
+      "A": {
+        "count": 3823,
+        "fraction": 0.2722546645776955
+      },
+      "B": {
+        "count": 3269,
+        "fraction": 0.23280159521435692
+      },
+      "C": {
+        "count": 3093,
+        "fraction": 0.22026776812419882
+      },
+      "D": {
+        "count": 3857,
+        "fraction": 0.2746759720837488
+      }
+    },
+    "01-ai/yi-large-preview": {
+      "A": {
+        "count": 2443,
+        "fraction": 0.17397806580259223
+      },
+      "B": {
+        "count": 3462,
+        "fraction": 0.24654607605754167
+      },
+      "C": {
+        "count": 4170,
+        "fraction": 0.2969662441247686
+      },
+      "D": {
+        "count": 3965,
+        "fraction": 0.2823671841618003
+      },
+      "G": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "TUESDAY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "allenai/olmo-1.7-7b": {
+      "A": {
+        "count": 3334,
+        "fraction": 0.23743056544651758
+      },
+      "B": {
+        "count": 3211,
+        "fraction": 0.22867112946873663
+      },
+      "C": {
+        "count": 4228,
+        "fraction": 0.30109670987038883
+      },
+      "D": {
+        "count": 3269,
+        "fraction": 0.23280159521435692
+      }
+    },
+    "allenai/olmo-7b": {
+      "A": {
+        "count": 323,
+        "fraction": 0.023002421307506054
+      },
+      "B": {
+        "count": 7678,
+        "fraction": 0.546788206808147
+      },
+      "C": {
+        "count": 249,
+        "fraction": 0.017732516735507763
+      },
+      "D": {
+        "count": 5792,
+        "fraction": 0.4124768551488392
+      }
+    },
+    "databricks/dbrx-instruct": {
+      "A": {
+        "count": 3687,
+        "fraction": 0.2625694345534824
+      },
+      "B": {
+        "count": 2869,
+        "fraction": 0.2043156245549067
+      },
+      "C": {
+        "count": 3356,
+        "fraction": 0.23899729383278734
+      },
+      "D": {
+        "count": 4129,
+        "fraction": 0.2940464321321749
+      },
+      "E": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "deepseek-ai/deepseek-llm-67b-chat": {
+      "A": {
+        "count": 3384,
+        "fraction": 0.24099131177894886
+      },
+      "B": {
+        "count": 3737,
+        "fraction": 0.26613018088591367
+      },
+      "C": {
+        "count": 3538,
+        "fraction": 0.2519584104828372
+      },
+      "D": {
+        "count": 3383,
+        "fraction": 0.24092009685230023
+      }
+    },
+    "deepseek-ai/deepseek-v3": {
+      "A": {
+        "count": 3080,
+        "fraction": 0.2193419740777667
+      },
+      "B": {
+        "count": 3643,
+        "fraction": 0.2594359777809429
+      },
+      "C": {
+        "count": 3617,
+        "fraction": 0.2575843896880786
+      },
+      "D": {
+        "count": 3702,
+        "fraction": 0.2636376584532118
+      }
+    },
+    "google/gemma-2-27b": {
+      "A": {
+        "count": 3257,
+        "fraction": 0.2319470160945734
+      },
+      "B": {
+        "count": 3534,
+        "fraction": 0.2516735507762427
+      },
+      "C": {
+        "count": 3359,
+        "fraction": 0.23921093861273324
+      },
+      "D": {
+        "count": 3892,
+        "fraction": 0.27716849451645065
+      }
+    },
+    "google/gemma-2-9b": {
+      "A": {
+        "count": 3299,
+        "fraction": 0.23493804301381568
+      },
+      "B": {
+        "count": 3911,
+        "fraction": 0.27852157812277456
+      },
+      "C": {
+        "count": 3322,
+        "fraction": 0.23657598632673407
+      },
+      "D": {
+        "count": 3510,
+        "fraction": 0.24996439253667568
+      }
+    },
+    "google/gemma-7b": {
+      "A": {
+        "count": 3209,
+        "fraction": 0.2285286996154394
+      },
+      "B": {
+        "count": 3407,
+        "fraction": 0.24262925509186725
+      },
+      "C": {
+        "count": 3409,
+        "fraction": 0.24277168494516452
+      },
+      "D": {
+        "count": 4017,
+        "fraction": 0.28607036034752886
+      }
+    },
+    "meta/llama-2-13b": {
+      "A": {
+        "count": 2538,
+        "fraction": 0.18074348383421165
+      },
+      "B": {
+        "count": 3701,
+        "fraction": 0.26356644352656317
+      },
+      "C": {
+        "count": 4076,
+        "fraction": 0.29027204101979776
+      },
+      "D": {
+        "count": 3724,
+        "fraction": 0.26520438683948155
+      },
+      "FIRST": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "THREE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "TWO": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-2-70b": {
+      "A": {
+        "count": 3252,
+        "fraction": 0.2315909414613303
+      },
+      "B": {
+        "count": 3652,
+        "fraction": 0.2600769121207805
+      },
+      "C": {
+        "count": 3659,
+        "fraction": 0.2605754166073209
+      },
+      "D": {
+        "count": 3477,
+        "fraction": 0.24761429995727105
+      },
+      "S": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "UNMAPPED": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-2-7b": {
+      "A": {
+        "count": 5949,
+        "fraction": 0.4236575986326734
+      },
+      "B": {
+        "count": 3035,
+        "fraction": 0.21613730237857856
+      },
+      "C": {
+        "count": 2766,
+        "fraction": 0.19698048711009827
+      },
+      "CS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "D": {
+        "count": 2288,
+        "fraction": 0.16293975217205525
+      },
+      "FIRST": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NAVY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "S": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-3-70b": {
+      "A": {
+        "count": 3400,
+        "fraction": 0.24213075060532688
+      },
+      "B": {
+        "count": 3281,
+        "fraction": 0.23365617433414043
+      },
+      "C": {
+        "count": 3802,
+        "fraction": 0.27075915111807436
+      },
+      "D": {
+        "count": 3559,
+        "fraction": 0.25345392394245836
+      }
+    },
+    "meta/llama-3-8b": {
+      "A": {
+        "count": 3348,
+        "fraction": 0.23842757441959836
+      },
+      "B": {
+        "count": 3340,
+        "fraction": 0.23785785500640935
+      },
+      "C": {
+        "count": 3706,
+        "fraction": 0.2639225181598063
+      },
+      "D": {
+        "count": 3645,
+        "fraction": 0.2595784076342401
+      },
+      "FIVE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "UNMAPPED": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      }
+    },
+    "meta/llama-3.1-405b-instruct-turbo": {
+      "A": {
+        "count": 3215,
+        "fraction": 0.22895598917533114
+      },
+      "B": {
+        "count": 3430,
+        "fraction": 0.24426719840478564
+      },
+      "C": {
+        "count": 3497,
+        "fraction": 0.24903859849024357
+      },
+      "D": {
+        "count": 3869,
+        "fraction": 0.27553055120353226
+      },
+      "F": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "G": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "I": {
+        "count": 12,
+        "fraction": 0.0008545791197835066
+      },
+      "L": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "M": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NONE": {
+        "count": 14,
+        "fraction": 0.0009970089730807576
+      }
+    },
+    "meta/llama-3.1-70b-instruct-turbo": {
+      "0": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "2": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 3187,
+        "fraction": 0.22696197122916964
+      },
+      "B": {
+        "count": 3388,
+        "fraction": 0.24127617148554337
+      },
+      "C": {
+        "count": 3606,
+        "fraction": 0.2568010254949437
+      },
+      "D": {
+        "count": 3854,
+        "fraction": 0.2744623273038029
+      },
+      "G": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "I": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NONE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "W": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Z": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-3.1-8b-instruct-turbo": {
+      "125": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 4234,
+        "fraction": 0.3015239994302806
+      },
+      "B": {
+        "count": 2107,
+        "fraction": 0.15004985044865404
+      },
+      "BASED": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "C": {
+        "count": 2857,
+        "fraction": 0.2034610454351232
+      },
+      "D": {
+        "count": 4793,
+        "fraction": 0.3413331434268623
+      },
+      "E": {
+        "count": 6,
+        "fraction": 0.0004272895598917533
+      },
+      "H": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "HERE": {
+        "count": 24,
+        "fraction": 0.0017091582395670133
+      },
+      "J": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "K": {
+        "count": 5,
+        "fraction": 0.00035607463324312775
+      },
+      "M": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "N": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "O": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "R": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "S": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "W": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Z": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-3.2-11b-vision-instruct-turbo": {
+      "0": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "1": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 4097,
+        "fraction": 0.2917675544794189
+      },
+      "B": {
+        "count": 2139,
+        "fraction": 0.15232872810141004
+      },
+      "C": {
+        "count": 3045,
+        "fraction": 0.2168494516450648
+      },
+      "D": {
+        "count": 4666,
+        "fraction": 0.33228884774248685
+      },
+      "E": {
+        "count": 14,
+        "fraction": 0.0009970089730807576
+      },
+      "G": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "H": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "HERE": {
+        "count": 14,
+        "fraction": 0.0009970089730807576
+      },
+      "I": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "J": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "K": {
+        "count": 7,
+        "fraction": 0.0004985044865403788
+      },
+      "L": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "M": {
+        "count": 8,
+        "fraction": 0.0005697194131890044
+      },
+      "N": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "O": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      },
+      "P": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "R": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      },
+      "S": {
+        "count": 5,
+        "fraction": 0.00035607463324312775
+      },
+      "T": {
+        "count": 7,
+        "fraction": 0.0004985044865403788
+      },
+      "V": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "W": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "X": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "Y": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Z": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      }
+    },
+    "meta/llama-3.2-90b-vision-instruct-turbo": {
+      "0": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "40": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 3178,
+        "fraction": 0.226321036889332
+      },
+      "B": {
+        "count": 3424,
+        "fraction": 0.2438399088448939
+      },
+      "C": {
+        "count": 3583,
+        "fraction": 0.2551630821820253
+      },
+      "D": {
+        "count": 3851,
+        "fraction": 0.274248682523857
+      },
+      "G": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "I": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "W": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Z": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "meta/llama-3.3-70b-instruct-turbo": {
+      "3": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 2884,
+        "fraction": 0.2053838484546361
+      },
+      "B": {
+        "count": 3422,
+        "fraction": 0.24369747899159663
+      },
+      "C": {
+        "count": 3506,
+        "fraction": 0.24967953283008118
+      },
+      "D": {
+        "count": 4226,
+        "fraction": 0.30095428001709157
+      },
+      "F": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "J": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "W": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "microsoft/phi-2": {
+      "A": {
+        "count": 4081,
+        "fraction": 0.29062811565304086
+      },
+      "B": {
+        "count": 3612,
+        "fraction": 0.2572283150548355
+      },
+      "C": {
+        "count": 3361,
+        "fraction": 0.23935336846603048
+      },
+      "D": {
+        "count": 2988,
+        "fraction": 0.21279020082609315
+      }
+    },
+    "microsoft/phi-3-medium-4k-instruct": {
+      "<|END|>": {
+        "count": 226,
+        "fraction": 0.016094573422589374
+      },
+      "A": {
+        "count": 3285,
+        "fraction": 0.23394103404073494
+      },
+      "B": {
+        "count": 3433,
+        "fraction": 0.2444808431847315
+      },
+      "C": {
+        "count": 3545,
+        "fraction": 0.25245691496937755
+      },
+      "D": {
+        "count": 3553,
+        "fraction": 0.25302663438256656
+      }
+    },
+    "microsoft/phi-3-small-8k-instruct": {
+      "A": {
+        "count": 2954,
+        "fraction": 0.21036889332003988
+      },
+      "B": {
+        "count": 3558,
+        "fraction": 0.2533827090158097
+      },
+      "C": {
+        "count": 3752,
+        "fraction": 0.26719840478564305
+      },
+      "D": {
+        "count": 3778,
+        "fraction": 0.26904999287850734
+      }
+    },
+    "mistralai/mistral-7b-instruct-v0.3": {
+      "A": {
+        "count": 5574,
+        "fraction": 0.39695200113943885
+      },
+      "B": {
+        "count": 2702,
+        "fraction": 0.19242273180458624
+      },
+      "C": {
+        "count": 2913,
+        "fraction": 0.20744908132744624
+      },
+      "CHINA": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "D": {
+        "count": 2823,
+        "fraction": 0.20103973792906993
+      },
+      "E": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "H": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "HAWAII": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "LOG": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "N": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NOT": {
+        "count": 6,
+        "fraction": 0.0004272895598917533
+      },
+      "P": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "PARTICIP": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Q": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "RET": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SC": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SOUND": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SOUTH": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "UNMAPPED": {
+        "count": 9,
+        "fraction": 0.00064093433983763
+      },
+      "X": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Y": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "mistralai/mistral-7b-v0.1": {
+      "A": {
+        "count": 4411,
+        "fraction": 0.3141290414470873
+      },
+      "AFTER": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "ALL": {
+        "count": 5,
+        "fraction": 0.00035607463324312775
+      },
+      "AN": {
+        "count": 5,
+        "fraction": 0.00035607463324312775
+      },
+      "ANSWER": {
+        "count": 135,
+        "fraction": 0.00961401509756445
+      },
+      "AR": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "B": {
+        "count": 2100,
+        "fraction": 0.14955134596211367
+      },
+      "BASED": {
+        "count": 34,
+        "fraction": 0.002421307506053269
+      },
+      "BEFORE": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "BO": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "BR": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "C": {
+        "count": 3921,
+        "fraction": 0.2792337273892608
+      },
+      "CANADA": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "CHINA": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "CONTENT": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "D": {
+        "count": 2816,
+        "fraction": 0.20054123344252955
+      },
+      "DEC": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "DIRECT": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "DIS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "DOM": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "DURING": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "E": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      },
+      "END": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "ENERGY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "F": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "FOR": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "GL": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "H": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "HAWAII": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "I": {
+        "count": 20,
+        "fraction": 0.001424298532972511
+      },
+      "IF": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "II": {
+        "count": 7,
+        "fraction": 0.0004985044865403788
+      },
+      "III": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "IMPERIAL": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "IN": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "INC": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "IND": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "IT": {
+        "count": 25,
+        "fraction": 0.0017803731662156387
+      },
+      "J": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "JAPAN": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "JERRY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "JOHN": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "K": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "KING": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "L": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      },
+      "LEO": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "LET": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "LOUIS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "M": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MAKE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MAN": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MASS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MISS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MON": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "MUS": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "N": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "NE": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "NO": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NONE": {
+        "count": 11,
+        "fraction": 0.0007833641931348811
+      },
+      "PE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "PETE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "PLACE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "PRINT": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "PRO": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "PROTE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "Q": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "QUESTION": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "R": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "REP": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "S": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "SC": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SEVEN": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SOUTH": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "T": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "TH": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "THE": {
+        "count": 378,
+        "fraction": 0.026919242273180457
+      },
+      "THERE": {
+        "count": 8,
+        "fraction": 0.0005697194131890044
+      },
+      "THIS": {
+        "count": 6,
+        "fraction": 0.0004272895598917533
+      },
+      "TIM": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "TO": {
+        "count": 68,
+        "fraction": 0.004842615012106538
+      },
+      "TRI": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "W": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "WAR": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "WITH": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "X": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "Z": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "mistralai/mixtral-8x22b": {
+      "A": {
+        "count": 3284,
+        "fraction": 0.2338698191140863
+      },
+      "B": {
+        "count": 3326,
+        "fraction": 0.23686084603332858
+      },
+      "C": {
+        "count": 3648,
+        "fraction": 0.259792052414186
+      },
+      "D": {
+        "count": 3784,
+        "fraction": 0.2694772824383991
+      }
+    },
+    "mistralai/mixtral-8x7b-32kseqlen": {
+      "A": {
+        "count": 3228,
+        "fraction": 0.22988178322176328
+      },
+      "B": {
+        "count": 3375,
+        "fraction": 0.24035037743911125
+      },
+      "C": {
+        "count": 3665,
+        "fraction": 0.26100270616721266
+      },
+      "D": {
+        "count": 3774,
+        "fraction": 0.2687651331719128
+      }
+    },
+    "mistralai/open-mistral-nemo-2407": {
+      "A": {
+        "count": 3141,
+        "fraction": 0.22368608460333286
+      },
+      "B": {
+        "count": 3836,
+        "fraction": 0.2731804586241276
+      },
+      "C": {
+        "count": 3693,
+        "fraction": 0.26299672411337416
+      },
+      "D": {
+        "count": 3371,
+        "fraction": 0.24006551773251675
+      },
+      "J": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "qwen/qwen1.5-110b-chat": {
+      "0": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "2": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 3256,
+        "fraction": 0.2318758011679248
+      },
+      "B": {
+        "count": 3968,
+        "fraction": 0.2825808289417462
+      },
+      "C": {
+        "count": 3497,
+        "fraction": 0.24903859849024357
+      },
+      "D": {
+        "count": 3304,
+        "fraction": 0.23529411764705882
+      },
+      "N": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "NONE": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      },
+      "PRO": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "SORRY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "THERE": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "THIS": {
+        "count": 6,
+        "fraction": 0.0004272895598917533
+      }
+    },
+    "qwen/qwen1.5-14b": {
+      "A": {
+        "count": 3439,
+        "fraction": 0.24490813274462328
+      },
+      "B": {
+        "count": 3589,
+        "fraction": 0.2555903717419171
+      },
+      "C": {
+        "count": 3575,
+        "fraction": 0.2545933627688364
+      },
+      "D": {
+        "count": 3439,
+        "fraction": 0.24490813274462328
+      }
+    },
+    "qwen/qwen1.5-32b": {
+      "A": {
+        "count": 3090,
+        "fraction": 0.22005412334425295
+      },
+      "B": {
+        "count": 3325,
+        "fraction": 0.23678963110667997
+      },
+      "C": {
+        "count": 4054,
+        "fraction": 0.288705312633528
+      },
+      "D": {
+        "count": 3573,
+        "fraction": 0.2544509329155391
+      }
+    },
+    "qwen/qwen1.5-72b": {
+      "A": {
+        "count": 3318,
+        "fraction": 0.23629112662013957
+      },
+      "B": {
+        "count": 3322,
+        "fraction": 0.23657598632673407
+      },
+      "C": {
+        "count": 3770,
+        "fraction": 0.26848027346531833
+      },
+      "D": {
+        "count": 3631,
+        "fraction": 0.25858139866115937
+      },
+      "NONE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "qwen/qwen1.5-7b": {
+      "A": {
+        "count": 3616,
+        "fraction": 0.25751317476143
+      },
+      "B": {
+        "count": 3369,
+        "fraction": 0.23992308787921948
+      },
+      "C": {
+        "count": 3702,
+        "fraction": 0.2636376584532118
+      },
+      "D": {
+        "count": 3355,
+        "fraction": 0.23892607890613873
+      }
+    },
+    "qwen/qwen2-72b-instruct": {
+      "0": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 3052,
+        "fraction": 0.21734795613160518
+      },
+      "B": {
+        "count": 3490,
+        "fraction": 0.24854009400370317
+      },
+      "C": {
+        "count": 3782,
+        "fraction": 0.2693348525851018
+      },
+      "D": {
+        "count": 3713,
+        "fraction": 0.26442102264634665
+      },
+      "E": {
+        "count": 4,
+        "fraction": 0.0002848597065945022
+      }
+    },
+    "qwen/qwen2.5-72b-instruct-turbo": {
+      "A": {
+        "count": 3286,
+        "fraction": 0.23401224896738357
+      },
+      "B": {
+        "count": 3630,
+        "fraction": 0.25851018373451073
+      },
+      "C": {
+        "count": 3533,
+        "fraction": 0.25160233584959407
+      },
+      "D": {
+        "count": 3592,
+        "fraction": 0.25580401652186296
+      },
+      "NONE": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "qwen/qwen2.5-7b-instruct-turbo": {
+      "1": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "2": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "5": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "A": {
+        "count": 3369,
+        "fraction": 0.23992308787921948
+      },
+      "B": {
+        "count": 3718,
+        "fraction": 0.2647770972795898
+      },
+      "C": {
+        "count": 3538,
+        "fraction": 0.2519584104828372
+      },
+      "D": {
+        "count": 3370,
+        "fraction": 0.23999430280586811
+      },
+      "E": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "G": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "H": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "I": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "IN": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "J": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "K": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "L": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "M": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "N": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "P": {
+        "count": 9,
+        "fraction": 0.00064093433983763
+      },
+      "R": {
+        "count": 3,
+        "fraction": 0.00021364477994587666
+      },
+      "S": {
+        "count": 7,
+        "fraction": 0.0004985044865403788
+      },
+      "SATURDAY": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      },
+      "T": {
+        "count": 2,
+        "fraction": 0.0001424298532972511
+      },
+      "Y": {
+        "count": 1,
+        "fraction": 7.121492664862555e-05
+      }
+    },
+    "snowflake/snowflake-arctic-instruct": {
+      "A": {
+        "count": 3606,
+        "fraction": 0.2568010254949437
+      },
+      "B": {
+        "count": 3842,
+        "fraction": 0.2736077481840194
+      },
+      "C": {
+        "count": 3792,
+        "fraction": 0.2700470018515881
+      },
+      "D": {
+        "count": 2802,
+        "fraction": 0.1995442244694488
+      }
+    }
+  },
+  "position_conditioned_accuracy": {
+    "A": 0.6917985313889751,
+    "B": 0.6762579804174258,
+    "C": 0.6843548225457773,
+    "D": 0.7067889285107828
+  },
+  "prediction_position_distribution": {
+    "0": {
+      "count": 6,
+      "fraction": 1.0956142561327008e-05
+    },
+    "1": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "125": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "2": {
+      "count": 4,
+      "fraction": 7.304095040884672e-06
+    },
+    "3": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "40": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "5": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "<|END|>": {
+      "count": 226,
+      "fraction": 0.000412681369809984
+    },
+    "A": {
+      "count": 132398,
+      "fraction": 0.2417618938057622
+    },
+    "AFTER": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "ALL": {
+      "count": 5,
+      "fraction": 9.13011880110584e-06
+    },
+    "AN": {
+      "count": 5,
+      "fraction": 9.13011880110584e-06
+    },
+    "ANSWER": {
+      "count": 135,
+      "fraction": 0.00024651320762985766
+    },
+    "AR": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "B": {
+      "count": 135135,
+      "fraction": 0.24675972083748754
+    },
+    "BASED": {
+      "count": 35,
+      "fraction": 6.391083160774088e-05
+    },
+    "BEFORE": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "BO": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "BR": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "C": {
+      "count": 136225,
+      "fraction": 0.2487500867361286
+    },
+    "CANADA": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "CHINA": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "CONTENT": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "CS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "D": {
+      "count": 142549,
+      "fraction": 0.2602978609957673
+    },
+    "DEC": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "DIRECT": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "DIS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "DOM": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "DURING": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "E": {
+      "count": 31,
+      "fraction": 5.660673656685621e-05
+    },
+    "END": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "ENERGY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "F": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "FIRST": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "FIVE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "FOR": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "G": {
+      "count": 11,
+      "fraction": 2.008626136243285e-05
+    },
+    "GL": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "H": {
+      "count": 7,
+      "fraction": 1.2782166321548175e-05
+    },
+    "HAWAII": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "HERE": {
+      "count": 38,
+      "fraction": 6.938890288840439e-05
+    },
+    "I": {
+      "count": 38,
+      "fraction": 6.938890288840439e-05
+    },
+    "IF": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "II": {
+      "count": 7,
+      "fraction": 1.2782166321548175e-05
+    },
+    "III": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "IMPERIAL": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "IN": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "INC": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "IND": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "IT": {
+      "count": 25,
+      "fraction": 4.56505940055292e-05
+    },
+    "J": {
+      "count": 8,
+      "fraction": 1.4608190081769343e-05
+    },
+    "JAPAN": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "JERRY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "JOHN": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "K": {
+      "count": 16,
+      "fraction": 2.9216380163538686e-05
+    },
+    "KING": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "L": {
+      "count": 8,
+      "fraction": 1.4608190081769343e-05
+    },
+    "LEO": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "LET": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "LOG": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "LOUIS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "M": {
+      "count": 15,
+      "fraction": 2.739035640331752e-05
+    },
+    "MAKE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "MAN": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "MASS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "MISS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "MON": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "MUS": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "N": {
+      "count": 12,
+      "fraction": 2.1912285122654016e-05
+    },
+    "NAVY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "NE": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "NO": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "NONE": {
+      "count": 32,
+      "fraction": 5.843276032707737e-05
+    },
+    "NOT": {
+      "count": 6,
+      "fraction": 1.0956142561327008e-05
+    },
+    "O": {
+      "count": 6,
+      "fraction": 1.0956142561327008e-05
+    },
+    "P": {
+      "count": 13,
+      "fraction": 2.3738308882875185e-05
+    },
+    "PARTICIP": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "PE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "PETE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "PLACE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "PRINT": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "PRO": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "PROTE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "Q": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "QUESTION": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "R": {
+      "count": 10,
+      "fraction": 1.826023760221168e-05
+    },
+    "REP": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "RET": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "S": {
+      "count": 17,
+      "fraction": 3.1042403923759856e-05
+    },
+    "SATURDAY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "SC": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "SEVEN": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "SORRY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "SOUND": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "SOUTH": {
+      "count": 2,
+      "fraction": 3.652047520442336e-06
+    },
+    "T": {
+      "count": 10,
+      "fraction": 1.826023760221168e-05
+    },
+    "TH": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "THE": {
+      "count": 378,
+      "fraction": 0.0006902369813636015
+    },
+    "THERE": {
+      "count": 10,
+      "fraction": 1.826023760221168e-05
+    },
+    "THIS": {
+      "count": 12,
+      "fraction": 2.1912285122654016e-05
+    },
+    "THREE": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "TIM": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "TO": {
+      "count": 68,
+      "fraction": 0.00012416961569503942
+    },
+    "TRI": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "TUESDAY": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "TWO": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "UNMAPPED": {
+      "count": 12,
+      "fraction": 2.1912285122654016e-05
+    },
+    "V": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "W": {
+      "count": 8,
+      "fraction": 1.4608190081769343e-05
+    },
+    "WAR": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "WITH": {
+      "count": 1,
+      "fraction": 1.826023760221168e-06
+    },
+    "X": {
+      "count": 5,
+      "fraction": 9.13011880110584e-06
+    },
+    "Y": {
+      "count": 3,
+      "fraction": 5.478071280663504e-06
+    },
+    "Z": {
+      "count": 7,
+      "fraction": 1.2782166321548175e-05
+    }
+  },
+  "rows": 547638,
+  "runtime_seconds": 2.1569167080451734,
+  "status": "REPRODUCED",
+  "subject_gold_position_distribution": {
+    "abstract_algebra": {
+      "A": {
+        "count": 22,
+        "fraction": 0.22
+      },
+      "B": {
+        "count": 26,
+        "fraction": 0.26
+      },
+      "C": {
+        "count": 31,
+        "fraction": 0.31
+      },
+      "D": {
+        "count": 21,
+        "fraction": 0.21
+      }
+    },
+    "anatomy": {
+      "A": {
+        "count": 25,
+        "fraction": 0.18518518518518517
+      },
+      "B": {
+        "count": 34,
+        "fraction": 0.2518518518518518
+      },
+      "C": {
+        "count": 45,
+        "fraction": 0.3333333333333333
+      },
+      "D": {
+        "count": 31,
+        "fraction": 0.22962962962962963
+      }
+    },
+    "astronomy": {
+      "A": {
+        "count": 27,
+        "fraction": 0.17763157894736842
+      },
+      "B": {
+        "count": 28,
+        "fraction": 0.18421052631578946
+      },
+      "C": {
+        "count": 46,
+        "fraction": 0.3026315789473684
+      },
+      "D": {
+        "count": 51,
+        "fraction": 0.3355263157894737
+      }
+    },
+    "business_ethics": {
+      "A": {
+        "count": 30,
+        "fraction": 0.3
+      },
+      "B": {
+        "count": 26,
+        "fraction": 0.26
+      },
+      "C": {
+        "count": 23,
+        "fraction": 0.23
+      },
+      "D": {
+        "count": 21,
+        "fraction": 0.21
+      }
+    },
+    "clinical_knowledge": {
+      "A": {
+        "count": 57,
+        "fraction": 0.21509433962264152
+      },
+      "B": {
+        "count": 71,
+        "fraction": 0.2679245283018868
+      },
+      "C": {
+        "count": 58,
+        "fraction": 0.2188679245283019
+      },
+      "D": {
+        "count": 79,
+        "fraction": 0.2981132075471698
+      }
+    },
+    "college_biology": {
+      "A": {
+        "count": 37,
+        "fraction": 0.2569444444444444
+      },
+      "B": {
+        "count": 32,
+        "fraction": 0.2222222222222222
+      },
+      "C": {
+        "count": 37,
+        "fraction": 0.2569444444444444
+      },
+      "D": {
+        "count": 38,
+        "fraction": 0.2638888888888889
+      }
+    },
+    "college_chemistry": {
+      "A": {
+        "count": 20,
+        "fraction": 0.2
+      },
+      "B": {
+        "count": 21,
+        "fraction": 0.21
+      },
+      "C": {
+        "count": 18,
+        "fraction": 0.18
+      },
+      "D": {
+        "count": 41,
+        "fraction": 0.41
+      }
+    },
+    "college_computer_science": {
+      "A": {
+        "count": 26,
+        "fraction": 0.26
+      },
+      "B": {
+        "count": 15,
+        "fraction": 0.15
+      },
+      "C": {
+        "count": 26,
+        "fraction": 0.26
+      },
+      "D": {
+        "count": 33,
+        "fraction": 0.33
+      }
+    },
+    "college_mathematics": {
+      "A": {
+        "count": 21,
+        "fraction": 0.21
+      },
+      "B": {
+        "count": 23,
+        "fraction": 0.23
+      },
+      "C": {
+        "count": 25,
+        "fraction": 0.25
+      },
+      "D": {
+        "count": 31,
+        "fraction": 0.31
+      }
+    },
+    "college_medicine": {
+      "A": {
+        "count": 36,
+        "fraction": 0.20809248554913296
+      },
+      "B": {
+        "count": 36,
+        "fraction": 0.20809248554913296
+      },
+      "C": {
+        "count": 43,
+        "fraction": 0.24855491329479767
+      },
+      "D": {
+        "count": 58,
+        "fraction": 0.3352601156069364
+      }
+    },
+    "college_physics": {
+      "A": {
+        "count": 22,
+        "fraction": 0.21568627450980393
+      },
+      "B": {
+        "count": 20,
+        "fraction": 0.19607843137254902
+      },
+      "C": {
+        "count": 22,
+        "fraction": 0.21568627450980393
+      },
+      "D": {
+        "count": 38,
+        "fraction": 0.37254901960784315
+      }
+    },
+    "computer_security": {
+      "A": {
+        "count": 28,
+        "fraction": 0.28
+      },
+      "B": {
+        "count": 24,
+        "fraction": 0.24
+      },
+      "C": {
+        "count": 30,
+        "fraction": 0.3
+      },
+      "D": {
+        "count": 18,
+        "fraction": 0.18
+      }
+    },
+    "conceptual_physics": {
+      "A": {
+        "count": 62,
+        "fraction": 0.26382978723404255
+      },
+      "B": {
+        "count": 76,
+        "fraction": 0.32340425531914896
+      },
+      "C": {
+        "count": 48,
+        "fraction": 0.20425531914893616
+      },
+      "D": {
+        "count": 49,
+        "fraction": 0.20851063829787234
+      }
+    },
+    "econometrics": {
+      "A": {
+        "count": 27,
+        "fraction": 0.23684210526315788
+      },
+      "B": {
+        "count": 32,
+        "fraction": 0.2807017543859649
+      },
+      "C": {
+        "count": 28,
+        "fraction": 0.24561403508771928
+      },
+      "D": {
+        "count": 27,
+        "fraction": 0.23684210526315788
+      }
+    },
+    "electrical_engineering": {
+      "A": {
+        "count": 35,
+        "fraction": 0.2413793103448276
+      },
+      "B": {
+        "count": 32,
+        "fraction": 0.2206896551724138
+      },
+      "C": {
+        "count": 43,
+        "fraction": 0.296551724137931
+      },
+      "D": {
+        "count": 35,
+        "fraction": 0.2413793103448276
+      }
+    },
+    "elementary_mathematics": {
+      "A": {
+        "count": 79,
+        "fraction": 0.20899470899470898
+      },
+      "B": {
+        "count": 97,
+        "fraction": 0.2566137566137566
+      },
+      "C": {
+        "count": 101,
+        "fraction": 0.2671957671957672
+      },
+      "D": {
+        "count": 101,
+        "fraction": 0.2671957671957672
+      }
+    },
+    "formal_logic": {
+      "A": {
+        "count": 36,
+        "fraction": 0.2857142857142857
+      },
+      "B": {
+        "count": 25,
+        "fraction": 0.1984126984126984
+      },
+      "C": {
+        "count": 19,
+        "fraction": 0.15079365079365079
+      },
+      "D": {
+        "count": 46,
+        "fraction": 0.36507936507936506
+      }
+    },
+    "global_facts": {
+      "A": {
+        "count": 18,
+        "fraction": 0.18
+      },
+      "B": {
+        "count": 31,
+        "fraction": 0.31
+      },
+      "C": {
+        "count": 33,
+        "fraction": 0.33
+      },
+      "D": {
+        "count": 18,
+        "fraction": 0.18
+      }
+    },
+    "high_school_biology": {
+      "A": {
+        "count": 55,
+        "fraction": 0.1774193548387097
+      },
+      "B": {
+        "count": 79,
+        "fraction": 0.25483870967741934
+      },
+      "C": {
+        "count": 78,
+        "fraction": 0.25161290322580643
+      },
+      "D": {
+        "count": 98,
+        "fraction": 0.3161290322580645
+      }
+    },
+    "high_school_chemistry": {
+      "A": {
+        "count": 31,
+        "fraction": 0.15270935960591134
+      },
+      "B": {
+        "count": 55,
+        "fraction": 0.270935960591133
+      },
+      "C": {
+        "count": 60,
+        "fraction": 0.2955665024630542
+      },
+      "D": {
+        "count": 57,
+        "fraction": 0.28078817733990147
+      }
+    },
+    "high_school_computer_science": {
+      "A": {
+        "count": 25,
+        "fraction": 0.25
+      },
+      "B": {
+        "count": 23,
+        "fraction": 0.23
+      },
+      "C": {
+        "count": 33,
+        "fraction": 0.33
+      },
+      "D": {
+        "count": 19,
+        "fraction": 0.19
+      }
+    },
+    "high_school_european_history": {
+      "A": {
+        "count": 36,
+        "fraction": 0.21818181818181817
+      },
+      "B": {
+        "count": 40,
+        "fraction": 0.24242424242424243
+      },
+      "C": {
+        "count": 47,
+        "fraction": 0.28484848484848485
+      },
+      "D": {
+        "count": 42,
+        "fraction": 0.2545454545454545
+      }
+    },
+    "high_school_geography": {
+      "A": {
+        "count": 35,
+        "fraction": 0.17676767676767677
+      },
+      "B": {
+        "count": 43,
+        "fraction": 0.21717171717171718
+      },
+      "C": {
+        "count": 50,
+        "fraction": 0.25252525252525254
+      },
+      "D": {
+        "count": 70,
+        "fraction": 0.35353535353535354
+      }
+    },
+    "high_school_government_and_politics": {
+      "A": {
+        "count": 38,
+        "fraction": 0.19689119170984457
+      },
+      "B": {
+        "count": 40,
+        "fraction": 0.20725388601036268
+      },
+      "C": {
+        "count": 44,
+        "fraction": 0.22797927461139897
+      },
+      "D": {
+        "count": 71,
+        "fraction": 0.36787564766839376
+      }
+    },
+    "high_school_macroeconomics": {
+      "A": {
+        "count": 80,
+        "fraction": 0.20512820512820512
+      },
+      "B": {
+        "count": 86,
+        "fraction": 0.2205128205128205
+      },
+      "C": {
+        "count": 83,
+        "fraction": 0.2128205128205128
+      },
+      "D": {
+        "count": 141,
+        "fraction": 0.36153846153846153
+      }
+    },
+    "high_school_mathematics": {
+      "A": {
+        "count": 57,
+        "fraction": 0.2111111111111111
+      },
+      "B": {
+        "count": 71,
+        "fraction": 0.26296296296296295
+      },
+      "C": {
+        "count": 71,
+        "fraction": 0.26296296296296295
+      },
+      "D": {
+        "count": 71,
+        "fraction": 0.26296296296296295
+      }
+    },
+    "high_school_microeconomics": {
+      "A": {
+        "count": 50,
+        "fraction": 0.21008403361344538
+      },
+      "B": {
+        "count": 55,
+        "fraction": 0.23109243697478993
+      },
+      "C": {
+        "count": 50,
+        "fraction": 0.21008403361344538
+      },
+      "D": {
+        "count": 83,
+        "fraction": 0.3487394957983193
+      }
+    },
+    "high_school_physics": {
+      "A": {
+        "count": 30,
+        "fraction": 0.1986754966887417
+      },
+      "B": {
+        "count": 30,
+        "fraction": 0.1986754966887417
+      },
+      "C": {
+        "count": 41,
+        "fraction": 0.271523178807947
+      },
+      "D": {
+        "count": 50,
+        "fraction": 0.33112582781456956
+      }
+    },
+    "high_school_psychology": {
+      "A": {
+        "count": 105,
+        "fraction": 0.1926605504587156
+      },
+      "B": {
+        "count": 129,
+        "fraction": 0.23669724770642203
+      },
+      "C": {
+        "count": 121,
+        "fraction": 0.22201834862385322
+      },
+      "D": {
+        "count": 190,
+        "fraction": 0.3486238532110092
+      }
+    },
+    "high_school_statistics": {
+      "A": {
+        "count": 33,
+        "fraction": 0.1527777777777778
+      },
+      "B": {
+        "count": 35,
+        "fraction": 0.16203703703703703
+      },
+      "C": {
+        "count": 46,
+        "fraction": 0.21296296296296297
+      },
+      "D": {
+        "count": 102,
+        "fraction": 0.4722222222222222
+      }
+    },
+    "high_school_us_history": {
+      "A": {
+        "count": 51,
+        "fraction": 0.25
+      },
+      "B": {
+        "count": 48,
+        "fraction": 0.23529411764705882
+      },
+      "C": {
+        "count": 53,
+        "fraction": 0.25980392156862747
+      },
+      "D": {
+        "count": 52,
+        "fraction": 0.2549019607843137
+      }
+    },
+    "high_school_world_history": {
+      "A": {
+        "count": 64,
+        "fraction": 0.270042194092827
+      },
+      "B": {
+        "count": 62,
+        "fraction": 0.2616033755274262
+      },
+      "C": {
+        "count": 63,
+        "fraction": 0.26582278481012656
+      },
+      "D": {
+        "count": 48,
+        "fraction": 0.20253164556962025
+      }
+    },
+    "human_aging": {
+      "A": {
+        "count": 70,
+        "fraction": 0.31390134529147984
+      },
+      "B": {
+        "count": 84,
+        "fraction": 0.37668161434977576
+      },
+      "C": {
+        "count": 45,
+        "fraction": 0.20179372197309417
+      },
+      "D": {
+        "count": 24,
+        "fraction": 0.10762331838565023
+      }
+    },
+    "human_sexuality": {
+      "A": {
+        "count": 34,
+        "fraction": 0.2595419847328244
+      },
+      "B": {
+        "count": 30,
+        "fraction": 0.22900763358778625
+      },
+      "C": {
+        "count": 30,
+        "fraction": 0.22900763358778625
+      },
+      "D": {
+        "count": 37,
+        "fraction": 0.2824427480916031
+      }
+    },
+    "international_law": {
+      "A": {
+        "count": 29,
+        "fraction": 0.2396694214876033
+      },
+      "B": {
+        "count": 30,
+        "fraction": 0.24793388429752067
+      },
+      "C": {
+        "count": 45,
+        "fraction": 0.371900826446281
+      },
+      "D": {
+        "count": 17,
+        "fraction": 0.14049586776859505
+      }
+    },
+    "jurisprudence": {
+      "A": {
+        "count": 28,
+        "fraction": 0.25925925925925924
+      },
+      "B": {
+        "count": 32,
+        "fraction": 0.2962962962962963
+      },
+      "C": {
+        "count": 25,
+        "fraction": 0.23148148148148148
+      },
+      "D": {
+        "count": 23,
+        "fraction": 0.21296296296296297
+      }
+    },
+    "logical_fallacies": {
+      "A": {
+        "count": 36,
+        "fraction": 0.22085889570552147
+      },
+      "B": {
+        "count": 40,
+        "fraction": 0.24539877300613497
+      },
+      "C": {
+        "count": 49,
+        "fraction": 0.3006134969325153
+      },
+      "D": {
+        "count": 38,
+        "fraction": 0.2331288343558282
+      }
+    },
+    "machine_learning": {
+      "A": {
+        "count": 35,
+        "fraction": 0.3125
+      },
+      "B": {
+        "count": 32,
+        "fraction": 0.2857142857142857
+      },
+      "C": {
+        "count": 27,
+        "fraction": 0.24107142857142858
+      },
+      "D": {
+        "count": 18,
+        "fraction": 0.16071428571428573
+      }
+    },
+    "management": {
+      "A": {
+        "count": 18,
+        "fraction": 0.17475728155339806
+      },
+      "B": {
+        "count": 26,
+        "fraction": 0.2524271844660194
+      },
+      "C": {
+        "count": 20,
+        "fraction": 0.1941747572815534
+      },
+      "D": {
+        "count": 39,
+        "fraction": 0.3786407766990291
+      }
+    },
+    "marketing": {
+      "A": {
+        "count": 68,
+        "fraction": 0.2905982905982906
+      },
+      "B": {
+        "count": 60,
+        "fraction": 0.2564102564102564
+      },
+      "C": {
+        "count": 60,
+        "fraction": 0.2564102564102564
+      },
+      "D": {
+        "count": 46,
+        "fraction": 0.19658119658119658
+      }
+    },
+    "medical_genetics": {
+      "A": {
+        "count": 30,
+        "fraction": 0.3
+      },
+      "B": {
+        "count": 26,
+        "fraction": 0.26
+      },
+      "C": {
+        "count": 20,
+        "fraction": 0.2
+      },
+      "D": {
+        "count": 24,
+        "fraction": 0.24
+      }
+    },
+    "miscellaneous": {
+      "A": {
+        "count": 186,
+        "fraction": 0.23754789272030652
+      },
+      "B": {
+        "count": 225,
+        "fraction": 0.28735632183908044
+      },
+      "C": {
+        "count": 212,
+        "fraction": 0.2707535121328225
+      },
+      "D": {
+        "count": 160,
+        "fraction": 0.20434227330779056
+      }
+    },
+    "moral_disputes": {
+      "A": {
+        "count": 86,
+        "fraction": 0.24855491329479767
+      },
+      "B": {
+        "count": 85,
+        "fraction": 0.24566473988439305
+      },
+      "C": {
+        "count": 101,
+        "fraction": 0.29190751445086704
+      },
+      "D": {
+        "count": 74,
+        "fraction": 0.2138728323699422
+      }
+    },
+    "moral_scenarios": {
+      "A": {
+        "count": 213,
+        "fraction": 0.23798882681564246
+      },
+      "B": {
+        "count": 217,
+        "fraction": 0.2424581005586592
+      },
+      "C": {
+        "count": 221,
+        "fraction": 0.24692737430167597
+      },
+      "D": {
+        "count": 244,
+        "fraction": 0.27262569832402234
+      }
+    },
+    "nutrition": {
+      "A": {
+        "count": 69,
+        "fraction": 0.22549019607843138
+      },
+      "B": {
+        "count": 70,
+        "fraction": 0.22875816993464052
+      },
+      "C": {
+        "count": 77,
+        "fraction": 0.25163398692810457
+      },
+      "D": {
+        "count": 90,
+        "fraction": 0.29411764705882354
+      }
+    },
+    "philosophy": {
+      "A": {
+        "count": 58,
+        "fraction": 0.1864951768488746
+      },
+      "B": {
+        "count": 85,
+        "fraction": 0.2733118971061093
+      },
+      "C": {
+        "count": 93,
+        "fraction": 0.2990353697749196
+      },
+      "D": {
+        "count": 75,
+        "fraction": 0.24115755627009647
+      }
+    },
+    "prehistory": {
+      "A": {
+        "count": 70,
+        "fraction": 0.21604938271604937
+      },
+      "B": {
+        "count": 86,
+        "fraction": 0.2654320987654321
+      },
+      "C": {
+        "count": 95,
+        "fraction": 0.2932098765432099
+      },
+      "D": {
+        "count": 73,
+        "fraction": 0.22530864197530864
+      }
+    },
+    "professional_accounting": {
+      "A": {
+        "count": 66,
+        "fraction": 0.23404255319148937
+      },
+      "B": {
+        "count": 72,
+        "fraction": 0.2553191489361702
+      },
+      "C": {
+        "count": 76,
+        "fraction": 0.2695035460992908
+      },
+      "D": {
+        "count": 68,
+        "fraction": 0.24113475177304963
+      }
+    },
+    "professional_law": {
+      "A": {
+        "count": 377,
+        "fraction": 0.2457627118644068
+      },
+      "B": {
+        "count": 367,
+        "fraction": 0.2392438070404172
+      },
+      "C": {
+        "count": 415,
+        "fraction": 0.27053455019556716
+      },
+      "D": {
+        "count": 375,
+        "fraction": 0.24445893089960888
+      }
+    },
+    "professional_medicine": {
+      "A": {
+        "count": 50,
+        "fraction": 0.18382352941176472
+      },
+      "B": {
+        "count": 55,
+        "fraction": 0.20220588235294118
+      },
+      "C": {
+        "count": 45,
+        "fraction": 0.16544117647058823
+      },
+      "D": {
+        "count": 122,
+        "fraction": 0.4485294117647059
+      }
+    },
+    "professional_psychology": {
+      "A": {
+        "count": 153,
+        "fraction": 0.25
+      },
+      "B": {
+        "count": 157,
+        "fraction": 0.2565359477124183
+      },
+      "C": {
+        "count": 169,
+        "fraction": 0.2761437908496732
+      },
+      "D": {
+        "count": 133,
+        "fraction": 0.2173202614379085
+      }
+    },
+    "public_relations": {
+      "A": {
+        "count": 24,
+        "fraction": 0.21818181818181817
+      },
+      "B": {
+        "count": 38,
+        "fraction": 0.34545454545454546
+      },
+      "C": {
+        "count": 23,
+        "fraction": 0.20909090909090908
+      },
+      "D": {
+        "count": 25,
+        "fraction": 0.22727272727272727
+      }
+    },
+    "security_studies": {
+      "A": {
+        "count": 46,
+        "fraction": 0.18775510204081633
+      },
+      "B": {
+        "count": 42,
+        "fraction": 0.17142857142857143
+      },
+      "C": {
+        "count": 59,
+        "fraction": 0.24081632653061225
+      },
+      "D": {
+        "count": 98,
+        "fraction": 0.4
+      }
+    },
+    "sociology": {
+      "A": {
+        "count": 49,
+        "fraction": 0.24378109452736318
+      },
+      "B": {
+        "count": 48,
+        "fraction": 0.23880597014925373
+      },
+      "C": {
+        "count": 50,
+        "fraction": 0.24875621890547264
+      },
+      "D": {
+        "count": 54,
+        "fraction": 0.26865671641791045
+      }
+    },
+    "us_foreign_policy": {
+      "A": {
+        "count": 28,
+        "fraction": 0.28
+      },
+      "B": {
+        "count": 21,
+        "fraction": 0.21
+      },
+      "C": {
+        "count": 25,
+        "fraction": 0.25
+      },
+      "D": {
+        "count": 26,
+        "fraction": 0.26
+      }
+    },
+    "virology": {
+      "A": {
+        "count": 47,
+        "fraction": 0.28313253012048195
+      },
+      "B": {
+        "count": 53,
+        "fraction": 0.3192771084337349
+      },
+      "C": {
+        "count": 34,
+        "fraction": 0.20481927710843373
+      },
+      "D": {
+        "count": 32,
+        "fraction": 0.1927710843373494
+      }
+    },
+    "world_religions": {
+      "A": {
+        "count": 55,
+        "fraction": 0.3216374269005848
+      },
+      "B": {
+        "count": 36,
+        "fraction": 0.21052631578947367
+      },
+      "C": {
+        "count": 50,
+        "fraction": 0.29239766081871343
+      },
+      "D": {
+        "count": 30,
+        "fraction": 0.17543859649122806
+      }
+    }
+  },
+  "unique_items": 14042
+}

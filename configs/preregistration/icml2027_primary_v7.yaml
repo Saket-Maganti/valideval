@@ -1,0 +1,34 @@
+schema_version: "7.0"
+freeze_ref: valideval-v7-confirmatory-freeze
+status: FROZEN_BEFORE_S3
+primary_hypothesis: >-
+  Under exact-model controlled evaluation, claim licensing will abstain on materially more
+  unsupported model-comparison claims than a naive leaderboard while bounding held-out decision regret.
+primary_diagnostics:
+  - negative_discrimination_family_bootstrap
+  - rank_uncertainty_nested_bootstrap
+  - decision_fragility
+primary_panel: configs/panels/s3_scientific_v7.yaml
+fallback_panel: configs/panels/s4_fallback_v7.yaml
+primary_benchmarks: [mmlu, gsm8k, bbh]
+primary_metric: held_out_decision_regret
+materiality_threshold: 0.01
+claim_policy:
+  confidence_level: 0.95
+  fdr_level: 0.05
+  bootstrap_stability_threshold: 0.80
+  minimum_exact_model_overlap: 8
+  minimum_independent_model_families: 5
+  transport_heterogeneity_threshold: 0.50
+  decision_regret_bound: 0.01
+exclusions:
+  - failed_exact_identity
+  - failed_security_or_provenance
+  - extraction_failure_rate_above_0.01
+missing_data_policy: fail closed below 95 percent row or item coverage; otherwise model explicitly
+multiple_testing: Benjamini-Hochberg primary; Benjamini-Yekutieli sensitivity
+human_endpoint: blinded precision and enrichment; no recall claim from stratified sample
+transport_metric: random-effects held-out benchmark and held-out family effect with I-squared
+repair_policy: cross-fitted and held-out; random matched baseline required
+decoding: deterministic_temperature_zero
+seeds: [2027, 2028, 2029]

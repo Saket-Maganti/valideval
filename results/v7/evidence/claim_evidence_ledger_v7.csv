@@ -1,0 +1,9 @@
+claim_id,claim,status,evidence,scope,blocked_by
+V7-C01,The claim-licensing software implements the predeclared multidimensional gates.,METHOD_READY,contract and failure-state tests,software/method contract,real-data validity evidence for substantive claims
+V7-C02,Historical MMLU rankings vary across subjects under the declared Study H protocols.,SUPPORTED_WITH_LIMITATIONS,Kendall W=0.878065,"39 imported checkpoints, 57 MMLU subjects",controlled exact-model replication
+V7-C03,Specific MMLU items are FDR-controlled negative-discrimination flags.,NOT_SUPPORTED,stable flags=0,historical MMLU panel and permutation null,no discoveries; external labels unavailable
+V7-C04,The frozen diagnostic readout detects the preregistered synthetic flaw grid.,FAILED_FROZEN_ACCEPTANCE_GATES,median AUPRC=0.112696; median FDR=0.965856,frozen synthetic generator/readout only,all three preregistered success criteria failed
+V7-C05,Influential historical MMLU items change the benchmark winner.,NOT_OBSERVED,winner-changing items=0,historical MMLU matrix,no winner-changing deletion observed
+V7-C06,"Diagnostics transport across MMLU, GSM8K, and BBH.",BLOCKED,No exact-model controlled cross-benchmark effects exist before GPU Study C.,none before controlled Study C,S1-S3 GPU outputs
+V7-C07,Human reviewers confirm diagnostic precision or enrichment.,BLOCKED,protocol and power plan only; no labels,none,H0/H1 annotation execution
+V7-C08,A repair policy improves held-out decisions.,BLOCKED,cross-fit validation contract only,none,held-out labels and controlled panels

@@ -23,26 +23,53 @@ def roc_auc(y_true: list[bool | int], scores: list[float]) -> float | None:
 
 
 def precision_recall_auc(y_true: list[bool | int], scores: list[float]) -> float | None:
+    """Tie-invariant average precision using complete equal-score groups.
+
+    Each score threshold is processed atomically, so row order inside a tie can
+    never change the result. This is the standard step-function AP definition.
+    """
+
     labels, values = _clean_pairs(y_true, scores)
     if not labels or not any(labels):
         return None
-    order = np.argsort(values)[::-1]
+    grouped: dict[float, list[bool]] = {}
+    for label, score in zip(labels, values, strict=True):
+        grouped.setdefault(score, []).append(label)
     total_positive = sum(labels)
-    recalls = [0.0]
-    precisions = [1.0]
     tp = 0
     fp = 0
-    for index in order:
-        if labels[int(index)]:
-            tp += 1
-        else:
-            fp += 1
-        recalls.append(tp / total_positive)
-        precisions.append(tp / max(tp + fp, 1))
     area = 0.0
-    for idx in range(1, len(recalls)):
-        area += (recalls[idx] - recalls[idx - 1]) * precisions[idx]
+    previous_recall = 0.0
+    for score in sorted(grouped, reverse=True):
+        group = grouped[score]
+        tp += sum(group)
+        fp += len(group) - sum(group)
+        recall_at_threshold = tp / total_positive
+        precision_at_threshold = tp / (tp + fp)
+        area += (recall_at_threshold - previous_recall) * precision_at_threshold
+        previous_recall = recall_at_threshold
     return float(area)
+
+
+def expected_precision_at_k(
+    y_true: list[bool | int],
+    scores: list[float],
+    k: int,
+) -> float | None:
+    """Expected precision under a uniformly random ordering of the boundary tie."""
+
+    labels, values = _clean_pairs(y_true, scores)
+    if not labels:
+        return None
+    if not 0 < k <= len(labels):
+        raise ValueError("k must lie between one and the number of finite scores")
+    order = sorted(range(len(values)), key=lambda index: values[index], reverse=True)
+    boundary_score = values[order[k - 1]]
+    above = [index for index in order if values[index] > boundary_score]
+    tied = [index for index in order if values[index] == boundary_score]
+    remaining = k - len(above)
+    expected_tied_positives = remaining * sum(labels[index] for index in tied) / len(tied)
+    return float((sum(labels[index] for index in above) + expected_tied_positives) / k)
 
 
 def sensitivity(y_true: list[bool | int], scores: list[float], threshold: float) -> float | None:
