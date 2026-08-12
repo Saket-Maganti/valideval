@@ -1,0 +1,14 @@
+{
+  "generator_versions": [
+    "heteroskedastic_v3.1",
+    "heteroskedastic_v3.2",
+    "heteroskedastic_v3.3"
+  ],
+  "row_count": 720,
+  "rows_sha256": "b01772196fad177bb9fed8bc2d2b437fa6602f186c9dd467d3eb92e5812756c9",
+  "scenario_ids_sha256": "922f9b24bb6c6f746a960dcd160a0a047513ae4fa3fad07ebfe9499551dacdd2",
+  "schema_version": "valideval.claim-policy-split.v7.2",
+  "seed_max": 1020719,
+  "seed_min": 1020000,
+  "split": "POLICY_CONFIRMATION"
+}

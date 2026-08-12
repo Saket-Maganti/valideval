@@ -73,6 +73,7 @@ from valideval.importers.post_import_v5 import (
     build_post_import_plan_v5,
 )
 from valideval.importers.s1_v6 import accept_s1_smoke_v6
+from valideval.importers.s1_v7_2 import accept_s1_v7_2
 from valideval.importers.wide_matrix import (
     build_matrix_from_wide_predictions,
     import_wide_predictions,
@@ -988,6 +989,24 @@ def command_accept_s1_v6(args: argparse.Namespace) -> int:
         in {
             "S1_SMOKE_ACCEPTED",
             "S1_SMOKE_ACCEPTED_WITH_RECORDED_MODEL_FAILURES",
+        }
+        else 2
+    )
+
+
+def command_accept_s1_v7_2(args: argparse.Namespace) -> int:
+    payload = accept_s1_v7_2(
+        args.input_dir,
+        output_root=args.output_root,
+        minimum_extraction_reliability=args.minimum_extraction_reliability,
+    )
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return (
+        0
+        if payload["status"]
+        in {
+            "S1_V7_2_ACCEPTED",
+            "S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES",
         }
         else 2
     )
@@ -2379,6 +2398,19 @@ def build_parser() -> argparse.ArgumentParser:
         default=0.95,
     )
     accept_s1_v6.set_defaults(func=command_accept_s1_v6)
+
+    accept_s1_v7_2 = subparsers.add_parser(
+        "accept-s1-v7-2",
+        help="Fail-closed acceptance of the exact three native V7.2 S1 ZIPs.",
+    )
+    accept_s1_v7_2.add_argument("--input-dir", default="kaggle_icml2027_outputs")
+    accept_s1_v7_2.add_argument("--output-root", default="imported/v7_2/s1")
+    accept_s1_v7_2.add_argument(
+        "--minimum-extraction-reliability",
+        type=float,
+        default=0.95,
+    )
+    accept_s1_v7_2.set_defaults(func=command_accept_s1_v7_2)
 
     recalibrate_v6 = subparsers.add_parser(
         "recalibrate-runtime",

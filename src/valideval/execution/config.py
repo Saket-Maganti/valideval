@@ -13,6 +13,7 @@ from valideval.execution.manifest import canonical_json_bytes, sha256_bytes, sha
 
 if TYPE_CHECKING:
     from valideval.execution.config_v7 import RunConfigV7
+    from valideval.execution.config_v7_2 import RunConfigV72
 
 V6_SCHEMA_VERSION = "6.0"
 RUN_MODES = (
@@ -169,9 +170,13 @@ def load_yaml_mapping(path: str | Path) -> dict[str, Any]:
 
 def load_run_config(
     path: str | Path, *, repository_root: str | Path | None = None
-) -> RunConfigV6 | RunConfigV7:
+) -> RunConfigV6 | RunConfigV7 | RunConfigV72:
     source = Path(path).resolve()
     raw = load_yaml_mapping(source)
+    if str(raw.get("schema_version")) == "7.2":
+        from valideval.execution.config_v7_2 import load_run_config_v7_2
+
+        return load_run_config_v7_2(source, repository_root=repository_root)
     if str(raw.get("schema_version")) == "7.0":
         from valideval.execution.config_v7 import load_run_config_v7
 
@@ -226,7 +231,7 @@ def semantic_config_hash(config: BaseModel | dict[str, Any]) -> str:
     if payload.get("mode") in {"resume", "validate_only", "package_only"}:
         execution = payload.get("execution", {})
         if (
-            payload.get("schema_version") == "7.0"
+            payload.get("schema_version") in {"7.0", "7.2"}
             and isinstance(execution, dict)
             and execution.get("backend") == "mock"
         ):

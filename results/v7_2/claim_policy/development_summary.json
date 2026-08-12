@@ -1,0 +1,74 @@
+{
+  "baseline": "V7_1_ULTRA_CONSERVATIVE_BASELINE",
+  "baseline_abstention_rate": 1.0,
+  "baseline_false_license_rate": 0.0,
+  "baseline_true_license_power": 0.0,
+  "confirmation_accessed": false,
+  "freeze_hash": "6fa80d431c9603ae148202ef21b81b6e48ef79bd5e2b840ef47a2750d5f58d01",
+  "runtime_seconds": 74.17374012499931,
+  "selected": {
+    "abstention_rate": 0.8574685534591195,
+    "decision_regret": 0.014012203852511817,
+    "development_pareto_eligible": [
+      "BALANCED",
+      "BALANCED_95CI",
+      "BALANCED_LOW_N",
+      "BALANCED_STRICT_FDR",
+      "BALANCED_STRICT_REGRET",
+      "HIGH_COVERAGE",
+      "HIGH_PRECISION"
+    ],
+    "false_license_upper_95": 0.011379564098911835,
+    "policy_id": "HIGH_COVERAGE",
+    "selection_split": "POLICY_VALIDATION",
+    "selection_utility": 0.28919441503202487,
+    "status": "CLAIM_POLICY_SELECTED_FOR_FREEZE",
+    "true_license_power": 0.4076163610719323
+  },
+  "split_manifests": {
+    "POLICY_CONFIRMATION": {
+      "generator_versions": [
+        "heteroskedastic_v3.1",
+        "heteroskedastic_v3.2",
+        "heteroskedastic_v3.3"
+      ],
+      "row_count": 720,
+      "rows_sha256": "b01772196fad177bb9fed8bc2d2b437fa6602f186c9dd467d3eb92e5812756c9",
+      "scenario_ids_sha256": "922f9b24bb6c6f746a960dcd160a0a047513ae4fa3fad07ebfe9499551dacdd2",
+      "schema_version": "valideval.claim-policy-split.v7.2",
+      "seed_max": 1020719,
+      "seed_min": 1020000,
+      "split": "POLICY_CONFIRMATION"
+    },
+    "POLICY_DEVELOPMENT": {
+      "generator_versions": [
+        "gaussian_mixture_v1.1",
+        "gaussian_mixture_v1.2",
+        "gaussian_mixture_v1.3"
+      ],
+      "row_count": 720,
+      "rows_sha256": "7e4765cf7919d72763cf08327f96abe6066180456858e7beec78828d2ea37fa0",
+      "scenario_ids_sha256": "89a42ff4305d06e61a53ff8126235caa80488dd3989a28b45f5a5d642823b15e",
+      "schema_version": "valideval.claim-policy-split.v7.2",
+      "seed_max": 820719,
+      "seed_min": 820000,
+      "split": "POLICY_DEVELOPMENT"
+    },
+    "POLICY_VALIDATION": {
+      "generator_versions": [
+        "student_t_v2.1",
+        "student_t_v2.2",
+        "student_t_v2.3"
+      ],
+      "row_count": 720,
+      "rows_sha256": "f5df71500ce210bb407bfba7a9b392ecf235047abc3712b7a3856fdf8100c884",
+      "scenario_ids_sha256": "1d4775679785bfcf0e9759c88240c976303ce6fbf36fc3752272962e18cc223b",
+      "schema_version": "valideval.claim-policy-split.v7.2",
+      "seed_max": 920719,
+      "seed_min": 920000,
+      "split": "POLICY_VALIDATION"
+    }
+  },
+  "stability": "POLICY_SELECTION_STABLE",
+  "status": "CLAIM_POLICY_DEVELOPMENT_COMPLETE"
+}

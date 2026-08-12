@@ -1,0 +1,34 @@
+schema_version: '7.2'
+run_id: s1-v7-2-mmlu
+study_id: study-c-s1-v7-2
+stage: S1
+evidence_class: ENGINEERING_ONLY
+mode: smoke
+benchmark_id: mmlu
+benchmark_contract: configs/benchmarks/mmlu_s1_v6.yaml
+benchmark_contract_sha256: 76cb036759dba37a804595d4905ced6873abc2028ee461e1bf349df99637fe8e
+panel_config: configs/panels/s1_smoke_exact_v6.yaml
+panel_config_sha256: 84a65d684fb839a1929d00b04961fd99f9f6883dfa89651de0235c8fda2f394a
+subset_manifest: results/freeze/s1_subsets_v6/mmlu_s1_subset_v6.json
+subset_manifest_sha256: 2a41fbe2bede32acd1bfb1860c714324a67141161115e271ce36cae956feb19a
+output_root: kaggle_icml2027_outputs
+required_source_ref: valideval-v7.2-icml2027-kaggle-s1-ready
+expected_source_commit: null
+allow_source_commit_from_environment: true
+execution:
+  backend: transformers
+  gpu_ids: ['0', '1']
+  required_gpu_count: 2
+  allow_single_gpu_fallback: false
+  use_processes: true
+  process_start_method: spawn
+  max_retries: 2
+  shard_count: 2
+  batch_size: 1
+  max_sequence_length: 2048
+  allow_batch_size_fallback: true
+  allow_sequence_length_fallback: false
+  minimum_sequence_length: 512
+  timeout_seconds: 900
+  minimum_free_disk_gb: 5
+  model_download_margin_gb: 2

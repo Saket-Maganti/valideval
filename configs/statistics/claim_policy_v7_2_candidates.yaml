@@ -1,0 +1,102 @@
+schema_version: valideval.claim-policy-candidates.v7.2
+justification: >-
+  Candidates vary interpretable evidence-strength dimensions around conventional
+  confidence and FDR levels; the grid is fixed before confirmation and is not an
+  arbitrary threshold search.
+candidates:
+  - policy_id: HIGH_PRECISION
+    confidence_level: 0.95
+    minimum_effective_n: 40
+    minimum_family_count: 5
+    minimum_power: 0.65
+    materiality: 0.01
+    bootstrap_stability: 0.85
+    fdr: 0.025
+    decision_regret: 0.01
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: BALANCED
+    confidence_level: 0.90
+    minimum_effective_n: 24
+    minimum_family_count: 4
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.05
+    decision_regret: 0.02
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: HIGH_COVERAGE
+    confidence_level: 0.80
+    minimum_effective_n: 12
+    minimum_family_count: 3
+    minimum_power: 0.35
+    materiality: 0.005
+    bootstrap_stability: 0.65
+    fdr: 0.10
+    decision_regret: 0.04
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: false
+  - policy_id: BALANCED_95CI
+    confidence_level: 0.95
+    minimum_effective_n: 24
+    minimum_family_count: 4
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.05
+    decision_regret: 0.02
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: BALANCED_FAMILY5
+    confidence_level: 0.90
+    minimum_effective_n: 24
+    minimum_family_count: 5
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.05
+    decision_regret: 0.02
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: BALANCED_STRICT_FDR
+    confidence_level: 0.90
+    minimum_effective_n: 24
+    minimum_family_count: 4
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.025
+    decision_regret: 0.02
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: BALANCED_STRICT_REGRET
+    confidence_level: 0.90
+    minimum_effective_n: 24
+    minimum_family_count: 4
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.05
+    decision_regret: 0.01
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true
+  - policy_id: BALANCED_LOW_N
+    confidence_level: 0.90
+    minimum_effective_n: 12
+    minimum_family_count: 4
+    minimum_power: 0.50
+    materiality: 0.01
+    bootstrap_stability: 0.75
+    fdr: 0.05
+    decision_regret: 0.02
+    transport_requirement: true
+    external_validation_requirement: true
+    held_out_requirement: true

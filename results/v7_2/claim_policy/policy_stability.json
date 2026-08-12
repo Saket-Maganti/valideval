@@ -1,0 +1,92 @@
+{
+  "leave_one_group_out_agreement": 1.0,
+  "selected_policy_id": "HIGH_COVERAGE",
+  "selections": [
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "gaussian_mixture_v1.1",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "gaussian_mixture_v1.2",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "gaussian_mixture_v1.3",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "student_t_v2.1",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "student_t_v2.2",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "generator_version",
+      "left_out_value": "student_t_v2.3",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.05",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.2",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.45",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.6",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.85",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "family_correlation",
+      "left_out_value": "0.9",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "effect_size",
+      "left_out_value": "0.0",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "effect_size",
+      "left_out_value": "0.025",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "effect_size",
+      "left_out_value": "0.035",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "effect_size",
+      "left_out_value": "0.06",
+      "policy_id": "HIGH_COVERAGE"
+    },
+    {
+      "left_out_dimension": "effect_size",
+      "left_out_value": "0.075",
+      "policy_id": "HIGH_COVERAGE"
+    }
+  ],
+  "status": "POLICY_SELECTION_STABLE"
+}

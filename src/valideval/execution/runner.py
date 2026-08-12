@@ -548,7 +548,11 @@ def _materialize_run(
         config_class=(
             "s1_engineering_smoke_v6"
             if config.schema_version == "6.0"
-            else f"study_c_{config.stage.lower()}_v7"
+            else (
+                "s1_engineering_smoke_v7_2"
+                if config.schema_version == "7.2"
+                else f"study_c_{config.stage.lower()}_v7"
+            )
         ),
         file_checksums=checksums,
         code_revision=source_commit,
@@ -576,7 +580,9 @@ def _materialize_run(
             "merge_summary": merge,
             # Every V6 S1 artifact belongs to the engineering-smoke protocol, including
             # NON_EVIDENCE_FIXTURE exercises of that path. V7 uses stage-scoped claim gates.
-            "engineering_only": config.schema_version == "6.0",
+            "engineering_only": config.evidence_class
+            in {"ENGINEERING_ONLY", "NON_EVIDENCE_FIXTURE"}
+            and str(getattr(config, "stage", "S1")) == "S1",
         },
     )
     if manifest["config_hash"] != config_hash:
@@ -593,7 +599,11 @@ def _materialize_run(
     )
     package_dir = destination_root / "packages"
     package_dir.mkdir(parents=True, exist_ok=True)
-    version_label = "v6_s1" if config.schema_version == "6.0" else f"v7_{config.stage.lower()}"
+    version_label = (
+        "v6_s1"
+        if config.schema_version == "6.0"
+        else ("v7_2_s1" if config.schema_version == "7.2" else f"v7_{config.stage.lower()}")
+    )
     zip_path = package_dir / f"valideval_{version_label}_{config.benchmark_id}_{config.run_id}.zip"
     zip_sha256 = create_deterministic_run_zip(run_dir, zip_path)
     terminal = RUN_COMPLETE_WITH_RECORDED_FAILURES if failure_state != "none" else RUN_COMPLETE
@@ -630,7 +640,11 @@ def _package_existing_run(
             / (
                 f"valideval_v6_s1_{config.benchmark_id}_{config.run_id}.zip"
                 if config.schema_version == "6.0"
-                else f"valideval_v7_{config.stage.lower()}_{config.benchmark_id}_{config.run_id}.zip"
+                else (
+                    f"valideval_v7_2_s1_{config.benchmark_id}_{config.run_id}.zip"
+                    if config.schema_version == "7.2"
+                    else f"valideval_v7_{config.stage.lower()}_{config.benchmark_id}_{config.run_id}.zip"
+                )
             )
         )
         digest = create_deterministic_run_zip(run_dir, zip_path)
@@ -931,7 +945,7 @@ def _frozen_config_payload(config: Any) -> dict[str, Any]:
     payload = config.model_dump(mode="json")
     if payload["mode"] in {"resume", "validate_only", "package_only"}:
         if (
-            payload.get("schema_version") == "7.0"
+            payload.get("schema_version") in {"7.0", "7.2"}
             and payload.get("execution", {}).get("backend") == "mock"
         ):
             payload["mode"] = "fixture"
