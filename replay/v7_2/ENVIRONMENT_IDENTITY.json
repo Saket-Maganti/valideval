@@ -11,5 +11,5 @@
   "replay_boundary": "Exact replay is required only within this frozen dependency/platform identity. No identical-hash promise is made across arbitrary NumPy/SciPy versions.",
   "schema_version": "valideval.environment-identity.v7.2",
   "seed_manifest_hash": "23d42f9040a28aa0ce8f0b5e9dca037eacb5da08394914525c622206f14e3516",
-  "source_commit": "729727cc83c990f2a63dfa842997b6a98275f520"
+  "source_commit": "342d3536cb9858b35288f2456ac2aa0a19c88d6a"
 }

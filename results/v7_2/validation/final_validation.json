@@ -1,0 +1,149 @@
+{
+  "build": "PASS (2.16s)",
+  "checks": {
+    "build": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "build"
+      ],
+      "exit_code": 0,
+      "output_tail": "lease/reviewer.py'\nadding 'valideval/release/v5.py'\nadding 'valideval/reliability/__init__.py'\nadding 'valideval/reliability/design_curves.py'\nadding 'valideval/reliability/generalizability.py'\nadding 'valideval/reliability/variance_components.py'\nadding 'valideval/repair/__init__.py'\nadding 'valideval/repair/diff.py'\nadding 'valideval/repair/engine.py'\nadding 'valideval/repair/policies.py'\nadding 'valideval/repair/recommendations.py'\nadding 'valideval/repair/subset_selection.py'\nadding 'valideval/repair/validation_v7.py'\nadding 'valideval/report/__init__.py'\nadding 'valideval/report/external_validation_report.py'\nadding 'valideval/report/figures.py'\nadding 'valideval/report/tables.py'\nadding 'valideval/scoring/__init__.py'\nadding 'valideval/scoring/agreement.py'\nadding 'valideval/scoring/bbh.py'\nadding 'valideval/scoring/contracts.py'\nadding 'valideval/scoring/exact_match.py'\nadding 'valideval/scoring/extraction.py'\nadding 'valideval/scoring/gsm8k.py'\nadding 'valideval/scoring/mcq.py'\nadding 'valideval/scoring/mcq_utils.py'\nadding 'valideval/scoring/mmlu.py'\nadding 'valideval/statistics/__init__.py'\nadding 'valideval/statistics/claim_calibration_v7_1.py'\nadding 'valideval/statistics/claim_policy_v7_2.py'\nadding 'valideval/statistics/panel_power_v7.py'\nadding 'valideval/statistics/power_materiality.py'\nadding 'valideval/statistics/rank_inference_v7_1.py'\nadding 'valideval/statistics/rank_materiality.py'\nadding 'valideval/statistics/rank_nulls.py'\nadding 'valideval/statistics/study_c_power_v7_1.py'\nadding 'valideval/statistics/study_h_v7.py'\nadding 'valideval/stats/__init__.py'\nadding 'valideval/stats/bootstrap.py'\nadding 'valideval/stats/check.py'\nadding 'valideval/stats/effect_sizes.py'\nadding 'valideval/stats/materiality.py'\nadding 'valideval/stats/multiplicity.py'\nadding 'valideval/stats/nulls.py'\nadding 'valideval/synthetic/__init__.py'\nadding 'valideval/synthetic/confirmatory.py'\nadding 'valideval/synthetic/contracts.py'\nadding 'valideval/transport/__init__.py'\nadding 'valideval/transport/analysis.py'\nadding 'valideval/transport/folds.py'\nadding 'valideval/validation/__init__.py'\nadding 'valideval/validation/confirmatory_v7.py'\nadding 'valideval/validation/cross_flaw.py'\nadding 'valideval/validation/decoupled_synthetic.py'\nadding 'valideval/validation/detector_metrics.py'\nadding 'valideval/validation/external_flag_validation.py'\nadding 'valideval/validation/external_ground_truth.py'\nadding 'valideval/validation/flaw_generators.py'\nadding 'valideval/validation/gpqa_wide.py'\nadding 'valideval/validation/heldout_generators.py'\nadding 'valideval/validation/materiality.py'\nadding 'valideval/validation/mmlu_redux.py'\nadding 'valideval/validation/mmlu_redux_alignment.py'\nadding 'valideval/validation/mmlu_redux_alignment_preflight.py'\nadding 'valideval/validation/mmlu_redux_issue_specific.py'\nadding 'valideval/validation/mmlu_redux_pipeline.py'\nadding 'valideval/validation/multiplicity.py'\nadding 'valideval/validation/null_models.py'\nadding 'valideval/validation/synthetic_benchmark.py'\nadding 'valideval/validation/synthetic_controls_v7_1.py'\nadding 'valideval/validation/validation_report.py'\nadding 'valideval/validation/validation_runner.py'\nadding 'valideval-0.4.0.dist-info/licenses/LICENSE'\nadding 'valideval-0.4.0.dist-info/METADATA'\nadding 'valideval-0.4.0.dist-info/WHEEL'\nadding 'valideval-0.4.0.dist-info/entry_points.txt'\nadding 'valideval-0.4.0.dist-info/top_level.txt'\nadding 'valideval-0.4.0.dist-info/RECORD'\nremoving build/bdist.macosx-10.9-universal2/wheel\nSuccessfully built valideval-0.4.0.tar.gz and valideval-0.4.0-py3-none-any.whl\n\n* Creating isolated environment: venv+pip...\n* Installing packages in isolated environment:\n  - setuptools>=68\n  - wheel\n* Getting build dependencies for sdist...\n* Building sdist...\n* Building wheel from sdist\n* Creating isolated environment: venv+pip...\n* Installing packages in isolated environment:\n  - setuptools>=68\n  - wheel\n* Getting build dependencies for wheel...\n* Building wheel...",
+      "runtime_seconds": 2.162317084003007,
+      "status": "PASS",
+      "summary": "PASS (2.16s)"
+    },
+    "format": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "output_tail": "447 files already formatted",
+      "runtime_seconds": 0.026422499999171123,
+      "status": "PASS",
+      "summary": "PASS (0.03s)"
+    },
+    "lint": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "output_tail": "All checks passed!",
+      "runtime_seconds": 0.0717405829927884,
+      "status": "PASS",
+      "summary": "PASS (0.07s)"
+    },
+    "mypy": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "mypy",
+        "src/valideval/execution/config_v7_2.py",
+        "src/valideval/execution/notebook_v7_2.py",
+        "src/valideval/importers/s1_v7_2.py",
+        "src/valideval/statistics/claim_policy_v7_2.py",
+        "src/valideval/diagnostics/v8/difficulty.py",
+        "src/valideval/diagnostics/v8/development.py",
+        "src/valideval/planning/runtime_recalibration_v7_2.py"
+      ],
+      "exit_code": 0,
+      "output_tail": "Success: no issues found in 7 source files",
+      "runtime_seconds": 1.0431404580012895,
+      "status": "PASS",
+      "summary": "PASS (1.04s)"
+    },
+    "notebooks": {
+      "deterministic": true,
+      "failures": [],
+      "hashes": {
+        "00_v7_2_t4x2_preflight.ipynb": "75b593ba1331f14a8a2b6ad6e77f6e9ef9f003e95b7d7bbe80cc1dc7f6c00074",
+        "01_v7_2_s1_mmlu.ipynb": "549c630cff205a5f630fa8b3413d0dc238b6c831140c4686fe66fddae2190138",
+        "02_v7_2_s1_gsm8k.ipynb": "8fc6a27ced5d16e13209ff8c31f3069612cfdb96bc17cefbdf519bb0e65398fc",
+        "03_v7_2_s1_bbh.ipynb": "c69e41231d523b68a8b646840254dcd3ac1a6489df267e554ba69f3e06b4c88b",
+        "04_v7_2_s1_validate_package.ipynb": "266e45ef6f92adc06803b732a0d22e71851a1cce2f965ba6940759949d3fcd6e"
+      },
+      "status": "PASS",
+      "summary": "PASS_5_DETERMINISTIC_COMPILED_NOTEBOOKS"
+    },
+    "release": {
+      "distributions": [
+        "valideval-0.2.0-py3-none-any.whl",
+        "valideval-0.2.0.tar.gz",
+        "valideval-0.3.0-py3-none-any.whl",
+        "valideval-0.3.0.tar.gz",
+        "valideval-0.4.0-py3-none-any.whl",
+        "valideval-0.4.0.tar.gz",
+        "valideval_reviewer_packet.zip",
+        "valideval_reviewer_packet_v2.zip",
+        "valideval_reviewer_packet_v4_pre_execution.zip",
+        "valideval_v5_reviewer_packet.zip"
+      ],
+      "head": "342d3536cb9858b35288f2456ac2aa0a19c88d6a",
+      "status": "PASS",
+      "summary": "PASS_TAG_SDIST_WHEEL",
+      "tag_commit": "342d3536cb9858b35288f2456ac2aa0a19c88d6a"
+    },
+    "secret_scan": {
+      "findings": [],
+      "scanned_files": 1417,
+      "status": "PASS",
+      "summary": "PASS_1417_TRACKED_FILES"
+    },
+    "tests": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "output_tail": "........................................................................ [ 16%]\n........................................................................ [ 32%]\n........................................................................ [ 48%]\n........................................................................ [ 64%]\n........................................................................ [ 80%]\n........................................................................ [ 96%]\n..............                                                           [100%]\n=============================== warnings summary ===============================\ntests/test_post_import_analysis_router_v4.py::test_post_import_analysis_executes_router_on_tiny_matrix\ntests/test_post_import_analysis_router_v4.py::test_post_import_analysis_executes_router_on_tiny_matrix\n  /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/nanops.py:1632: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.\n    return spearmanr(a, b)[0]\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n446 passed, 2 warnings in 31.29s",
+      "runtime_seconds": 32.338904416013975,
+      "status": "PASS",
+      "summary": "PASS (32.34s)"
+    },
+    "v7_artifacts": {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "scripts/validate_v7_artifacts.py"
+      ],
+      "exit_code": 0,
+      "output_tail": "V7_ARTIFACTS_VALID: 22 run configs, 117 checksums",
+      "runtime_seconds": 0.39198608399601653,
+      "status": "PASS",
+      "summary": "PASS (0.39s)"
+    }
+  },
+  "ci": {
+    "conclusion": "success",
+    "head_sha": "342d3536cb9858b35288f2456ac2aa0a19c88d6a",
+    "run_id": 31602420665,
+    "url": "https://github.com/Saket-Maganti/valideval/actions/runs/31602420665"
+  },
+  "cpu_runs_completed": 14,
+  "cpu_runtime_total_seconds": 77.44043420799426,
+  "format": "PASS (0.03s)",
+  "lint": "PASS (0.07s)",
+  "mypy": "PASS (1.04s)",
+  "notebooks": "PASS_5_DETERMINISTIC_COMPILED_NOTEBOOKS",
+  "release": "PASS_TAG_SDIST_WHEEL",
+  "runtime_seconds": 36.252326417015865,
+  "schema_version": "valideval.final-validation.v7.2",
+  "secret_scan": "PASS_1417_TRACKED_FILES",
+  "source_commit": "342d3536cb9858b35288f2456ac2aa0a19c88d6a",
+  "source_tag": "valideval-v7.2-icml2027-kaggle-s1-ready",
+  "status": "PASS",
+  "tests": "PASS (32.34s)",
+  "v7_artifacts": "PASS (0.39s)"
+}

@@ -75,7 +75,7 @@ Fourteen mandatory CPU activities produced artifacts under `results/v7_2`.
 
 ## 18. Tests and CI
 
-Validation status: `PENDING_FINAL_VALIDATION`. See machine state for
+Validation status: `PASS`. See machine state for
 individual test, lint, format, type, build, notebook, secret, release, and CI results.
 
 ## 19. Exact Kaggle instructions

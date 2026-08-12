@@ -1,9 +1,9 @@
 # ValidEval V7.2 Kaggle S1 Runbook
 
-Authorized source: `valideval-v7.2-icml2027-kaggle-s1-ready` at `729727cc83c990f2a63dfa842997b6a98275f520`.
+Authorized source: `valideval-v7.2-icml2027-kaggle-s1-ready` at `342d3536cb9858b35288f2456ac2aa0a19c88d6a`.
 
 1. Check out exactly: `git checkout valideval-v7.2-icml2027-kaggle-s1-ready` and verify `git rev-parse HEAD` equals
-   `729727cc83c990f2a63dfa842997b6a98275f520`. Archive or upload this tagged tree without caches, secrets, or model weights.
+   `342d3536cb9858b35288f2456ac2aa0a19c88d6a`. Archive or upload this tagged tree without caches, secrets, or model weights.
 2. In Kaggle choose two T4 GPUs, enable Internet for public Hugging Face downloads, and provide at
    least the fail-closed disk amount printed by notebook 00.
 3. Run notebooks in order: `00_v7_2_t4x2_preflight.ipynb`, then the MMLU, GSM8K, and BBH notebooks,

@@ -26,7 +26,7 @@
     "status": "MMLU_V8_DIFFICULTY_ADJUSTED_EXPLORATORY_COMPLETE"
   },
   "normalized_metrics_sha256": "5a2d4858f648a7c5e5d36047884d350a2c5ab351192d70bd00e17edfe7f92333",
-  "runtime_seconds": 2.020320542011177,
+  "runtime_seconds": 2.024900374992285,
   "status": "V8_EXPLORATORY_DEVELOPMENT_GATE_PASS",
   "true_flaw_auprc_retention": 1.2105968455729537,
   "true_flaw_signal_retained": true,
