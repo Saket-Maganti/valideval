@@ -26,9 +26,7 @@ from valideval.statistics.claim_policy_v7_2 import (
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run disjoint V7.2 claim-policy calibration.")
-    parser.add_argument(
-        "--phase", choices=("select", "confirm", "all"), default="all"
-    )
+    parser.add_argument("--phase", choices=("select", "confirm", "all"), default="all")
     parser.add_argument(
         "--scenarios",
         type=Path,
@@ -44,9 +42,7 @@ def main() -> int:
     args = parser.parse_args()
     started = time.perf_counter()
 
-    registry = build_scenario_registry(
-        args.scenarios, replicates_per_claim_family=args.replicates
-    )
+    registry = build_scenario_registry(args.scenarios, replicates_per_claim_family=args.replicates)
     assert_split_isolation(registry)
     args.output.mkdir(parents=True, exist_ok=True)
     registry.to_csv(args.output / "simulation_scenario_registry.csv", index=False)

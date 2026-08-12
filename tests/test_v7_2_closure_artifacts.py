@@ -28,9 +28,7 @@ def test_package_acceptance_does_not_promote_scientific_claim() -> None:
 
 
 def test_decision_license_requires_confirmation_and_heldout_validation() -> None:
-    blocked = evaluate_evidence_state_v7_2(
-        EvidenceTransitionV72(claim_policy_licensed=True)
-    )
+    blocked = evaluate_evidence_state_v7_2(EvidenceTransitionV72(claim_policy_licensed=True))
     licensed = evaluate_evidence_state_v7_2(
         EvidenceTransitionV72(
             claim_policy_licensed=True,
@@ -45,9 +43,7 @@ def test_decision_license_requires_confirmation_and_heldout_validation() -> None
 def test_s1_authorization_requires_every_execution_gate() -> None:
     ready = S1V72RunReadiness(**{field: True for field in S1V72RunReadiness.__dataclass_fields__})
     authorized = assess_s1_v7_2_run_authorization(ready)
-    blocked = assess_s1_v7_2_run_authorization(
-        S1V72RunReadiness(exact_final_source=True)
-    )
+    blocked = assess_s1_v7_2_run_authorization(S1V72RunReadiness(exact_final_source=True))
     assert authorized["status"] == "S1_V7_2_AUTHORIZED"
     assert authorized["s2"] == "S2_BLOCKED_PENDING_ACCEPTED_S1"
     assert blocked["status"] == "S1_V7_2_BLOCKED"
@@ -55,9 +51,7 @@ def test_s1_authorization_requires_every_execution_gate() -> None:
 
 
 def test_required_v7_2_reports_and_machine_keys_exist() -> None:
-    report_names = {
-        path.name for path in (ROOT / "reports/v7_2").glob("*.md")
-    }
+    report_names = {path.name for path in (ROOT / "reports/v7_2").glob("*.md")}
     assert len(report_names) == 17
     machine = json.loads((ROOT / "VALID_EVAL_V7_2_MACHINE_STATE.json").read_text())
     required = {

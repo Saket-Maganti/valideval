@@ -101,8 +101,7 @@ def recalibrate_study_c_after_s1(
                 "model_load_seconds": float(group["model_load_seconds"].max()),
                 "items_per_second": len(group) / elapsed if elapsed > 0 else None,
                 "tokens_per_second": (
-                    float(group["total_tokens"].sum())
-                    / float(group["generation_seconds"].sum())
+                    float(group["total_tokens"].sum()) / float(group["generation_seconds"].sum())
                     if float(group["generation_seconds"].sum()) > 0
                     else None
                 ),
@@ -130,9 +129,7 @@ def recalibrate_study_c_after_s1(
     }
     failure_rate = float(frame["failure_type"].ne("SUCCESS").mean())
     extraction_success = float(frame["extraction_status"].eq("success").mean())
-    systemic_model_failure = any(
-        summary["failure_rate"] >= 0.50 for summary in per_scenario
-    )
+    systemic_model_failure = any(summary["failure_rate"] >= 0.50 for summary in per_scenario)
     peak_memory = int(frame["peak_gpu_memory_bytes"].max())
     s2_authorized = bool(
         failure_rate <= 0.05
@@ -148,9 +145,7 @@ def recalibrate_study_c_after_s1(
         "scenario_summaries": per_scenario,
         "failure_rate": failure_rate,
         "extraction_success": extraction_success,
-        "download_volume_bytes": sum(
-            summary["download_volume_bytes"] for summary in per_scenario
-        ),
+        "download_volume_bytes": sum(summary["download_volume_bytes"] for summary in per_scenario),
         "runtime_estimates": estimates,
         "s2_authorization": "S2_AUTHORIZED" if s2_authorized else "S2_ENGINEERING_REPAIR_REQUIRED",
         "s3_authorization": "S3_BLOCKED_PENDING_S2",
@@ -162,9 +157,7 @@ def recalibrate_study_c_after_s1(
     }
     destination = Path(output_path)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    destination.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return payload
 
 

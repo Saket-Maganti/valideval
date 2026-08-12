@@ -60,9 +60,7 @@ def main() -> int:
         accepted = acceptance["status"] == "S1_V7_2_ACCEPTED"
         payload = {
             "schema_version": "valideval.s1-mock-integration.v7.2",
-            "status": (
-                "S1_V7_2_END_TO_END_READY" if accepted else "S1_V7_2_END_TO_END_BLOCKED"
-            ),
+            "status": ("S1_V7_2_END_TO_END_READY" if accepted else "S1_V7_2_END_TO_END_BLOCKED"),
             "source_commit": _head(root),
             "fixture_only": True,
             "authorization_updated": False,
@@ -79,9 +77,7 @@ def main() -> int:
             ),
         }
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    args.output.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"{payload['status']}: {payload['runtime_seconds']:.2f}s")
     return 0 if accepted else 2
 
@@ -89,9 +85,7 @@ def main() -> int:
 def _head(root: Path) -> str:
     import subprocess
 
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=root, text=True
-    ).strip()
+    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
 
 
 if __name__ == "__main__":

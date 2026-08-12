@@ -92,9 +92,13 @@ def build_scenario_registry(
                         "effective_n": effective_n,
                         "cluster_count": cluster_count,
                         "family_count": family_count,
-                        "models_per_family": int(common["models_per_family"][(replicate // 17) % 3]),
+                        "models_per_family": int(
+                            common["models_per_family"][(replicate // 17) % 3]
+                        ),
                         "family_correlation": correlation,
-                        "family_imbalance": float(common["family_imbalance"][(replicate // 19) % 3]),
+                        "family_imbalance": float(
+                            common["family_imbalance"][(replicate // 19) % 3]
+                        ),
                         "ability_spread": float(common["ability_spread"][(replicate // 23) % 3]),
                         "benchmark_count": benchmark_count,
                         "measurement_noise": float(
@@ -111,9 +115,7 @@ def build_scenario_registry(
                         "external_validated": replicate % 4 != 0,
                         "held_out": replicate % 5 != 0,
                         "direction_consistent": replicate % 6 != 0,
-                        "transport_reversal": (
-                            claim_family == "TRANSPORT" and replicate % 10 == 0
-                        ),
+                        "transport_reversal": (claim_family == "TRANSPORT" and replicate % 10 == 0),
                         "adversarial_case": _adversarial_case(replicate),
                     }
                 )
@@ -252,9 +254,7 @@ def select_primary_policy(
         - validation["decision_regret"]
     )
     viable = validation.loc[
-        validation["controlled_risk"]
-        & validation["nonvacuous"]
-        & ~validation["pareto_dominated"]
+        validation["controlled_risk"] & validation["nonvacuous"] & ~validation["pareto_dominated"]
     ]
     if viable.empty:
         raise ValueError("no candidate satisfies the preregistered non-vacuity and risk gates")
@@ -320,9 +320,7 @@ def confirm_frozen_policy(
     if frozen_payload.get("confirmation_accessed") is not False:
         raise ValueError("freeze payload must precede confirmation access")
     policy = ClaimPolicyV72(**frozen_payload["policy"])
-    metrics, cells = evaluate_candidates(
-        registry, [policy], splits=(POLICY_CONFIRMATION,)
-    )
+    metrics, cells = evaluate_candidates(registry, [policy], splits=(POLICY_CONFIRMATION,))
     row = metrics.iloc[0]
     leak_free = True
     passes = bool(
@@ -332,17 +330,11 @@ def confirm_frozen_policy(
         and row["coverage"] > 0.0
         and leak_free
     )
-    partial = bool(
-        row["false_license_upper_95"] <= 0.05 and row["true_license_power"] > 0.0
-    )
+    partial = bool(row["false_license_upper_95"] <= 0.05 and row["true_license_power"] > 0.0)
     status = (
         "CLAIM_POLICY_CONFIRMATION_PASS"
         if passes
-        else (
-            "CLAIM_POLICY_CONFIRMATION_PARTIAL"
-            if partial
-            else "CLAIM_POLICY_CONFIRMATION_FAIL"
-        )
+        else ("CLAIM_POLICY_CONFIRMATION_PARTIAL" if partial else "CLAIM_POLICY_CONFIRMATION_FAIL")
     )
     summary = {
         "status": status,
@@ -384,7 +376,9 @@ def policy_stability(
                 policy_id = selected.policy_id
             except ValueError:
                 policy_id = "NO_VIABLE_POLICY"
-            selections.append({"left_out_dimension": column, "left_out_value": str(value), "policy_id": policy_id})
+            selections.append(
+                {"left_out_dimension": column, "left_out_value": str(value), "policy_id": policy_id}
+            )
     agreement = sum(row["policy_id"] == selected_policy_id for row in selections) / max(
         len(selections), 1
     )
@@ -410,9 +404,7 @@ def _simulate_scenario(scenario: dict[str, Any]) -> dict[str, np.ndarray]:
     correlation = float(scenario["family_correlation"])
     imbalance = float(scenario["family_imbalance"])
     standard_error = (
-        noise
-        / math.sqrt(effective_n)
-        * math.sqrt(1.0 + 0.50 * correlation + 0.25 * imbalance)
+        noise / math.sqrt(effective_n) * math.sqrt(1.0 + 0.50 * correlation + 0.25 * imbalance)
     )
     common = rng.normal(0.0, standard_error * math.sqrt(max(correlation, 0.0)))
     independent_scale = standard_error * math.sqrt(max(1.0 - correlation, 0.05))
@@ -448,7 +440,10 @@ def _evaluate_policy(
     rows: list[dict[str, Any]] = []
     for index in range(len(truth)):
         estimated_power = float(
-            norm.cdf(max(abs(estimates[index]) - policy.materiality, 0.0) / standard_errors[index] - z_value)
+            norm.cdf(
+                max(abs(estimates[index]) - policy.materiality, 0.0) / standard_errors[index]
+                - z_value
+            )
         )
         regret_proxy = float(
             max(policy.materiality - lower[index], 0.0) + 0.25 * standard_errors[index]

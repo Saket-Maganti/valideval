@@ -78,10 +78,36 @@ print("python -m valideval recalibrate-study-c-after-s1 --input-root imported/v7
 """
     return {
         "cells": [
-            {"cell_type": "markdown", "id": f"{stage}-overview", "metadata": {}, "source": _lines(overview)},
-            {"cell_type": "code", "id": f"{stage}-setup", "execution_count": None, "metadata": {}, "outputs": [], "source": _lines(setup)},
-            {"cell_type": "code", "id": f"{stage}-run", "execution_count": None, "metadata": {}, "outputs": [], "source": _lines(run)},
-            {"cell_type": "code", "id": f"{stage}-handoff", "execution_count": None, "metadata": {}, "outputs": [], "source": _lines(handoff)},
+            {
+                "cell_type": "markdown",
+                "id": f"{stage}-overview",
+                "metadata": {},
+                "source": _lines(overview),
+            },
+            {
+                "cell_type": "code",
+                "id": f"{stage}-setup",
+                "execution_count": None,
+                "metadata": {},
+                "outputs": [],
+                "source": _lines(setup),
+            },
+            {
+                "cell_type": "code",
+                "id": f"{stage}-run",
+                "execution_count": None,
+                "metadata": {},
+                "outputs": [],
+                "source": _lines(run),
+            },
+            {
+                "cell_type": "code",
+                "id": f"{stage}-handoff",
+                "execution_count": None,
+                "metadata": {},
+                "outputs": [],
+                "source": _lines(handoff),
+            },
         ],
         "metadata": {
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},

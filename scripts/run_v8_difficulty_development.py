@@ -42,9 +42,7 @@ def main() -> int:
 
     matrix = pd.read_csv(args.matrix, index_col=0)
     family_frame = pd.read_csv(args.families)
-    family_map = dict(
-        zip(family_frame["model_id"], family_frame["model_family"], strict=True)
-    )
+    family_map = dict(zip(family_frame["model_id"], family_frame["model_family"], strict=True))
     detector = DifficultyAdjustedDetectorV8()
     scores = detector.score_methods(matrix, model_families=family_map)
     subjects = [str(item).split("::", 1)[0] for item in matrix.columns]

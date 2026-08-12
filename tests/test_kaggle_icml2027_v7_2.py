@@ -30,9 +30,7 @@ def test_canonical_v7_2_notebooks_compile_and_delegate_to_package_code() -> None
             == "valideval-v7.2-icml2027-kaggle-s1-ready"
         )
         code = "\n".join(
-            "".join(cell["source"])
-            for cell in notebook["cells"]
-            if cell["cell_type"] == "code"
+            "".join(cell["source"]) for cell in notebook["cells"] if cell["cell_type"] == "code"
         )
         compile(code, str(path), "exec")
         assert "run_notebook_stage_v7_2" in code

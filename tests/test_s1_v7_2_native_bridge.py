@@ -196,16 +196,12 @@ def test_s1_v7_2_native_acceptance_negative_matrix(
     elif mutation == "config":
         payload = yaml.safe_load((run_dir / "config_snapshot.yaml").read_text())
         payload["output_root"] = "wrong-output-root"
-        (run_dir / "config_snapshot.yaml").write_text(
-            yaml.safe_dump(payload), encoding="utf-8"
-        )
+        (run_dir / "config_snapshot.yaml").write_text(yaml.safe_dump(payload), encoding="utf-8")
         _resign(run_dir, "config_snapshot.yaml")
     else:
         payload = json.loads((run_dir / "benchmark_contract.json").read_text())
         payload["prompt_hash"] = "0" * 64
-        (run_dir / "benchmark_contract.json").write_text(
-            json.dumps(payload), encoding="utf-8"
-        )
+        (run_dir / "benchmark_contract.json").write_text(json.dumps(payload), encoding="utf-8")
         _resign(run_dir, "benchmark_contract.json")
     _write_sorted_zip(run_dir, archive)
     result = accept_s1_v7_2(
@@ -271,9 +267,7 @@ def _resign(run_dir: Path, filename: str) -> None:
     manifest = json.loads((run_dir / "run_manifest.json").read_text())
     checksums["files"][filename] = digest
     manifest["file_checksums"][filename] = digest
-    (run_dir / "file_checksums.json").write_text(
-        json.dumps(checksums), encoding="utf-8"
-    )
+    (run_dir / "file_checksums.json").write_text(json.dumps(checksums), encoding="utf-8")
     (run_dir / "run_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
 
 

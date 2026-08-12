@@ -40,8 +40,7 @@ def evaluate_evidence_state_v7_2(
         reason = "An unresolved claim-specific blocker is present."
     elif evidence.claim_policy_licensed:
         prerequisites = (
-            evidence.confirmatory_analysis_complete
-            and evidence.held_out_validation_complete
+            evidence.confirmatory_analysis_complete and evidence.held_out_validation_complete
         )
         if not prerequisites:
             state = EvidenceStateV72.BLOCKED

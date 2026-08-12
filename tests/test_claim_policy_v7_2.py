@@ -39,9 +39,7 @@ def test_policy_splits_have_disjoint_seeds_generators_and_rows() -> None:
 
 def test_seed_leakage_fails_closed() -> None:
     registry = build_scenario_registry(SCENARIOS, replicates_per_claim_family=30)
-    development_seed = registry.loc[
-        registry["split"] == POLICY_DEVELOPMENT, "seed"
-    ].iloc[0]
+    development_seed = registry.loc[registry["split"] == POLICY_DEVELOPMENT, "seed"].iloc[0]
     validation_index = registry.index[registry["split"] == POLICY_VALIDATION][0]
     registry.loc[validation_index, "seed"] = development_seed
     with pytest.raises(ValueError, match="seed leakage"):
@@ -57,9 +55,7 @@ def test_selected_policy_is_nonvacuous_and_confirmation_is_untouched() -> None:
         split: split_manifest(registry, split)
         for split in (POLICY_DEVELOPMENT, POLICY_VALIDATION, POLICY_CONFIRMATION)
     }
-    frozen = freeze_policy_payload(
-        selected, scenario_manifests=manifests, selection=selection
-    )
+    frozen = freeze_policy_payload(selected, scenario_manifests=manifests, selection=selection)
     _, confirmation = confirm_frozen_policy(registry, frozen)
     assert selection["true_license_power"] > 0.0
     assert selection["abstention_rate"] < 1.0
@@ -78,9 +74,7 @@ def test_confirmation_rejects_policy_changed_after_freeze() -> None:
         split: split_manifest(registry, split)
         for split in (POLICY_DEVELOPMENT, POLICY_VALIDATION, POLICY_CONFIRMATION)
     }
-    frozen = freeze_policy_payload(
-        selected, scenario_manifests=manifests, selection=selection
-    )
+    frozen = freeze_policy_payload(selected, scenario_manifests=manifests, selection=selection)
     frozen["policy"]["fdr"] = 0.5
     with pytest.raises(ValueError, match="hash mismatch"):
         confirm_frozen_policy(registry, frozen)

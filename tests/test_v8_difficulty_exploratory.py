@@ -61,9 +61,7 @@ def test_v8_handles_family_specific_all_missing_blocks_without_imputation_warnin
 
 def test_v8_development_reduces_difficulty_control_without_destroying_signal() -> None:
     config = yaml.safe_load(
-        (ROOT / "configs/diagnostics/v8_exploratory_development.yaml").read_text(
-            encoding="utf-8"
-        )
+        (ROOT / "configs/diagnostics/v8_exploratory_development.yaml").read_text(encoding="utf-8")
     )
     config["seeds"] = config["seeds"][:3]
     metrics, ablations, summary = run_v8_exploratory_development(config)

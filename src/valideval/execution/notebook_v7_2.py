@@ -99,9 +99,7 @@ def _run_fixture(config_path: Path, *, root: Path, output_root: Path) -> dict[st
 
 
 def _fixture_items(root: Path, config_payload: dict[str, Any]) -> list[FrozenBenchmarkItem]:
-    subset = json.loads(
-        (root / str(config_payload["subset_manifest"])).read_text(encoding="utf-8")
-    )
+    subset = json.loads((root / str(config_payload["subset_manifest"])).read_text(encoding="utf-8"))
     benchmark = str(config_payload["benchmark_id"])
     output = []
     for index, entry in enumerate(subset["items"]):

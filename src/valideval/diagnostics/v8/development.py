@@ -70,9 +70,7 @@ def run_v8_exploratory_development(
                     scores=values,
                 )
             )
-        for name, values in detector.ablation_scores(
-            matrix, model_families=families
-        ).items():
+        for name, values in detector.ablation_scores(matrix, model_families=families).items():
             ablations.append(
                 _metric_row(
                     control="TRUE_FLAW_ABLATION",
@@ -103,9 +101,7 @@ def run_v8_exploratory_development(
         ]
         scores = detector.score_methods(matrix, model_families=families)
         scores["V7_FROZEN"] = fixed_confirmatory_readout(matrix)
-        cutoff = float(
-            sealed["true_difficulty"].quantile(1.0 - float(config["prevalence"]))
-        )
+        cutoff = float(sealed["true_difficulty"].quantile(1.0 - float(config["prevalence"])))
         difficulty_labels = sealed["true_difficulty"].to_numpy(dtype=float) >= cutoff
         for method, values in scores.items():
             if method in {
@@ -132,26 +128,15 @@ def run_v8_exploratory_development(
     ablation_frame = pd.DataFrame(ablations).sort_values(
         ["flaw_class", "severity", "seed", "method"]
     )
-    difficulty = metrics.loc[
-        metrics["control"] == "DIFFICULTY_CONDITIONED_NEGATIVE_CONTROL"
-    ]
+    difficulty = metrics.loc[metrics["control"] == "DIFFICULTY_CONDITIONED_NEGATIVE_CONTROL"]
     true_flaw = metrics.loc[metrics["control"] == "TRUE_FLAW"]
-    baseline_difficulty = float(
-        difficulty.loc[difficulty["method"] == "V7_FROZEN", "AUPRC"].mean()
-    )
-    v8_difficulty = float(
-        difficulty.loc[difficulty["method"] == "V8_FULL", "AUPRC"].mean()
-    )
-    baseline_flaw = float(
-        true_flaw.loc[true_flaw["method"] == "V7_FROZEN", "AUPRC"].median()
-    )
-    v8_flaw = float(
-        true_flaw.loc[true_flaw["method"] == "V8_FULL", "AUPRC"].median()
-    )
+    baseline_difficulty = float(difficulty.loc[difficulty["method"] == "V7_FROZEN", "AUPRC"].mean())
+    v8_difficulty = float(difficulty.loc[difficulty["method"] == "V8_FULL", "AUPRC"].mean())
+    baseline_flaw = float(true_flaw.loc[true_flaw["method"] == "V7_FROZEN", "AUPRC"].median())
+    v8_flaw = float(true_flaw.loc[true_flaw["method"] == "V8_FULL", "AUPRC"].median())
     gate = config["development_gate"]
-    confound_reduced = (
-        baseline_difficulty - v8_difficulty
-        >= float(gate["difficulty_negative_auprc_reduction_minimum"])
+    confound_reduced = baseline_difficulty - v8_difficulty >= float(
+        gate["difficulty_negative_auprc_reduction_minimum"]
     )
     signal_retained = v8_flaw >= (
         baseline_flaw * float(gate["true_flaw_median_auprc_retention_minimum"])

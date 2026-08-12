@@ -23,9 +23,7 @@ CRITICAL_MODULES = (
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the final V7.2 source validation.")
-    parser.add_argument(
-        "--expected-tag", default="valideval-v7.2-icml2027-kaggle-s1-ready"
-    )
+    parser.add_argument("--expected-tag", default="valideval-v7.2-icml2027-kaggle-s1-ready")
     parser.add_argument(
         "--output",
         type=Path,
@@ -72,9 +70,7 @@ def main() -> int:
     }
     destination = root / args.output
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    destination.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"V7_2_FINAL_VALIDATION_{payload['status']}: {payload['runtime_seconds']:.2f}s")
     return 0 if pass_all else 2
 
@@ -154,8 +150,10 @@ def _release_check(root: Path, expected_tag: str) -> dict[str, Any]:
     except subprocess.CalledProcessError:
         tag_commit = None
     distributions = sorted(path.name for path in (root / "dist").glob("*"))
-    passed = tag_commit == head and any(name.endswith(".whl") for name in distributions) and any(
-        name.endswith(".tar.gz") for name in distributions
+    passed = (
+        tag_commit == head
+        and any(name.endswith(".whl") for name in distributions)
+        and any(name.endswith(".tar.gz") for name in distributions)
     )
     return {
         "status": "PASS" if passed else "FAIL",

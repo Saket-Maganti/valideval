@@ -18,9 +18,7 @@ from valideval.execution.models import load_panel_config
 from valideval.importers.ingest_v7 import IngestV7Error, ingest_and_analyze_v7
 
 S1_V7_2_ACCEPTED = "S1_V7_2_ACCEPTED"
-S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES = (
-    "S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES"
-)
+S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES = "S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES"
 S1_V7_2_REQUIRES_RERUN = "S1_V7_2_REQUIRES_RERUN"
 S1_V7_2_REJECTED_PROVENANCE = "S1_V7_2_REJECTED_PROVENANCE"
 S1_V7_2_REJECTED_IDENTITY = "S1_V7_2_REJECTED_IDENTITY"
@@ -130,14 +128,9 @@ def accept_s1_v7_2(
                 receipts.append(receipt)
 
         any_failures = any(receipt["failed_models"] for receipt in receipts) or any(
-            receipt["failure_types"] != {"SUCCESS": receipt["row_count"]}
-            for receipt in receipts
+            receipt["failure_types"] != {"SUCCESS": receipt["row_count"]} for receipt in receipts
         )
-        status = (
-            S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES
-            if any_failures
-            else S1_V7_2_ACCEPTED
-        )
+        status = S1_V7_2_ACCEPTED_WITH_RECORDED_MODEL_FAILURES if any_failures else S1_V7_2_ACCEPTED
         accepted_payload = {
             "schema_version": "valideval.s1-acceptance.v7.2",
             "status": status,
@@ -196,9 +189,7 @@ def _validate_one_run(
     if manifest.get("study_id") != "study-c-s1-v7-2":
         raise S1V72AcceptanceError(S1_V7_2_REJECTED_CONFIG, f"{benchmark}: unexpected study_id")
     if manifest.get("config_class") != "s1_engineering_smoke_v7_2":
-        raise S1V72AcceptanceError(
-            S1_V7_2_REJECTED_CONFIG, f"{benchmark}: unexpected config class"
-        )
+        raise S1V72AcceptanceError(S1_V7_2_REJECTED_CONFIG, f"{benchmark}: unexpected config class")
     if snapshot.get("schema_version") != "7.2" or snapshot.get("stage") != "S1":
         raise S1V72AcceptanceError(
             S1_V7_2_REJECTED_CONFIG, f"{benchmark}: config snapshot is not native V7.2 S1"
@@ -208,9 +199,7 @@ def _validate_one_run(
             S1_V7_2_REJECTED_PROVENANCE, f"{benchmark}: wrong required source ref"
         )
     if manifest.get("actual_source_commit") != expected_commit or not manifest.get("source_match"):
-        raise S1V72AcceptanceError(
-            S1_V7_2_REJECTED_PROVENANCE, f"{benchmark}: wrong source commit"
-        )
+        raise S1V72AcceptanceError(S1_V7_2_REJECTED_PROVENANCE, f"{benchmark}: wrong source commit")
 
     evidence_state = str(manifest.get("evidence_state"))
     fixture_only = evidence_state == NON_EVIDENCE_FIXTURE
@@ -232,9 +221,7 @@ def _validate_one_run(
             S1_V7_2_REJECTED_PROVENANCE, f"{benchmark}: dataset revision mismatch"
         )
     if contract.get("prompt_hash") != manifest.get("prompt_hash"):
-        raise S1V72AcceptanceError(
-            S1_V7_2_REJECTED_CONFIG, f"{benchmark}: prompt hash mismatch"
-        )
+        raise S1V72AcceptanceError(S1_V7_2_REJECTED_CONFIG, f"{benchmark}: prompt hash mismatch")
     if manifest.get("subset_manifest_sha256") != production.subset_manifest_sha256:
         raise S1V72AcceptanceError(
             S1_V7_2_REJECTED_IDENTITY, f"{benchmark}: subset identity mismatch"
@@ -357,9 +344,7 @@ def _validate_snapshot(
         if fixture_only and key in allowed_fixture_changes:
             continue
         if observed.get(key) != value:
-            raise S1V72AcceptanceError(
-                S1_V7_2_REJECTED_CONFIG, f"frozen config mismatch at {key}"
-            )
+            raise S1V72AcceptanceError(S1_V7_2_REJECTED_CONFIG, f"frozen config mismatch at {key}")
     if fixture_only:
         observed_execution = dict(observed.get("execution", {}))
         expected_execution = dict(expected.get("execution", {}))
@@ -388,7 +373,9 @@ def _write_accepted_import(
             S1_V7_2_REJECTED_IDENTITY, f"import destination already exists: {destination}"
         )
     destination.parent.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix=f".{destination.name}.accepting-", dir=destination.parent))
+    staging = Path(
+        tempfile.mkdtemp(prefix=f".{destination.name}.accepting-", dir=destination.parent)
+    )
     try:
         for benchmark in _BENCHMARKS:
             receipt = ingest_and_analyze_v7(
@@ -437,9 +424,7 @@ def _health_summary(receipts: list[dict[str, Any]], *, any_failures: bool) -> di
         if receipt["peak_gpu_memory_bytes"] is not None
     ]
     return {
-        "status": (
-            "S1_HEALTHY_WITH_RECORDED_FAILURES" if any_failures else "S1_HEALTHY"
-        ),
+        "status": ("S1_HEALTHY_WITH_RECORDED_FAILURES" if any_failures else "S1_HEALTHY"),
         "minimum_extraction_reliability": reliability,
         "model_load_success": sum(int(receipt["model_load_success"]) for receipt in receipts),
         "peak_gpu_memory_bytes": max(peak_values) if peak_values else None,
@@ -453,12 +438,9 @@ def _health_summary(receipts: list[dict[str, Any]], *, any_failures: bool) -> di
         "package_success": all(bool(receipt["package_success"]) for receipt in receipts),
         "import_success": all(bool(receipt["import_success"]) for receipt in receipts),
         "disk_high_water_mark_bytes_lower_bound": max(
-            int(receipt["disk_high_water_mark_bytes_lower_bound"] or 0)
-            for receipt in receipts
+            int(receipt["disk_high_water_mark_bytes_lower_bound"] or 0) for receipt in receipts
         ),
-        "download_volume_bytes": sum(
-            int(receipt["download_volume_bytes"]) for receipt in receipts
-        ),
+        "download_volume_bytes": sum(int(receipt["download_volume_bytes"]) for receipt in receipts),
         "runtime_recalibration_required": True,
         "note": (
             "Fixture peak memory is unavailable by design. Disk high-water is a measured lower "

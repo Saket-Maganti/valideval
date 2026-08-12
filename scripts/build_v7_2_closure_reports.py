@@ -32,9 +32,7 @@ REPORT_NAMES = (
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the V7.2 closure reports and handoff.")
     parser.add_argument("--source-commit", default=None)
-    parser.add_argument(
-        "--source-tag", default="valideval-v7.2-icml2027-kaggle-s1-ready"
-    )
+    parser.add_argument("--source-tag", default="valideval-v7.2-icml2027-kaggle-s1-ready")
     parser.add_argument("--metadata-commit", default=None)
     parser.add_argument(
         "--validation",
@@ -106,7 +104,7 @@ def _report_content(context: dict[str, Any]) -> dict[str, str]:
     return {
         "VALID_EVAL_V7_2_S1_NATIVE_BRIDGE.md": f"""# V7.2 S1 Native Bridge
 
-Status: `S1_V7_2_END_TO_END_READY` ({s1['status']}). Three native schema-7.2 configs pin the
+Status: `S1_V7_2_END_TO_END_READY` ({s1["status"]}). Three native schema-7.2 configs pin the
 five exact checkpoints, 50-item subsets, deterministic generation, T4×2 scheduling, and the final
 V7.2 tag. The offline transaction traversed runner, scheduler, the canonical ten-file ZIP, current
 V7 importer, and V7.2 acceptance. Its fixture receipt cannot update real authorization.
@@ -123,11 +121,11 @@ safe but vacuous operating point and is not treated as the successful primary po
 """,
         "VALID_EVAL_V7_2_CLAIM_POLICY_DEVELOPMENT.md": f"""# Claim-Policy Development
 
-Status: `{development['status']}`. Development and validation used disjoint seeds, parameter
-blocks, and generator families. The selected `{selected['policy_id']}` policy had validation power
-{selected['true_license_power']:.4f}, abstention {selected['abstention_rate']:.4f}, decision regret
-{selected['decision_regret']:.4f}, and false-license upper bound
-{selected['false_license_upper_95']:.4f}. Candidate dimensions were limited to interpretable
+Status: `{development["status"]}`. Development and validation used disjoint seeds, parameter
+blocks, and generator families. The selected `{selected["policy_id"]}` policy had validation power
+{selected["true_license_power"]:.4f}, abstention {selected["abstention_rate"]:.4f}, decision regret
+{selected["decision_regret"]:.4f}, and false-license upper bound
+{selected["false_license_upper_95"]:.4f}. Candidate dimensions were limited to interpretable
 confidence, effective-N, family, power, stability, FDR, materiality, regret, transport, external,
 and held-out requirements.
 
@@ -137,48 +135,48 @@ and held-out requirements.
 
 The frontier jointly minimizes unsupported licenses, abstention, and regret while maximizing true
 licenses. Dominated candidates are explicitly marked in
-`results/v7_2/claim_policy/pareto_frontier_validation.csv`. `{selected['policy_id']}` was frozen;
+`results/v7_2/claim_policy/pareto_frontier_validation.csv`. `{selected["policy_id"]}` was frozen;
 no confirmation result participated in selection.
 """,
         "VALID_EVAL_V7_2_CLAIM_POLICY_CONFIRMATION.md": f"""# Independent Claim-Policy Confirmation
 
-Status: `{confirmation['status']}`. The untouched confirmation block used its held-out generator
-and dependence regimes after freeze hash `{confirmation['freeze_hash']}`. False-license rate was
-{confirmation['false_license_rate']:.4f} (upper 95% bound
-{confirmation['false_license_upper_95']:.4f}); true-license power was
-{confirmation['true_license_power']:.4f}; abstention was {confirmation['abstention_rate']:.4f};
-decision regret was {confirmation['decision_regret']:.4f}; coverage was
-{confirmation['coverage']:.4f}. Split leakage was absent.
+Status: `{confirmation["status"]}`. The untouched confirmation block used its held-out generator
+and dependence regimes after freeze hash `{confirmation["freeze_hash"]}`. False-license rate was
+{confirmation["false_license_rate"]:.4f} (upper 95% bound
+{confirmation["false_license_upper_95"]:.4f}); true-license power was
+{confirmation["true_license_power"]:.4f}; abstention was {confirmation["abstention_rate"]:.4f};
+decision regret was {confirmation["decision_regret"]:.4f}; coverage was
+{confirmation["coverage"]:.4f}. Split leakage was absent.
 
-{confirmation['claim_boundary']}
+{confirmation["claim_boundary"]}
 """,
         "VALID_EVAL_V7_2_POLICY_STABILITY.md": f"""# Policy Stability
 
-Status: `{development['stability']}`. Leave-one-generator, leave-one-dependence-regime, and
+Status: `{development["stability"]}`. Leave-one-generator, leave-one-dependence-regime, and
 leave-one-effect-band sensitivity retained the selected policy in the recorded stability artifact.
-The freeze hash is `{development['freeze_hash']}`.
+The freeze hash is `{development["freeze_hash"]}`.
 """,
         "VALID_EVAL_V7_2_EFFECTIVE_N_STRESS.md": f"""# Effective-N Stress
 
-Status: `{stress['effective_n_stress_status']}`. In huge-raw-N/tiny-effective-N null cases,
-directional false decisions were {stress['huge_raw_tiny_effective_false_directional']['naive']:.4f}
+Status: `{stress["effective_n_stress_status"]}`. In huge-raw-N/tiny-effective-N null cases,
+directional false decisions were {stress["huge_raw_tiny_effective_false_directional"]["naive"]:.4f}
 for naive checkpoint inference and
-{stress['huge_raw_tiny_effective_false_directional']['valideval']:.4f} for the frozen licensing
-rule. Power was {stress['strong_independent_evidence_power']:.4f} in the moderate-raw-N,
+{stress["huge_raw_tiny_effective_false_directional"]["valideval"]:.4f} for the frozen licensing
+rule. Power was {stress["strong_independent_evidence_power"]:.4f} in the moderate-raw-N,
 strong-independent-evidence stratum.
 
-{stress['claim_boundary']}
+{stress["claim_boundary"]}
 """,
         "VALID_EVAL_V7_2_FAMILY_DEPENDENCE_STRESS.md": f"""# Family-Dependence Stress
 
-Status: `{stress['family_dependence_status']}`. The artifact varies family count, checkpoints per
+Status: `{stress["family_dependence_status"]}`. The artifact varies family count, checkpoints per
 family, within-family correlation, imbalance, and ability spread, and compares naive checkpoint,
 family-cluster, family-balanced, one-model-per-family, and ValidEval rules. Metrics include
 directional error, CI undercoverage, inflated significance, false transport, power, and abstention.
 """,
         "VALID_EVAL_V7_2_SELECTIVE_DECISION_STUDY.md": f"""# Selective Decision Study
 
-Status: `{stress['selective_decision_status']}`. Forced leaderboard, CI-aware, multiplicity-aware,
+Status: `{stress["selective_decision_status"]}`. Forced leaderboard, CI-aware, multiplicity-aware,
 and ValidEval selective rules are compared in
 `results/v7_2/stress/selective_decision_study.csv`. The selected rule is non-vacuous; the goal is a
 useful error/abstention frontier rather than maximal abstention.
@@ -186,18 +184,18 @@ useful error/abstention frontier rather than maximal abstention.
         "VALID_EVAL_V7_2_DIFFICULTY_CONFOUND_AUDIT.md": f"""# Difficulty Confound Audit
 
 Status: `DIFFICULTY_CONFOUND_CHARACTERIZED`. The historical V7.1 difficulty-only negative control
-is preserved at AUPRC {v8['historical_v7_1_difficulty_negative_auprc']:.6f}. On the new development
-suite the frozen V7 readout reached {v8['development_v7_frozen_difficulty_negative_auprc']:.4f},
+is preserved at AUPRC {v8["historical_v7_1_difficulty_negative_auprc"]:.6f}. On the new development
+suite the frozen V7 readout reached {v8["development_v7_frozen_difficulty_negative_auprc"]:.4f},
 showing material confounding. No V7 result is relabeled.
 """,
         "VALID_EVAL_V7_2_V8_EXPLORATORY_DIAGNOSTIC_DEVELOPMENT.md": f"""# V8 Exploratory Diagnostic Development
 
-Status: `{v8['status']}` / `V8_EXPLORATORY_IMPROVEMENT_FOUND`. Label-isolated conditional
+Status: `{v8["status"]}` / `V8_EXPLORATORY_IMPROVEMENT_FOUND`. Label-isolated conditional
 residualization reduced difficulty-control AUPRC to
-{v8['development_v8_full_difficulty_negative_auprc']:.4f}, a reduction of
-{v8['difficulty_negative_auprc_reduction']:.4f}, while median true-flaw AUPRC changed from
-{v8['development_v7_frozen_true_flaw_median_auprc']:.4f} to
-{v8['development_v8_full_true_flaw_median_auprc']:.4f}.
+{v8["development_v8_full_difficulty_negative_auprc"]:.4f}, a reduction of
+{v8["difficulty_negative_auprc_reduction"]:.4f}, while median true-flaw AUPRC changed from
+{v8["development_v7_frozen_true_flaw_median_auprc"]:.4f} to
+{v8["development_v8_full_true_flaw_median_auprc"]:.4f}.
 
 V8 remains exploratory; confirmation is `NOT_RUN_NOT_AUTHORIZED_IN_V7_2`.
 """,
@@ -209,18 +207,18 @@ subject residual, difficulty correction, and family balancing one at a time. It 
 """,
         "VALID_EVAL_V7_2_DIFFICULTY_CONDITIONED_MMLU_DIAGNOSTICS.md": f"""# Difficulty-Conditioned MMLU Diagnostics
 
-Status: `{v8['mmlu']['status']}`. The 39-model, 14,042-item, ten-family matrix was adjusted without
-external labels. Exploratory BH q≤0.05 flags: {v8['mmlu']['exploratory_BH_q_le_0_05']}; licensed
-discoveries: {v8['mmlu']['licensed_discoveries']}. Answer position and item length were unavailable
+Status: `{v8["mmlu"]["status"]}`. The 39-model, 14,042-item, ten-family matrix was adjusted without
+external labels. Exploratory BH q≤0.05 flags: {v8["mmlu"]["exploratory_BH_q_le_0_05"]}; licensed
+discoveries: {v8["mmlu"]["licensed_discoveries"]}. Answer position and item length were unavailable
 from the response matrix and are explicitly recorded as such.
 
-{v8['mmlu']['claim_boundary']}
+{v8["mmlu"]["claim_boundary"]}
 """,
         "VALID_EVAL_V7_2_SIMULATION_COVERAGE_AUDIT.md": f"""# Simulation Coverage Audit
 
 The registry contains three disjoint 720-row splits across six claim families. Development,
 validation, and confirmation hashes are embedded in the freeze artifact. The confirmation
-manifest hash is `{frozen['scenario_manifests']['POLICY_CONFIRMATION']['rows_sha256']}`. Seed and
+manifest hash is `{frozen["scenario_manifests"]["POLICY_CONFIRMATION"]["rows_sha256"]}`. Seed and
 generator overlap tests fail closed.
 """,
         "VALID_EVAL_V7_2_ENVIRONMENT_BOUND_REPRODUCIBILITY.md": """# Environment-Bound Reproducibility
@@ -233,7 +231,7 @@ promised across arbitrary NumPy/SciPy versions.
         "VALID_EVAL_V7_2_EXECUTION_AUTHORIZATION.md": f"""# Execution Authorization
 
 S1 status: `S1_V7_2_AUTHORIZED` to run the canonical Kaggle engineering smoke, based on exact
-configs, native mock integration (`{s1['status']}`), package/import/acceptance and negative tests.
+configs, native mock integration (`{s1["status"]}`), package/import/acceptance and negative tests.
 This is run authorization, not an accepted real S1 result.
 
 - S2: `S2_BLOCKED_PENDING_ACCEPTED_S1`
@@ -261,9 +259,7 @@ def _runbook(root: Path, source_commit: str, source_tag: str) -> str:
         config = yaml.safe_load(
             (root / f"configs/runs_v7_2/{benchmark}_s1_v7_2.yaml").read_text(encoding="utf-8")
         )
-        contract = yaml.safe_load(
-            (root / config["benchmark_contract"]).read_text(encoding="utf-8")
-        )
+        contract = yaml.safe_load((root / config["benchmark_contract"]).read_text(encoding="utf-8"))
         panel = yaml.safe_load((root / config["panel_config"]).read_text(encoding="utf-8"))
         configs.append((benchmark, config, contract, panel))
     model_lines = "\n".join(
@@ -271,8 +267,7 @@ def _runbook(root: Path, source_commit: str, source_tag: str) -> str:
         for model in configs[0][3]["models"]
     )
     revision_lines = "\n".join(
-        f"- {benchmark}: `{contract['dataset_revision']}`"
-        for benchmark, _, contract, _ in configs
+        f"- {benchmark}: `{contract['dataset_revision']}`" for benchmark, _, contract, _ in configs
     )
     return f"""# ValidEval V7.2 Kaggle S1 Runbook
 
@@ -351,7 +346,7 @@ V7.1 full licensing remains the zero-power, 100%-abstention baseline.
 
 ## 6. Policy development
 
-Development/validation are disjoint; `{context['policy_dev']['selected']['policy_id']}` was selected.
+Development/validation are disjoint; `{context["policy_dev"]["selected"]["policy_id"]}` was selected.
 
 ## 7. Pareto frontier
 
@@ -359,25 +354,25 @@ Dominated candidates were excluded on false licenses, power, abstention, and reg
 
 ## 8. Policy confirmation
 
-`{confirmation['status']}`: false licenses {confirmation['false_license_rate']:.4f}, power
-{confirmation['true_license_power']:.4f}, abstention {confirmation['abstention_rate']:.4f}, regret
-{confirmation['decision_regret']:.4f}.
+`{confirmation["status"]}`: false licenses {confirmation["false_license_rate"]:.4f}, power
+{confirmation["true_license_power"]:.4f}, abstention {confirmation["abstention_rate"]:.4f}, regret
+{confirmation["decision_regret"]:.4f}.
 
 ## 9. Effective-N
 
-`{stress['effective_n_stress_status']}`.
+`{stress["effective_n_stress_status"]}`.
 
 ## 10. Family dependence
 
-`{stress['family_dependence_status']}`.
+`{stress["family_dependence_status"]}`.
 
 ## 11. Selective decisions
 
-`{stress['selective_decision_status']}`.
+`{stress["selective_decision_status"]}`.
 
 ## 12. Difficulty confound
 
-`DIFFICULTY_CONFOUND_CHARACTERIZED`; historical AUPRC {v8['historical_v7_1_difficulty_negative_auprc']:.6f}.
+`DIFFICULTY_CONFOUND_CHARACTERIZED`; historical AUPRC {v8["historical_v7_1_difficulty_negative_auprc"]:.6f}.
 
 ## 13. V8 exploratory result
 
@@ -401,7 +396,7 @@ Fourteen mandatory CPU activities produced artifacts under `results/v7_2`.
 
 ## 18. Tests and CI
 
-Validation status: `{validation.get('status', 'PENDING_FINAL_VALIDATION')}`. See machine state for
+Validation status: `{validation.get("status", "PENDING_FINAL_VALIDATION")}`. See machine state for
 individual test, lint, format, type, build, notebook, secret, release, and CI results.
 
 ## 19. Exact Kaggle instructions
@@ -415,14 +410,12 @@ No real accepted S1, S2, S3, S4, V8 confirmation, transport validation, or human
 
 ## 21. Exact next action
 
-Check out `{context['source_tag']}`, run notebook 00 on Kaggle T4×2, and stop if its exact-source,
+Check out `{context["source_tag"]}`, run notebook 00 on Kaggle T4×2, and stop if its exact-source,
 CUDA, disk, model, dataset, prompt, or subset preflight fails.
 """
 
 
-def _machine_state(
-    context: dict[str, Any], *, metadata_commit: str | None
-) -> dict[str, Any]:
+def _machine_state(context: dict[str, Any], *, metadata_commit: str | None) -> dict[str, Any]:
     validation = context["validation"]
     confirmation = context["confirmation"]
     v8 = context["v8"]
@@ -496,9 +489,7 @@ def _json(path: Path) -> dict[str, Any]:
 
 
 def _head(root: Path) -> str:
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=root, text=True
-    ).strip()
+    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
 
 
 if __name__ == "__main__":

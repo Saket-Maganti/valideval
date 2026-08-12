@@ -50,9 +50,7 @@ class RunConfigV72(BaseModel):
             raise ValueError(f"unsafe identifier: {value!r}")
         return value
 
-    @field_validator(
-        "benchmark_contract_sha256", "panel_config_sha256", "subset_manifest_sha256"
-    )
+    @field_validator("benchmark_contract_sha256", "panel_config_sha256", "subset_manifest_sha256")
     @classmethod
     def _validate_hash(cls, value: str) -> str:
         normalized = value.lower()

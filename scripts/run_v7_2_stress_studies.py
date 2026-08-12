@@ -40,10 +40,14 @@ def main() -> int:
         truth = float(scenario["effect_size"])
         noise = float(scenario["measurement_noise"])
         raw_se = noise / math.sqrt(max(float(scenario["raw_n"]), 1.0))
-        proper_se = noise / math.sqrt(max(float(scenario["effective_n"]), 1.0)) * math.sqrt(
-            1.0
-            + 0.5 * float(scenario["family_correlation"])
-            + 0.25 * float(scenario["family_imbalance"])
+        proper_se = (
+            noise
+            / math.sqrt(max(float(scenario["effective_n"]), 1.0))
+            * math.sqrt(
+                1.0
+                + 0.5 * float(scenario["family_correlation"])
+                + 0.25 * float(scenario["family_imbalance"])
+            )
         )
         estimate = truth + rng.normal(0.0, proper_se)
         family_se = noise / math.sqrt(max(float(scenario["family_count"]), 1.0))
@@ -56,9 +60,7 @@ def main() -> int:
                 proper_se,
                 float(
                     norm.ppf(
-                        1.0
-                        - float(policy["fdr"])
-                        / (2.0 * max(int(scenario["multiplicity"]), 1))
+                        1.0 - float(policy["fdr"]) / (2.0 * max(int(scenario["multiplicity"]), 1))
                     )
                 ),
                 _policy_prerequisites(policy, scenario),
@@ -67,9 +69,7 @@ def main() -> int:
         for method, (standard_error, critical, prerequisites) in methods.items():
             lower = estimate - critical * standard_error
             upper = estimate + critical * standard_error
-            licensed = bool(
-                prerequisites and lower > float(policy["materiality"])
-            )
+            licensed = bool(prerequisites and lower > float(policy["materiality"]))
             true_supported = truth > float(policy["materiality"])
             inference_rows.append(
                 {
@@ -87,9 +87,7 @@ def main() -> int:
                         and not (estimate - 1.96 * proper_se > float(policy["materiality"]))
                     ),
                     "false_transport": bool(
-                        scenario["claim_family"] == "TRANSPORT"
-                        and licensed
-                        and not true_supported
+                        scenario["claim_family"] == "TRANSPORT" and licensed and not true_supported
                     ),
                     "power_event": bool(licensed and true_supported),
                     "stress_case": _stress_case(scenario),
@@ -100,8 +98,7 @@ def main() -> int:
             "FORCED_LEADERBOARD": True,
             "CI_AWARE_RANKING": abs(estimate) > 1.96 * proper_se,
             "MULTIPLICITY_AWARE_RANKING": abs(estimate)
-            > float(norm.ppf(1.0 - 0.05 / (2 * max(int(scenario["multiplicity"]), 1))))
-            * proper_se,
+            > float(norm.ppf(1.0 - 0.05 / (2 * max(int(scenario["multiplicity"]), 1)))) * proper_se,
             "VALIDEVAL_SELECTIVE_LICENSING": methods["VALIDEVAL_LICENSING"][2]
             and estimate - methods["VALIDEVAL_LICENSING"][1] * proper_se
             > float(policy["materiality"]),
@@ -214,9 +211,7 @@ def _aggregate_inference(frame: pd.DataFrame, groups: list[str]) -> pd.DataFrame
         rows.append(
             {
                 **dict(zip(groups, values, strict=True)),
-                "false_directional_decisions": float(
-                    group["false_directional_decision"].mean()
-                ),
+                "false_directional_decisions": float(group["false_directional_decision"].mean()),
                 "CI_undercoverage": 1.0 - float(group["CI_coverage"].mean()),
                 "inflated_significance": float(group["inflated_significance"].mean()),
                 "false_transport": float(group["false_transport"].mean()),
@@ -228,9 +223,7 @@ def _aggregate_inference(frame: pd.DataFrame, groups: list[str]) -> pd.DataFrame
     return pd.DataFrame(rows)
 
 
-def _summary(
-    inference: pd.DataFrame, selective: pd.DataFrame, freeze_hash: str
-) -> dict[str, Any]:
+def _summary(inference: pd.DataFrame, selective: pd.DataFrame, freeze_hash: str) -> dict[str, Any]:
     huge = inference.loc[
         (inference["stress_case"] == "HUGE_RAW_N_TINY_EFFECTIVE_N")
         & (inference["method"].isin(["NAIVE_CHECKPOINT", "VALIDEVAL_LICENSING"]))
@@ -250,11 +243,11 @@ def _summary(
     family_subset = inference.loc[inference["method"] == "VALIDEVAL_LICENSING"]
     family_pass = bool(
         family_subset["false_directional_decision"].mean()
-        < inference.loc[inference["method"] == "NAIVE_CHECKPOINT", "false_directional_decision"].mean()
+        < inference.loc[
+            inference["method"] == "NAIVE_CHECKPOINT", "false_directional_decision"
+        ].mean()
     )
-    valid_decision = selective.loc[
-        selective["method"] == "VALIDEVAL_SELECTIVE_LICENSING"
-    ].iloc[0]
+    valid_decision = selective.loc[selective["method"] == "VALIDEVAL_SELECTIVE_LICENSING"].iloc[0]
     selective_pass = bool(valid_decision["abstention"] < 1.0)
     return {
         "status": "V7_2_STRESS_STUDIES_COMPLETE",
@@ -263,14 +256,10 @@ def _summary(
             "EFFECTIVE_N_STRESS_PASS" if effective_pass else "EFFECTIVE_N_STRESS_PARTIAL"
         ),
         "family_dependence_status": (
-            "FAMILY_DEPENDENCE_STRESS_PASS"
-            if family_pass
-            else "FAMILY_DEPENDENCE_STRESS_PARTIAL"
+            "FAMILY_DEPENDENCE_STRESS_PASS" if family_pass else "FAMILY_DEPENDENCE_STRESS_PARTIAL"
         ),
         "selective_decision_status": (
-            "SELECTIVE_DECISION_USEFUL_FRONTIER"
-            if selective_pass
-            else "SELECTIVE_DECISION_VACUOUS"
+            "SELECTIVE_DECISION_USEFUL_FRONTIER" if selective_pass else "SELECTIVE_DECISION_VACUOUS"
         ),
         "huge_raw_tiny_effective_false_directional": {
             "naive": naive_false,

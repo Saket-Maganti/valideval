@@ -54,17 +54,11 @@ class DifficultyAdjustedDetectorV8:
         subject_difficulty = subject_conditioned_difficulty(family_difficulty, subjects)
 
         matched = difficulty_matching(structural, family_difficulty)
-        residualized = conditional_residualization(
-            structural, family_difficulty, subjects
-        )
+        residualized = conditional_residualization(structural, family_difficulty, subjects)
         stratified = difficulty_stratified_null(structural, family_difficulty)
         crossfit = conditional_residualization(structural, crossfit_difficulty, subjects)
-        subject_adjusted = conditional_residualization(
-            structural, subject_difficulty, subjects
-        )
-        family_adjusted = conditional_residualization(
-            structural, family_difficulty, subjects
-        )
+        subject_adjusted = conditional_residualization(structural, subject_difficulty, subjects)
+        family_adjusted = conditional_residualization(structural, family_difficulty, subjects)
         full = residualized.copy()
         return {
             "DIFFICULTY_MATCHING": matched,
@@ -93,9 +87,7 @@ class DifficultyAdjustedDetectorV8:
         names = ("missingness", "duplicate", "negative_discrimination", "subject_residual")
         output: dict[str, np.ndarray] = {}
         for omitted in names:
-            structural = np.maximum.reduce(
-                [components[name] for name in names if name != omitted]
-            )
+            structural = np.maximum.reduce([components[name] for name in names if name != omitted])
             output[f"WITHOUT_{omitted.upper()}"] = conditional_residualization(
                 structural, difficulty, subjects
             )
@@ -125,8 +117,7 @@ def cross_fitted_family_difficulty(values: np.ndarray, families: np.ndarray) -> 
     unique = sorted(set(families))
     overall = _safe_column_mean(values)
     rates = {
-        family: _safe_column_mean(values[families == family], fallback=overall)
-        for family in unique
+        family: _safe_column_mean(values[families == family], fallback=overall) for family in unique
     }
     heldout_estimates = []
     for heldout in unique:
@@ -170,9 +161,7 @@ def conditional_residualization(
     subjects: np.ndarray,
 ) -> np.ndarray:
     unique_subjects = sorted(set(subjects.tolist()))
-    subject_columns = [
-        (subjects == subject).astype(float) for subject in unique_subjects[1:]
-    ]
+    subject_columns = [(subjects == subject).astype(float) for subject in unique_subjects[1:]]
     design = np.column_stack(
         [
             np.ones(len(scores)),
@@ -252,9 +241,7 @@ def _unit_scale(values: np.ndarray) -> np.ndarray:
     return np.clip(np.nan_to_num(values, nan=0.0) / scale, 0.0, 1.0)
 
 
-def _safe_column_mean(
-    values: np.ndarray, *, fallback: np.ndarray | None = None
-) -> np.ndarray:
+def _safe_column_mean(values: np.ndarray, *, fallback: np.ndarray | None = None) -> np.ndarray:
     finite = np.isfinite(values)
     count = finite.sum(axis=0)
     total = np.where(finite, values, 0.0).sum(axis=0)
