@@ -1,0 +1,4 @@
+method,difficulty_spearman,family_disagreement_spearman,subject_eta_squared,answer_position_association,item_length_association,unavailable_covariates
+V8_FULL,-0.12640910681087317,0.03244238242742016,0.040382878088218964,,,answer position and item length absent from matrix
+CONDITIONAL_RESIDUALIZATION,-0.12640910681087317,0.03244238242742016,0.040382878088218964,,,answer position and item length absent from matrix
+DIFFICULTY_MATCHING,0.4260244160552155,0.3813771857684161,0.011994302878115268,,,answer position and item length absent from matrix

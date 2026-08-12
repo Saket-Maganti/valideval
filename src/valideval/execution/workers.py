@@ -41,6 +41,9 @@ def production_worker(task: Mapping[str, Any], gpu_id: str) -> dict[str, Any]:
     for item in public_items:
         reject_gold_fields(item.to_dict())
 
+    cache_root = Path(str(task["model_cache_dir"])) if task.get("model_cache_dir") else None
+    cache_bytes_before = _directory_size(cache_root)
+    _reset_peak_gpu_memory(backend)
     try:
         generator = build_text_generator(
             model_record,
@@ -56,6 +59,7 @@ def production_worker(task: Mapping[str, Any], gpu_id: str) -> dict[str, Any]:
         raise translated from exc
     rows: list[dict[str, Any]] = []
     failure_counts: Counter[str] = Counter()
+    peak_gpu_memory_bytes: int | None = None
     try:
         for item_index, item in enumerate(public_items):
             row = _run_one_item(
@@ -71,13 +75,21 @@ def production_worker(task: Mapping[str, Any], gpu_id: str) -> dict[str, Any]:
             failure_counts[str(row["failure_type"])] += 1
             _write_item_heartbeat(task, item, item_index, len(public_items), gpu_id)
     finally:
+        peak_gpu_memory_bytes = _peak_gpu_memory(backend)
         generator.close()
+    cache_bytes_after = _directory_size(cache_root)
+    download_volume_bytes = max(cache_bytes_after - cache_bytes_before, 0)
+    for row in rows:
+        row["peak_gpu_memory_bytes"] = peak_gpu_memory_bytes
+        row["download_volume_bytes"] = download_volume_bytes
     return {
         "rows": rows,
         "model_id": model_record["canonical_model_id"],
         "model_revision": model_record["revision"],
         "model_load_seconds": generator.model_load_seconds,
         "cache_status": generator.cache_status,
+        "peak_gpu_memory_bytes": peak_gpu_memory_bytes,
+        "download_volume_bytes": download_volume_bytes,
         "failure_counts": dict(sorted(failure_counts.items())),
         "evidence_class": task["evidence_class"],
     }
@@ -270,3 +282,41 @@ def _write_item_heartbeat(
             "exit_state": "running",
         },
     )
+
+
+def _directory_size(root: Path | None) -> int:
+    if root is None or not root.is_dir():
+        return 0
+    total = 0
+    for path in root.rglob("*"):
+        try:
+            if path.is_file() and not path.is_symlink():
+                total += path.stat().st_size
+        except OSError:
+            continue
+    return total
+
+
+def _reset_peak_gpu_memory(backend: str) -> None:
+    if backend != "transformers":
+        return
+    try:
+        import torch
+
+        if torch.cuda.is_available():
+            torch.cuda.reset_peak_memory_stats()
+    except (ImportError, RuntimeError):
+        return
+
+
+def _peak_gpu_memory(backend: str) -> int | None:
+    if backend != "transformers":
+        return None
+    try:
+        import torch
+
+        if torch.cuda.is_available():
+            return int(torch.cuda.max_memory_allocated())
+    except (ImportError, RuntimeError):
+        return None
+    return None

@@ -12,7 +12,7 @@ panel_config_sha256: bde8e3d75f562342ea3c554313799a86fb18ab9797be03b050d3585e04d
 subset_manifest: results/freeze/study_c_v7/mmlu_scientific_full_v7.json
 subset_manifest_sha256: 0ab7a98cbfd59f3d1a377b1bf496e04f94ce06ed572452f70c28dcfeb5e9c10b
 output_root: kaggle_v7_outputs
-required_source_ref: valideval-v7.1-icml2027-scientific-execution-ready
+required_source_ref: valideval-v7.2-icml2027-kaggle-s1-ready
 expected_source_commit: null
 allow_source_commit_from_environment: true
 execution:

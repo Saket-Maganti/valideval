@@ -1,0 +1,10 @@
+{
+  "claim_boundary": "Difficulty-adjusted MMLU scores and q-values are exploratory associations under this response-matrix null. They do not identify causes or license item claims.",
+  "exploratory_BH_q_le_0_05": 0,
+  "external_label_validation": "NOT_AVAILABLE",
+  "families": 10,
+  "items": 14042,
+  "licensed_discoveries": 0,
+  "models": 39,
+  "status": "MMLU_V8_DIFFICULTY_ADJUSTED_EXPLORATORY_COMPLETE"
+}

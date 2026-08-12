@@ -124,7 +124,7 @@ print("Resume by setting VALIDEVAL_EXECUTION_MODE=resume and rerunning this note
             "language_info": {"name": "python", "version": "3"},
             "valideval": {
                 "schema_version": "7.0",
-                "required_source_ref": "valideval-v7-icml2027-max-pre-execution",
+                "required_source_ref": "valideval-v7.2-icml2027-kaggle-s1-ready",
                 "requirements_sha256": requirements_hash,
                 "hardware": "Kaggle T4x2",
                 "fixture_evidence_class": "NON_EVIDENCE_FIXTURE",

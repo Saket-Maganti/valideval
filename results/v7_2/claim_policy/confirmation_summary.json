@@ -1,0 +1,15 @@
+{
+  "abstention_rate": 0.8304245283018867,
+  "claim_boundary": "Confirmation supports this frozen policy only under the registered known-truth simulation families; it does not license claims from real benchmarks.",
+  "coverage": 0.7878930817610063,
+  "decision_regret": 0.018519226297698553,
+  "false_license_rate": 0.025513819985825654,
+  "false_license_upper_95": 0.02887268480048385,
+  "freeze_hash": "6fa80d431c9603ae148202ef21b81b6e48ef79bd5e2b840ef47a2750d5f58d01",
+  "policy_id": "HIGH_COVERAGE",
+  "runtime_seconds": 0.3655660410004202,
+  "split": "POLICY_CONFIRMATION",
+  "split_leakage": false,
+  "status": "CLAIM_POLICY_CONFIRMATION_PASS",
+  "true_license_power": 0.45627644569816644
+}

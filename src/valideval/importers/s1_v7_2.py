@@ -177,8 +177,12 @@ def _validate_one_run(
     manifest = read_json(run_dir / "run_manifest.json")
     models_payload = read_json(run_dir / "models.json")
     contract = read_json(run_dir / "benchmark_contract.json")
+    environment = read_json(run_dir / "environment.json")
     snapshot = yaml.safe_load((run_dir / "config_snapshot.yaml").read_text(encoding="utf-8"))
-    if not all(isinstance(value, dict) for value in (manifest, models_payload, contract, snapshot)):
+    if not all(
+        isinstance(value, dict)
+        for value in (manifest, models_payload, contract, snapshot, environment)
+    ):
         raise S1V72AcceptanceError(S1_V7_2_REJECTED_CONFIG, "package metadata must be objects")
 
     production = load_run_config(
@@ -303,6 +307,22 @@ def _validate_one_run(
             f"{benchmark}: extraction reliability {reliability:.6f} is below "
             f"{minimum_extraction_reliability:.6f}",
         )
+    generation_seconds = sum(float(row.get("generation_seconds", 0.0)) for row in rows)
+    total_tokens = sum(
+        int(row.get("input_tokens", 0)) + int(row.get("output_tokens", 0)) for row in rows
+    )
+    peak_values = [
+        int(row["peak_gpu_memory_bytes"])
+        for row in rows
+        if row.get("peak_gpu_memory_bytes") is not None
+    ]
+    download_by_model = {
+        str(row["model_id"]): int(row.get("download_volume_bytes", 0)) for row in rows
+    }
+    fallbacks_by_model = {
+        str(row["model_id"]): len(row.get("resource_fallbacks", [])) for row in rows
+    }
+    fallback_count = sum(fallbacks_by_model.values())
     return {
         "benchmark_id": benchmark,
         "run_id": manifest["run_id"],
@@ -314,6 +334,18 @@ def _validate_one_run(
         "failure_types": dict(sorted(failure_types.items())),
         "extraction_reliability": reliability,
         "fixture_only": fixture_only,
+        "model_load_success": len(by_model),
+        "peak_gpu_memory_bytes": max(peak_values) if peak_values else None,
+        "items_per_second": len(rows) / generation_seconds if generation_seconds > 0 else None,
+        "tokens_per_second": total_tokens / generation_seconds if generation_seconds > 0 else None,
+        "fallback_count": fallback_count,
+        "resume_success": int(manifest.get("scheduler", {}).get("resumed_count", 0)),
+        "package_success": True,
+        "import_success": True,
+        "disk_high_water_mark_bytes_lower_bound": environment.get(
+            "disk_high_water_mark_bytes_lower_bound"
+        ),
+        "download_volume_bytes": sum(download_by_model.values()),
     }
 
 
@@ -398,18 +430,41 @@ def _write_accepted_import(
 
 def _health_summary(receipts: list[dict[str, Any]], *, any_failures: bool) -> dict[str, Any]:
     reliability = min(float(receipt["extraction_reliability"]) for receipt in receipts)
+    fixture_only = any(bool(receipt["fixture_only"]) for receipt in receipts)
+    peak_values = [
+        int(receipt["peak_gpu_memory_bytes"])
+        for receipt in receipts
+        if receipt["peak_gpu_memory_bytes"] is not None
+    ]
     return {
         "status": (
             "S1_HEALTHY_WITH_RECORDED_FAILURES" if any_failures else "S1_HEALTHY"
         ),
         "minimum_extraction_reliability": reliability,
-        "peak_gpu_memory_bytes": None,
-        "download_volume_bytes": None,
+        "model_load_success": sum(int(receipt["model_load_success"]) for receipt in receipts),
+        "peak_gpu_memory_bytes": max(peak_values) if peak_values else None,
+        "items_per_second": [receipt["items_per_second"] for receipt in receipts],
+        "tokens_per_second": [receipt["tokens_per_second"] for receipt in receipts],
+        "fallback_count": sum(int(receipt["fallback_count"]) for receipt in receipts),
+        "failure_types": {
+            receipt["benchmark_id"]: receipt["failure_types"] for receipt in receipts
+        },
+        "resume_success": sum(int(receipt["resume_success"]) for receipt in receipts),
+        "package_success": all(bool(receipt["package_success"]) for receipt in receipts),
+        "import_success": all(bool(receipt["import_success"]) for receipt in receipts),
+        "disk_high_water_mark_bytes_lower_bound": max(
+            int(receipt["disk_high_water_mark_bytes_lower_bound"] or 0)
+            for receipt in receipts
+        ),
+        "download_volume_bytes": sum(
+            int(receipt["download_volume_bytes"]) for receipt in receipts
+        ),
         "runtime_recalibration_required": True,
         "note": (
-            "Peak GPU memory and download volume remain unreported unless the production "
-            "worker records them; missing metrics are never imputed."
+            "Fixture peak memory is unavailable by design. Disk high-water is a measured lower "
+            "bound; missing production metrics are never imputed."
         ),
+        "fixture_only": fixture_only,
     }
 
 

@@ -472,7 +472,22 @@ def _materialize_run(
     ]
     _validate_prediction_coverage(prediction_rows, items, panel, failed_jobs)
     _write_matrix(prediction_rows, run_dir / "matrix.csv")
-    atomic_write_json(run_dir / "environment.json", dict(environment_payload))
+    environment_record = dict(environment_payload)
+    final_free_disk_bytes = shutil.disk_usage(destination_root).free
+    initial_free_disk_bytes = int(environment_record.get("free_disk_bytes", 0))
+    environment_record.update(
+        {
+            "final_free_disk_bytes_at_packaging": final_free_disk_bytes,
+            "disk_high_water_mark_bytes_lower_bound": max(
+                initial_free_disk_bytes - final_free_disk_bytes, 0
+            ),
+            "disk_metric_boundary": (
+                "Lower bound from preflight-to-packaging free-space delta; an external sampler "
+                "is required for an exact transient high-water mark."
+            ),
+        }
+    )
+    atomic_write_json(run_dir / "environment.json", environment_record)
     manifest_models = [
         {
             "model_id": model["canonical_model_id"],

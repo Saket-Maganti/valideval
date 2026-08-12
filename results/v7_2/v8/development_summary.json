@@ -1,0 +1,35 @@
+{
+  "claim_boundary": "V8 is exploratory development only. Passing this gate does not repair the frozen V7 failure or license V8 findings on MMLU.",
+  "development_v7_frozen_difficulty_negative_auprc": 0.3939209204116393,
+  "development_v7_frozen_true_flaw_median_auprc": 0.14496174891473518,
+  "development_v8_full_difficulty_negative_auprc": 0.17026132190106652,
+  "development_v8_full_true_flaw_median_auprc": 0.17549023596491695,
+  "difficulty_confound_reduced": true,
+  "difficulty_negative_auprc_reduction": 0.22365959851057277,
+  "evidence_role": "EXPLORATORY_DEVELOPMENT_ONLY",
+  "historical_v7_1_difficulty_control": {
+    "AUPRC": 0.439069,
+    "AUROC": 0.822549,
+    "precision_at_k": 0.396296,
+    "status": "FROZEN_FAILURE_SIGNAL_PRESERVED"
+  },
+  "historical_v7_1_difficulty_negative_auprc": 0.439069,
+  "label_isolation": "PASS",
+  "mmlu": {
+    "claim_boundary": "Difficulty-adjusted MMLU scores and q-values are exploratory associations under this response-matrix null. They do not identify causes or license item claims.",
+    "exploratory_BH_q_le_0_05": 0,
+    "external_label_validation": "NOT_AVAILABLE",
+    "families": 10,
+    "items": 14042,
+    "licensed_discoveries": 0,
+    "models": 39,
+    "status": "MMLU_V8_DIFFICULTY_ADJUSTED_EXPLORATORY_COMPLETE"
+  },
+  "normalized_metrics_sha256": "5a2d4858f648a7c5e5d36047884d350a2c5ab351192d70bd00e17edfe7f92333",
+  "runtime_seconds": 2.020320542011177,
+  "status": "V8_EXPLORATORY_DEVELOPMENT_GATE_PASS",
+  "true_flaw_auprc_retention": 1.2105968455729537,
+  "true_flaw_signal_retained": true,
+  "v7_primary_status": "V7_SYNTHETIC_PRIMARY_GRID_FAILED_AND_PRESERVED",
+  "v8_confirmatory_status": "NOT_RUN_NOT_AUTHORIZED_IN_V7_2"
+}

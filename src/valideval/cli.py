@@ -98,6 +98,7 @@ from valideval.leaderboard.site import build_static_site
 from valideval.models.panel import load_panel
 from valideval.panels.ollama_panel import build_ollama_panel_preflight
 from valideval.planning.runtime_recalibration_v6 import recalibrate_runtime_from_s1
+from valideval.planning.runtime_recalibration_v7_2 import recalibrate_study_c_after_s1
 from valideval.plugins import PLUGIN_KINDS, list_plugins
 from valideval.psychometrics.irt_2pl import fit_irt_from_matrix
 from valideval.real_panel.baselines import build_baseline_dry_run_manifest
@@ -1014,6 +1015,12 @@ def command_accept_s1_v7_2(args: argparse.Namespace) -> int:
 
 def command_recalibrate_runtime_v6(args: argparse.Namespace) -> int:
     payload = recalibrate_runtime_from_s1(args.input_root, args.output)
+    _print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
+
+
+def command_recalibrate_study_c_after_s1(args: argparse.Namespace) -> int:
+    payload = recalibrate_study_c_after_s1(args.input_root, args.output)
     _print(json.dumps(payload, indent=2, sort_keys=True))
     return 0
 
@@ -2403,7 +2410,7 @@ def build_parser() -> argparse.ArgumentParser:
         "accept-s1-v7-2",
         help="Fail-closed acceptance of the exact three native V7.2 S1 ZIPs.",
     )
-    accept_s1_v7_2.add_argument("--input-dir", default="kaggle_icml2027_outputs")
+    accept_s1_v7_2.add_argument("--input-dir", default="kaggle_icml2027_outputs/packages")
     accept_s1_v7_2.add_argument("--output-root", default="imported/v7_2/s1")
     accept_s1_v7_2.add_argument(
         "--minimum-extraction-reliability",
@@ -2422,6 +2429,17 @@ def build_parser() -> argparse.ArgumentParser:
         default="results/planning/runtime_recalibration_v6.json",
     )
     recalibrate_v6.set_defaults(func=command_recalibrate_runtime_v6)
+
+    recalibrate_v7_2 = subparsers.add_parser(
+        "recalibrate-study-c-after-s1",
+        help="Recalibrate S2-S4 distributions from accepted real V7.2 S1 outputs.",
+    )
+    recalibrate_v7_2.add_argument("--input-root", default="imported/v7_2/s1")
+    recalibrate_v7_2.add_argument(
+        "--output",
+        default="results/v7_2/planning/study_c_recalibration_after_s1.json",
+    )
+    recalibrate_v7_2.set_defaults(func=command_recalibrate_study_c_after_s1)
 
     import_kaggle_v5 = subparsers.add_parser(
         "import-kaggle",
